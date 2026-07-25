@@ -12,7 +12,7 @@ const CONFIG = {
 
   /* ₹501 टोकन का Razorpay पेज। ख़ाली '' कर दें तो बटन अपने आप छुप जाएगा।
      ⚠️ सिर्फ़ payment page का लिंक — API key_secret कभी यहाँ मत डालें। */
-  razorpay: 'https://rzp.io/rzp/RRd3l3V'
+  razorpay: 'https://rzp.io/rzp/DEn3MuEC'
 };
 
 /* ── 1. सभी नंबर/लिंक CONFIG से अपडेट करें ───────────────── */

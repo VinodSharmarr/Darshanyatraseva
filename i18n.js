@@ -146,6 +146,9 @@ const EN = {
   'हमारी सोसाइटी की 32 लोगों की बुकिंग थी। रेट भी ठीक और व्यवस्था बढ़िया। घरवालों को लाइव लोकेशन मिलती रही — यही बात सबसे अच्छी लगी।': 'We booked for 32 people from our society. The rate was fair and the arrangements were good. Our families kept receiving the live location — that was the best part.',
   'अनिल यादव': 'Anil Yadav',
   'द्वारका, दिल्ली': 'Dwarka, Delhi',
+  'पहली बार महिलाओं के समूह के साथ यात्रा पर गई थी, थोड़ा संकोच था। पर बैठने की व्यवस्था अलग और सुरक्षित रखी गई, रास्ते में कोई परेशानी नहीं हुई। समय पर निकले और समय पर लौटे। अब परिवार के साथ दोबारा जाऊँगी।': 'It was my first trip with a group of women, and I was a little hesitant. But the seating was kept separate and safe, and there was no trouble on the way. We left on time and returned on time. I will go again with my family.',
+  'लक्ष्मी जी': 'Lakshmi Ji',
+  'दिल्ली': 'Delhi',
 
   /* ── booking ── */
   'बुकिंग': 'Booking',
@@ -217,6 +220,13 @@ const EN = {
   'संपर्क': 'Contact',
   'दिल्ली, भारत': 'Delhi, India',
   'Darshan Yatra Seva. सर्वाधिकार सुरक्षित।': 'Darshan Yatra Seva. All rights reserved.',
+  'मंदिरों की तस्वीरें Wikimedia Commons से, लाइसेंस:': 'Temple photographs from Wikimedia Commons, licensed:',
+  /* यात्रा कार्ड की तस्वीरों का alt — स्क्रीन रीडर और तस्वीर न खुलने पर यही दिखता है */
+  'खाटू श्याम जी मंदिर का मुख्य द्वार, सीकर': 'Main gate of Khatu Shyam Ji temple, Sikar',
+  'वृंदावन का प्रेम मंदिर — सफ़ेद संगमरमर की भव्य इमारत': 'Prem Mandir, Vrindavan — the grand white marble temple',
+  'मेहंदीपुर बालाजी मंदिर, दौसा — बाहर का दृश्य': 'Mehandipur Balaji temple, Dausa — exterior view',
+  'खाटू श्याम जी का प्रवेश द्वार': 'Entrance gate at Khatu Shyam Ji',
+  'खाटू श्याम द्वार © TheSlumPanda · प्रेम मंदिर वृंदावन © Chintu.wiki · मेहंदीपुर बालाजी © VikramKaushik1976 · खाटू दरबार © Shubhamvs22': 'Khatu Shyam Gate © TheSlumPanda · Prem Mandir Vrindavan © Chintu.wiki · Mehandipur Balaji © VikramKaushik1976 · Khatu Darbar © Shubhamvs22',
   '🙏 जय श्री श्याम': '🙏 Jai Shri Shyam',
 
   /* ── page title ── */
