@@ -105,7 +105,11 @@ form.addEventListener('submit', e => {
 
   form.querySelectorAll('.is-bad').forEach(el => el.classList.remove('is-bad'));
 
-  const need = { name:'नाम', phone:'मोबाइल नंबर', route:'यात्रा', pax:'यात्रियों की संख्या' };
+  /* एरर मैसेज उसी भाषा में जिसमें साइट देखी जा रही है */
+  const isEn = document.documentElement.lang === 'en';
+  const need = isEn
+    ? { name:'Name', phone:'Mobile number', route:'Yatra', pax:'Number of travellers' }
+    : { name:'नाम', phone:'मोबाइल नंबर', route:'यात्रा', pax:'यात्रियों की संख्या' };
   for (const k in need) {
     if (!d[k] || !String(d[k]).trim()) {
       bad.push(need[k]);
@@ -114,14 +118,14 @@ form.addEventListener('submit', e => {
   }
 
   if (bad.length) {
-    showErr('कृपया भरें: ' + bad.join(', '));
+    showErr((isEn ? 'Please fill in: ' : 'कृपया भरें: ') + bad.join(', '));
     form.querySelector('.is-bad')?.focus();
     return;
   }
 
   if (!/^[6-9]\d{9}$/.test(String(d.phone).replace(/\D/g,''))) {
     form.querySelector('[name="phone"]').classList.add('is-bad');
-    showErr('कृपया सही 10 अंकों का मोबाइल नंबर डालें।');
+    showErr(isEn ? 'Please enter a valid 10-digit mobile number.' : 'कृपया सही 10 अंकों का मोबाइल नंबर डालें।');
     form.querySelector('[name="phone"]').focus();
     return;
   }
