@@ -1,0 +1,4 @@
+# ये फ़ाइलें साइट पर serve नहीं होनी चाहिए
+*.md
+brand/build.py
+brand/TM-FILING-logo-945px-8cm.jpg

@@ -1,0 +1,16 @@
+# सिर्फ़ website के फ़ाइलें repo में जाएँ — बाक़ी सब लोकल रहे
+
+# Internal planning / handoff docs
+*.md
+
+# Brand build script + trademark filing asset (website का हिस्सा नहीं)
+brand/build.py
+brand/TM-FILING-logo-945px-8cm.jpg
+
+# Vercel
+.vercel/
+
+# OS / editor
+Thumbs.db
+desktop.ini
+.DS_Store
