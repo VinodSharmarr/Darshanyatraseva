@@ -154,6 +154,8 @@ const EN = {
   'दर्शन प्रभारी': 'Darshan In-charge',
   'यात्रा से जुड़ी हर बात के लिए सीधे बात करें': 'Speak directly about anything to do with your yatra',
   'सीधे WhatsApp करें': 'Message us on WhatsApp',
+  '₹501 टोकन देकर सीट पक्की करें': 'Pay ₹501 token to hold your seat',
+  'पहले WhatsApp पर सीट की उपलब्धता पूछ लें — कन्फ़र्म होने के बाद ही टोकन भेजें। भुगतान का स्क्रीनशॉट WhatsApp पर भेजते ही बुकिंग पक्की।': 'Please check seat availability on WhatsApp first — send the token only once we confirm. Share the payment screenshot on WhatsApp and your booking is locked in.',
   '✓ न्यूनतम 12 सीट पर यात्रा कन्फ़र्म': '✓ Yatra confirmed at a minimum of 12 seats',
   '✓ प्रस्थान से 72 घंटे पहले तक 100% रिफंड': '✓ 100% refund up to 72 hours before departure',
 

@@ -8,7 +8,11 @@
 const CONFIG = {
   whatsapp: '919999445462',          // देश कोड सहित, कोई + या स्पेस नहीं
   phone:    '+91 99994 45462',       // दिखाने के लिए
-  email:    'info@darshanyatraseva.in'
+  email:    'info@darshanyatraseva.in',
+
+  /* ₹501 टोकन का Razorpay पेज। ख़ाली '' कर दें तो बटन अपने आप छुप जाएगा।
+     ⚠️ सिर्फ़ payment page का लिंक — API key_secret कभी यहाँ मत डालें। */
+  razorpay: 'https://rzp.io/rzp/785f1cR'
 };
 
 /* ── 1. सभी नंबर/लिंक CONFIG से अपडेट करें ───────────────── */
@@ -25,6 +29,16 @@ const CONFIG = {
     a.href = 'mailto:' + CONFIG.email;
     a.textContent = '✉️ ' + CONFIG.email;
   });
+
+  /* भुगतान बटन — लिंक हो तो लगाओ, न हो तो बटन और उसका नोट दोनों छुपा दो */
+  const payWrap = document.getElementById('payBox');
+  if (payWrap) {
+    if (CONFIG.razorpay) {
+      payWrap.querySelector('.pay').href = CONFIG.razorpay;
+    } else {
+      payWrap.hidden = true;
+    }
+  }
 })();
 
 /* ── 2. मोबाइल मेन्यू ─────────────────────────────────────── */
