@@ -220,6 +220,15 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
 .wa--tel{background:var(--maroon);box-shadow:0 6px 18px rgba(123,30,34,.28)}
 .book__pts li{font-family:var(--font-h);font-size:.92rem;color:var(--ink-2);margin-bottom:.35rem}
 
+/* ── दर्शन प्रभारी ── */
+.incharge{display:flex;align-items:center;gap:1rem;margin-top:1.6rem;padding:1rem 1.2rem;
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.incharge__pic{width:72px;height:72px;flex:0 0 auto;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
+.incharge__role{font-family:var(--font-h);font-size:1.05rem;font-weight:600;color:var(--maroon);margin:0}
+.incharge__note{font-family:var(--font-h);font-size:.85rem;color:var(--ink-2);margin:.1rem 0 .35rem}
+.incharge__tel{display:inline-flex;align-items:center;gap:.4rem;font-weight:600;font-size:.95rem;color:var(--ink);transition:color .2s}
+.incharge__tel:hover{color:var(--saffron)}
+
 .form{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:1.8rem;box-shadow:var(--shadow-lg)}
 .form label{display:block;margin-bottom:1rem;font-size:.87rem;font-weight:600;color:var(--ink)}
 .form label span{color:var(--saffron)}

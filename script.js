@@ -6,8 +6,8 @@
    ═══════════════════════════════════════════════════════════ */
 
 const CONFIG = {
-  whatsapp: '919999999999',          // देश कोड सहित, कोई + या स्पेस नहीं
-  phone:    '+91 99999 99999',       // दिखाने के लिए
+  whatsapp: '919999445462',          // देश कोड सहित, कोई + या स्पेस नहीं
+  phone:    '+91 99994 45462',       // दिखाने के लिए
   email:    'info@darshanyatraseva.in'
 };
 
@@ -19,7 +19,7 @@ const CONFIG = {
   });
   document.querySelectorAll('a[href^="tel:"]').forEach(a=>{
     a.href = 'tel:+' + CONFIG.whatsapp;
-    if (a.textContent.includes('99999')) a.textContent = a.textContent.replace(/\+91[\d\s]+/, CONFIG.phone);
+    if (/\+91[\d\s]{8,}/.test(a.textContent)) a.textContent = a.textContent.replace(/\+91[\d\s]+/, CONFIG.phone);
   });
   document.querySelectorAll('a[href^="mailto:"]').forEach(a=>{
     a.href = 'mailto:' + CONFIG.email;
