@@ -8,7 +8,7 @@
 const CONFIG = {
   whatsapp: '919999445462',          // देश कोड सहित, कोई + या स्पेस नहीं
   phone:    '+91 99994 45462',       // दिखाने के लिए
-  email:    'info@darshanyatraseva.in',
+  email:    'darshanyatraseva@gmail.com',
 
   /* ₹501 टोकन का Razorpay पेज। ख़ाली '' कर दें तो बटन अपने आप छुप जाएगा।
      ⚠️ सिर्फ़ payment page का लिंक — API key_secret कभी यहाँ मत डालें। */
