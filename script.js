@@ -66,8 +66,11 @@ window.addEventListener('scroll', onScroll, { passive:true });
 onScroll();
 
 /* ── 4. स्क्रॉल रिवील एनिमेशन ─────────────────────────────── */
+/* स्लाइडर के अंदर वाले कार्ड यहाँ नहीं — वे बग़ल में छुपे होते हैं, इसलिए
+   IntersectionObserver उन्हें कभी नहीं देखता और वे हमेशा ग़ायब रह जाते।
+   पूरी पट्टी (.slider) को एक साथ दिखाते हैं। */
 const revealables = document.querySelectorAll(
-  '.card, .feat, .step, .rev, .form, .book__copy, .sec__title, .sec__lede, .tablewrap, .faq details'
+  '.slider, .rev, .form, .book__copy, .sec__title, .sec__lede, .faq details'
 );
 revealables.forEach(el => el.classList.add('reveal'));
 
@@ -186,3 +189,113 @@ dateInput.min = new Date().toISOString().split('T')[0];
 
 /* ── 7. फुटर में वर्तमान वर्ष ─────────────────────────────── */
 document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* ── 8. स्लाइडर — तीर, डॉट, अपने आप चलना ──────────────────
+   कोई library नहीं। घुमाना CSS scroll-snap करता है (JS बंद हो तब भी
+   उँगली से चलेगा); यहाँ सिर्फ़ तीर/डॉट और अपने आप चलना जोड़ा है।     */
+(function sliders(){
+  const AUTO  = 5000;   // हर 5 सेकंड में अगली स्लाइड
+  const REST  = 6000;   // उँगली से घुमाने के बाद इतनी देर चुप रहे
+  const quiet = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const tracks = [];
+
+  document.querySelectorAll('.slider').forEach(track => {
+    const items = [...track.children];
+    if (items.length < 2) return;
+    let onScreen = false;                 // पर्दे पर दिख रहा है या नहीं
+
+    /* तीर + डॉट बनाओ */
+    const btn = (cls, label, sign) => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = cls; b.setAttribute('aria-label', label);
+      b.innerHTML = sign; return b;
+    };
+    const nav  = document.createElement('div');
+    const prev = btn('slider-btn', 'पिछला', '&#8249;');
+    const next = btn('slider-btn', 'अगला',  '&#8250;');
+    const dots = document.createElement('div');
+    nav.className = 'slider-nav';
+    dots.className = 'slider-dots';
+    items.forEach((_, i) => {
+      const d = btn('slider-dot', `स्लाइड ${i + 1}`, '');
+      d.addEventListener('click', () => { pause(REST); goTo(i); });
+      dots.appendChild(d);
+    });
+    nav.append(prev, dots, next);
+    track.after(nav);
+
+    /* जगह नापना — offsetLeft भरोसेमंद नहीं, इसलिए rect से */
+    const posOf  = el => el.getBoundingClientRect().left
+                       - track.getBoundingClientRect().left + track.scrollLeft;
+    const atEnd  = () => track.scrollLeft >= track.scrollWidth - track.clientWidth - 4;
+    const nearest = () => {
+      let best = 0, min = Infinity;
+      items.forEach((el, i) => {
+        const d = Math.abs(posOf(el) - track.scrollLeft);
+        if (d < min) { min = d; best = i; }
+      });
+      return best;
+    };
+    const goTo = i => {
+      const el = items[Math.max(0, Math.min(items.length - 1, i))];
+      track.scrollTo({ left: posOf(el), behavior: 'smooth' });
+    };
+
+    /* अपने आप चलना — घड़ी चलती रहती है, हर बार सिर्फ़ "अभी चलूँ या नहीं" देखती है।
+       (टाइमर बंद-चालू करने से गड़बड़ होती थी: स्क्रॉल के बाद माउस अपने आप
+       कार्ड के ऊपर आ जाता है और pointerenter टाइमर मार देता था।) */
+    let hold = 0;                                   // इस वक़्त तक चुप रहो
+    const pause = ms => { hold = Date.now() + ms; };
+    const stop  = () => pause(1e9);                 // मेन्यू से खुलने पर हमेशा के लिए
+    setInterval(() => {
+      if (quiet || !onScreen || document.hidden) return;
+      if (track.classList.contains('is-open')) return;
+      if (Date.now() < hold) return;
+      if (track.matches(':hover') || track.contains(document.activeElement)) return;
+      atEnd() ? goTo(0) : goTo(nearest() + 1);
+    }, AUTO);
+
+    /* उँगली/माउस/कीबोर्ड से छेड़ा — कुछ देर चुप रहो, फिर ख़ुद चलने लगो */
+    ['touchstart','pointerdown','wheel','keydown'].forEach(e =>
+      track.addEventListener(e, () => pause(REST), { passive:true }));
+
+    prev.addEventListener('click', () => { pause(REST); goTo(nearest() - 1); });
+    next.addEventListener('click', () => { pause(REST); goTo(nearest() + 1); });
+
+    /* डॉट व तीर की हालत scroll के बाद ठीक करो */
+    let t = null;
+    const sync = () => {
+      const i = nearest();
+      [...dots.children].forEach((d, k) => d.classList.toggle('is-on', k === i));
+      prev.disabled = track.scrollLeft < 4;
+      next.disabled = atEnd();
+    };
+    track.addEventListener('scroll', () => {
+      clearTimeout(t); t = setTimeout(sync, 90);
+    }, { passive:true });
+    addEventListener('resize', sync);
+    sync();
+
+    /* पर्दे पर दिखे तभी चले — बेकार में बैटरी न ख़र्च हो */
+    new IntersectionObserver(([e]) => { onScreen = e.isIntersecting; },
+      { threshold: 0.2 }).observe(track);
+
+    /* मेन्यू से आने पर पूरी पट्टी खोल देना */
+    track.openAll = () => { track.classList.add('is-open'); stop(); sync(); };
+    tracks.push(track);
+  });
+
+  /* ☰ मेन्यू से किसी सेक्शन में जाएँ तो वहाँ सब कुछ एक साथ दिखे —
+     ग्राहक जान-बूझकर देखने आया है, कोई विकल्प छूटना नहीं चाहिए */
+  function openSection(hash){
+    if (!hash || hash === '#') return;
+    let sec = null;
+    try { sec = document.querySelector(hash); } catch(e){ return; }
+    if (sec) sec.querySelectorAll('.slider').forEach(s => s.openAll && s.openAll());
+  }
+  document.querySelectorAll('#navLinks a[href^="#"]').forEach(a => {
+    a.addEventListener('click', () => openSection(a.getAttribute('href')));
+  });
+  addEventListener('hashchange', () => openSection(location.hash));
+  if (location.hash) openSection(location.hash);
+})();
