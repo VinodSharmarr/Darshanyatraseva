@@ -20,3 +20,6 @@ __pycache__/
 
 # Claude dev server config
 .claude/
+
+# अपनी खींची तस्वीरों की असली (बड़ी) फ़ाइलें — साइट पर कटी हुई ही जाती हैं
+yatra/src/
