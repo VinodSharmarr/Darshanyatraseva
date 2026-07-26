@@ -46,6 +46,12 @@ ul{margin:0;padding:0;list-style:none}
 .grad{
   background:linear-gradient(100deg,var(--saffron),var(--gold));
   -webkit-background-clip:text;background-clip:text;color:transparent;
+  /* background-clip:text सिर्फ़ font के em-box तक paint करता है — हिन्दी की ऊपर वाली
+     मात्रा (से की े) उससे बाहर निकलती है और कट जाती थी। inline-block + padding से
+     paint का दायरा बढ़ाया, negative margin से जगह पहले जितनी ही रखी। */
+  display:inline-block;
+  padding:.45em .15em .2em;
+  margin:-.45em -.15em -.2em;
 }
 
 /* ── buttons ── */
