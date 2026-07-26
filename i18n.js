@@ -220,14 +220,11 @@ const EN = {
   'संपर्क': 'Contact',
   'दिल्ली, भारत': 'Delhi, India',
   'Darshan Yatra Seva. सर्वाधिकार सुरक्षित।': 'Darshan Yatra Seva. All rights reserved.',
-  'फ़ोटो श्रेय': 'Photo credits',
-  'एक तस्वीर (खाटू दरबार) Wikimedia Commons से, लाइसेंस:': 'One photograph (Khatu Darbar) from Wikimedia Commons, licensed:',
   /* यात्रा कार्ड की तस्वीरों का alt — स्क्रीन रीडर और तस्वीर न खुलने पर यही दिखता है */
   'खाटू श्याम जी मंदिर का मुख्य द्वार, सीकर': 'Main gate of Khatu Shyam Ji temple, Sikar',
   'वृंदावन का प्रेम मंदिर — सफ़ेद संगमरमर की भव्य इमारत': 'Prem Mandir, Vrindavan — the grand white marble temple',
   'मेहंदीपुर बालाजी का गर्भगृह — सुनहरे स्वरूप के दर्शन': 'Sanctum of Mehandipur Balaji — darshan of the golden form',
-  'खाटू श्याम जी का प्रवेश द्वार': 'Entrance gate at Khatu Shyam Ji',
-  '© Shubhamvs22 · बाक़ी सभी तस्वीरें हमारी अपनी खींची हुई हैं': '© Shubhamvs22 · all other photographs are our own',
+  'सालासर धाम का प्रवेश द्वार, चूरू': 'Entrance gate of Salasar Dham, Churu',
   '🙏 जय श्री श्याम': '🙏 Jai Shri Shyam',
 
   /* ── page title ── */

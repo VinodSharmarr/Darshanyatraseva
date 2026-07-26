@@ -22,9 +22,7 @@ SRC = {
     "khatu":      ("khatu-orig.jpg",      "अपनी तस्वीर", (0.50, 0.34)),
     "vrindavan":  ("vrindavan-orig.jpg",  "अपनी तस्वीर", (0.50, 0.42)),
     "mehandipur": ("mehandipur-orig.jpg", "अपनी तस्वीर", (0.50, 0.46)),
-    # 2-दिन वाली यात्रा में खाटू भी है; सालासर की अपनी तस्वीर अभी नहीं आई
-    "salasar": ("https://upload.wikimedia.org/wikipedia/commons/7/77/Khatu_darbar.jpg",
-                "Shubhamvs22, CC BY-SA 4.0", (0.5, 0.18)),
+    "salasar":    ("salasar-orig.jpg",    "अपनी तस्वीर", (0.50, 0.36)),
 }
 
 for slug, (src, credit, cent) in SRC.items():
