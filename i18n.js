@@ -220,6 +220,7 @@ const EN = {
   'संपर्क': 'Contact',
   'दिल्ली, भारत': 'Delhi, India',
   'Darshan Yatra Seva. सर्वाधिकार सुरक्षित।': 'Darshan Yatra Seva. All rights reserved.',
+  'फ़ोटो श्रेय': 'Photo credits',
   'मंदिरों की तस्वीरें Wikimedia Commons से, लाइसेंस:': 'Temple photographs from Wikimedia Commons, licensed:',
   /* यात्रा कार्ड की तस्वीरों का alt — स्क्रीन रीडर और तस्वीर न खुलने पर यही दिखता है */
   'खाटू श्याम जी मंदिर का मुख्य द्वार, सीकर': 'Main gate of Khatu Shyam Ji temple, Sikar',
