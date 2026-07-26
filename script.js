@@ -162,7 +162,7 @@ form.addEventListener('submit', e => {
 *पिकअप:* ${d.pickup || 'बताएँगे'}
 *विशेष आवश्यकता:* ${d.note?.trim() || 'कोई नहीं'}
 
-— darshanyatraseva.in से भेजा गया`;
+— www.darshanyatraseva.com से भेजा गया`;
 
   window.open(
     `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`,
