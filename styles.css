@@ -502,8 +502,10 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
   .pan__list li b{flex:0 0 66px;font-size:.8rem}
 }
 
-/* ── बुकिंग हिस्से में सोशल पेज (config.js से) ── */
-.book__social{margin-top:1.1rem}
+/* ── बुकिंग हिस्से में सोशल पेज (config.js से) ──
+   ⚠️ नीचे वाला .paybox का margin-top ऋणात्मक (-.4rem) है, इसलिए यहाँ
+   नीचे की जगह ज़रूर छोड़नी है — वरना ₹501 वाला बटन इन पिल्स पर चढ़ जाता है। */
+.book__social{margin:1.2rem 0 1.7rem}
 .book__social b{display:block;font-size:.82rem;font-weight:600;color:var(--gold-d);margin-bottom:.5rem}
 .book__social div{display:flex;flex-wrap:wrap;gap:.5rem}
 .book__social a{display:inline-flex;align-items:center;gap:.45rem;padding:.45em .95em;border-radius:999px;
