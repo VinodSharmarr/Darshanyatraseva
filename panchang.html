@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>आज की तिथि और पंचांग — व्रत-त्योहार की तारीख़ें | Darshan Yatra Seva</title>
+<meta name="description" content="आज की तिथि, नक्षत्र, योग, सूर्योदय-सूर्यास्त और पूरे महीने का हिन्दू कैलेंडर। एकादशी, पूर्णिमा, अमावस्या और आने वाले सभी व्रत-त्योहार की तारीख़ें — दिल्ली के समय अनुसार।" />
+<meta name="theme-color" content="#7B1E22" />
+<link rel="canonical" href="https://www.darshanyatraseva.com/panchang" />
+
+<meta property="og:title" content="आज की तिथि और पंचांग — व्रत-त्योहार की तारीख़ें" />
+<meta property="og:description" content="आज की तिथि, नक्षत्र, सूर्योदय और पूरे महीने का हिन्दू कैलेंडर — एकादशी, पूर्णिमा और सभी व्रत-त्योहार की तारीख़ें।" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.darshanyatraseva.com/panchang" />
+<meta property="og:site_name" content="Darshan Yatra Seva" />
+<meta property="og:locale" content="hi_IN" />
+<meta property="og:image" content="https://www.darshanyatraseva.com/brand/og-image.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="icon" href="brand/logo-icon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="brand/logo-icon.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Tiro+Devanagari+Hindi:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="styles.css?v=4" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "मुख्य पेज", "item": "https://www.darshanyatraseva.com/" },
+    { "@type": "ListItem", "position": 2, "name": "आज की तिथि और पंचांग", "item": "https://www.darshanyatraseva.com/panchang" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- ══ TOP BAR ══ -->
+<div class="topbar">
+  <div class="wrap topbar__in">
+    <span class="topbar__om">ॐ</span>
+    <span>जय श्री श्याम — दिल्ली से हर सप्ताह यात्रा</span>
+    <a class="topbar__tel" href="tel:+917289902692">📞 +91 72899 02692</a>
+  </div>
+</div>
+
+<!-- ══ HEADER ══ -->
+<header class="nav is-stuck">
+  <div class="wrap nav__in">
+    <a class="brand" href="index.html">
+      <svg class="brand__mark" viewBox="0 0 200 200" aria-hidden="true">
+        <circle cx="100" cy="100" r="95" fill="#7B1E22"/>
+        <circle cx="100" cy="100" r="95" fill="none" stroke="#D9A441" stroke-width="4.5"/>
+        <circle cx="100" cy="29" r="4.5" fill="#D9A441"/>
+        <path d="M100 38 C110 62 120 86 124 110 L76 110 C80 86 90 62 100 38 Z" fill="#D9A441"/>
+        <rect x="68" y="110" width="64" height="7" rx="1.5" fill="#C0872E"/>
+        <rect x="74" y="117" width="52" height="28" fill="#D9A441"/>
+        <path d="M90 145 L90 132 A10 10 0 0 1 110 132 L110 145 Z" fill="#7B1E22"/>
+        <rect x="62" y="145" width="76" height="8" rx="2" fill="#D9A441"/>
+        <rect x="56" y="153" width="88" height="5" rx="2" fill="#C0872E"/>
+        <path d="M58 172 Q100 158 142 172" stroke="#E9531F" stroke-width="7" fill="none" stroke-linecap="round"/>
+      </svg>
+      <span class="brand__txt">
+        <strong>Darshan Yatra Seva</strong>
+        <em>दर्शन यात्रा सेवा</em>
+      </span>
+    </a>
+
+    <nav class="nav__links katha__nav">
+      <a href="index.html">← मुख्य पेज पर वापस</a>
+      <a class="btn btn--sm btn--primary" href="index.html#book">बुक करें</a>
+    </nav>
+
+    <button class="langbtn" id="langBtn" type="button" aria-label="View in English">English</button>
+  </div>
+</header>
+
+<!-- ══ शीर्षक ══ -->
+<section class="katha__hero">
+  <div class="wrap">
+    <p class="eyebrow center">हिन्दू पंचांग</p>
+    <h1 class="sec__title">आज की तिथि, नक्षत्र और इस महीने के व्रत-पर्व</h1>
+    <p class="sec__lede">दिल्ली के सूर्योदय के अनुसार गणना — तिथि, नक्षत्र, योग, सूर्योदय-सूर्यास्त और आने वाले सभी बड़े व्रत-त्योहार की तारीख़ें।</p>
+  </div>
+</section>
+
+<!-- ══ पंचांग — panchang.js भरता है ══ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="pan" id="panchangBox"></div>
+  </div>
+</section>
+
+<!-- ══ आगामी व्रत-पर्व ══ -->
+<section class="sec sec--alt">
+  <div class="wrap wrap--narrow">
+    <h2 class="sec__title">आगे आने वाले व्रत और त्योहार</h2>
+    <p class="sec__lede">इन तिथियों पर यात्रा की सीटें सबसे पहले भरती हैं — 3–4 सप्ताह पहले बुकिंग करा लेना ठीक रहता है।</p>
+    <ul class="parvList" id="parvList"></ul>
+  </div>
+</section>
+
+<!-- ══ समझने की बातें — यही हिस्सा Google पर सवालों के जवाब देता है ══ -->
+<section class="sec">
+  <div class="wrap wrap--narrow">
+    <h2 class="sec__title">पंचांग की पाँच बातें — आसान भाषा में</h2>
+    <div class="pan__learn">
+      <details open>
+        <summary>तिथि क्या होती है?</summary>
+        <p>चंद्रमा और सूर्य के बीच का अंतर जब 12 अंश बढ़ता है, तब एक तिथि पूरी होती है। इसीलिए तिथि 24 घंटे की नहीं होती — कभी 20 घंटे की, कभी 26 घंटे की। जिस तिथि में सूर्योदय होता है, परंपरा में उसी दिन की तिथि मानी जाती है।</p>
+      </details>
+      <details>
+        <summary>शुक्ल पक्ष और कृष्ण पक्ष का मतलब?</summary>
+        <p>अमावस्या के बाद चंद्रमा बढ़ता है — वे 15 दिन शुक्ल पक्ष, जो पूर्णिमा पर पूरे होते हैं। फिर चंद्रमा घटता है — वे 15 दिन कृष्ण पक्ष, जो अमावस्या पर पूरे होते हैं। दोनों मिलाकर एक चंद्र मास।</p>
+      </details>
+      <details>
+        <summary>नक्षत्र क्या है?</summary>
+        <p>आकाश के चंद्र-पथ को 27 भागों में बाँटा गया है, हर भाग एक नक्षत्र। चंद्रमा जिस भाग में हो, उस दिन का वही नक्षत्र। शुभ कार्य के मुहूर्त में नक्षत्र देखा जाता है।</p>
+      </details>
+      <details>
+        <summary>एकादशी हर महीने दो बार क्यों आती है?</summary>
+        <p>एकादशी यानी ग्यारहवीं तिथि — और ग्यारहवीं तिथि दोनों पक्षों में आती है, इसलिए महीने में दो एकादशी पड़ती हैं। खाटू श्याम जी के भक्तों के लिए शुक्ल पक्ष की एकादशी विशेष मानी जाती है।</p>
+      </details>
+      <details>
+        <summary>दीपावली और होली की तारीख़ हर साल बदलती क्यों है?</summary>
+        <p>हमारे त्योहार अंग्रेज़ी तारीख़ से नहीं, चंद्रमा की तिथि से तय होते हैं। चंद्र वर्ष सौर वर्ष से लगभग 11 दिन छोटा होता है, इसलिए तारीख़ हर साल खिसकती है — और तीन साल में एक बार अधिक मास जोड़कर हिसाब बराबर किया जाता है।</p>
+      </details>
+    </div>
+    <p class="pan__note">⚠️ यह गणना से बना पंचांग है (दिल्ली सूर्योदय)। व्रत की तारीख़ पक्की करने से पहले अपने स्थानीय पंचांग से एक बार मिला लें।</p>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section class="cta">
+  <div class="wrap cta__in">
+    <h2>शुभ तिथि पर दर्शन की तैयारी है? 🙏</h2>
+    <p>सीटें सीमित हैं — आज ही अपनी जगह पक्की करें।</p>
+    <div class="cta__btns">
+      <a class="btn btn--gold btn--lg" href="index.html#book">अभी बुक करें</a>
+      <a class="btn btn--ghostlight btn--lg" href="https://wa.me/917289902692" target="_blank" rel="noopener">WhatsApp करें</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="foot">
+  <div class="wrap foot__bar">
+    <span>© <span id="yr"></span> Darshan Yatra Seva. सर्वाधिकार सुरक्षित।</span>
+    <span class="foot__om">🙏 जय श्री श्याम</span>
+  </div>
+</footer>
+
+<a class="fab" href="https://wa.me/917289902692?text=Jai%20Shri%20Shyam!%20Mujhe%20yatra%20ki%20jaankari%20chahiye." target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32" width="28" height="28" fill="#fff"><path d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.7 6.4L3 29l6.8-1.8c1.9 1 4 1.6 6.2 1.6 7.2 0 13-5.8 13-13S23.2 3 16 3zm0 23.6c-2 0-3.9-.5-5.5-1.5l-.4-.2-4 1.1 1.1-3.9-.3-.4A10.5 10.5 0 015.5 16c0-5.8 4.7-10.5 10.5-10.5S26.5 10.2 26.5 16 21.8 26.6 16 26.6zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.6 8.6 0 01-2.5-1.6 9.6 9.6 0 01-1.8-2.2c-.2-.3 0-.5.1-.7l.5-.6.3-.5v-.5c0-.2-.7-1.8-1-2.4-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.9-.8 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
+</a>
+
+<script src="config.js?v=5"></script>
+<script src="panchang.js?v=6"></script>
+<script src="i18n.js?v=3"></script>
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  document.querySelectorAll('a[href^="https://wa.me/"]').forEach(a => {
+    const q = a.href.split('?')[1];
+    a.href = 'https://wa.me/' + CONFIG.whatsapp + (q ? '?' + q : '');
+  });
+  document.querySelectorAll('a[href^="tel:"]').forEach(a => {
+    a.href = 'tel:+' + CONFIG.whatsapp;
+    if (/\+91[\d\s]{8,}/.test(a.textContent)) a.textContent = a.textContent.replace(/\+91[\d\s]+/, CONFIG.phone);
+  });
+</script>
+</body>
+</html>

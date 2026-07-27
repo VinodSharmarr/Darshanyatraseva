@@ -3,10 +3,19 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Darshan Yatra Seva — दिल्ली से खाटू श्याम, वृंदावन, मेहंदीपुर बालाजी यात्रा</title>
-<meta name="description" content="दिल्ली से खाटू श्याम जी, वृंदावन-मथुरा, मेहंदीपुर बालाजी और सालासर बालाजी की सुरक्षित, आरामदायक यात्रा। प्रसाद, पानी और बुज़ुर्गों की विशेष सहायता के साथ। विशेष छूट के लिए WhatsApp पर संपर्क करें।" />
+<!-- ⚠️ title में सबसे पहले वही शब्द हैं जो लोग Google पर टाइप करते हैं
+     ("दिल्ली से खाटू श्याम यात्रा"), ब्रांड का नाम बाद में — नई साइट के लिए
+     यही क्रम सही रहता है। 60 अक्षर से लंबा हुआ तो Google काट देता है। -->
+<title>दिल्ली से खाटू श्याम व वृंदावन यात्रा | Darshan Yatra Seva</title>
+<meta name="description" content="दिल्ली-NCR से खाटू श्याम जी, वृंदावन-मथुरा, मेहंदीपुर व सालासर बालाजी की एक दिन की यात्रा। AC टेम्पो ट्रैवलर, प्रसाद-पानी शामिल, मेट्रो से पिकअप, बुज़ुर्गों की विशेष सहायता।" />
 <meta name="theme-color" content="#7B1E22" />
 <link rel="canonical" href="https://www.darshanyatraseva.com/" />
+
+<!-- स्थानीय खोज ("मेरे पास तीर्थ यात्रा") के लिए — दिल्ली का केंद्र -->
+<meta name="geo.region" content="IN-DL" />
+<meta name="geo.placename" content="Delhi" />
+<meta name="geo.position" content="28.6139;77.2090" />
+<meta name="ICBM" content="28.6139, 77.2090" />
 
 <meta property="og:title" content="Darshan Yatra Seva — आस्था की यात्रा, सेवा के साथ" />
 <meta property="og:description" content="दिल्ली से खाटू श्याम, वृंदावन, मेहंदीपुर बालाजी — AC टेम्पो ट्रैवलर, प्रसाद व पानी शामिल, बुज़ुर्गों की विशेष सेवा।" />
@@ -29,6 +38,126 @@
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Tiro+Devanagari+Hindi:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
 <link rel="stylesheet" href="styles.css?v=4" />
+
+<!-- ═══════════════════════════════════════════════════════════
+     Google के लिए structured data (JSON-LD)
+
+     ⚠️ यह HTML में ही लिखा है, JS से नहीं बनता — Google को यह पहली
+     ही झलक में मिल जाना चाहिए। पहले script.js बनाता था, 28 जुलाई 2026
+     को यहाँ स्थिर कर दिया। सोशल लिंक (sameAs) फिर भी config.js से ही
+     अपने आप ठीक होते रहते हैं, इसलिए बदलने की जगह वहीं एक ही है।
+
+     तीन हिस्से हैं:
+     1. TravelAgency — धंधे की पहचान (नंबर, इलाक़ा, सोशल पेज)
+     2. FAQPage      — सवाल-जवाब, इससे Google पर सीधे जवाब दिखते हैं
+     3. TouristTrip  — चारों यात्राएँ
+
+     ⚠️ यहाँ कोई नक़ली आँकड़ा (जैसे aggregateRating) मत डालना — Google
+        पकड़ता है और भरोसा तो जाता ही है, नियम 4 भी यही कहता है।
+     ═══════════════════════════════════════════════════════════ -->
+<script type="application/ld+json" id="ldBiz">
+{
+  "@context": "https://schema.org",
+  "@type": "TravelAgency",
+  "@id": "https://www.darshanyatraseva.com/#business",
+  "name": "Darshan Yatra Seva",
+  "alternateName": "दर्शन यात्रा सेवा",
+  "description": "दिल्ली-NCR से खाटू श्याम जी, वृंदावन-मथुरा, मेहंदीपुर बालाजी और सालासर धाम की तीर्थ यात्रा सेवा।",
+  "url": "https://www.darshanyatraseva.com/",
+  "telephone": "+917289902692",
+  "email": "darshanyatraseva@gmail.com",
+  "image": "https://www.darshanyatraseva.com/brand/og-image.jpg",
+  "logo": "https://www.darshanyatraseva.com/brand/logo-icon.png",
+  "priceRange": "₹₹",
+  "currenciesAccepted": "INR",
+  "paymentAccepted": "UPI, Bank Transfer, Cash",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Delhi",
+    "addressRegion": "Delhi",
+    "addressCountry": "IN"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 28.6139, "longitude": 77.2090 },
+  "areaServed": [
+    { "@type": "City", "name": "Delhi" },
+    { "@type": "City", "name": "Noida" },
+    { "@type": "City", "name": "Gurugram" },
+    { "@type": "City", "name": "Ghaziabad" },
+    { "@type": "City", "name": "Faridabad" }
+  ],
+  "knowsLanguage": ["hi", "en"],
+  "sameAs": [
+    "https://www.instagram.com/darshanyatraseva",
+    "https://www.facebook.com/people/darshanyatraseva/61592350567964/",
+    "https://www.youtube.com/@darshanyatraseva"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+917289902692",
+    "contactType": "reservations",
+    "availableLanguage": ["Hindi", "English"]
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "किराए में क्या-क्या शामिल है?",
+      "acceptedAnswer": { "@type": "Answer", "text": "AC वाहन का किराया, टोल, पार्किंग, ड्राइवर, पानी की बोतल, मंदिर का प्रसाद और यात्रा सहायक की सेवा। भोजन (एक दिन की यात्राओं में) एवं मंदिर की विशेष पूजा/VIP दर्शन शुल्क अलग से।" } },
+    { "@type": "Question", "name": "भुगतान कैसे करना होगा?",
+      "acceptedAnswer": { "@type": "Answer", "text": "UPI (GPay/PhonePe/Paytm) या बैंक ट्रांसफ़र से पूरा अग्रिम भुगतान करना होता है, क्योंकि हमें आपकी सीट पहले से आरक्षित करनी पड़ती है। भुगतान के तुरंत बाद WhatsApp पर रसीद मिल जाती है।" } },
+    { "@type": "Question", "name": "रिफंड पॉलिसी क्या है?",
+      "acceptedAnswer": { "@type": "Answer", "text": "प्रस्थान से 72 घंटे पहले रद्द करने पर 100% रिफंड। 24–72 घंटे पहले 50%। 24 घंटे के अंदर रिफंड संभव नहीं, परंतु आप अपनी सीट किसी और को दे सकते हैं या अगली यात्रा में समायोजित करा सकते हैं।" } },
+    { "@type": "Question", "name": "क्या अकेली महिला यात्रा कर सकती है?",
+      "acceptedAnswer": { "@type": "Answer", "text": "बिल्कुल। हमारी हर यात्रा में महिलाओं के लिए अलग एवं सुरक्षित सीटिंग की व्यवस्था रहती है, और वाहन में महिला यात्रियों का समूह हमेशा साथ बैठाया जाता है। परिवार को पूरी यात्रा की लाइव लोकेशन भी भेजी जाती है।" } },
+    { "@type": "Question", "name": "बुज़ुर्ग यात्रियों के लिए क्या व्यवस्था है?",
+      "acceptedAnswer": { "@type": "Answer", "text": "आगे की सीट प्राथमिकता, चढ़ने-उतरने में सहायता, दर्शन लाइन में साथ, और आवश्यकता होने पर व्हीलचेयर की व्यवस्था (पहले से बताने पर)। यह हमारी सबसे बड़ी विशेषता है।" } },
+    { "@type": "Question", "name": "क्या दर्शन की गारंटी है?",
+      "acceptedAnswer": { "@type": "Answer", "text": "हम आपको समय पर मंदिर पहुँचाते हैं और लाइन में पूरी सहायता करते हैं। परंतु मंदिर की भीड़, कतार की अवधि या प्रशासन द्वारा किए गए बदलाव हमारे नियंत्रण में नहीं होते — इसे बुकिंग शर्तों में स्पष्ट लिखा गया है।" } },
+    { "@type": "Question", "name": "पूरा वाहन बुक करना हो तो?",
+      "acceptedAnswer": { "@type": "Answer", "text": "परिवार, RWA, ऑफ़िस या मंदिर मंडली के लिए 17-सीटर टेम्पो ट्रैवलर और 35/45-सीटर बस उपलब्ध है। फ़ॉर्म में \"पूरा वाहन बुकिंग\" चुनें — हम आपको कस्टम कोट भेज देंगे।" } },
+    { "@type": "Question", "name": "मेला/त्योहार के समय बुकिंग कब करें?",
+      "acceptedAnswer": { "@type": "Answer", "text": "फाल्गुन मेला, जन्माष्टमी और एकादशी जैसे अवसरों पर सीटें 3–4 सप्ताह पहले भर जाती हैं। ऐसे समय पहले से बुकिंग कराना ज़रूरी है।" } }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "दिल्ली से चलने वाली तीर्थ यात्राएँ",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "item": {
+      "@type": "TouristTrip", "name": "दिल्ली से खाटू श्याम जी यात्रा",
+      "description": "रात को दिल्ली से प्रस्थान, सुबह दर्शन, दोपहर तक वापसी। AC टेम्पो ट्रैवलर, प्रसाद व पानी शामिल।",
+      "url": "https://www.darshanyatraseva.com/#yatras",
+      "provider": { "@id": "https://www.darshanyatraseva.com/#business" },
+      "itinerary": { "@type": "Place", "name": "श्री श्याम मंदिर, खाटू", "address": "Khatu, Sikar, Rajasthan" } } },
+    { "@type": "ListItem", "position": 2, "item": {
+      "@type": "TouristTrip", "name": "दिल्ली से वृंदावन-मथुरा यात्रा",
+      "description": "बांके बिहारी, प्रेम मंदिर, ISKCON, निधिवन एवं मथुरा जन्मभूमि — एक ही दिन में सम्पूर्ण दर्शन।",
+      "url": "https://www.darshanyatraseva.com/#yatras",
+      "provider": { "@id": "https://www.darshanyatraseva.com/#business" },
+      "itinerary": { "@type": "Place", "name": "बांके बिहारी मंदिर, वृंदावन", "address": "Vrindavan, Mathura, Uttar Pradesh" } } },
+    { "@type": "ListItem", "position": 3, "item": {
+      "@type": "TouristTrip", "name": "दिल्ली से मेहंदीपुर बालाजी यात्रा",
+      "description": "मेहंदीपुर बालाजी दरबार के दर्शन एवं अर्जी की पूरी व्यवस्था के साथ एक दिन की यात्रा।",
+      "url": "https://www.darshanyatraseva.com/#yatras",
+      "provider": { "@id": "https://www.darshanyatraseva.com/#business" },
+      "itinerary": { "@type": "Place", "name": "मेहंदीपुर बालाजी", "address": "Mehandipur, Dausa, Rajasthan" } } },
+    { "@type": "ListItem", "position": 4, "item": {
+      "@type": "TouristTrip", "name": "दिल्ली से खाटू श्याम + सालासर बालाजी यात्रा",
+      "description": "दो धामों की संयुक्त यात्रा — खाटू श्याम जी और सालासर बालाजी के दर्शन।",
+      "url": "https://www.darshanyatraseva.com/#yatras",
+      "provider": { "@id": "https://www.darshanyatraseva.com/#business" },
+      "itinerary": { "@type": "Place", "name": "सालासर बालाजी", "address": "Salasar, Churu, Rajasthan" } } }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -359,6 +488,7 @@
     <h2 class="sec__title">आज की तिथि और इस महीने के व्रत-पर्व</h2>
     <p class="sec__lede">तिथि, नक्षत्र, सूर्योदय और त्योहार — दिल्ली के समय के अनुसार। किसी भी तारीख़ पर दबाकर उस दिन की यात्रा के बारे में पूछ सकते हैं।</p>
     <div class="pan" id="panchangBox"></div>
+    <p class="katha__allWrap"><a class="btn btn--outline" href="panchang.html">🗓️ पूरा पंचांग और आगामी व्रत-त्योहार देखें</a></p>
   </div>
 </section>
 

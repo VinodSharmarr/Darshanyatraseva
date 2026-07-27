@@ -55,25 +55,21 @@
       bookBox.innerHTML = '<b>यात्राओं की झलक देखें</b><div>' + pills + '</div>';
     }
 
-    /* Google को बताना कि ये पेज हमारे ही हैं (JSON-LD).
-       CONFIG से बनता है ताकि लिंक सिर्फ़ एक जगह बदलने पड़ें। */
-    const same = Object.keys(icons).map(k => S[k]).filter(Boolean);
-    const ld = document.createElement('script');
-    ld.type = 'application/ld+json';
-    ld.textContent = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'TravelAgency',
-      name: 'Darshan Yatra Seva',
-      alternateName: 'दर्शन यात्रा सेवा',
-      url: 'https://' + (CONFIG.site || 'www.darshanyatraseva.com') + '/',
-      telephone: '+' + CONFIG.whatsapp,
-      email: CONFIG.email,
-      image: 'https://' + (CONFIG.site || 'www.darshanyatraseva.com') + '/brand/og-image.jpg',
-      areaServed: 'Delhi NCR',
-      address: { '@type': 'PostalAddress', addressLocality: 'Delhi', addressCountry: 'IN' },
-      sameAs: same
-    });
-    document.head.appendChild(ld);
+    /* Google वाला JSON-LD अब index.html में ही स्थिर लिखा है (वहाँ का
+       बड़ा comment देखें) — यहाँ सिर्फ़ उसके नंबर/ईमेल/सोशल लिंक CONFIG से
+       मिला दिए जाते हैं, ताकि बदलने की जगह config.js अकेली ही रहे। */
+    const ldTag = document.getElementById('ldBiz');
+    if (ldTag) {
+      try {
+        const ld = JSON.parse(ldTag.textContent);
+        ld.telephone = '+' + CONFIG.whatsapp;
+        ld.email = CONFIG.email;
+        if (ld.contactPoint) ld.contactPoint.telephone = '+' + CONFIG.whatsapp;
+        const same = Object.keys(icons).map(k => S[k]).filter(Boolean);
+        if (same.length) ld.sameAs = same;
+        ldTag.textContent = JSON.stringify(ld);
+      } catch (e) { /* JSON बिगड़ा हो तो स्थिर वाला ही चलने दो */ }
+    }
   }
 })();
 

@@ -637,7 +637,60 @@ window.Panchang = (function () {
     });
   }
 
+  /* ── आगे आने वाले बड़े पर्व — panchang.html की सूची के लिए ──
+     आज से गिनते हुए अगले `days` दिनों में जो स्तर-1 (बड़े) पर्व पड़ते हैं।
+     हर दिन की गणना होती है, इसलिए days बहुत बड़ा मत रखना।           */
+  function upcoming(days, en) {
+    const out = [];
+    const start = new Date(); start.setHours(12, 0, 0, 0);
+    for (let i = 0; i < days; i++) {
+      const dt = new Date(start.getFullYear(), start.getMonth(), start.getDate() + i, 12);
+      const p = forDate(dt);
+      const big = parvOf(p, en).filter(x => x[1] === 1);
+      if (big.length) out.push({ date: dt, names: big.map(x => x[0]), p });
+    }
+    return out;
+  }
+
+  function renderUpcoming(host) {
+    const en = document.documentElement.lang === 'en';
+    const rows = upcoming(200, en);
+    const T = en
+      ? { none: 'No major festival in the next few months.', ask: 'Ask about a yatra' }
+      : { none: 'अगले कुछ महीनों में कोई बड़ा पर्व नहीं।', ask: 'यात्रा पूछें' };
+    const wa = 'https://wa.me/' + (window.CONFIG ? CONFIG.whatsapp : '');
+    const esc = s => String(s).replace(/[&<>"]/g, c =>
+      ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+    host.innerHTML = rows.length ? rows.map(r => {
+      const msg = (en ? 'Jai Shri Shyam! ' : 'जय श्री श्याम! ') + fmtDate(r.date, false) +
+                  ' — ' + r.names.join(', ') +
+                  (en ? ' — yatra?' : ' पर यात्रा की जानकारी चाहिए।');
+      return `<li class="parv">
+        <div class="parv__date">
+          <b>${r.date.getDate()}</b>
+          <span>${esc((en ? MAH_EN : MAH_HI)[r.date.getMonth()])}</span>
+          <i>${esc((en ? VAAR_EN : VAAR_HI)[r.date.getDay()])}</i>
+        </div>
+        <div class="parv__body">
+          <b>${esc(r.names.join(' · '))}</b>
+          <span>${esc((en ? MASA_EN : MASA_HI)[r.p.masa])} ${esc(pakshaName(r.p, en))} ${esc(tithiName(r.p, en))}</span>
+        </div>
+        <a class="parv__ask" href="${wa}?text=${encodeURIComponent(msg)}" target="_blank" rel="noopener">💬 ${T.ask}</a>
+      </li>`;
+    }).join('') : `<li class="parv"><div class="parv__body"><span>${T.none}</span></div></li>`;
+  }
+
   function init() {
+    /* पंचांग वाले अलग पेज पर आगामी पर्वों की सूची भी बनती है */
+    const parvHost = document.getElementById('parvList');
+    if (parvHost) {
+      const drawParv = () => renderUpcoming(parvHost);
+      drawParv();
+      new MutationObserver(drawParv)
+        .observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+    }
+
     const host = document.getElementById('panchangBox');
     if (!host) return;                       // admin.html पर कैलेंडर नहीं चाहिए
     let shown = new Date();
@@ -653,6 +706,6 @@ window.Panchang = (function () {
   else init();
 
   /* admin.html और बाक़ी कोड के लिए */
-  return { forDate, parvOf, summary, tithiName, pakshaName, fmtTime, fmtDate,
+  return { forDate, parvOf, summary, tithiName, pakshaName, fmtTime, fmtDate, upcoming,
            MASA_HI, VAAR_HI, NAK_HI };
 })();

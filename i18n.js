@@ -240,6 +240,27 @@ const EN = {
      ख़ुद दोनों भाषाओं में बनाता है — उसे यहाँ जोड़ने की ज़रूरत नहीं। */
   'पंचांग': 'Panchang',
   'हिन्दू पंचांग': 'Hindu Panchang',
+  '🗓️ पूरा पंचांग और आगामी व्रत-त्योहार देखें': '🗓️ See the full panchang and upcoming festivals',
+
+  /* ── panchang.html ── */
+  'आज की तिथि, नक्षत्र और इस महीने के व्रत-पर्व': 'Today’s tithi, nakshatra and this month’s festivals',
+  'दिल्ली के सूर्योदय के अनुसार गणना — तिथि, नक्षत्र, योग, सूर्योदय-सूर्यास्त और आने वाले सभी बड़े व्रत-त्योहार की तारीख़ें।': 'Calculated for Delhi sunrise — tithi, nakshatra, yoga, sunrise-sunset and the dates of every major fast and festival ahead.',
+  'आगे आने वाले व्रत और त्योहार': 'Upcoming fasts and festivals',
+  'इन तिथियों पर यात्रा की सीटें सबसे पहले भरती हैं — 3–4 सप्ताह पहले बुकिंग करा लेना ठीक रहता है।': 'Seats fill up first on these dates — booking 3–4 weeks ahead is wise.',
+  'पंचांग की पाँच बातें — आसान भाषा में': 'Five things about the panchang — in plain words',
+  'तिथि क्या होती है?': 'What is a tithi?',
+  'चंद्रमा और सूर्य के बीच का अंतर जब 12 अंश बढ़ता है, तब एक तिथि पूरी होती है। इसीलिए तिथि 24 घंटे की नहीं होती — कभी 20 घंटे की, कभी 26 घंटे की। जिस तिथि में सूर्योदय होता है, परंपरा में उसी दिन की तिथि मानी जाती है।': 'A tithi completes each time the gap between the moon and the sun grows by 12 degrees. That is why a tithi is not 24 hours — sometimes 20, sometimes 26. By tradition, the tithi running at sunrise is taken as that day’s tithi.',
+  'शुक्ल पक्ष और कृष्ण पक्ष का मतलब?': 'What do Shukla and Krishna paksha mean?',
+  'अमावस्या के बाद चंद्रमा बढ़ता है — वे 15 दिन शुक्ल पक्ष, जो पूर्णिमा पर पूरे होते हैं। फिर चंद्रमा घटता है — वे 15 दिन कृष्ण पक्ष, जो अमावस्या पर पूरे होते हैं। दोनों मिलाकर एक चंद्र मास।': 'After the new moon the moon waxes — those 15 days are Shukla paksha, ending at the full moon. Then it wanes — those 15 days are Krishna paksha, ending at the new moon. Together they make one lunar month.',
+  'नक्षत्र क्या है?': 'What is a nakshatra?',
+  'आकाश के चंद्र-पथ को 27 भागों में बाँटा गया है, हर भाग एक नक्षत्र। चंद्रमा जिस भाग में हो, उस दिन का वही नक्षत्र। शुभ कार्य के मुहूर्त में नक्षत्र देखा जाता है।': 'The moon’s path across the sky is divided into 27 parts, each one a nakshatra. Whichever part the moon occupies is that day’s nakshatra. It is consulted when choosing an auspicious muhurat.',
+  'एकादशी हर महीने दो बार क्यों आती है?': 'Why does Ekadashi come twice a month?',
+  'एकादशी यानी ग्यारहवीं तिथि — और ग्यारहवीं तिथि दोनों पक्षों में आती है, इसलिए महीने में दो एकादशी पड़ती हैं। खाटू श्याम जी के भक्तों के लिए शुक्ल पक्ष की एकादशी विशेष मानी जाती है।': 'Ekadashi means the eleventh tithi — and the eleventh tithi falls in both pakshas, so there are two each month. For devotees of Khatu Shyam Ji, the Shukla paksha Ekadashi is held especially dear.',
+  'दीपावली और होली की तारीख़ हर साल बदलती क्यों है?': 'Why do Deepawali and Holi fall on different dates each year?',
+  'हमारे त्योहार अंग्रेज़ी तारीख़ से नहीं, चंद्रमा की तिथि से तय होते हैं। चंद्र वर्ष सौर वर्ष से लगभग 11 दिन छोटा होता है, इसलिए तारीख़ हर साल खिसकती है — और तीन साल में एक बार अधिक मास जोड़कर हिसाब बराबर किया जाता है।': 'Our festivals follow the moon, not the English calendar. A lunar year is about 11 days shorter than a solar one, so the dates shift each year — and roughly every third year an extra month (adhika masa) is added to set the count right.',
+  '⚠️ यह गणना से बना पंचांग है (दिल्ली सूर्योदय)। व्रत की तारीख़ पक्की करने से पहले अपने स्थानीय पंचांग से एक बार मिला लें।': '⚠️ This panchang is calculated (Delhi sunrise). Please cross-check with your local panchang before fixing a vrat date.',
+  'शुभ तिथि पर दर्शन की तैयारी है? 🙏': 'Planning darshan on an auspicious date? 🙏',
+  'आज की तिथि और पंचांग — व्रत-त्योहार की तारीख़ें | Darshan Yatra Seva': 'Today’s Tithi and Panchang — Festival Dates | Darshan Yatra Seva',
   'आज की तिथि और इस महीने के व्रत-पर्व': 'Today’s tithi and this month’s festivals',
   'तिथि, नक्षत्र, सूर्योदय और त्योहार — दिल्ली के समय के अनुसार। किसी भी तारीख़ पर दबाकर उस दिन की यात्रा के बारे में पूछ सकते हैं।': 'Tithi, nakshatra, sunrise and festivals — as per Delhi time. Tap any date to ask about a yatra on that day.',
 
@@ -257,7 +278,7 @@ const EN = {
   'धामों की कथा — Darshan Yatra Seva': 'Stories of the Dhams — Darshan Yatra Seva',
 
   /* ── page title ── */
-  'Darshan Yatra Seva — दिल्ली से खाटू श्याम, वृंदावन, मेहंदीपुर बालाजी यात्रा': 'Darshan Yatra Seva — Khatu Shyam, Vrindavan & Mehandipur Balaji yatras from Delhi'
+  'दिल्ली से खाटू श्याम व वृंदावन यात्रा | Darshan Yatra Seva': 'Khatu Shyam & Vrindavan Yatra from Delhi | Darshan Yatra Seva'
 };
 
 /* ═══ स्विचिंग लॉजिक ═══════════════════════════════════════ */

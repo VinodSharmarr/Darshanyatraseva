@@ -555,3 +555,34 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
 .kfull .btn{margin-top:1.4rem}
 .katha__note{font-family:var(--font-h);text-align:center;font-size:.95rem;line-height:1.9;color:var(--ink-2)}
 @media (max-width:640px){.kfull{padding:1.25rem}}
+
+/* ── आगामी व्रत-पर्व की सूची (panchang.html) ── */
+.parvList{display:grid;gap:.7rem;max-width:760px;margin-inline:auto}
+.parv{display:flex;align-items:center;gap:1rem;background:#fff;border:1px solid var(--line);
+  border-radius:var(--radius);padding:.85rem 1.1rem;box-shadow:var(--shadow);transition:.2s}
+.parv:hover{border-color:var(--gold);transform:translateY(-2px)}
+.parv__date{flex:0 0 62px;text-align:center;border-right:1px solid var(--line);padding-right:.9rem;line-height:1.15}
+.parv__date b{display:block;font-family:var(--font-d);font-size:1.5rem;color:var(--maroon)}
+.parv__date span{display:block;font-size:.72rem;color:var(--gold-d);font-weight:600}
+.parv__date i{display:block;font-style:normal;font-size:.66rem;color:var(--ink-2)}
+.parv__body{flex:1;min-width:0}
+.parv__body b{display:block;font-family:var(--font-h);font-weight:400;font-size:1.04rem;color:var(--ink)}
+.parv__body span{font-size:.78rem;color:var(--ink-2)}
+.parv__ask{flex:none;font-size:.8rem;font-weight:600;color:var(--saffron);white-space:nowrap}
+.parv__ask:hover{text-decoration:underline}
+
+/* ── पंचांग समझाने वाला हिस्सा ── */
+.pan__learn{display:grid;gap:.7rem;margin-bottom:1.4rem}
+.pan__learn details{background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:1rem 1.2rem;box-shadow:var(--shadow)}
+.pan__learn summary{font-family:var(--font-h);font-size:1.05rem;color:var(--maroon);cursor:pointer;
+  list-style:none;position:relative;padding-right:1.6rem}
+.pan__learn summary::-webkit-details-marker{display:none}
+.pan__learn summary::after{content:'+';position:absolute;right:0;top:-.1rem;color:var(--gold-d);font-size:1.3rem}
+.pan__learn details[open] summary::after{content:'−'}
+.pan__learn p{margin:.7rem 0 0;font-family:var(--font-h);color:var(--ink-2);line-height:1.85}
+
+@media (max-width:560px){
+  .parv{flex-wrap:wrap}
+  .parv__ask{flex:1 0 100%;text-align:right}
+}

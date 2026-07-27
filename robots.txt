@@ -1,0 +1,9 @@
+# Darshan Yatra Seva — www.darshanyatraseva.com
+# सब कुछ खुला है, सिर्फ़ प्रबंधक पैनल बंद (वहाँ यात्रियों के नंबर होते हैं)
+
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin.html
+
+Sitemap: https://www.darshanyatraseva.com/sitemap.xml
