@@ -139,3 +139,24 @@
 .adm__forgot{display:block;margin:.9rem auto 0;background:none;border:0;color:var(--ink-2);
   font:inherit;font-size:.82rem;text-decoration:underline;cursor:pointer;opacity:.75}
 .adm__forgot:hover{opacity:1;color:var(--maroon)}
+
+/* ── हिसाब की सूची स्क्रीन पर ──
+   फ़ोन पर .csv खोलना झंझट है, इसलिए वही सूची यहीं दिखा देते हैं।
+   चौड़ी होती है — इसलिए सिर्फ़ इसी डिब्बे के अंदर बग़ल में सरकती है,
+   पूरा पेज नहीं सरकता। */
+#xlView:empty{display:none}
+.adm__tableTop{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;
+  gap:.5rem;margin:1rem 0 .5rem}
+.adm__tableTop b{color:var(--maroon);font-family:var(--font-h);font-weight:400;font-size:1.05rem}
+.adm__tableTop span{font-size:.75rem;color:var(--ink-2)}
+.adm__tableWrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);
+  -webkit-overflow-scrolling:touch}
+.adm__table{border-collapse:collapse;width:max-content;min-width:100%;font-size:.82rem}
+.adm__table th,.adm__table td{padding:.55rem .8rem;text-align:left;white-space:nowrap;
+  border-bottom:1px solid var(--line)}
+.adm__table th{background:var(--maroon);color:#fff;font-weight:600;position:sticky;top:0;
+  font-size:.78rem}
+.adm__table tbody tr:nth-child(even){background:var(--cream)}
+.adm__table tbody tr:hover{background:var(--cream-2)}
+.adm__table tr.is-total td{background:var(--gold);color:#3B1F0B;font-weight:700;border-bottom:0}
+.adm__table td:first-child{font-weight:600;color:var(--maroon)}

@@ -618,6 +618,38 @@
     return true;
   }
 
+  /* ── वही सूची स्क्रीन पर ─────────────────────────────────
+     फ़ोन पर .csv खोलने के लिए अलग ऐप चाहिए होता है, इसलिए रोज़ का
+     देखना यहीं हो जाए — फ़ाइल सिर्फ़ तब जब Excel में काम करना हो।  */
+  function showTable(rows, title) {
+    const box = $('#xlView');
+    const head = rows[0];
+    /* ख़ाली पंक्ति और "कुल जोड़" वाली आख़िरी लाइन गिनती में नहीं आतीं */
+    const body = rows.slice(1).filter(r => r.length);
+    const real = body.filter(r => r[4] !== 'कुल जोड़');
+    if (!real.length) {
+      box.innerHTML = '<p class="adm__empty">अभी कोई यात्री जुड़ा ही नहीं है — पहले "यात्री" टैब में कोई यात्री जोड़ें।</p>';
+      return;
+    }
+    box.innerHTML = `
+      <div class="adm__tableTop">
+        <b>${esc(title)}</b>
+        <span>${real.length} यात्री · बग़ल में सरकाकर बाक़ी ख़ाने देखें →</span>
+      </div>
+      <div class="adm__tableWrap">
+        <table class="adm__table">
+          <thead><tr>${head.map(h => `<th>${esc(h)}</th>`).join('')}</tr></thead>
+          <tbody>${body.map(r =>
+            `<tr${r[4] === 'कुल जोड़' ? ' class="is-total"' : ''}>${
+              r.map(c => `<td>${esc(c)}</td>`).join('')}</tr>`).join('')}</tbody>
+        </table>
+      </div>`;
+    box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  $('#viewPax').addEventListener('click', () => showTable(paxCsv(), 'यात्री रजिस्टर'));
+  $('#viewPay').addEventListener('click', () => showTable(payCsv(), 'भुगतान का हिसाब'));
+
   $('#xlPax').addEventListener('click', () => {
     if (needData()) return;
     download(`yatri-register-${stamp()}.csv`, csv(paxCsv()));
