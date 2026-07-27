@@ -404,3 +404,102 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
   .reveal{opacity:1;transform:none}
   html{scroll-behavior:auto}
 }
+
+/* ═══════════════════════════════════════════════════════════
+   पंचांग / हिन्दू कैलेंडर  (panchang.js इसे भरता है)
+   बाएँ — आज का पंचांग + महीने के व्रत · दाएँ — तारीख़ों का ग्रिड
+   ═══════════════════════════════════════════════════════════ */
+.pan{display:grid;gap:1.3rem;margin-top:2.2rem}
+@media (min-width:900px){
+  .pan{grid-template-columns:1fr 1.05fr;align-items:start}
+  .pan__cal{grid-column:2;grid-row:1 / span 2}
+}
+
+/* आज का पंचांग — गहरा मैरून कार्ड */
+.pan__today{background:linear-gradient(150deg,var(--maroon),var(--maroon-d));color:#fff;
+  border:1px solid rgba(217,164,65,.45);border-radius:var(--radius-lg);padding:1.5rem;box-shadow:var(--shadow-lg)}
+.pan__todayHead{display:flex;gap:.9rem;align-items:center;margin-bottom:1.1rem}
+.pan__om{flex:0 0 44px;width:44px;height:44px;display:grid;place-items:center;border-radius:50%;
+  background:rgba(217,164,65,.18);color:var(--gold);font-size:1.5rem;font-family:var(--font-h)}
+.pan__todayHead b{display:block;font-family:var(--font-h);font-weight:400;font-size:1.12rem}
+.pan__todayHead span{font-size:.8rem;opacity:.82}
+.pan__tithi{display:flex;align-items:baseline;justify-content:space-between;gap:.8rem;flex-wrap:wrap;
+  background:rgba(255,255,255,.08);border-radius:var(--radius);padding:.7rem 1rem;margin-bottom:1rem}
+.pan__tithi strong{font-family:var(--font-h);font-weight:400;font-size:1.45rem;color:var(--gold)}
+.pan__tithi em{font-style:normal;font-size:.8rem;opacity:.8}
+.pan__dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0 1rem}
+.pan__dl>div{display:flex;justify-content:space-between;gap:.6rem;padding:.34rem 0;
+  border-bottom:1px dashed rgba(255,255,255,.15)}
+.pan__dl dt{font-size:.78rem;color:var(--gold)}
+.pan__dl dd{margin:0;font-size:.85rem}
+.pan__parv{margin-top:1.1rem;background:var(--gold);color:#3B1F0B;font-weight:600;font-size:.85rem;
+  border-radius:999px;padding:.45rem 1rem;text-align:center}
+
+/* महीने का ग्रिड */
+.pan__cal{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);
+  padding:1.2rem;box-shadow:var(--shadow)}
+.pan__calHead{display:flex;align-items:center;justify-content:space-between;margin-bottom:.9rem}
+.pan__calHead b{font-family:var(--font-h);font-weight:400;font-size:1.1rem;color:var(--maroon)}
+.pan__nav{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:#fff;
+  color:var(--maroon);font-size:1.2rem;line-height:1;cursor:pointer;transition:.2s}
+.pan__nav:hover{background:var(--maroon);color:#fff;border-color:var(--maroon)}
+.pan__wd,.pan__grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.pan__wd span{text-align:center;font-size:.72rem;font-weight:600;color:var(--gold-d);padding-bottom:.3rem}
+.pan__cell{position:relative;border:1px solid transparent;background:var(--cream);border-radius:10px;
+  padding:.42rem .1rem .55rem;cursor:pointer;text-align:center;transition:.15s;font-family:var(--font-b)}
+.pan__cell--empty{background:transparent;cursor:default}
+.pan__cell b{display:block;font-size:.92rem;color:var(--ink)}
+.pan__cell i{display:block;font-style:normal;font-size:.62rem;color:var(--ink-2);white-space:nowrap}
+.pan__cell:hover{border-color:var(--gold);background:#fff}
+.pan__cell.is-today{background:var(--saffron)}
+.pan__cell.is-today b,.pan__cell.is-today i{color:#fff}
+.pan__cell.is-sel{border-color:var(--maroon);box-shadow:0 0 0 2px rgba(123,30,34,.18)}
+.pan__dot{position:absolute;left:50%;transform:translateX(-50%);bottom:3px;width:5px;height:5px;border-radius:50%}
+.pan__dot.lvl1{background:var(--saffron)}
+.pan__dot.lvl2{background:var(--gold-d)}
+.pan__dot.lvl3{background:#BCAA98}
+.is-today .pan__dot{background:#fff}
+.pan__pick{margin-top:.9rem;padding-top:.9rem;border-top:1px dashed var(--line);display:grid;gap:.3rem}
+.pan__pick b{font-family:var(--font-h);font-weight:400;color:var(--maroon);font-size:1.02rem}
+.pan__pick span{font-size:.85rem;color:var(--ink-2)}
+.pan__pickParv{color:var(--saffron);font-weight:600}
+.pan__pick .btn{justify-self:start;margin-top:.5rem}
+
+/* इस महीने के व्रत-पर्व */
+.pan__list{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);
+  padding:1.3rem;box-shadow:var(--shadow)}
+.pan__list h4{font-family:var(--font-h);font-weight:400;font-size:1.08rem;color:var(--maroon);margin-bottom:.9rem}
+.pan__list ul{list-style:none;display:grid;gap:.55rem;max-height:280px;overflow:auto}
+.pan__list li{display:flex;gap:.7rem;font-size:.87rem;border-left:3px solid var(--gold);padding-left:.7rem}
+.pan__list li.lvl1{border-color:var(--saffron)}
+.pan__list li b{flex:0 0 84px;color:var(--maroon);font-weight:600}
+.pan__list li span{color:var(--ink-2)}
+.pan__note{margin-top:1rem;padding-top:.7rem;border-top:1px dashed var(--line);
+  font-size:.75rem;color:var(--ink-2);opacity:.9}
+
+/* ── फ़ुटर के सोशल आइकन + प्रबंधक लिंक ── */
+.foot__social{display:flex;gap:.6rem;margin-top:.9rem}
+.foot__grid .foot__social a{display:grid;place-items:center;width:36px;height:36px;margin:0;
+  border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(217,164,65,.35);opacity:.9}
+.foot__grid .foot__social a:hover{background:var(--gold);transform:none;opacity:1}
+.foot__social svg{fill:currentColor}
+.foot__grid .foot__social a:hover svg{fill:#3B1F0B}
+.foot__admin{opacity:.45;font-size:.78rem}
+.foot__admin:hover{opacity:1;color:var(--gold)}
+
+@media (max-width:520px){
+  .pan__today,.pan__cal,.pan__list{padding:1.1rem}
+  .pan__wd,.pan__grid{gap:3px}
+  .pan__cell{padding:.35rem 0 .5rem}
+  .pan__cell i{font-size:.58rem}
+  .pan__list li b{flex:0 0 66px;font-size:.8rem}
+}
+
+/* ── बुकिंग हिस्से में सोशल पेज (config.js से) ── */
+.book__social{margin-top:1.1rem}
+.book__social b{display:block;font-size:.82rem;font-weight:600;color:var(--gold-d);margin-bottom:.5rem}
+.book__social div{display:flex;flex-wrap:wrap;gap:.5rem}
+.book__social a{display:inline-flex;align-items:center;gap:.45rem;padding:.45em .95em;border-radius:999px;
+  border:1px solid var(--line);background:#fff;color:var(--maroon);font-size:.85rem;font-weight:600;transition:.2s}
+.book__social a:hover{border-color:var(--gold);background:var(--cream);transform:translateY(-2px)}
+.book__social svg{fill:currentColor;width:18px;height:18px}

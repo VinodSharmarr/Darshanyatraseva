@@ -73,6 +73,7 @@
       <a href="#why">क्यों हम</a>
       <a href="#how">कैसे बुक करें</a>
       <a href="#departures">आगामी तिथियाँ</a>
+      <a href="#panchang">पंचांग</a>
       <a href="#faq">सवाल-जवाब</a>
       <a class="btn btn--sm btn--primary" href="#book">बुक करें</a>
     </nav>
@@ -348,6 +349,18 @@
   </div>
 </section>
 
+<!-- ══ पंचांग / हिन्दू कैलेंडर ══
+     पूरा कैलेंडर panchang.js बनाता है — यहाँ सिर्फ़ ख़ाली डिब्बा है।
+     गणना ब्राउज़र में ही होती है, कोई इंटरनेट/सर्वर नहीं लगता। -->
+<section class="sec sec--alt" id="panchang">
+  <div class="wrap">
+    <p class="eyebrow center">हिन्दू पंचांग</p>
+    <h2 class="sec__title">आज की तिथि और इस महीने के व्रत-पर्व</h2>
+    <p class="sec__lede">तिथि, नक्षत्र, सूर्योदय और त्योहार — दिल्ली के समय के अनुसार। किसी भी तारीख़ पर दबाकर उस दिन की यात्रा के बारे में पूछ सकते हैं।</p>
+    <div class="pan" id="panchangBox"></div>
+  </div>
+</section>
+
 <!-- ══ BOOKING ══ -->
 <section class="sec book" id="book">
   <div class="wrap book__in">
@@ -372,6 +385,9 @@
         </a>
         <a class="wa wa--tel" href="tel:+917289902692"><span>📞</span> +91 72899 02692</a>
       </div>
+
+      <!-- सोशल पेज — config.js से अपने आप भरते हैं (§3) -->
+      <div class="book__social" id="bookSocial"></div>
 
       <div class="paybox" id="payBox">
         <a class="pay" href="#" target="_blank" rel="noopener"><span>🔒</span> ₹501 टोकन देकर सीट पक्की करें</a>
@@ -519,6 +535,8 @@
       <a href="https://wa.me/917289902692" target="_blank" rel="noopener">💬 WhatsApp</a>
       <a href="mailto:darshanyatraseva@gmail.com">✉️ darshanyatraseva@gmail.com</a>
       <span class="foot__addr">दिल्ली, भारत</span>
+      <!-- सोशल लिंक config.js से अपने आप आते हैं — हैंडल ख़ाली हो तो कुछ नहीं दिखता -->
+      <div class="foot__social" id="footSocial"></div>
     </div>
   </div>
 
@@ -528,6 +546,8 @@
   <div class="wrap foot__bar">
     <span>© <span id="yr"></span> Darshan Yatra Seva. सर्वाधिकार सुरक्षित।</span>
     <span class="foot__om">🙏 जय श्री श्याम</span>
+    <!-- सिर्फ़ संचालक के लिए — यात्रा व यात्रियों का हिसाब (admin.html) -->
+    <a class="foot__admin" href="admin.html" rel="nofollow">प्रबंधक लॉगिन</a>
   </div>
 </footer>
 
@@ -536,7 +556,9 @@
   <svg viewBox="0 0 32 32" width="28" height="28" fill="#fff"><path d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.7 6.4L3 29l6.8-1.8c1.9 1 4 1.6 6.2 1.6 7.2 0 13-5.8 13-13S23.2 3 16 3zm0 23.6c-2 0-3.9-.5-5.5-1.5l-.4-.2-4 1.1 1.1-3.9-.3-.4A10.5 10.5 0 015.5 16c0-5.8 4.7-10.5 10.5-10.5S26.5 10.2 26.5 16 21.8 26.6 16 26.6zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.6 8.6 0 01-2.5-1.6 9.6 9.6 0 01-1.8-2.2c-.2-.3 0-.5.1-.7l.5-.6.3-.5v-.5c0-.2-.7-1.8-1-2.4-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.9-.8 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
 </a>
 
-<script src="script.js?v=2"></script>
-<script src="i18n.js?v=2"></script>
+<script src="config.js?v=3"></script>
+<script src="script.js?v=3"></script>
+<script src="panchang.js?v=3"></script>
+<script src="i18n.js?v=3"></script>
 </body>
 </html>

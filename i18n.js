@@ -226,6 +226,16 @@ const EN = {
   'मेहंदीपुर बालाजी का गर्भगृह — सुनहरे स्वरूप के दर्शन': 'Sanctum of Mehandipur Balaji — darshan of the golden form',
   'सालासर धाम का प्रवेश द्वार, चूरू': 'Entrance gate of Salasar Dham, Churu',
   '🙏 जय श्री श्याम': '🙏 Jai Shri Shyam',
+  'प्रबंधक लॉगिन': 'Manager login',
+  'यात्राओं की झलक देखें': 'See our yatras',
+
+  /* ── पंचांग सेक्शन ──
+     कैलेंडर के अंदर का टेक्स्ट (तिथि, नक्षत्र, त्योहार) panchang.js
+     ख़ुद दोनों भाषाओं में बनाता है — उसे यहाँ जोड़ने की ज़रूरत नहीं। */
+  'पंचांग': 'Panchang',
+  'हिन्दू पंचांग': 'Hindu Panchang',
+  'आज की तिथि और इस महीने के व्रत-पर्व': 'Today’s tithi and this month’s festivals',
+  'तिथि, नक्षत्र, सूर्योदय और त्योहार — दिल्ली के समय के अनुसार। किसी भी तारीख़ पर दबाकर उस दिन की यात्रा के बारे में पूछ सकते हैं।': 'Tithi, nakshatra, sunrise and festivals — as per Delhi time. Tap any date to ask about a yatra on that day.',
 
   /* ── page title ── */
   'Darshan Yatra Seva — दिल्ली से खाटू श्याम, वृंदावन, मेहंदीपुर बालाजी यात्रा': 'Darshan Yatra Seva — Khatu Shyam, Vrindavan & Mehandipur Balaji yatras from Delhi'

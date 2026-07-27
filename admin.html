@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>प्रबंधक पैनल — Darshan Yatra Seva</title>
+
+<!-- ⚠️ यह पेज Google में नहीं आना चाहिए -->
+<meta name="robots" content="noindex, nofollow" />
+<meta name="theme-color" content="#7B1E22" />
+
+<link rel="icon" href="brand/logo-icon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Tiro+Devanagari+Hindi&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css?v=3" />
+<link rel="stylesheet" href="admin.css?v=3" />
+</head>
+<body class="adm">
+
+<header class="adm__top">
+  <a class="adm__brand" href="index.html">
+    <svg viewBox="0 0 200 200" aria-hidden="true">
+      <circle cx="100" cy="100" r="95" fill="#7B1E22"/>
+      <circle cx="100" cy="100" r="95" fill="none" stroke="#D9A441" stroke-width="5"/>
+      <path d="M100 38 C110 62 120 86 124 110 L76 110 C80 86 90 62 100 38 Z" fill="#D9A441"/>
+      <rect x="68" y="110" width="64" height="7" rx="1.5" fill="#C0872E"/>
+      <rect x="74" y="117" width="52" height="28" fill="#D9A441"/>
+      <path d="M90 145 L90 132 A10 10 0 0 1 110 132 L110 145 Z" fill="#7B1E22"/>
+      <rect x="62" y="145" width="76" height="8" rx="2" fill="#D9A441"/>
+    </svg>
+    <span>दर्शन यात्रा सेवा<em>प्रबंधक पैनल</em></span>
+  </a>
+  <button class="adm__out" id="logoutBtn" type="button" hidden>बाहर निकलें</button>
+</header>
+
+<!-- ══ लॉगिन ══ -->
+<main class="adm__wrap" id="loginBox">
+  <div class="adm__card adm__card--login">
+    <h1>प्रबंधक लॉगिन</h1>
+    <p class="adm__lede">यह पेज सिर्फ़ संचालक के लिए है। यात्रा और यात्रियों का पूरा हिसाब यहीं से चलता है।</p>
+    <form id="loginForm" autocomplete="on">
+      <label class="adm__f">पासकोड
+        <input type="password" id="pass" autocomplete="current-password" required />
+      </label>
+      <button class="btn btn--primary btn--full" type="submit">लॉगिन करें</button>
+      <p class="adm__err" id="loginErr" hidden></p>
+    </form>
+    <button class="adm__forgot" type="button" id="forgotBtn">पासकोड भूल गए?</button>
+    <p class="adm__note">
+      🔒 यात्रा और यात्रियों की जानकारी <b>सिर्फ़ इसी फ़ोन/लैपटॉप</b> में सेव होती है —
+      किसी सर्वर या इंटरनेट पर नहीं जाती। इसलिए कोई और यह पेज खोले तो उसे ख़ाली पैनल ही मिलेगा।
+      <br />⚠️ फ़ोन बदलें या ब्राउज़र का डेटा साफ़ करें, उससे पहले <b>बैकअप</b> ज़रूर उतार लें।
+    </p>
+  </div>
+</main>
+
+<!-- ══ पैनल ══ -->
+<main class="adm__wrap" id="panelBox" hidden>
+
+  <nav class="adm__tabs" id="tabs">
+    <button type="button" data-tab="yatra" class="is-on">यात्राएँ</button>
+    <button type="button" data-tab="pax">यात्री</button>
+    <button type="button" data-tab="send">विवरण भेजें</button>
+    <button type="button" data-tab="more">Excel · बैकअप</button>
+  </nav>
+
+  <!-- ── यात्राएँ ── -->
+  <section class="adm__pane is-on" data-pane="yatra">
+    <div class="adm__card">
+      <h2 id="yatraFormTitle">नई यात्रा जोड़ें</h2>
+      <p class="adm__lede">एक बार भर दें — फिर हर यात्री को यही विवरण एक दबाव में चला जाएगा।</p>
+
+      <form id="yatraForm" class="adm__form">
+        <input type="hidden" name="id" />
+
+        <div class="adm__row">
+          <label class="adm__f">यात्रा का नाम <span>*</span>
+            <input name="name" list="yatraNames" required placeholder="खाटू श्याम जी" />
+            <datalist id="yatraNames">
+              <option value="खाटू श्याम जी"></option>
+              <option value="वृंदावन – मथुरा"></option>
+              <option value="मेहंदीपुर बालाजी"></option>
+              <option value="सालासर बालाजी"></option>
+              <option value="खाटू श्याम + सालासर बालाजी"></option>
+            </datalist>
+          </label>
+          <label class="adm__f">स्थिति
+            <select name="status">
+              <option value="upcoming">आगामी</option>
+              <option value="running">अभी चल रही है</option>
+              <option value="done">पूरी हो गई</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="adm__row">
+          <label class="adm__f">यात्रा की तारीख़ <span>*</span>
+            <input type="date" name="date" required />
+            <small class="adm__tithi" id="dateTithi"></small>
+          </label>
+          <label class="adm__f">प्रस्थान का समय <span>*</span>
+            <input type="time" name="depart" required />
+          </label>
+          <label class="adm__f">वापसी (जैसा बताना हो)
+            <input name="ret" placeholder="अगले दिन दोपहर तक" />
+          </label>
+        </div>
+
+        <div class="adm__row">
+          <label class="adm__f">दर्शन स्थल
+            <input name="dest" placeholder="श्री श्याम मंदिर, खाटू (सीकर)" />
+          </label>
+          <label class="adm__f">मंदिर की Google लोकेशन
+            <input name="map" type="url" placeholder="https://maps.app.goo.gl/..." />
+          </label>
+        </div>
+
+        <div class="adm__row">
+          <label class="adm__f">वाहन
+            <input name="vehicle" placeholder="AC टेम्पो ट्रैवलर" />
+          </label>
+          <label class="adm__f">कुल सीटें
+            <input name="seats" type="number" min="1" placeholder="17" />
+          </label>
+          <label class="adm__f">किराया प्रति यात्री (₹)
+            <input name="fare" type="number" min="0" placeholder="899" />
+          </label>
+        </div>
+
+        <!-- पिकअप पॉइंट -->
+        <div class="adm__pick">
+          <div class="adm__pickHead">
+            <b>पिकअप पॉइंट</b>
+            <button class="btn btn--sm btn--outline" type="button" id="addPickup">+ और जोड़ें</button>
+          </div>
+          <div id="pickupList"></div>
+          <p class="adm__hint">हर पॉइंट का Google लिंक डालने पर यात्री को सीधा नक़्शा मिल जाता है — फ़ोन पर पूछताछ आधी हो जाती है।</p>
+        </div>
+
+        <label class="adm__f">ज़रूरी बातें (हर संदेश में जाएँगी)
+          <textarea name="note" rows="3" placeholder="पिकअप समय से 10 मिनट पहले पहुँचें&#10;पहचान पत्र (आधार) साथ रखें"></textarea>
+        </label>
+
+        <div class="adm__btns">
+          <button class="btn btn--primary" type="submit">यात्रा सेव करें</button>
+          <button class="btn btn--outline" type="button" id="yatraReset">ख़ाली करें</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="adm__card">
+      <h2>सेव की हुई यात्राएँ</h2>
+      <div id="yatraList"></div>
+    </div>
+  </section>
+
+  <!-- ── यात्री ── -->
+  <section class="adm__pane" data-pane="pax">
+    <div class="adm__card">
+      <h2>यात्री जोड़ें</h2>
+      <label class="adm__f">किस यात्रा में
+        <select id="paxYatra"></select>
+      </label>
+
+      <!-- WhatsApp पर आया बुकिंग संदेश सीधे चिपकाकर फ़ॉर्म भर लेना -->
+      <div class="adm__paste">
+        <b>📥 WhatsApp का बुकिंग संदेश चिपकाएँ</b>
+        <p class="adm__hint">साइट के फ़ॉर्म से जो संदेश आपके WhatsApp पर आता है, उसे यहाँ चिपकाकर "भर दो" दबाएँ — नाम, नंबर, सीटें और पिकअप अपने आप नीचे भर जाएँगे।</p>
+        <textarea id="pasteBox" rows="3" placeholder="🙏 जय श्री श्याम! नई बुकिंग पूछताछ&#10;*नाम:* ...&#10;*मोबाइल:* ..."></textarea>
+        <div class="adm__btns">
+          <button class="btn btn--sm btn--outline" type="button" id="pasteFill">भर दो</button>
+          <button class="btn btn--sm btn--outline" type="button" id="pasteClear">मिटाएँ</button>
+        </div>
+        <p class="adm__err" id="pasteMsg" hidden></p>
+      </div>
+
+      <form id="paxForm" class="adm__form">
+        <input type="hidden" name="id" />
+        <div class="adm__row">
+          <label class="adm__f">यात्री का नाम <span>*</span>
+            <input name="name" required placeholder="सुनीता शर्मा" />
+          </label>
+          <label class="adm__f">मोबाइल नंबर <span>*</span>
+            <input name="phone" inputmode="numeric" required placeholder="98XXXXXXXX" />
+          </label>
+          <label class="adm__f">ईमेल (हो तो)
+            <input name="email" type="email" placeholder="name@gmail.com" />
+          </label>
+        </div>
+        <div class="adm__row">
+          <label class="adm__f">सीटें
+            <input name="seats" type="number" min="1" value="1" />
+          </label>
+          <label class="adm__f">पिकअप पॉइंट
+            <select name="pickup" id="paxPickup"></select>
+          </label>
+          <label class="adm__f">भुगतान <span>*</span>
+            <select name="paid">
+              <option value="full">पूरा हो गया</option>
+              <option value="token">सिर्फ़ टोकन</option>
+              <option value="due">बाक़ी है</option>
+            </select>
+          </label>
+          <label class="adm__f">मिली राशि (₹)
+            <input name="amount" type="number" min="0" placeholder="1798" />
+          </label>
+        </div>
+        <div class="adm__btns">
+          <button class="btn btn--primary" type="submit">यात्री सेव करें</button>
+          <button class="btn btn--outline" type="button" id="paxReset">ख़ाली करें</button>
+        </div>
+        <p class="adm__err" id="paxErr" hidden></p>
+      </form>
+    </div>
+
+    <div class="adm__card">
+      <div class="adm__cardHead">
+        <h2>यात्रियों की सूची</h2>
+        <button class="btn btn--sm btn--outline" type="button" id="xlThis">📊 इस यात्रा का Excel</button>
+      </div>
+      <div id="paxList"></div>
+    </div>
+  </section>
+
+  <!-- ── विवरण भेजें ── -->
+  <section class="adm__pane" data-pane="send">
+    <div class="adm__card">
+      <h2>यात्रा का विवरण भेजें</h2>
+      <label class="adm__f">यात्रा चुनें
+        <select id="sendYatra"></select>
+      </label>
+
+      <div class="adm__quick">
+        <b>सिर्फ़ नंबर डालकर भेजें</b>
+        <p class="adm__hint">जो यात्री सूची में नहीं है, उसे भी सीधे भेज सकते हैं।</p>
+        <div class="adm__row">
+          <label class="adm__f">नाम (वैकल्पिक)
+            <input id="quickName" placeholder="यात्री का नाम" />
+          </label>
+          <label class="adm__f">मोबाइल नंबर
+            <input id="quickPhone" inputmode="numeric" placeholder="98XXXXXXXX" />
+          </label>
+          <label class="adm__f">ईमेल (वैकल्पिक)
+            <input id="quickEmail" type="email" placeholder="name@gmail.com" />
+          </label>
+        </div>
+        <div class="adm__send" id="quickSend"></div>
+      </div>
+
+      <div class="adm__filter">
+        <label><input type="checkbox" id="onlyPaid" checked /> सिर्फ़ पूरा भुगतान करने वालों को दिखाएँ</label>
+      </div>
+      <div id="sendList"></div>
+    </div>
+
+    <div class="adm__card">
+      <h2>संदेश ऐसा जाएगा</h2>
+      <pre class="adm__preview" id="msgPreview"></pre>
+      <button class="btn btn--outline btn--sm" type="button" id="copyMsg">📋 संदेश कॉपी करें</button>
+    </div>
+  </section>
+
+  <!-- ── Excel + बैकअप ── -->
+  <section class="adm__pane" data-pane="more">
+    <div class="adm__card">
+      <h2>📊 Excel फ़ाइलें</h2>
+      <p class="adm__lede">
+        दोनों फ़ाइलें आपके लैपटॉप/फ़ोन के <b>Downloads</b> में उतरती हैं और Excel में
+        सीधे खुल जाती हैं (हिन्दी भी सही दिखती है)। हर बार <b>अब तक का पूरा हिसाब</b>
+        उतरता है — इसलिए नई फ़ाइल पुरानी की जगह रख दें, कुछ छूटेगा नहीं।
+      </p>
+      <div class="adm__btns">
+        <button class="btn btn--primary" type="button" id="xlPax">📊 यात्री रजिस्टर (तारीख़-समय अनुसार)</button>
+        <button class="btn btn--gold" type="button" id="xlPay">💰 भुगतान का हिसाब (टोकन / पूरा / बाक़ी)</button>
+      </div>
+      <p class="adm__note">
+        <b>यात्री रजिस्टर</b> — हर यात्री एक पंक्ति में: यात्रा की तारीख़, दिन, तिथि,
+        प्रस्थान का समय, नाम, नंबर, ईमेल, सीटें, पिकअप, भुगतान और कब जोड़ा गया।
+        पुरानी से नई तारीख़ के क्रम में।<br />
+        <b>भुगतान का हिसाब</b> — किसने टोकन दिया, किसने पूरा, कितना बाक़ी है, और
+        सबसे नीचे कुल जोड़। महीने के हिसाब-किताब के लिए यही फ़ाइल काम आएगी।
+      </p>
+    </div>
+
+    <div class="adm__card">
+      <h2>बैकअप</h2>
+      <p class="adm__lede">
+        सारा डेटा इसी ब्राउज़र में है। ब्राउज़र का डेटा साफ़ होते ही मिट जाएगा —
+        इसलिए हर यात्रा के बाद एक बार फ़ाइल उतार लें, और नए फ़ोन पर वही फ़ाइल चढ़ा दें।
+      </p>
+      <div class="adm__btns">
+        <button class="btn btn--primary" type="button" id="exportBtn">⬇ बैकअप फ़ाइल उतारें</button>
+        <label class="btn btn--outline" for="importFile">⬆ बैकअप चढ़ाएँ</label>
+        <input type="file" id="importFile" accept="application/json,.json" hidden />
+      </div>
+      <p class="adm__err" id="moreMsg" hidden></p>
+    </div>
+
+    <div class="adm__card">
+      <h2>पासकोड बदलें</h2>
+      <form id="passForm" class="adm__form">
+        <div class="adm__row">
+          <label class="adm__f">अभी वाला पासकोड <span>*</span>
+            <input type="password" id="oldPass" required autocomplete="current-password" />
+          </label>
+          <label class="adm__f">नया पासकोड <span>*</span>
+            <input type="password" id="newPass" minlength="6" required autocomplete="new-password" />
+          </label>
+          <label class="adm__f">दोबारा लिखें <span>*</span>
+            <input type="password" id="newPass2" minlength="6" required autocomplete="new-password" />
+          </label>
+        </div>
+        <div class="adm__btns"><button class="btn btn--primary" type="submit">बदल दें</button></div>
+        <p class="adm__err" id="passMsg" hidden></p>
+      </form>
+      <p class="adm__note">
+        नया पासकोड सिर्फ़ इसी फ़ोन/लैपटॉप में याद रहता है। दूसरे फ़ोन पर वही पुराना
+        पासकोड चलेगा जो <code>config.js</code> में है।<br />
+        भूल जाएँ तो घबराएँ नहीं — लॉगिन पेज पर <b>"पासकोड भूल गए?"</b> दबाने से
+        पुराना वाला वापस चालू हो जाता है, <b>यात्रा-यात्री का डेटा नहीं मिटता</b>।
+      </p>
+    </div>
+  </section>
+</main>
+
+<script src="config.js?v=3"></script>
+<script src="panchang.js?v=3"></script>
+<script src="admin.js?v=3"></script>
+</body>
+</html>

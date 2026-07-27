@@ -1,19 +1,9 @@
 /* ═══════════════════════════════════════════════════════════
    Darshan Yatra Seva — script.js
 
-   ⚠️  यहाँ अपना असली नंबर डालें / PUT YOUR REAL NUMBER HERE
-   सिर्फ़ नीचे की 3 लाइनें बदलें — पूरी साइट अपने आप अपडेट हो जाएगी।
+   ⚠️  नंबर / ईमेल / लिंक / सोशल हैंडल अब **config.js** में हैं।
+       बदलना हो तो सिर्फ़ वही फ़ाइल खोलें — यहाँ कुछ नहीं करना।
    ═══════════════════════════════════════════════════════════ */
-
-const CONFIG = {
-  whatsapp: '917289902692',          // देश कोड सहित, कोई + या स्पेस नहीं
-  phone:    '+91 72899 02692',       // दिखाने के लिए
-  email:    'darshanyatraseva@gmail.com',
-
-  /* ₹501 टोकन का Razorpay पेज। ख़ाली '' कर दें तो बटन अपने आप छुप जाएगा।
-     ⚠️ सिर्फ़ payment page का लिंक — API key_secret कभी यहाँ मत डालें। */
-  razorpay: 'https://rzp.io/rzp/DEn3MuEC'
-};
 
 /* ── 1. सभी नंबर/लिंक CONFIG से अपडेट करें ───────────────── */
 (function applyConfig(){
@@ -38,6 +28,52 @@ const CONFIG = {
     } else {
       payWrap.hidden = true;
     }
+  }
+
+  /* सोशल पेज — config.js में जो हैंडल भरा है सिर्फ़ वही दिखता है।
+     सब ख़ाली हों तो फ़ुटर में कुछ नहीं आता (अधूरा लिंक भरोसा तोड़ता है)। */
+  const socialBox = document.getElementById('footSocial');
+  if (socialBox) {
+    const S = CONFIG.social || {};
+    const icons = {
+      instagram: ['इंस्टाग्राम', 'M12 2.2c3.2 0 3.6 0 4.9.07 1.2.05 1.8.25 2.2.42.6.22 1 .48 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c0 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2 0-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c0-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 3.2A6.6 6.6 0 1 0 12 18.6 6.6 6.6 0 0 0 12 5.4zm0 10.9a4.3 4.3 0 1 1 0-8.6 4.3 4.3 0 0 1 0 8.6zm6.9-11.2a1.55 1.55 0 1 1-3.1 0 1.55 1.55 0 0 1 3.1 0z'],
+      facebook:  ['फ़ेसबुक',   'M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z'],
+      youtube:   ['यूट्यूब',   'M21.6 7.2s-.2-1.4-.8-2c-.8-.8-1.6-.8-2-.9C16 4.1 12 4.1 12 4.1s-4 0-6.8.2c-.4.1-1.2.1-2 .9-.6.6-.8 2-.8 2S2.2 8.8 2.2 10.5v1.6c0 1.7.2 3.3.2 3.3s.2 1.4.8 2c.8.8 1.8.8 2.2.9 1.6.1 6.6.2 6.6.2s4 0 6.8-.2c.4-.1 1.2-.1 2-.9.6-.6.8-2 .8-2s.2-1.6.2-3.3v-1.6c0-1.7-.2-3.3-.2-3.3zM9.9 14.6V8.9l5.2 2.9-5.2 2.8z']
+    };
+    let out = '', pills = '';
+    for (const k in icons) {
+      if (!S[k]) continue;
+      const svg = `<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="${icons[k][1]}"/></svg>`;
+      out   += `<a href="${S[k]}" target="_blank" rel="noopener" aria-label="${icons[k][0]}" title="${icons[k][0]}">${svg}</a>`;
+      pills += `<a href="${S[k]}" target="_blank" rel="noopener">${svg}<span>${icons[k][0]}</span></a>`;
+    }
+    socialBox.innerHTML = out;
+
+    /* बुकिंग वाले हिस्से में नाम के साथ — यहाँ लोग भरोसा जाँचते हैं */
+    const bookBox = document.getElementById('bookSocial');
+    if (bookBox && pills) {
+      bookBox.innerHTML = '<b>यात्राओं की झलक देखें</b><div>' + pills + '</div>';
+    }
+
+    /* Google को बताना कि ये पेज हमारे ही हैं (JSON-LD).
+       CONFIG से बनता है ताकि लिंक सिर्फ़ एक जगह बदलने पड़ें। */
+    const same = Object.keys(icons).map(k => S[k]).filter(Boolean);
+    const ld = document.createElement('script');
+    ld.type = 'application/ld+json';
+    ld.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'TravelAgency',
+      name: 'Darshan Yatra Seva',
+      alternateName: 'दर्शन यात्रा सेवा',
+      url: 'https://' + (CONFIG.site || 'www.darshanyatraseva.com') + '/',
+      telephone: '+' + CONFIG.whatsapp,
+      email: CONFIG.email,
+      image: 'https://' + (CONFIG.site || 'www.darshanyatraseva.com') + '/brand/og-image.jpg',
+      areaServed: 'Delhi NCR',
+      address: { '@type': 'PostalAddress', addressLocality: 'Delhi', addressCountry: 'IN' },
+      sameAs: same
+    });
+    document.head.appendChild(ld);
   }
 })();
 
