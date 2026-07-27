@@ -25,7 +25,11 @@ const CONFIG = {
      लिंक उसी पेज पर खुलता है और देखने में भरोसेमंद लगता है। */
   social: {
     instagram: 'https://www.instagram.com/darshanyatraseva',
-    facebook:  '',                   // बने तो यहाँ डाल दें
+    /* यह पेज का पक्का पता है। जो छोटा `facebook.com/share/...` लिंक मिलता है
+       वो घुमाकर यहीं लाता है, पर वो हर बार बदल सकता है — इसलिए पक्का वाला रखा।
+       💡 Facebook पर पेज का username (जैसे facebook.com/darshanyatraseva)
+          सेट कर लें, तो यह लंबा नंबर वाला पता हटाकर छोटा कर देंगे। */
+    facebook:  'https://www.facebook.com/people/darshanyatraseva/61592350567964/',
     youtube:   'https://www.youtube.com/@darshanyatraseva'
   },
 
