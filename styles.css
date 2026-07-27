@@ -348,8 +348,11 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
 .foot h5{font-family:var(--font-h);font-weight:400;color:var(--gold);font-size:1rem;margin-bottom:.9rem}
 .foot__grid a,.foot__addr{display:block;margin-bottom:.5rem;opacity:.8;transition:.2s}
 .foot__grid a:hover{opacity:1;color:var(--gold);transform:translateX(3px)}
-.foot__bar{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem;
-  margin-top:2.4rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.12);font-size:.82rem;opacity:.7}
+/* पूरी पट्टी को धुँधला नहीं करते — वरना अंदर का प्रबंधक बटन भी धुँधला हो जाता है।
+   सिर्फ़ कॉपीराइट वाली लाइनें हल्की रखी हैं। */
+.foot__bar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.6rem;
+  margin-top:2.4rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.12);font-size:.82rem}
+.foot__bar>span{opacity:.7}
 .foot__om{color:var(--gold)}
 /* ── fab ── */
 .fab{position:fixed;right:18px;bottom:18px;z-index:70;width:56px;height:56px;border-radius:50%;
@@ -484,8 +487,12 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
 .foot__grid .foot__social a:hover{background:var(--gold);transform:none;opacity:1}
 .foot__social svg{fill:currentColor}
 .foot__grid .foot__social a:hover svg{fill:#3B1F0B}
-.foot__admin{opacity:.45;font-size:.78rem}
-.foot__admin:hover{opacity:1;color:var(--gold)}
+/* प्रबंधक लिंक — ग्राहक के काम का नहीं, पर संचालक को फ़ोन पर तुरंत मिलना चाहिए।
+   पहले 45% धुँधला था और गहरे फ़ुटर पर दिखता ही नहीं था (28 जुलाई 2026 को ठीक किया)। */
+.foot__admin{display:inline-flex;align-items:center;gap:.35rem;padding:.4em 1em;
+  border:1px solid rgba(217,164,65,.55);border-radius:999px;color:var(--gold);
+  font-size:.8rem;font-weight:600;opacity:1;transition:.2s}
+.foot__admin:hover{background:var(--gold);color:#3B1F0B;border-color:var(--gold)}
 
 @media (max-width:520px){
   .pan__today,.pan__cal,.pan__list{padding:1.1rem}
