@@ -160,3 +160,7 @@
 .adm__table tbody tr:hover{background:var(--cream-2)}
 .adm__table tr.is-total td{background:var(--gold);color:#3B1F0B;font-weight:700;border-bottom:0}
 .adm__table td:first-child{font-weight:600;color:var(--maroon)}
+
+/* ── "रिव्यू माँगें" बटन (यात्रा लौटने के बाद) ── */
+.adm__rev{background:#FFF4D9;border-color:var(--gold);color:#8A6412}
+.adm__rev:hover{background:var(--gold);color:#3B1F0B}

@@ -418,6 +418,37 @@
     return L.join('\n');
   }
 
+  /* यात्रा लौटने के बाद रिव्यू माँगने वाला संदेश।
+     ⚠️ यहाँ कोई बना-बनाया रिव्यू नहीं भेजा जाता — सिर्फ़ लिंक और तरीक़ा।
+        एक जैसे शब्द वाले रिव्यू Google पकड़कर हटा देता है, और नक़ली शब्द
+        किसी के मुँह में डालना उपभोक्ता क़ानून के हिसाब से भी ग़लत है। */
+  function reviewMsg(y, p, rich) {
+    const B = t => rich ? '*' + t + '*' : t;
+    const C = window.CONFIG || {};
+    const naam = (p && p.name) ? p.name + ' जी' : 'यात्री जी';
+    const L = [];
+    L.push('🙏 जय श्री श्याम');
+    L.push('');
+    L.push(`नमस्ते ${naam},`);
+    L.push(y ? `${y.name} की यात्रा में हमें सेवा का अवसर देने के लिए धन्यवाद।`
+             : 'हमें सेवा का अवसर देने के लिए धन्यवाद।');
+    L.push('');
+    L.push('आपके दो शब्द किसी और परिवार को सही सेवा चुनने में मदद करेंगे।');
+    L.push(`${B('दो मिनट लगेंगे')} — और लिखना न आता हो तो बोलकर भी लिखा जा सकता है, तरीक़ा इस पेज पर बताया है:`);
+    L.push('');
+    L.push('https://' + (C.site || 'www.darshanyatraseva.com') + '/review');
+    if (C.googleReview) {
+      L.push('');
+      L.push('सीधे Google पर लिखना हो: ' + C.googleReview);
+    }
+    L.push('');
+    L.push('जो सच में लगा वही लिखिएगा — कमी हो तो वो भी बताइए, हम सुधारेंगे।');
+    L.push('');
+    L.push('— ' + (C.phone || ''));
+    L.push('जय श्री श्याम 🙏');
+    return L.join('\n');
+  }
+
   /* यात्री का अपना पिकअप, न हो तो पहला वाला */
   function pickOf(y, p) {
     const all = (y.pickups || []).filter(x => x.place);
@@ -437,10 +468,14 @@
 
     /* SMS लिंक: Android "?body=" समझता है, iPhone "&body=" —
        "?&body=" दोनों जगह चल जाता है, इसलिए वही रखा है। */
+    const rev = encodeURIComponent(reviewMsg(y, p, true));
+
     return `
       <a class="adm__wa ${okNum ? '' : 'is-off'}" ${okNum ? `href="https://wa.me/${waNum(n)}?text=${full}" target="_blank" rel="noopener"` : ''}>💬 WhatsApp</a>
       <a class="adm__sms ${okNum ? '' : 'is-off'}" ${okNum ? `href="sms:+${waNum(n)}?&body=${sms}"` : ''}>📩 SMS</a>
       <a class="adm__mail" href="mailto:${String(email || '').trim()}?subject=${sub}&body=${plain}">✉️ ईमेल</a>
+      <a class="adm__rev ${okNum ? '' : 'is-off'}" ${okNum ? `href="https://wa.me/${waNum(n)}?text=${rev}" target="_blank" rel="noopener"` : ''}
+         title="यात्रा लौटने के बाद भेजें">⭐ रिव्यू माँगें</a>
       <button type="button" class="adm__copy" data-copy="1">📋 कॉपी</button>`;
   }
 

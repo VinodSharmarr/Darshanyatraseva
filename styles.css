@@ -586,3 +586,53 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
   .parv{flex-wrap:wrap}
   .parv__ask{flex:1 0 100%;text-align:right}
 }
+
+/* ── रिव्यू माँगने वाला पेज (review.html) ── */
+.rev__cta{background:linear-gradient(150deg,var(--maroon),var(--maroon-d));border-radius:var(--radius-lg);
+  padding:1.6rem;text-align:center;box-shadow:var(--shadow-lg);margin-bottom:2.4rem}
+.rev__ctaNote{color:#F6E3C8;font-size:.85rem;margin:.9rem 0 0}
+.rev__cta--off{background:var(--cream-2);border:1px dashed var(--gold);box-shadow:none;color:var(--ink-2)}
+.rev__cta--off p{margin:0;font-size:.88rem;line-height:1.8}
+.rev__cta--off code{background:#fff;border:1px solid var(--line);border-radius:6px;padding:.1em .4em;font-size:.85em}
+.rev__h2{font-size:clamp(1.4rem,3.6vw,1.9rem);margin-bottom:1.4rem}
+
+.rev__steps{list-style:none;counter-reset:s;display:grid;gap:.9rem;margin-bottom:2.4rem}
+.rev__steps li{counter-increment:s;position:relative;background:#fff;border:1px solid var(--line);
+  border-radius:var(--radius);padding:1.1rem 1.2rem 1.1rem 4rem;box-shadow:var(--shadow)}
+.rev__steps li::before{content:counter(s);position:absolute;left:1.1rem;top:1.05rem;width:34px;height:34px;
+  display:grid;place-items:center;border-radius:50%;background:var(--saffron);color:#fff;
+  font-family:var(--font-d);font-size:1.05rem}
+.rev__steps b{display:block;font-family:var(--font-h);font-weight:400;font-size:1.1rem;color:var(--maroon)}
+.rev__steps span{font-size:.9rem;color:var(--ink-2);line-height:1.75}
+
+.rev__mic{background:#F2F8F4;border:1px solid #9FCDB3;border-radius:var(--radius-lg);
+  padding:1.5rem;margin-bottom:2.2rem}
+.rev__mic h3{font-family:var(--font-h);font-weight:400;font-size:1.2rem;color:#1E7A45;margin-bottom:.7rem}
+.rev__mic ol{margin:.8rem 0 0;padding-left:1.3rem;list-style:decimal}
+.rev__mic li{margin-bottom:.55rem;font-size:.93rem;line-height:1.75;color:var(--ink)}
+.rev__mic i{color:var(--ink-2)}
+.rev__micNote{margin:1rem 0 0;font-size:.85rem;color:#1E7A45}
+
+.rev__help{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);
+  padding:1.5rem;box-shadow:var(--shadow);margin-bottom:2rem}
+.rev__help h3{font-family:var(--font-h);font-weight:400;font-size:1.15rem;color:var(--maroon);margin-bottom:.9rem}
+.rev__help ul{display:grid;gap:.5rem}
+.rev__help li{position:relative;padding-left:1.4rem;font-size:.93rem;color:var(--ink-2);line-height:1.7}
+.rev__help li::before{content:'•';position:absolute;left:.3rem;color:var(--gold-d);font-size:1.2rem;line-height:1.2}
+.rev__helpNote{margin:1.2rem 0 0;padding-top:1rem;border-top:1px dashed var(--line);
+  font-size:.88rem;color:var(--ink-2);line-height:1.8}
+.rev__thanks{text-align:center;font-family:var(--font-h);font-size:1.08rem;color:var(--maroon);line-height:2}
+
+/* ⚠️ अंदर वाले पेजों (कथा, पंचांग, रिव्यू) की नेव मोबाइल पर drawer नहीं बनती —
+   वहाँ ☰ बटन है ही नहीं, इसलिए drawer खुलता ही नहीं और लिंक ग़ायब हो जाते थे
+   (साथ में पेज बग़ल में भी सरकने लगता था)। यहाँ उसे सीधा-सादा रखा है। */
+@media (max-width:760px){
+  .nav__links.katha__nav{position:static;transform:none;height:auto;width:auto;
+    flex-direction:row;align-items:center;justify-content:flex-end;gap:.6rem;
+    padding:0;margin-left:auto;background:none;border:0;box-shadow:none;font-size:.86rem}
+  .nav__links.katha__nav .btn{padding:.45em .9em;font-size:.8rem}
+}
+@media (max-width:420px){
+  .nav__links.katha__nav{font-size:.8rem;gap:.45rem}
+  .katha__nav ~ .langbtn{display:none}   /* जगह कम पड़े तो भाषा बटन नीचे नहीं, हटा दो */
+}

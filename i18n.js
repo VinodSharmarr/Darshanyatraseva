@@ -273,7 +273,7 @@ const EN = {
   '📖 सातों धामों की कथा पढ़ें': '📖 Read the stories of all seven dhams',
   'मान्यता क्या है, और पूजा कैसे की जाती है': 'The belief behind each dham, and how the puja is done',
   'तीस वर्षों के सत्संग और यात्राओं के अनुभव से, सरल भाषा में — ताकि दर्शन से पहले मन तैयार हो और वहाँ जाकर यह न सोचना पड़े कि क्या करें, क्या न करें।': 'From thirty years of satsang and yatras, told simply — so the heart is ready before darshan, and you never have to wonder what to do once you are there.',
-  '← मुख्य पेज पर वापस': '← Back to main page',
+  '← मुख्य पेज': '← Main page',
   '🙏 ये कथाएँ श्रद्धा और परंपरा पर आधारित हैं। क्षेत्र, परिवार और गुरु-परंपरा के अनुसार पूजा की विधि में थोड़ा अंतर मिलता है — इसलिए धाम पर वहाँ के पुजारी जी से पूछ लेना सबसे अच्छा रहता है। कोई बात सुधारने योग्य लगे तो हमें WhatsApp पर ज़रूर बताइए, हम उसे ठीक कर देंगे।': '🙏 These stories rest on faith and tradition. The vidhi varies a little by region, family and guru-parampara — so it is always best to ask the pujari at the dham itself. If anything here deserves correction, please tell us on WhatsApp and we will set it right.',
   'धामों की कथा — Darshan Yatra Seva': 'Stories of the Dhams — Darshan Yatra Seva',
 
