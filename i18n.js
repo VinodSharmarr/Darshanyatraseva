@@ -243,6 +243,19 @@ const EN = {
   'आज की तिथि और इस महीने के व्रत-पर्व': 'Today’s tithi and this month’s festivals',
   'तिथि, नक्षत्र, सूर्योदय और त्योहार — दिल्ली के समय के अनुसार। किसी भी तारीख़ पर दबाकर उस दिन की यात्रा के बारे में पूछ सकते हैं।': 'Tithi, nakshatra, sunrise and festivals — as per Delhi time. Tap any date to ask about a yatra on that day.',
 
+  /* ── धामों की कथा (सेक्शन + katha.html) ──
+     कार्ड और कथाओं के अंदर का टेक्स्ट katha.js ख़ुद दोनों भाषाओं में
+     बनाता है — यहाँ सिर्फ़ पक्का HTML वाला टेक्स्ट है। */
+  'धामों की कथा': 'Stories of the Dhams',
+  'ये धाम क्यों माने जाते हैं, और पूजा कैसे होती है': 'Why these dhams are revered, and how the puja is done',
+  'तीस वर्षों के सत्संग और यात्राओं के अनुभव से, सरल भाषा में — ताकि दर्शन से पहले मन तैयार हो।': 'From thirty years of satsang and yatras, told simply — so the heart is ready before darshan.',
+  '📖 सातों धामों की कथा पढ़ें': '📖 Read the stories of all seven dhams',
+  'मान्यता क्या है, और पूजा कैसे की जाती है': 'The belief behind each dham, and how the puja is done',
+  'तीस वर्षों के सत्संग और यात्राओं के अनुभव से, सरल भाषा में — ताकि दर्शन से पहले मन तैयार हो और वहाँ जाकर यह न सोचना पड़े कि क्या करें, क्या न करें।': 'From thirty years of satsang and yatras, told simply — so the heart is ready before darshan, and you never have to wonder what to do once you are there.',
+  '← मुख्य पेज पर वापस': '← Back to main page',
+  '🙏 ये कथाएँ श्रद्धा और परंपरा पर आधारित हैं। क्षेत्र, परिवार और गुरु-परंपरा के अनुसार पूजा की विधि में थोड़ा अंतर मिलता है — इसलिए धाम पर वहाँ के पुजारी जी से पूछ लेना सबसे अच्छा रहता है। कोई बात सुधारने योग्य लगे तो हमें WhatsApp पर ज़रूर बताइए, हम उसे ठीक कर देंगे।': '🙏 These stories rest on faith and tradition. The vidhi varies a little by region, family and guru-parampara — so it is always best to ask the pujari at the dham itself. If anything here deserves correction, please tell us on WhatsApp and we will set it right.',
+  'धामों की कथा — Darshan Yatra Seva': 'Stories of the Dhams — Darshan Yatra Seva',
+
   /* ── page title ── */
   'Darshan Yatra Seva — दिल्ली से खाटू श्याम, वृंदावन, मेहंदीपुर बालाजी यात्रा': 'Darshan Yatra Seva — Khatu Shyam, Vrindavan & Mehandipur Balaji yatras from Delhi'
 };
