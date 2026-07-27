@@ -226,7 +226,9 @@ const EN = {
   'मेहंदीपुर बालाजी का गर्भगृह — सुनहरे स्वरूप के दर्शन': 'Sanctum of Mehandipur Balaji — darshan of the golden form',
   'सालासर धाम का प्रवेश द्वार, चूरू': 'Entrance gate of Salasar Dham, Churu',
   '🙏 जय श्री श्याम': '🙏 Jai Shri Shyam',
-  'प्रबंधक लॉगिन': 'Manager login',
+  /* ⚠️ 🔐 समेत लिखना ज़रूरी है — HTML में जो लिखा है, हूबहू वही key बनती है।
+     (admin.html हमेशा हिन्दी में ही रहता है, वो i18n.js लोड नहीं करता) */
+  '🔐 प्रबंधक लॉगिन': '🔐 Manager login',
   'यात्राओं की झलक देखें': 'See our yatras',
   /* सोशल बटन के नाम — फ़ुटर के आइकन और बुकिंग वाली पिल्स दोनों में लगते हैं */
   'इंस्टाग्राम': 'Instagram',
