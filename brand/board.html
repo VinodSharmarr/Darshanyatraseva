@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<title>Darshan Yatra Seva — Office Board (A4)</title>
+<!-- ═══════════════════════════════════════════════════════════
+     ऑफ़िस के बाहर लगाने वाला बोर्ड — A4 खड़ा (portrait), पूरा रंगीन।
+
+     PDF: ब्राउज़र में खोलिए → Ctrl+P → Save as PDF → Margins: None
+          → "Background graphics" पर टिक ज़रूर लगाइए।
+     (brand/board.pdf इसी से बनी है।)
+
+     छपवाने की सलाह: 300 GSM आर्ट कार्ड पर, ऊपर से लैमिनेशन —
+     धूप-बारिश में भी नहीं ख़राब होगा। ₹100–200 में हो जाएगा।
+
+     ⚠️ नंबर/पता बदले तो नीचे दोनों जगह बदलिए, और QR दोबारा बनाइए:
+        python -c "import segno; segno.make('https://www.darshanyatraseva.com/', error='h').save('brand/qr-website.svg', scale=10, border=2, dark='#7B1E22', light=None)"
+     ═══════════════════════════════════════════════════════════ -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Tiro+Devanagari+Hindi&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  @page { size: A4 portrait; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root{
+    --maroon:#7B1E22; --maroon-d:#4E1013; --saffron:#E9531F;
+    --gold:#D9A441;   --gold-l:#F0C46B;   --cream:#FFF9F0;
+  }
+  html, body { width:210mm; height:296mm; overflow:hidden; }
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    display:flex; flex-direction:column; text-align:center;
+    background:linear-gradient(170deg,var(--maroon) 0%,var(--maroon-d) 100%);
+    color:#fff; position:relative;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+
+  /* सुनहरा किनारा */
+  body::before{
+    content:''; position:absolute; inset:5mm; border:1.2mm solid var(--gold);
+    border-radius:3mm; pointer-events:none;
+  }
+  body::after{
+    content:''; position:absolute; inset:7mm; border:.3mm solid rgba(217,164,65,.5);
+    border-radius:2mm; pointer-events:none;
+  }
+
+  .in{ position:relative; z-index:1; padding:13mm 14mm 10mm; display:flex;
+       flex-direction:column; height:100%; }
+
+  /* ── ॐ और लोगो ── */
+  .om{ font-family:'Tiro Devanagari Hindi',serif; font-size:15pt; color:var(--gold-l);
+       letter-spacing:3mm; margin-bottom:3mm; }
+  .logo{ width:38mm; height:38mm; margin:0 auto 5mm; }
+
+  /* ── नाम ── */
+  h1{ font-family:'Marcellus',Georgia,serif; font-size:34pt; font-weight:400;
+      letter-spacing:.6pt; line-height:1.05; }
+  .hi{ font-family:'Tiro Devanagari Hindi',serif; font-size:20pt;
+       color:var(--gold-l); margin-top:2mm; }
+  .tag{ font-family:'Tiro Devanagari Hindi',serif; font-size:11.5pt;
+        color:rgba(255,255,255,.85); margin-top:2.5mm; }
+
+  .div{ width:46mm; height:.6mm; background:var(--gold); margin:6mm auto; border-radius:1mm; }
+
+  /* ── यात्राएँ ── */
+  .yatras{ font-family:'Tiro Devanagari Hindi',serif; font-size:13pt; line-height:2.1; }
+  .yatras b{ font-weight:400; }
+  .yatras i{ font-style:normal; color:var(--gold); margin:0 2mm; }
+
+  /* ── सेवाएँ ── */
+  .feats{ display:flex; justify-content:center; flex-wrap:wrap; gap:2mm 3mm; margin-top:6mm; }
+  .feats span{ font-family:'Tiro Devanagari Hindi',serif; font-size:9.5pt;
+    background:rgba(255,255,255,.12); border:.25mm solid rgba(217,164,65,.55);
+    border-radius:20mm; padding:1.4mm 4mm; }
+
+  /* ── प्रस्थान के दिन — बीच की ख़ाली जगह में, राहगीर के काम की बात ── */
+  .days{ margin:7mm auto 0; width:100%;
+         border:.3mm solid rgba(217,164,65,.45); border-radius:3mm; padding:4mm 3mm 3.5mm; }
+  .days h2{ font-family:'Tiro Devanagari Hindi',serif; font-weight:400; font-size:10.5pt;
+            color:var(--gold-l); letter-spacing:.4pt; margin-bottom:3mm; }
+  .days table{ width:100%; border-collapse:collapse;
+               font-family:'Tiro Devanagari Hindi',serif; font-size:10.5pt; }
+  .days td{ padding:1.5mm 2mm; }
+  .days td:first-child{ text-align:right; color:#fff; }
+  .days td:last-child{ text-align:left; color:var(--gold-l); width:46%; }
+  .days .dot{ width:6mm; color:var(--gold); }
+
+  /* ── फ़ोन ── */
+  .phone{ margin-top:auto; background:var(--gold);
+          border-radius:3mm; padding:5mm 4mm 4.5mm; color:#3B1F0B; }
+  .phone small{ display:block; font-family:'Tiro Devanagari Hindi',serif;
+                font-size:10pt; margin-bottom:1mm; }
+  .phone b{ font-size:26pt; font-weight:800; letter-spacing:.6pt; display:block; line-height:1.1; }
+  .phone em{ font-style:normal; font-size:9pt; font-weight:600; display:block; margin-top:1mm; }
+
+  /* ── QR + पता ── */
+  .bottom{ display:flex; align-items:center; gap:5mm; margin-top:5mm; text-align:left; }
+  .qr{ background:#fff; border-radius:2mm; padding:2mm; flex:none; }
+  .qr img{ width:26mm; height:26mm; display:block; }
+  .qr small{ display:block; text-align:center; font-size:6.5pt; color:var(--maroon);
+             font-weight:700; margin-top:.6mm; }
+  .addr{ flex:1; font-family:'Tiro Devanagari Hindi',serif; font-size:10.5pt; line-height:1.65; }
+  .addr b{ display:block; color:var(--gold-l); font-weight:400; font-size:9.5pt;
+           margin-bottom:1mm; letter-spacing:.3pt; }
+  .addr .web{ font-family:'Inter',sans-serif; font-size:9.5pt; color:#fff;
+              margin-top:2mm; font-weight:600; }
+
+  .reg{ margin-top:4mm; font-size:7.5pt; color:rgba(255,255,255,.6); letter-spacing:.3pt; }
+</style>
+</head>
+<body>
+<div class="in">
+
+  <div class="om">॥ श्री श्याम शरणम् ॥</div>
+
+  <svg class="logo" viewBox="0 0 200 200" aria-hidden="true">
+    <circle cx="100" cy="100" r="95" fill="#FFF9F0"/>
+    <circle cx="100" cy="100" r="95" fill="none" stroke="#D9A441" stroke-width="5"/>
+    <circle cx="100" cy="100" r="86" fill="none" stroke="#D9A441" stroke-width="1.6" opacity=".6"/>
+    <circle cx="100" cy="29" r="4.5" fill="#B8862C"/>
+    <rect x="98.6" y="32" width="2.8" height="8" fill="#B8862C"/>
+    <path d="M100 38 C110 62 120 86 124 110 L76 110 C80 86 90 62 100 38 Z" fill="#7B1E22"/>
+    <path d="M100 46 C104 68 108 89 110 108" stroke="#5C1418" stroke-width="1.6" fill="none" opacity=".7"/>
+    <path d="M100 46 C96 68 92 89 90 108" stroke="#5C1418" stroke-width="1.6" fill="none" opacity=".7"/>
+    <rect x="68" y="110" width="64" height="7" rx="1.5" fill="#B8862C"/>
+    <rect x="74" y="117" width="52" height="28" fill="#7B1E22"/>
+    <path d="M90 145 L90 132 A10 10 0 0 1 110 132 L110 145 Z" fill="#FFF9F0"/>
+    <rect x="62" y="145" width="76" height="8" rx="2" fill="#B8862C"/>
+    <rect x="56" y="153" width="88" height="5" rx="2" fill="#7B1E22"/>
+    <path d="M58 172 Q100 158 142 172" stroke="#E9531F" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <circle cx="100" cy="165" r="3.4" fill="#7B1E22"/>
+  </svg>
+
+  <h1>Darshan Yatra Seva</h1>
+  <div class="hi">दर्शन यात्रा सेवा</div>
+  <div class="tag">आस्था की यात्रा, सेवा के साथ</div>
+
+  <div class="div"></div>
+
+  <div class="yatras">
+    <b>खाटू श्याम जी</b> <i>·</i> <b>वृंदावन – मथुरा</b><br />
+    <b>मेहंदीपुर बालाजी</b> <i>·</i> <b>सालासर धाम</b>
+  </div>
+
+  <div class="feats">
+    <span>AC टेम्पो ट्रैवलर व बस</span>
+    <span>प्रसाद व पानी शामिल</span>
+    <span>मेट्रो से पिकअप</span>
+    <span>बुज़ुर्गों की विशेष सहायता</span>
+    <span>महिलाओं हेतु सुरक्षित सीटिंग</span>
+  </div>
+
+  <!-- ⚠️ ये दिन index.html के "आगामी प्रस्थान" कार्ड से लिए हैं।
+       वहाँ बदलें तो यहाँ भी बदलिए, वरना बोर्ड और साइट अलग-अलग बोलेंगे। -->
+  <div class="days">
+    <h2>साप्ताहिक प्रस्थान</h2>
+    <table>
+      <tr><td>खाटू श्याम जी</td><td class="dot">·</td><td>हर शुक्रवार</td></tr>
+      <tr><td>वृंदावन – मथुरा</td><td class="dot">·</td><td>हर रविवार</td></tr>
+      <tr><td>मेहंदीपुर बालाजी</td><td class="dot">·</td><td>हर शनिवार</td></tr>
+      <tr><td>खाटू + सालासर</td><td class="dot">·</td><td>माह का दूसरा शनिवार</td></tr>
+    </table>
+  </div>
+
+  <div class="phone">
+    <small>बुकिंग एवं जानकारी के लिए</small>
+    <b>+91 72899 02692</b>
+    <em>CALL · WHATSAPP</em>
+  </div>
+
+  <div class="bottom">
+    <div class="qr">
+      <img src="qr-website.svg" alt="वेबसाइट QR" />
+      <small>वेबसाइट</small>
+    </div>
+    <div class="addr">
+      <b>कार्यालय</b>
+      A-36, P &amp; T ब्लॉक, राजधानी पार्क,<br />
+      नांगलोई, दिल्ली – 110041
+      <div class="web">www.darshanyatraseva.com</div>
+    </div>
+    <div class="qr">
+      <img src="qr-whatsapp.svg" alt="WhatsApp QR" />
+      <small>WHATSAPP</small>
+    </div>
+  </div>
+
+  <div class="reg">पंजीकरण सं. 2026069268 &nbsp;·&nbsp; @darshanyatraseva</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<title>Darshan Yatra Seva — कोटेशन</title>
+<!-- ═══════════════════════════════════════════════════════════
+     कोटेशन — पूरी गाड़ी की बुकिंग के लिए (RWA, ऑफ़िस, मंदिर मंडली,
+     परिवार)। A4, एक पेज। छपवाकर हाथ से भरने के लिए।
+
+     PDF: Ctrl+P → Save as PDF → Margins: None → Background graphics ✔
+
+     ⚠️ दाम यहाँ छपे हुए नहीं हैं — जान-बूझकर। दाम सिर्फ़ बातचीत में
+        तय होते हैं (HANDOVER का नियम 1)। खाली जगह में हाथ से भरिए।
+     ═══════════════════════════════════════════════════════════ -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Tiro+Devanagari+Hindi&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root{
+    --maroon:#7B1E22; --saffron:#E9531F; --gold:#D9A441; --gold-d:#B8862C;
+    --cream:#FFF9F0; --ink:#241713; --ink-2:#5C4A43; --line:#EADBC8;
+  }
+  html, body { width:210mm; height:296mm; overflow:hidden; }
+  body{ font-family:'Inter',sans-serif; color:var(--ink); background:#fff;
+        display:flex; flex-direction:column;
+        -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+
+  .edge{ height:5mm; background:linear-gradient(90deg,var(--saffron),var(--gold) 55%,var(--maroon)); }
+  .in{ flex:1; padding:8mm 14mm 6mm; display:flex; flex-direction:column; }
+
+  /* शीर्ष */
+  .top{ display:flex; align-items:center; gap:5mm; padding-bottom:3.5mm;
+        border-bottom:1.2pt solid var(--maroon); }
+  .top svg{ width:19mm; height:19mm; flex:none; }
+  .top .nm{ flex:1; }
+  .top h1{ font-family:'Marcellus',serif; font-size:19pt; font-weight:400; color:var(--maroon); }
+  .top .hi{ font-family:'Tiro Devanagari Hindi',serif; font-size:10pt; color:var(--gold-d); }
+  .top .tg{ font-family:'Tiro Devanagari Hindi',serif; font-size:8pt; color:var(--ink-2); }
+  .top .ct{ text-align:right; font-size:7.5pt; color:var(--ink-2); line-height:1.7; }
+  .top .ct b{ display:block; font-size:11pt; color:var(--maroon); }
+
+  h2.doc{ font-family:'Tiro Devanagari Hindi',serif; font-weight:400; font-size:15pt;
+          color:var(--maroon); text-align:center; margin:4.5mm 0 1mm; letter-spacing:.5pt; }
+  .sub{ text-align:center; font-family:'Tiro Devanagari Hindi',serif;
+        font-size:8.5pt; color:var(--ink-2); margin-bottom:4mm; }
+
+  table.f{ width:100%; border-collapse:collapse;
+           font-family:'Tiro Devanagari Hindi',serif; font-size:9.5pt; }
+  table.f td{ padding:2.4mm 0; vertical-align:bottom; }
+  .lbl{ width:30mm; color:var(--gold-d); white-space:nowrap; }
+  .lbl2{ width:26mm; color:var(--gold-d); white-space:nowrap; padding-left:7mm !important; }
+  .val{ border-bottom:.3mm dotted #9C8B79; }
+
+  /* दाम का डिब्बा */
+  .rate{ margin-top:4mm; border:.4mm solid var(--gold); border-radius:2.5mm; overflow:hidden; }
+  .rate .hd{ background:var(--maroon); color:#fff; font-family:'Tiro Devanagari Hindi',serif;
+             font-size:9.5pt; padding:2.2mm 4mm; }
+  .rate table{ width:100%; border-collapse:collapse;
+               font-family:'Tiro Devanagari Hindi',serif; font-size:9.5pt; }
+  .rate td{ padding:2.8mm 4mm; border-bottom:.25mm solid var(--line); }
+  .rate tr:last-child td{ border-bottom:0; background:var(--cream); }
+  .rate tr:last-child td:first-child{ color:var(--maroon); }
+  .rate .r{ text-align:right; width:42mm; border-left:.25mm solid var(--line); }
+
+  /* शामिल / अलग */
+  .cols{ display:flex; gap:4mm; margin-top:4mm; }
+  .cols > div{ flex:1; border:.3mm solid var(--line); border-radius:2.5mm; padding:3mm 4mm;
+               font-family:'Tiro Devanagari Hindi',serif; font-size:8.2pt; line-height:1.9; }
+  .cols h3{ font-weight:400; font-size:9.5pt; margin-bottom:1.5mm; }
+  .cols .inc h3{ color:#1E7A45; }
+  .cols .exc h3{ color:#B3350B; }
+  .cols li{ list-style:none; }
+
+  /* शर्तें */
+  .terms{ margin-top:4mm; font-family:'Tiro Devanagari Hindi',serif;
+          font-size:7.4pt; color:var(--ink-2); line-height:1.85; }
+  .terms b{ color:var(--maroon); }
+
+  /* नीचे */
+  .foot{ margin-top:auto; display:flex; justify-content:space-between;
+         align-items:flex-end; gap:6mm; padding-top:5mm; }
+  .valid{ font-family:'Tiro Devanagari Hindi',serif; font-size:8.5pt; color:var(--ink-2); }
+  .valid b{ color:var(--maroon); font-weight:400; }
+  .sign{ text-align:center; font-family:'Tiro Devanagari Hindi',serif;
+         font-size:8pt; color:var(--ink-2); flex:none; width:48mm; }
+  .sign .ln{ border-bottom:.3mm solid var(--ink-2); height:12mm; margin-bottom:1.5mm; }
+  .om{ color:var(--gold-d); font-size:8.5pt; }
+
+  .addr{ text-align:center; font-family:'Tiro Devanagari Hindi',serif;
+         font-size:7.2pt; color:var(--ink-2); padding-bottom:3mm; }
+  .edge--b{ height:3mm; background:linear-gradient(90deg,var(--maroon),var(--gold) 45%,var(--saffron)); }
+</style>
+</head>
+<body>
+
+<div class="edge"></div>
+
+<div class="in">
+  <div class="top">
+    <svg viewBox="0 0 200 200" aria-hidden="true">
+      <circle cx="100" cy="100" r="95" fill="#7B1E22"/>
+      <circle cx="100" cy="100" r="95" fill="none" stroke="#D9A441" stroke-width="4.5"/>
+      <circle cx="100" cy="100" r="86" fill="none" stroke="#D9A441" stroke-width="1.4" opacity=".5"/>
+      <circle cx="100" cy="29" r="4.5" fill="#D9A441"/>
+      <path d="M100 38 C110 62 120 86 124 110 L76 110 C80 86 90 62 100 38 Z" fill="#D9A441"/>
+      <rect x="68" y="110" width="64" height="7" rx="1.5" fill="#C0872E"/>
+      <rect x="74" y="117" width="52" height="28" fill="#D9A441"/>
+      <path d="M90 145 L90 132 A10 10 0 0 1 110 132 L110 145 Z" fill="#7B1E22"/>
+      <rect x="62" y="145" width="76" height="8" rx="2" fill="#D9A441"/>
+      <rect x="56" y="153" width="88" height="5" rx="2" fill="#C0872E"/>
+      <path d="M58 172 Q100 158 142 172" stroke="#E9531F" stroke-width="7" fill="none" stroke-linecap="round"/>
+    </svg>
+    <div class="nm">
+      <h1>Darshan Yatra Seva</h1>
+      <div class="hi">दर्शन यात्रा सेवा</div>
+      <div class="tg">आस्था की यात्रा, सेवा के साथ</div>
+    </div>
+    <div class="ct">
+      <b>+91 72899 02692</b>
+      darshanyatraseva@gmail.com<br />
+      www.darshanyatraseva.com
+    </div>
+  </div>
+
+  <h2 class="doc">यात्रा कोटेशन</h2>
+  <p class="sub">पूरी गाड़ी बुकिंग — परिवार · RWA · कार्यालय · मंदिर मंडली</p>
+
+  <table class="f">
+    <tr>
+      <td class="lbl">कोटेशन सं.</td><td class="val"></td>
+      <td class="lbl2">दिनांक</td><td class="val"></td>
+    </tr>
+    <tr>
+      <td class="lbl">सेवा में (नाम)</td><td class="val" colspan="3"></td>
+    </tr>
+    <tr>
+      <td class="lbl">संस्था / सोसाइटी</td><td class="val"></td>
+      <td class="lbl2">मोबाइल नं.</td><td class="val"></td>
+    </tr>
+    <tr>
+      <td class="lbl">यात्रा</td><td class="val"></td>
+      <td class="lbl2">यात्रा तिथि</td><td class="val"></td>
+    </tr>
+    <tr>
+      <td class="lbl">पिकअप स्थान</td><td class="val"></td>
+      <td class="lbl2">प्रस्थान समय</td><td class="val"></td>
+    </tr>
+  </table>
+
+  <div class="rate">
+    <div class="hd">वाहन एवं दर</div>
+    <table>
+      <tr>
+        <td>वाहन का प्रकार (टेम्पो ट्रैवलर / बस)</td>
+        <td class="r"></td>
+      </tr>
+      <tr>
+        <td>कुल सीटें / यात्री संख्या</td>
+        <td class="r"></td>
+      </tr>
+      <tr>
+        <td>दर — प्रति यात्री अथवा पूरी गाड़ी (₹)</td>
+        <td class="r"></td>
+      </tr>
+      <tr>
+        <td><b>कुल अनुमानित राशि (₹)</b></td>
+        <td class="r"></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="cols">
+    <div class="inc">
+      <h3>✓ किराए में शामिल</h3>
+      <ul>
+        <li>· AC वाहन, ईंधन एवं चालक</li>
+        <li>· टोल, पार्किंग एवं राज्य कर</li>
+        <li>· पीने का पानी</li>
+        <li>· मंदिर का प्रसाद</li>
+        <li>· यात्रा सहायक की सेवा</li>
+        <li>· बुज़ुर्गों की विशेष सहायता</li>
+      </ul>
+    </div>
+    <div class="exc">
+      <h3>✗ किराए से अलग</h3>
+      <ul>
+        <li>· भोजन एवं जलपान</li>
+        <li>· मंदिर की विशेष पूजा / VIP दर्शन शुल्क</li>
+        <li>· ठहरने की व्यवस्था (यदि आवश्यक हो)</li>
+        <li>· व्यक्तिगत ख़र्च</li>
+        <li>· निर्धारित मार्ग से अतिरिक्त दूरी</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="terms">
+    <b>शर्तें:</b> सीट पक्की करने हेतु अग्रिम भुगतान आवश्यक है ·
+    प्रस्थान से 72 घंटे पहले रद्द करने पर 100% रिफंड, 24–72 घंटे पहले 50%, 24 घंटे के अंदर रिफंड नहीं ·
+    मंदिर की भीड़, कतार की अवधि अथवा प्रशासन द्वारा किए गए परिवर्तन हमारे नियंत्रण में नहीं हैं ·
+    यात्रा के समय सभी यात्रियों हेतु पहचान पत्र अनिवार्य है ·
+    मौसम अथवा मार्ग की स्थिति के कारण समय में परिवर्तन संभव है।
+  </div>
+
+  <div class="foot">
+    <div class="valid">
+      यह कोटेशन <b>दिनांक ....................</b> तक मान्य है।<br />
+      स्वीकृति हेतु कृपया WhatsApp पर सूचित करें — <b>+91 72899 02692</b>
+    </div>
+    <div class="sign">
+      <div class="ln"></div>
+      हस्ताक्षर एवं मुहर
+      <div class="om">🙏 जय श्री श्याम</div>
+    </div>
+  </div>
+</div>
+
+<div class="addr">A-36, P &amp; T ब्लॉक, राजधानी पार्क, नांगलोई, दिल्ली – 110041 &nbsp;·&nbsp; पंजीकरण सं. 2026069268</div>
+<div class="edge--b"></div>
+
+</body>
+</html>
