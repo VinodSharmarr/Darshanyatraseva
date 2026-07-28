@@ -261,38 +261,48 @@ window.Katha = (function () {
       </a>`).join('');
   }
 
-  /* कथा वाला पेज — सब कुछ खुला हुआ */
-  function renderFull(host) {
-    const t = w();
-    const wa = 'https://wa.me/' + ((window.CONFIG && CONFIG.whatsapp) || '');
+  /* कथा वाले पेज का पूरा HTML — एक ही जगह बनता है।
+     ⚠️ यही build-katha.js भी इस्तेमाल करता है, ताकि वही HTML पहले से
+        katha.html में लिखा जा सके (Googlebot को JavaScript चलाए बिना
+        पूरी कथाएँ दिख जाएँ — 29 जुलाई 2026 को यह कमी पकड़ी गई थी)।
+        इसलिए यहाँ document/location मत छूना, सिर्फ़ शुद्ध HTML लौटाना। */
+  function fullHTML(en) {
+    const t = en ? WORDS.en : WORDS.hi;
+    const g = o => (en ? o.en : o.hi);
+    const wa = 'https://wa.me/' + ((typeof CONFIG !== 'undefined' && CONFIG.whatsapp) || '');
     const list = (arr, cls) => arr && arr.length
       ? `<ul class="kfull__list ${cls}">${arr.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : '';
 
-    host.innerHTML = PLACES.map(p => `
+    return PLACES.map(p => `
       <article class="kfull" id="${p.id}">
         <header class="kfull__head">
           <span class="kfull__icon" aria-hidden="true">${p.icon}</span>
           <div>
-            <h2>${esc(pick(p.name))}</h2>
-            <p>${esc(pick(p.where))}</p>
+            <h2>${esc(g(p.name))}</h2>
+            <p>${esc(g(p.where))}</p>
           </div>
         </header>
 
         <h4 class="kfull__label">${t.manyata}</h4>
-        <p class="kfull__story">${esc(pick(p.story))}</p>
+        <p class="kfull__story">${esc(g(p.story))}</p>
 
         <h4 class="kfull__label">${t.vidhi}</h4>
-        ${list(pick(p.vidhi), 'kfull__list--vidhi')}
+        ${list(g(p.vidhi), 'kfull__list--vidhi')}
 
-        ${(pick(p.dhyan) || []).length
-          ? `<h4 class="kfull__label">${t.dhyan}</h4>${list(pick(p.dhyan), 'kfull__list--dhyan')}`
+        ${(g(p.dhyan) || []).length
+          ? `<h4 class="kfull__label">${t.dhyan}</h4>${list(g(p.dhyan), 'kfull__list--dhyan')}`
           : ''}
 
         <a class="btn btn--sm btn--primary" href="${wa}?text=${encodeURIComponent(
-             (isEn() ? 'Jai Shri Shyam! ' : 'जय श्री श्याम! ') + pick(p.name) +
-             (isEn() ? ' — please tell me about a yatra.' : ' की यात्रा की जानकारी चाहिए।'))}"
+             (en ? 'Jai Shri Shyam! ' : 'जय श्री श्याम! ') + g(p.name) +
+             (en ? ' — please tell me about a yatra.' : ' की यात्रा की जानकारी चाहिए।'))}"
            target="_blank" rel="noopener">💬 ${t.ask}</a>
       </article>`).join('');
+  }
+
+  /* कथा वाला पेज — सब कुछ खुला हुआ */
+  function renderFull(host) {
+    host.innerHTML = fullHTML(isEn());
 
     /* पते में #khatu जैसा हिस्सा हो तो वहीं तक ले जाओ */
     if (location.hash) {
@@ -317,5 +327,5 @@ window.Katha = (function () {
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 
-  return { PLACES };
+  return { PLACES, fullHTML };
 })();
