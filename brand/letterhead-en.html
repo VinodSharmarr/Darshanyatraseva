@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<title>Darshan Yatra Seva — Letterhead</title>
+<!-- ═══════════════════════════════════════════════════════════
+     लेटरहेड — A4 पर छपने के लिए बना है।
+
+     PDF बनाने का तरीक़ा: यह फ़ाइल ब्राउज़र में खोलिए → Ctrl+P →
+     "Destination" में "Save as PDF" → Margins: None → Save.
+     (brand/letterhead.pdf इसी तरीक़े से बनाई गई है।)
+
+     ⚠️ पता और पंजीकरण नंबर नीचे PLACEHOLDER में हैं — असली
+     जानकारी मिलते ही वहीं बदल देना है, बाक़ी कुछ नहीं छूना।
+     ⚠️ यह फ़ाइल .vercelignore में है — वेबसाइट पर नहीं जाती।
+     ═══════════════════════════════════════════════════════════ -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root{
+    --maroon:#7B1E22; --maroon-d:#5C1418; --saffron:#E9531F;
+    --gold:#D9A441;   --gold-d:#B8862C;   --cream:#FFF9F0;
+    --ink:#241713;    --ink-2:#5C4A43;    --line:#EADBC8;
+  }
+
+  /* ⚠️ ऊँचाई 297mm रखने पर छपाई में एक ख़ाली दूसरा पेज बन जाता था —
+     इसलिए थोड़ी कम (296mm) और overflow बंद। एक ही पेज छपेगा। */
+  html, body { width: 210mm; height: 296mm; overflow: hidden; }
+  body{
+    font-family:'Inter',system-ui,sans-serif; color:var(--ink);
+    display:flex; flex-direction:column; background:#fff;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+
+  /* ── ऊपर की पतली केसरिया-सुनहरी पट्टी ── */
+  .edge{ height:6mm; background:linear-gradient(90deg,var(--saffron),var(--gold) 55%,var(--maroon)); }
+
+  /* ── शीर्ष ── */
+  .head{ display:flex; align-items:center; gap:8mm; padding:9mm 16mm 7mm; }
+  .logo{ width:26mm; height:26mm; flex:none; }
+  .name{ flex:1; }
+  .name h1{ font-family:'Marcellus',Georgia,serif; font-size:25pt; font-weight:400;
+            color:var(--maroon); letter-spacing:.4pt; line-height:1.1; }
+  .name .hi{ font-family:'Marcellus',Georgia,serif; font-size:13pt; color:var(--gold-d); margin-top:1mm; }
+  .name .tag{ font-family:'Marcellus',Georgia,serif; font-size:9.5pt; color:var(--ink-2); margin-top:1.5mm; }
+
+  /* दाईं तरफ़ संपर्क */
+  .contact{ text-align:right; font-size:8.5pt; line-height:1.9; color:var(--ink-2); flex:none; }
+  .contact b{ display:block; font-size:10.5pt; color:var(--maroon); font-weight:600; letter-spacing:.2pt; }
+  .contact span{ display:block; }
+
+  /* ── शीर्ष के नीचे दोहरी लकीर ── */
+  .rule{ margin:0 16mm; border-top:1.6pt solid var(--maroon); }
+  .rule::after{ content:''; display:block; margin-top:1.1mm; border-top:.6pt solid var(--gold); }
+
+  /* सेवाओं की पट्टी */
+  .strip{ margin:4mm 16mm 0; font-family:'Marcellus',Georgia,serif; font-size:9pt;
+          color:var(--maroon); text-align:center; letter-spacing:.2pt; }
+  .strip span{ color:var(--gold-d); margin:0 2mm; }
+
+  /* ── लिखने की जगह ── */
+  .body{ flex:1; }
+
+  /* ── फ़ुटर ── */
+  .foot{ margin-top:auto; }
+  .foot__line{ margin:0 16mm 3.5mm; border-top:.6pt solid var(--line); }
+  .foot__in{ padding:0 16mm 6mm; display:flex; justify-content:space-between;
+             align-items:flex-end; gap:8mm; font-size:7.6pt; color:var(--ink-2); line-height:1.75; }
+  .foot__in b{ color:var(--maroon); }
+  .foot__reg{ text-align:right; }
+  .om{ font-family:'Marcellus',Georgia,serif; color:var(--gold-d); font-size:9pt; }
+  .edge--b{ height:3mm; background:linear-gradient(90deg,var(--maroon),var(--gold) 45%,var(--saffron)); }
+
+  /* हल्का सा वॉटरमार्क — छपाई में बहुत हल्का दिखेगा */
+  .mark{ position:fixed; left:50%; top:55%; transform:translate(-50%,-50%);
+         width:120mm; opacity:.035; z-index:-1; }
+</style>
+</head>
+<body>
+
+<div class="edge"></div>
+
+<header class="head">
+  <!-- लोगो — brand/build.py वाले लोगो जैसा ही -->
+  <svg class="logo" viewBox="0 0 200 200" aria-hidden="true">
+    <circle cx="100" cy="100" r="95" fill="#7B1E22"/>
+    <circle cx="100" cy="100" r="95" fill="none" stroke="#D9A441" stroke-width="4.5"/>
+    <circle cx="100" cy="100" r="86" fill="none" stroke="#D9A441" stroke-width="1.4" opacity=".5"/>
+    <circle cx="100" cy="29" r="4.5" fill="#D9A441"/>
+    <rect x="98.6" y="32" width="2.8" height="8" fill="#D9A441"/>
+    <path d="M100 38 C110 62 120 86 124 110 L76 110 C80 86 90 62 100 38 Z" fill="#D9A441"/>
+    <path d="M100 46 C104 68 108 89 110 108" stroke="#C0872E" stroke-width="1.6" fill="none" opacity=".85"/>
+    <path d="M100 46 C96 68 92 89 90 108" stroke="#C0872E" stroke-width="1.6" fill="none" opacity=".85"/>
+    <rect x="68" y="110" width="64" height="7" rx="1.5" fill="#C0872E"/>
+    <rect x="74" y="117" width="52" height="28" fill="#D9A441"/>
+    <path d="M90 145 L90 132 A10 10 0 0 1 110 132 L110 145 Z" fill="#7B1E22"/>
+    <rect x="62" y="145" width="76" height="8" rx="2" fill="#D9A441"/>
+    <rect x="56" y="153" width="88" height="5" rx="2" fill="#C0872E"/>
+    <path d="M58 172 Q100 158 142 172" stroke="#E9531F" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <circle cx="100" cy="165" r="3.4" fill="#FFF3E2"/>
+  </svg>
+
+  <div class="name">
+    <h1>Darshan Yatra Seva</h1>
+    <div class="hi">Pilgrimage Tours from Delhi</div>
+    <div class="tag">A journey of faith, served with devotion</div>
+  </div>
+
+  <div class="contact">
+    <b>+91 72899 02692</b>
+    <span>WhatsApp · Call</span>
+    <span>darshanyatraseva@gmail.com</span>
+    <span>www.darshanyatraseva.com</span>
+  </div>
+</header>
+
+<div class="rule"></div>
+
+<p class="strip">
+  Khatu Shyam Ji <span>·</span> Vrindavan – Mathura <span>·</span> Mehandipur Balaji <span>·</span> Salasar Dham
+</p>
+
+<!-- लिखने की खाली जगह -->
+<div class="body"></div>
+
+<footer class="foot">
+  <div class="foot__line"></div>
+  <!-- ⚠️ पता और पंजीकरण नंबर दिल्ली श्रम विभाग के Form C प्रमाणपत्र से लिए गए हैं
+       (प्रमाणपत्र सं. 2026069268, दिनांक 28/7/2026 — पता Vinod ने 28 जुलाई को ठीक कराया: P & T ब्लॉक)। बदलें तो वहीं से मिलाकर बदलें। -->
+  <div class="foot__in">
+    <div>
+      <!-- ⚠️ प्रोप्राइटर का नाम यहाँ नहीं लिखना — Vinod ने मना किया है (28 जुलाई 2026) -->
+      <b>A-36, P &amp; T Block, Rajdhani Park, Nangloi</b><br />
+      Delhi – 110041
+    </div>
+    <div class="om">🙏 Jai Shri Shyam</div>
+    <div class="foot__reg">
+      <!-- ⚠️ अधिनियम का नाम यहाँ नहीं लिखना — Vinod ने मना किया है (28 जुलाई 2026) -->
+      <b>Reg. No.</b> 2026069268<br />
+      Instagram · Facebook · YouTube — @darshanyatraseva
+    </div>
+  </div>
+  <div class="edge--b"></div>
+</footer>
+
+</body>
+</html>

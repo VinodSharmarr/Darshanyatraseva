@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<title>Darshan Yatra Seva — Booking Receipt (English)</title>
+<!-- ═══════════════════════════════════════════════════════════
+     Booking Receipt — A4 पर दो हिस्से: ऊपर वाला यात्री को देना है,
+     नीचे वाला अपने पास रखना है। छपवाकर हाथ से भरने के लिए।
+
+     PDF: Ctrl+P → Save as PDF → Margins: None → Background graphics ✔
+     ⚠️ रिफंड की शर्तें index.html के FAQ से ली गई हैं — वहाँ बदलें
+        तो यहाँ भी बदलिए, वरना काग़ज़ और साइट अलग-अलग बोलेंगे।
+     ═══════════════════════════════════════════════════════════ -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root{
+    --maroon:#7B1E22; --saffron:#E9531F; --gold:#D9A441; --gold-d:#B8862C;
+    --cream:#FFF9F0; --ink:#241713; --ink-2:#5C4A43; --line:#EADBC8;
+  }
+  html, body { width:210mm; height:296mm; overflow:hidden; }
+  body{ font-family:'Inter',sans-serif; color:var(--ink); background:#fff;
+        display:flex; flex-direction:column;
+        -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+
+  .slip{ height:50%; padding:9mm 12mm; display:flex; flex-direction:column; position:relative; }
+  /* बीच में कटी हुई लकीर — यहीं से काटकर ऊपर वाली पर्ची यात्री को देनी है */
+  .slip--2{ border-top:.4mm dashed #A99680; }
+
+  /* शीर्ष */
+  .top{ display:flex; align-items:center; gap:4mm; padding-bottom:3mm;
+        border-bottom:1pt solid var(--maroon); }
+  .top svg{ width:15mm; height:15mm; flex:none; }
+  .top .nm{ flex:1; }
+  .top h1{ font-family:'Marcellus',serif; font-size:15pt; font-weight:400; color:var(--maroon); }
+  .top .hi{ font-family:'Marcellus',Georgia,serif; font-size:8.5pt; color:var(--gold-d); }
+  .top .ct{ text-align:right; font-size:7pt; color:var(--ink-2); line-height:1.65; }
+  .top .ct b{ display:block; font-size:9.5pt; color:var(--maroon); }
+
+  .title{ display:flex; justify-content:space-between; align-items:center; margin:3.5mm 0 2mm; }
+  .title h2{ font-family:'Marcellus',Georgia,serif; font-weight:400; font-size:12.5pt;
+             color:var(--maroon); letter-spacing:.3pt; }
+  .who{ font-size:7pt; color:#fff; background:var(--gold-d);
+        border-radius:10mm; padding:1mm 3.5mm; white-space:nowrap; }
+
+  /* भरने की पंक्तियाँ */
+  table.f{ width:100%; border-collapse:collapse;
+           font-family:'Marcellus',Georgia,serif; font-size:9pt; }
+  table.f td{ padding:2.2mm 0; vertical-align:bottom; }
+  .lbl{ width:25mm; color:var(--gold-d); white-space:nowrap; }
+  .lbl2{ width:23mm; color:var(--gold-d); white-space:nowrap; padding-left:6mm !important; }
+  .val{ border-bottom:.3mm dotted #9C8B79; }
+
+  /* राशि */
+  .amt{ margin-top:3.5mm; display:flex; gap:3mm; }
+  .amt .box{ flex:1; background:var(--cream); border:.3mm solid var(--line);
+             border-radius:2mm; padding:2.5mm 3mm;
+             font-family:'Marcellus',Georgia,serif; }
+  .amt .box b{ display:block; color:var(--gold-d); font-weight:400; font-size:7.5pt; }
+  .amt .box .line{ border-bottom:.3mm dotted #9C8B79; margin-top:2.5mm; height:4mm; }
+  .amt .paid{ flex:none; width:56mm; background:var(--maroon); color:#fff; border:0; }
+  .amt .paid b{ color:var(--gold); }
+  .amt .paid .line{ border-bottom-color:rgba(255,255,255,.55); }
+
+  /* नीचे */
+  .foot{ margin-top:auto; display:flex; justify-content:space-between;
+         align-items:flex-end; gap:5mm; padding-top:3mm; }
+  .terms{ font-family:'Marcellus',Georgia,serif; font-size:6.6pt;
+          color:var(--ink-2); line-height:1.7; max-width:110mm; }
+  .terms b{ color:var(--maroon); }
+  .sign{ text-align:center; font-family:'Marcellus',Georgia,serif;
+         font-size:7.5pt; color:var(--ink-2); flex:none; width:42mm; }
+  .sign .ln{ border-bottom:.3mm solid var(--ink-2); height:10mm; margin-bottom:1.2mm; }
+  .om{ font-family:'Marcellus',Georgia,serif; color:var(--gold-d); font-size:8pt; }
+</style>
+</head>
+<body>
+
+<!-- ══════════ पर्ची 1 — यात्री को देनी है ══════════ -->
+<section class="slip">
+  <div class="top">
+    <svg viewBox="0 0 200 200" aria-hidden="true">
+      <circle cx="100" cy="100" r="95" fill="#7B1E22"/>
+      <circle cx="100" cy="100" r="95" fill="none" stroke="#D9A441" stroke-width="5"/>
+      <path d="M100 38 C110 62 120 86 124 110 L76 110 C80 86 90 62 100 38 Z" fill="#D9A441"/>
+      <rect x="68" y="110" width="64" height="7" rx="1.5" fill="#C0872E"/>
+      <rect x="74" y="117" width="52" height="28" fill="#D9A441"/>
+      <path d="M90 145 L90 132 A10 10 0 0 1 110 132 L110 145 Z" fill="#7B1E22"/>
+      <rect x="62" y="145" width="76" height="8" rx="2" fill="#D9A441"/>
+      <rect x="56" y="153" width="88" height="5" rx="2" fill="#C0872E"/>
+      <path d="M58 172 Q100 158 142 172" stroke="#E9531F" stroke-width="7" fill="none" stroke-linecap="round"/>
+    </svg>
+    <div class="nm">
+      <h1>Darshan Yatra Seva</h1>
+      <div class="hi">Pilgrimage Tours from Delhi — a journey of faith, served with devotion</div>
+    </div>
+    <div class="ct">
+      <b>+91 72899 02692</b>
+      www.darshanyatraseva.com<br />
+      A-36, P &amp; T Block, Rajdhani Park, Nangloi, Delhi – 110041
+    </div>
+  </div>
+
+  <div class="title">
+    <h2>Booking Receipt</h2>
+    <span class="who">Traveller's Copy</span>
+  </div>
+
+  <table class="f">
+    <tr>
+      <td class="lbl">Receipt No.</td><td class="val"></td>
+      <td class="lbl2">Date</td><td class="val"></td>
+    </tr>
+    <tr>
+      <td class="lbl">Traveller's Name</td><td class="val" colspan="3"></td>
+    </tr>
+    <tr>
+      <td class="lbl">Mobile No.</td><td class="val"></td>
+      <td class="lbl2">No. of Travellers</td><td class="val"></td>
+    </tr>
+    <tr>
+      <td class="lbl">Yatra</td><td class="val"></td>
+      <td class="lbl2">Yatra Date</td><td class="val"></td>
+    </tr>
+    <tr>
+      <td class="lbl">Pickup Point</td><td class="val"></td>
+      <td class="lbl2">Departure Time</td><td class="val"></td>
+    </tr>
+  </table>
+
+  <div class="amt">
+    <div class="box">
+      <b>Total Amount (₹)</b>
+      <div class="line"></div>
+    </div>
+    <div class="box">
+      <b>Mode of Payment (UPI / Cash / Bank)</b>
+      <div class="line"></div>
+    </div>
+    <div class="box paid">
+      <b>Amount Received (₹)</b>
+      <div class="line"></div>
+    </div>
+    <div class="box">
+      <b>Balance (₹)</b>
+      <div class="line"></div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="terms">
+      <b>Terms:</b> 100% refund if cancelled 72 hours before departure · 50% between 24–72 hours ·
+      No refund within 24 hours, though the seat may be passed to someone else or adjusted against a future yatra.
+      Crowds at the temple, queue times and changes made by the administration are outside our control.
+      Carrying a photo ID during the yatra is compulsory.
+    </div>
+    <div class="sign">
+      <div class="ln"></div>
+      Signature &amp; Seal
+      <div class="om">🙏 Jai Shri Shyam</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ पर्ची 2 — अपने रिकॉर्ड के लिए ══════════ -->
+<section class="slip slip--2">
+  <div class="top">
+    <svg viewBox="0 0 200 200" aria-hidden="true">
+      <circle cx="100" cy="100" r="95" fill="#7B1E22"/>
+      <circle cx="100" cy="100" r="95" fill="none" stroke="#D9A441" stroke-width="5"/>
+      <path d="M100 38 C110 62 120 86 124 110 L76 110 C80 86 90 62 100 38 Z" fill="#D9A441"/>
+      <rect x="68" y="110" width="64" height="7" rx="1.5" fill="#C0872E"/>
+      <rect x="74" y="117" width="52" height="28" fill="#D9A441"/>
+      <path d="M90 145 L90 132 A10 10 0 0 1 110 132 L110 145 Z" fill="#7B1E22"/>
+      <rect x="62" y="145" width="76" height="8" rx="2" fill="#D9A441"/>
+      <rect x="56" y="153" width="88" height="5" rx="2" fill="#C0872E"/>
+      <path d="M58 172 Q100 158 142 172" stroke="#E9531F" stroke-width="7" fill="none" stroke-linecap="round"/>
+    </svg>
+    <div class="nm">
+      <h1>Darshan Yatra Seva</h1>
+      <div class="hi">Pilgrimage Tours from Delhi — a journey of faith, served with devotion</div>
+    </div>
+    <div class="ct">
+      <b>+91 72899 02692</b>
+      www.darshanyatraseva.com<br />
+      A-36, P &amp; T Block, Rajdhani Park, Nangloi, Delhi – 110041
+    </div>
+  </div>
+
+  <div class="title">
+    <h2>Booking Receipt</h2>
+    <span class="who">Office Copy</span>
+  </div>
+
+  <table class="f">
+    <tr>
+      <td class="lbl">Receipt No.</td><td class="val"></td>
+      <td class="lbl2">Date</td><td class="val"></td>
+    </tr>
+    <tr>
+      <td class="lbl">Traveller's Name</td><td class="val" colspan="3"></td>
+    </tr>
+    <tr>
+      <td class="lbl">Mobile No.</td><td class="val"></td>
+      <td class="lbl2">No. of Travellers</td><td class="val"></td>
+    </tr>
+    <tr>
+      <td class="lbl">Yatra</td><td class="val"></td>
+      <td class="lbl2">Yatra Date</td><td class="val"></td>
+    </tr>
+    <tr>
+      <td class="lbl">Pickup Point</td><td class="val"></td>
+      <td class="lbl2">Departure Time</td><td class="val"></td>
+    </tr>
+  </table>
+
+  <div class="amt">
+    <div class="box">
+      <b>Total Amount (₹)</b>
+      <div class="line"></div>
+    </div>
+    <div class="box">
+      <b>Mode of Payment (UPI / Cash / Bank)</b>
+      <div class="line"></div>
+    </div>
+    <div class="box paid">
+      <b>Amount Received (₹)</b>
+      <div class="line"></div>
+    </div>
+    <div class="box">
+      <b>Balance (₹)</b>
+      <div class="line"></div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="terms">
+      <b>Notes / Special Requirements:</b>
+      <div style="border-bottom:.3mm dotted #9C8B79;height:5mm;margin-top:1.5mm"></div>
+      <div style="border-bottom:.3mm dotted #9C8B79;height:5mm;margin-top:1.5mm"></div>
+    </div>
+    <div class="sign">
+      <div class="ln"></div>
+      Signature &amp; Seal
+      <div class="om">🙏 Jai Shri Shyam</div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
