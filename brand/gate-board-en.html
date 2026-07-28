@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Darshan Yatra Seva — Gate Board (A4 Landscape)</title>
+<!-- ═══════════════════════════════════════════════════════════
+     गेट बोर्ड — A4 लेटा हुआ (landscape), सिर्फ़ अंग्रेज़ी।
+     ऑफ़िस के गेट पर लगाने के लिए।
+
+     ⚠️ पता ही सबसे मुख्य चीज़ है — गेट पर लोग यही ढूँढते हैं।
+        इसीलिए वो सबसे बड़ा रखा है, नाम से भी ज़्यादा जगह घेरता है।
+     ⚠️ फ़ोन नंबर जान-बूझकर नहीं है — Vinod ने मना किया (28 जुलाई 2026)।
+        इसीलिए WhatsApp का QR भी नहीं (वो भी फ़ोन पर ही जाता है)।
+     ⚠️ हल्का पृष्ठभूमि जान-बूझकर — गेट पर धूप में गहरे रंग से चमक
+        आती है और दूर से पढ़ना मुश्किल हो जाता है।
+
+     PDF: Ctrl+P → Save as PDF → Layout: Landscape → Margins: None
+          → Background graphics ✔
+     छपवाना: 300 GSM + लैमिनेशन, या सीधे 3mm सनबोर्ड/ऐक्रेलिक पर।
+     ═══════════════════════════════════════════════════════════ -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  @page { size: A4 landscape; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root{
+    --maroon:#7B1E22; --maroon-d:#5C1418; --saffron:#E9531F;
+    --gold:#D9A441;   --gold-d:#B8862C;   --cream:#FFF9F0;
+    --ink:#241713;    --ink-2:#5C4A43;
+  }
+  html, body { width:296mm; height:209mm; overflow:hidden; }
+  body{
+    font-family:'Inter',system-ui,sans-serif; color:var(--ink);
+    background:var(--cream); display:flex; flex-direction:column;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+
+  .band{ height:9mm; background:linear-gradient(90deg,var(--saffron),var(--gold) 55%,var(--maroon)); flex:none; }
+  .band--b{ background:linear-gradient(90deg,var(--maroon),var(--gold) 45%,var(--saffron)); height:7mm; }
+
+  .in{ flex:1; padding:9mm 16mm 7mm; display:flex; flex-direction:column; position:relative; }
+  .in::before{ content:''; position:absolute; inset:4mm 8mm; border:.4mm solid rgba(217,164,65,.5);
+               border-radius:2mm; pointer-events:none; }
+
+  /* ── नाम ── */
+  .head{ display:flex; align-items:center; gap:9mm; flex:none; }
+  .logo{ width:36mm; height:36mm; flex:none; }
+  h1{ font-family:'Marcellus',Georgia,serif; font-weight:400; font-size:40pt;
+      color:var(--maroon); line-height:1; letter-spacing:.5pt; }
+  .sub{ font-family:'Marcellus',Georgia,serif; font-size:16pt; color:var(--gold-d);
+        margin-top:2.5mm; letter-spacing:.4pt; }
+
+  .rule{ margin:5mm 0; border-top:1.4pt solid var(--maroon); flex:none; }
+  .rule::after{ content:''; display:block; margin-top:1.3mm; border-top:.5mm solid var(--gold); }
+
+  /* ── पता — सबसे बड़ा हिस्सा, पूरी चौड़ाई ── */
+  .addrWrap{ flex:1; display:flex; align-items:center; justify-content:space-between; gap:12mm; }
+  .addrCol{ flex:1; }
+  .lbl{ font-size:10pt; font-weight:700; letter-spacing:3pt;
+        color:var(--gold-d); text-transform:uppercase; margin-bottom:4mm; }
+  .addr{ font-family:'Marcellus',Georgia,serif; font-size:33pt; line-height:1.42;
+         color:var(--ink); letter-spacing:.3pt; }
+  .addr .pin{ color:var(--maroon); }
+
+  .qrbox{ text-align:center; flex:none; }
+  .qrbox .frame{ background:#fff; border:.5mm solid var(--gold); border-radius:3mm; padding:3mm; }
+  .qrbox img{ width:40mm; height:40mm; display:block; }
+  .qrbox small{ display:block; margin-top:2mm; font-size:8pt; font-weight:700;
+                letter-spacing:1.6pt; color:var(--gold-d); }
+
+  /* ── ईमेल की पट्टी ── */
+  .mailbar{ flex:none; background:var(--maroon); color:#fff; border-radius:3mm;
+            padding:5mm 9mm; display:flex; align-items:center;
+            justify-content:space-between; gap:8mm; margin-top:5mm; }
+  .mailbar .m{ font-family:'Marcellus',Georgia,serif; font-size:24pt; letter-spacing:.3pt; }
+  .mailbar .w{ font-family:'Marcellus',Georgia,serif; font-size:20pt; color:var(--gold); letter-spacing:.3pt; }
+
+  /* ── सबसे नीचे ── */
+  .foot{ flex:none; display:flex; justify-content:space-between; align-items:center;
+         font-size:9.5pt; color:var(--ink-2); letter-spacing:.4pt; margin-top:4mm; }
+  .foot .om{ font-family:'Marcellus',Georgia,serif; font-size:12pt; color:var(--gold-d); }
+  .foot .ya{ font-size:9pt; }
+</style>
+</head>
+<body>
+
+<div class="band"></div>
+
+<div class="in">
+
+  <div class="head">
+    <svg class="logo" viewBox="0 0 200 200" aria-hidden="true">
+      <circle cx="100" cy="100" r="95" fill="#7B1E22"/>
+      <circle cx="100" cy="100" r="95" fill="none" stroke="#D9A441" stroke-width="4.5"/>
+      <circle cx="100" cy="100" r="86" fill="none" stroke="#D9A441" stroke-width="1.4" opacity=".5"/>
+      <circle cx="100" cy="29" r="4.5" fill="#D9A441"/>
+      <rect x="98.6" y="32" width="2.8" height="8" fill="#D9A441"/>
+      <path d="M100 38 C110 62 120 86 124 110 L76 110 C80 86 90 62 100 38 Z" fill="#D9A441"/>
+      <path d="M100 46 C104 68 108 89 110 108" stroke="#C0872E" stroke-width="1.6" fill="none" opacity=".85"/>
+      <path d="M100 46 C96 68 92 89 90 108" stroke="#C0872E" stroke-width="1.6" fill="none" opacity=".85"/>
+      <rect x="68" y="110" width="64" height="7" rx="1.5" fill="#C0872E"/>
+      <rect x="74" y="117" width="52" height="28" fill="#D9A441"/>
+      <path d="M90 145 L90 132 A10 10 0 0 1 110 132 L110 145 Z" fill="#7B1E22"/>
+      <rect x="62" y="145" width="76" height="8" rx="2" fill="#D9A441"/>
+      <rect x="56" y="153" width="88" height="5" rx="2" fill="#C0872E"/>
+      <path d="M58 172 Q100 158 142 172" stroke="#E9531F" stroke-width="7" fill="none" stroke-linecap="round"/>
+      <circle cx="100" cy="165" r="3.4" fill="#FFF3E2"/>
+    </svg>
+
+    <div>
+      <h1>Darshan Yatra Seva</h1>
+      <div class="sub">Pilgrimage Tours from Delhi</div>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <div class="addrWrap">
+    <div class="addrCol">
+      <div class="lbl">Office Address</div>
+      <!-- पंक्तियाँ हाथ से तोड़ी हैं ताकि पढ़ने में सीधी लगें -->
+      <div class="addr">
+        A-36, P &amp; T Block,<br />
+        Rajdhani Park, Nangloi,<br />
+        Delhi <span class="pin">– 110041</span>
+      </div>
+    </div>
+
+    <div class="qrbox">
+      <div class="frame"><img src="qr-website.svg" alt="Website QR" /></div>
+      <small>SCAN</small>
+    </div>
+  </div>
+
+  <div class="mailbar">
+    <span class="m">darshanyatraseva@gmail.com</span>
+    <span class="w">www.darshanyatraseva.com</span>
+  </div>
+
+  <div class="foot">
+    <span>Reg. No. 2026069268</span>
+    <span class="ya">Khatu Shyam Ji &nbsp;·&nbsp; Vrindavan – Mathura &nbsp;·&nbsp; Mehandipur Balaji &nbsp;·&nbsp; Salasar Dham</span>
+    <span class="om">Jai Shri Shyam</span>
+  </div>
+
+</div>
+
+<div class="band band--b"></div>
+
+</body>
+</html>
