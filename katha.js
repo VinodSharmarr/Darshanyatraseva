@@ -283,14 +283,14 @@ window.Katha = (function () {
           </div>
         </header>
 
-        <h4 class="kfull__label">${t.manyata}</h4>
+        <h3 class="kfull__label">${t.manyata}</h3>
         <p class="kfull__story">${esc(g(p.story))}</p>
 
-        <h4 class="kfull__label">${t.vidhi}</h4>
+        <h3 class="kfull__label">${t.vidhi}</h3>
         ${list(g(p.vidhi), 'kfull__list--vidhi')}
 
         ${(g(p.dhyan) || []).length
-          ? `<h4 class="kfull__label">${t.dhyan}</h4>${list(g(p.dhyan), 'kfull__list--dhyan')}`
+          ? `<h3 class="kfull__label">${t.dhyan}</h3>${list(g(p.dhyan), 'kfull__list--dhyan')}`
           : ''}
 
         <a class="btn btn--sm btn--primary" href="${wa}?text=${encodeURIComponent(

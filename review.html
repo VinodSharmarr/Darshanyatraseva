@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Tiro+Devanagari+Hindi:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=7" />
+<link rel="stylesheet" href="styles.css?v=8" />
 </head>
 <body>
 
@@ -65,8 +65,12 @@
   <div class="wrap wrap--narrow">
 
     <!-- ── बड़ा बटन ── -->
+    <!-- href जान-बूझकर लिखा नहीं है — नीचे वाली script config.js का असली
+         googleReview लिंक भरती है, तभी यह डिब्बा खुलता है (§14)।
+         ⚠️ यहाँ href="#" मत लिखना: लिंक न होने पर वो बटन पेज को ऊपर सरका देता है
+         और यात्री को लगता है Google खुला ही नहीं। -->
     <div class="rev__cta" id="revCta" hidden>
-      <a class="btn btn--primary btn--lg btn--full" id="revBtn" href="#" target="_blank" rel="noopener">
+      <a class="btn btn--primary btn--lg btn--full" id="revBtn" target="_blank" rel="noopener">
         ⭐ Google पर अपना अनुभव लिखें
       </a>
       <p class="rev__ctaNote">बटन दबाते ही Google खुलेगा — बस तारे दबाइए और भेज दीजिए।</p>
@@ -133,7 +137,7 @@
   </div>
 </footer>
 
-<script src="config.js?v=7"></script>
+<script src="config.js?v=8"></script>
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
   document.querySelectorAll('a[href^="tel:"]').forEach(a => {

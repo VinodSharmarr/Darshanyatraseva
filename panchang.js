@@ -507,7 +507,14 @@ window.Panchang = (function () {
 
   /* ═══ 4. साइट पर कैलेंडर दिखाना ═════════════════════════════ */
 
-  function render(host, shownMonth) {
+  /* कैलेंडर की मौजूदा हालत — भाषा बदलने पर पूरा HTML दोबारा बनता है,
+     इसलिए "कौन सा महीना खुला है" और "कौन सी तारीख़ चुनी है" यहाँ याद रखते हैं।
+     वरना अंग्रेज़ी दबाते ही विज़िटर वापस इस महीने पर पहुँच जाता था।     */
+  let calMonth = null;                       // जो महीना दिख रहा है (हर महीने की 1 तारीख़)
+  let calSel = null;                         // उसी महीने की चुनी हुई तारीख़ (1–31) या null
+
+  function render(host) {
+    const shownMonth = calMonth;
     const en = document.documentElement.lang === 'en';
     const T = en ? {
       today: "Today's Panchang", vs: 'Vikram Samvat', paksha: 'Paksha', tithi: 'Tithi',
@@ -601,7 +608,7 @@ window.Panchang = (function () {
         <div class="pan__pick" hidden></div>
       </div>
       <div class="pan__list">
-        <h4>${T.good}</h4>
+        <h3>${T.good}</h3>
         <ul>${list.length ? list.join('') : `<li><span>${T.none}</span></li>`}</ul>
         <p class="pan__note">${T.note}</p>
       </div>`;
@@ -610,29 +617,38 @@ window.Panchang = (function () {
 
     /* किसी दिन पर क्लिक → उसका पूरा विवरण + WhatsApp लिंक */
     const pick = host.querySelector('.pan__pick');
+
+    function showPick(d) {
+      const btn = host.querySelector('.pan__cell[data-d="' + d + '"]');
+      if (!btn) return;
+      host.querySelectorAll('.pan__cell').forEach(c => c.classList.remove('is-sel'));
+      btn.classList.add('is-sel');
+      const dt = new Date(first.getFullYear(), first.getMonth(), +btn.dataset.d, 12);
+      const q = forDate(dt);
+      const parv = parvOf(q, en).map(x => x[0]);
+      const wa = 'https://wa.me/' + (window.CONFIG ? CONFIG.whatsapp : '') + '?text=' +
+        encodeURIComponent((en ? 'Jai Shri Shyam! ' : 'जय श्री श्याम! ') +
+          fmtDate(dt, false) + (en ? ' — yatra available?' : ' को यात्रा की जानकारी चाहिए।'));
+      pick.hidden = false;
+      pick.innerHTML =
+        `<b>${esc(fmtDate(dt, en))}</b>
+         <span>${esc((en ? MASA_EN : MASA_HI)[q.masa])} ${esc(pakshaName(q, en))} ${esc(tithiName(q, en))} · ${esc((en ? NAK_EN : NAK_HI)[q.nak])}</span>
+         ${parv.length ? `<span class="pan__pickParv">${esc(parv.join(' · '))}</span>` : ''}
+         <a class="btn btn--sm btn--primary" href="${wa}" target="_blank" rel="noopener">💬 ${T.ask}</a>`;
+    }
+
     host.querySelectorAll('.pan__cell[data-d]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        host.querySelectorAll('.pan__cell').forEach(c => c.classList.remove('is-sel'));
-        btn.classList.add('is-sel');
-        const dt = new Date(first.getFullYear(), first.getMonth(), +btn.dataset.d, 12);
-        const q = forDate(dt);
-        const parv = parvOf(q, en).map(x => x[0]);
-        const wa = 'https://wa.me/' + (window.CONFIG ? CONFIG.whatsapp : '') + '?text=' +
-          encodeURIComponent((en ? 'Jai Shri Shyam! ' : 'जय श्री श्याम! ') +
-            fmtDate(dt, false) + (en ? ' — yatra available?' : ' को यात्रा की जानकारी चाहिए।'));
-        pick.hidden = false;
-        pick.innerHTML =
-          `<b>${esc(fmtDate(dt, en))}</b>
-           <span>${esc((en ? MASA_EN : MASA_HI)[q.masa])} ${esc(pakshaName(q, en))} ${esc(tithiName(q, en))} · ${esc((en ? NAK_EN : NAK_HI)[q.nak])}</span>
-           ${parv.length ? `<span class="pan__pickParv">${esc(parv.join(' · '))}</span>` : ''}
-           <a class="btn btn--sm btn--primary" href="${wa}" target="_blank" rel="noopener">💬 ${T.ask}</a>`;
-      });
+      btn.addEventListener('click', () => { calSel = +btn.dataset.d; showPick(calSel); });
     });
+
+    /* भाषा बदलने पर सब कुछ नया बनता है — चुनी हुई तारीख़ वापस खोल दें */
+    if (calSel) showPick(calSel);
 
     host.querySelectorAll('.pan__nav').forEach(b => {
       b.addEventListener('click', () => {
-        const nx = new Date(shownMonth.getFullYear(), shownMonth.getMonth() + (+b.dataset.go), 1);
-        render(host, nx);
+        calMonth = new Date(shownMonth.getFullYear(), shownMonth.getMonth() + (+b.dataset.go), 1);
+        calSel = null;                       // तारीख़ें बदल गईं, पुराना चुनाव अब नहीं टिकता
+        render(host);
       });
     });
   }
@@ -693,12 +709,14 @@ window.Panchang = (function () {
 
     const host = document.getElementById('panchangBox');
     if (!host) return;                       // admin.html पर कैलेंडर नहीं चाहिए
-    let shown = new Date();
-    shown.setDate(1);
-    render(host, shown);
+    calMonth = new Date();
+    calMonth.setDate(1);
+    render(host);
 
-    /* भाषा बदले तो कैलेंडर भी बदल जाए (i18n सिर्फ़ पक्के टेक्स्ट को छूता है) */
-    new MutationObserver(() => render(host, shown))
+    /* भाषा बदले तो कैलेंडर भी बदल जाए (i18n सिर्फ़ पक्के टेक्स्ट को छूता है)।
+       महीना और चुनी हुई तारीख़ calMonth/calSel में रहते हैं, इसलिए विज़िटर
+       जहाँ था वहीं रहता है — बस भाषा बदल जाती है।                        */
+    new MutationObserver(() => render(host))
       .observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
   }
 

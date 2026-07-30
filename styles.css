@@ -40,6 +40,21 @@ h1,h2,h3,h4,h5{margin:0;line-height:1.25;font-weight:600}
 p{margin:0 0 1rem}
 ul{margin:0;padding:0;list-style:none}
 
+/* ── कीबोर्ड से चलाने वालों के लिए घेरा ──────────────────────────
+   पहले पूरी साइट पर सिर्फ़ फ़ॉर्म के खानों पर घेरा था (§ .form input:focus)।
+   बटन, लिंक, मेन्यू, डॉट — किसी पर कुछ नहीं था, इसलिए Tab दबाकर चलाने वाले
+   को पता ही नहीं चलता था कि वो कहाँ खड़ा है (स्क्रीन रीडर वाले, और वो लोग
+   जिनसे माउस नहीं चलता)।
+   :focus-visible इस्तेमाल किया है, :focus नहीं — इससे घेरा सिर्फ़ कीबोर्ड पर
+   दिखता है, उँगली/माउस से दबाने पर नहीं। यानी बाक़ी सबको साइट पहले जैसी ही
+   दिखती है, कुछ बदला हुआ नहीं लगेगा। */
+:focus-visible{outline:3px solid var(--saffron);outline-offset:3px}
+.btn:focus-visible,.wa:focus-visible,.pay:focus-visible,.langbtn:focus-visible{outline-offset:4px}
+/* गहरे मैरून/हरे background पर केसरिया घेरा दब जाता है — वहाँ सुनहरा */
+.topbar__tel:focus-visible,.btn--ghostlight:focus-visible,.wa:focus-visible{outline-color:var(--gold)}
+/* डॉट छोटे हैं, घेरा उनसे ज़रा दूर रखा वरना डॉट ही ढक जाता */
+.slider-dot:focus-visible{outline-offset:5px}
+
 .wrap{width:min(1160px,92vw);margin-inline:auto}
 .wrap--narrow{width:min(820px,92vw)}
 .center{text-align:center}
@@ -72,20 +87,23 @@ ul{margin:0;padding:0;list-style:none}
 .btn--gold{background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#3B1F0B;box-shadow:0 6px 20px rgba(0,0,0,.2)}
 .btn--ghostlight{background:transparent;border-color:rgba(255,255,255,.5);color:#fff}
 .btn--ghostlight:hover{background:rgba(255,255,255,.14)}
-.btn--sm{padding:.5em 1.1em;font-size:.85rem}
+.btn--sm{padding:.5em 1.25em;font-size:.9rem;min-height:44px}
 .btn--lg{padding:.9em 2em;font-size:1.02rem}
 .btn--full{width:100%}
 
 .eyebrow{
-  font-size:.78rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  font-size:.875rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
   color:var(--saffron);margin:0 0 .6rem;
 }
 
 /* ── topbar ── */
-.topbar{background:var(--maroon-d);color:#F6E3C8;font-size:.83rem}
-.topbar__in{display:flex;align-items:center;gap:.6rem;padding:.45rem 0}
+.topbar{background:var(--maroon-d);color:#F6E3C8;font-size:.875rem}
+.topbar__in{display:flex;align-items:center;gap:.6rem;padding:.5rem 0}
 .topbar__om{color:var(--gold);font-size:1rem}
-.topbar__tel{margin-left:auto;font-weight:600;color:var(--gold)}
+/* नंबर बुज़ुर्ग यात्री सबसे ज़्यादा दबाते हैं — छूने का दायरा बड़ा रखा है।
+   पूरे 44px नहीं किए, वरना यह पट्टी मोटी होकर हीरो को नीचे धकेल देती। */
+.topbar__tel{margin-left:auto;font-weight:600;color:var(--gold);
+  display:inline-flex;align-items:center;min-height:36px;padding-inline:.15rem}
 
 /* ── nav ── */
 .nav{position:sticky;top:0;z-index:60;background:rgba(255,249,240,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);transition:box-shadow .25s}
@@ -95,24 +113,30 @@ ul{margin:0;padding:0;list-style:none}
 .brand__mark{width:40px;height:40px;flex:none}
 .brand__txt{display:flex;flex-direction:column;line-height:1.15}
 .brand__txt strong{font-family:var(--font-d);font-size:1.08rem;color:var(--maroon);letter-spacing:.01em}
-.brand__txt em{font-family:var(--font-h);font-style:normal;font-size:.78rem;color:var(--gold-d)}
+.brand__txt em{font-family:var(--font-h);font-style:normal;font-size:.84rem;color:var(--gold-d)}
 
 .nav__links{margin-left:auto;display:flex;align-items:center;gap:1.55rem;font-family:var(--font-h);font-size:.98rem}
-.nav__links a:not(.btn){color:var(--ink-2);position:relative;transition:color .2s}
-.nav__links a:not(.btn)::after{content:'';position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--saffron);transition:width .25s}
+/* padding-block से छूने का दायरा 44px हो जाता है — दिखने में कुछ नहीं बदलता।
+   रेखा (::after) को भी उतना ही नीचे सरकाया, वरना वो टेक्स्ट से दूर चली जाती। */
+.nav__links a:not(.btn){color:var(--ink-2);position:relative;transition:color .2s;
+  display:inline-flex;align-items:center;min-height:44px}
+.nav__links a:not(.btn)::after{content:'';position:absolute;left:0;bottom:9px;width:0;height:2px;background:var(--saffron);transition:width .25s}
 .nav__links a:not(.btn):hover{color:var(--maroon)}
 .nav__links a:not(.btn):hover::after{width:100%}
 
 /* ── भाषा टॉगल / language toggle ── */
 .langbtn{
-  font-family:var(--font-b);font-size:.82rem;font-weight:600;letter-spacing:.02em;
+  font-family:var(--font-b);font-size:.88rem;font-weight:600;letter-spacing:.02em;
   color:var(--maroon);background:transparent;border:1.5px solid var(--line);border-radius:999px;
-  padding:.4rem .9rem;cursor:pointer;white-space:nowrap;flex:none;
+  padding:.4rem .95rem;cursor:pointer;white-space:nowrap;flex:none;
+  display:inline-flex;align-items:center;justify-content:center;min-height:44px;
   transition:border-color .2s,color .2s,background .2s;
 }
 .langbtn:hover{border-color:var(--gold);background:#fff;color:var(--saffron)}
 
-.nav__toggle{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
+/* ☰ पहले 40×32 का था — अब पूरा 44×44, तीनों लकीरें बीच में ही रहती हैं */
+.nav__toggle{display:none;flex-direction:column;align-items:center;justify-content:center;
+  gap:5px;background:none;border:0;cursor:pointer;padding:0;width:44px;height:44px;flex:none}
 .nav__toggle span{width:24px;height:2px;background:var(--maroon);border-radius:2px;transition:.25s}
 .nav__toggle.is-open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .nav__toggle.is-open span:nth-child(2){opacity:0}
@@ -130,7 +154,7 @@ ul{margin:0;padding:0;list-style:none}
 .hero__cta{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.4rem}
 .hero__pills{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap}
 .hero__pills li{background:#fff;border:1px solid var(--line);border-radius:999px;
-  padding:.42rem 1rem;font-size:.86rem;font-family:var(--font-h);color:var(--maroon);box-shadow:var(--shadow)}
+  padding:.42rem 1rem;font-size:.9rem;font-family:var(--font-h);color:var(--maroon);box-shadow:var(--shadow)}
 
 /* ── trust ── */
 .trust{background:var(--maroon);color:#fff;padding:1.6rem 0}
@@ -161,14 +185,20 @@ ul{margin:0;padding:0;list-style:none}
 
 /* तीर + डॉट */
 .slider-nav{display:flex;align-items:center;justify-content:center;gap:1rem;margin-top:.2rem}
-.slider-btn{width:42px;height:42px;flex:0 0 auto;border-radius:50%;border:1px solid var(--line);
+.slider-btn{width:44px;height:44px;flex:0 0 auto;border-radius:50%;border:1px solid var(--line);
   background:#fff;color:var(--maroon);font-size:1.4rem;line-height:0;display:grid;place-items:center;
   cursor:pointer;box-shadow:var(--shadow);transition:.2s}
 .slider-btn:hover{border-color:var(--gold);color:var(--saffron);transform:scale(1.07)}
 .slider-btn[disabled]{opacity:.32;cursor:default;transform:none;box-shadow:none}
-.slider-dots{display:flex;align-items:center;gap:.45rem}
-.slider-dot{width:9px;height:9px;padding:0;border:0;border-radius:999px;background:var(--line);
+.slider-dots{display:flex;align-items:center;gap:.7rem}
+/* डॉट दिखने में छोटे ही रहते हैं, पर ::after से छूने का दायरा 44px ऊँचा हो जाता है।
+   चौड़ाई जान-बूझकर डॉट के बीच की दूरी तक ही रखी — पूरे 44px चौड़े करते तो
+   पड़ोसी डॉट के दायरे एक-दूसरे पर चढ़ जाते और ग़लत डॉट दब जाता। */
+.slider-dot{width:11px;height:11px;padding:0;border:0;border-radius:999px;background:var(--line);
+  position:relative;
   cursor:pointer;transition:width .25s,background .25s}
+.slider-dot::after{content:'';position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);width:calc(100% + .7rem);height:44px}
 .slider-dot.is-on{width:26px;background:var(--saffron)}
 @media (max-width:520px){ .slider-btn{display:none} }
 
@@ -188,7 +218,7 @@ ul{margin:0;padding:0;list-style:none}
 .card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
 .card--featured{border-color:var(--gold);box-shadow:0 8px 32px rgba(217,164,65,.24)}
 .card__tag{position:absolute;top:14px;right:14px;z-index:2;background:var(--gold);color:#3B1F0B;
-  font-size:.7rem;font-weight:700;letter-spacing:.06em;padding:.3rem .7rem;border-radius:999px}
+  font-size:.82rem;font-weight:700;letter-spacing:.06em;padding:.32rem .78rem;border-radius:999px}
 /* ── यात्रा कार्ड की तस्वीर (चारों अपनी खींची हुई — कोई श्रेय नहीं चाहिए) ── */
 .card__art{height:150px;position:relative;overflow:hidden;background:#EFE2CE}
 .card__art img{width:100%;height:100%;object-fit:cover;display:block;
@@ -202,15 +232,15 @@ ul{margin:0;padding:0;list-style:none}
 }
 .card__body{padding:1.4rem;display:flex;flex-direction:column;flex:1}
 .card__body h3{font-family:var(--font-h);font-weight:400;font-size:1.3rem;color:var(--maroon)}
-.card__meta{font-size:.8rem;color:var(--gold-d);font-weight:600;margin:.3rem 0 .7rem}
-.card__desc{font-family:var(--font-h);font-size:.94rem;color:var(--ink-2);margin-bottom:.9rem}
-.card__list{margin-bottom:1.2rem;font-size:.87rem;color:var(--ink-2)}
+.card__meta{font-size:.875rem;color:var(--gold-d);font-weight:600;margin:.3rem 0 .7rem}
+.card__desc{font-family:var(--font-h);font-size:.96rem;color:var(--ink-2);margin-bottom:.9rem}
+.card__list{margin-bottom:1.2rem;font-size:.92rem;color:var(--ink-2)}
 .card__list li{padding-left:1.3rem;position:relative;margin-bottom:.32rem}
 .card__list li::before{content:'✓';position:absolute;left:0;color:var(--saffron);font-weight:700}
 .card__foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:.7rem;
   flex-wrap:wrap;padding-top:1rem;border-top:1px dashed var(--line)}
 .price{font-family:var(--font-d);font-size:1.42rem;color:var(--maroon)}
-.price small{font-family:var(--font-b);font-size:.68rem;color:var(--ink-2);font-weight:500}
+.price small{font-family:var(--font-b);font-size:.8rem;color:var(--ink-2);font-weight:500}
 
 /* ── दाम: काटा हुआ ऊँचा रेट + "ऑफ़र पूछें" ── */
 .price__old{
@@ -218,8 +248,11 @@ ul{margin:0;padding:0;list-style:none}
   opacity:.7;white-space:nowrap;text-decoration:line-through;
   text-decoration-color:rgba(233,83,31,.8);text-decoration-thickness:2px;
 }
+/* "ऑफ़र पूछें" पर ही सारी कमाई टिकी है (§4 नियम 1) — पहले यह सिर्फ़ 18px ऊँचा था,
+   बुज़ुर्ग उँगली से चूक जाते थे। अब पूरा 44px और अक्षर भी बड़े। */
 .price__ask{
-  display:block;font-family:var(--font-h);font-size:.82rem;font-weight:600;
+  display:flex;align-items:center;min-height:44px;
+  font-family:var(--font-h);font-size:.92rem;font-weight:600;
   color:#1E7A45;line-height:1.4;transition:color .2s;
 }
 a.price__ask:hover{color:#155F35;text-decoration:underline}
@@ -227,14 +260,15 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
 
 .note{margin-top:2.4rem;text-align:center;font-family:var(--font-h);background:#fff;border:1px dashed var(--gold);
   border-radius:var(--radius);padding:1rem 1.2rem;color:var(--ink-2)}
-.note a{color:var(--saffron);font-weight:600;text-decoration:underline}
+.note a{color:var(--saffron);font-weight:600;text-decoration:underline;
+  padding-block:.55rem}
 
 /* ── features ── */
 .feats{--slide:80%;--slide-t:44%;--slide-d:23.4%;gap:1.2rem}
 .feat{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:1.5rem 1.3rem;transition:.25s}
 .feat:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:var(--shadow)}
 .feat__ic{font-size:1.7rem;display:block;margin-bottom:.6rem}
-.feat h4{font-family:var(--font-h);font-weight:400;font-size:1.08rem;color:var(--maroon);margin-bottom:.35rem}
+.feat h3{font-family:var(--font-h);font-weight:400;font-size:1.08rem;color:var(--maroon);margin-bottom:.35rem}
 .feat p{font-size:.89rem;color:var(--ink-2);margin:0}
 
 /* ── steps ── */
@@ -243,7 +277,7 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
 .step__n{position:absolute;top:-22px;left:50%;transform:translateX(-50%);width:44px;height:44px;border-radius:50%;
   display:grid;place-items:center;background:linear-gradient(135deg,var(--saffron),#D33F14);color:#fff;
   font-family:var(--font-d);font-size:1.2rem;box-shadow:0 5px 14px rgba(233,83,31,.35)}
-.step h4{font-family:var(--font-h);font-weight:400;font-size:1.16rem;color:var(--maroon);margin-bottom:.4rem}
+.step h3{font-family:var(--font-h);font-weight:400;font-size:1.16rem;color:var(--maroon);margin-bottom:.4rem}
 .step p{font-size:.92rem;color:var(--ink-2);margin:0}
 
 /* ── आगामी प्रस्थान — कार्ड स्लाइडर (पहले टेबल थी) ── */
@@ -251,14 +285,16 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
 .dep-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:1.5rem 1.4rem;
   box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .28s ease,box-shadow .28s ease,border-color .2s}
 .dep-card:hover{border-color:var(--gold);transform:translateY(-5px);box-shadow:var(--shadow-lg)}
-.dep-card h4{font-family:var(--font-h);font-weight:400;font-size:1.2rem;color:var(--maroon);margin-bottom:1rem}
+.dep-card h3{font-family:var(--font-h);font-weight:400;font-size:1.2rem;color:var(--maroon);margin-bottom:1rem}
 .dep-card dl{margin:0 0 1.1rem}
 .dep-card dl>div{display:flex;justify-content:space-between;align-items:center;gap:1rem;
   padding:.5rem 0;border-bottom:1px dashed var(--line)}
 .dep-card dt{font-size:.82rem;font-weight:600;color:var(--gold-d)}
 .dep-card dd{margin:0;font-size:.93rem;text-align:right}
 .dep-card .price__old{font-size:1.05rem}
-.dep-card .price__ask{text-align:right;margin-bottom:1.1rem}
+/* .price__ask अब flex है (44px ऊँचाई के लिए) — flex में text-align नहीं चलता,
+   दाएँ सरकाने के लिए justify-content चाहिए */
+.dep-card .price__ask{justify-content:flex-end;text-align:right;margin-bottom:1.1rem}
 .dep-card .btn{margin-top:auto;width:100%;text-align:center}
 .pill{display:inline-block;padding:.2rem .65rem;border-radius:999px;font-size:.78rem;font-weight:600}
 .pill--ok{background:#E4F5EA;color:#1E7A45}
@@ -289,11 +325,19 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
    WhatsApp मुख्य बटन है, इसलिए यह outline रखा गया — भरा हुआ नहीं.
    क्रम ज़रूरी है: पहले सीट कन्फ़र्म, फिर भुगतान. */
 .paybox{margin:-.4rem 0 1.4rem}
+
+/* 🔴 बटन कब दिखे — यह फ़ैसला अब सिर्फ़ CSS करता है, JS नहीं (index.html §भुगतान)
+   जब तक <a> में असली href न आए, बटन और उसका नोट दोनों छुपे रहते हैं।
+   script.js सिर्फ़ href भरती है — पुरानी हो या नई, दोनों वही करती हैं।
+   इसीलिए "नई HTML + पुरानी JS" वाली गड़बड़ अब दोबारा नहीं हो सकती।
+   :has() न समझने वाले पुराने ब्राउज़र में भी बटन तो छुपेगा ही (दूसरा नियम)। */
+.paybox:has(.pay:not([href])){display:none}
+.pay:not([href]){display:none}
 .pay{display:inline-flex;align-items:center;gap:.7rem;padding:.8rem 1.25rem;border-radius:var(--radius);
   font-family:var(--font-h);font-weight:600;font-size:.98rem;color:var(--maroon);
   background:#fff;border:1.5px solid var(--gold);transition:.2s}
 .pay:hover{background:var(--cream);border-color:var(--gold-d);transform:translateY(-2px)}
-.pay__note{font-family:var(--font-h);font-size:.82rem;line-height:1.55;color:var(--ink-2);margin:.6rem 0 0;max-width:46ch}
+.pay__note{font-family:var(--font-h);font-size:.9rem;line-height:1.6;color:var(--ink-2);margin:.6rem 0 0;max-width:46ch}
 
 /* ── दर्शन प्रभारी ── */
 .incharge{display:flex;align-items:center;gap:1rem;margin-top:1.6rem;padding:1rem 1.2rem;
@@ -301,14 +345,15 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
 .incharge__pic{width:72px;height:72px;flex:0 0 auto;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
 .incharge__role{font-family:var(--font-h);font-size:1.05rem;font-weight:600;color:var(--maroon);margin:0}
 .incharge__note{font-family:var(--font-h);font-size:.85rem;color:var(--ink-2);margin:.1rem 0 .35rem}
-.incharge__tel{display:inline-flex;align-items:center;gap:.4rem;font-weight:600;font-size:.95rem;color:var(--ink);transition:color .2s}
+.incharge__tel{display:inline-flex;align-items:center;gap:.4rem;min-height:44px;
+  font-weight:600;font-size:1rem;color:var(--ink);transition:color .2s}
 .incharge__tel:hover{color:var(--saffron)}
 
 .form{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:1.8rem;box-shadow:var(--shadow-lg)}
-.form label{display:block;margin-bottom:1rem;font-size:.87rem;font-weight:600;color:var(--ink)}
+.form label{display:block;margin-bottom:1rem;font-size:.92rem;font-weight:600;color:var(--ink)}
 .form label span{color:var(--saffron)}
 .form input,.form select,.form textarea{
-  width:100%;margin-top:.35rem;padding:.72rem .9rem;border:1.5px solid var(--line);border-radius:10px;
+  width:100%;margin-top:.35rem;padding:.78rem .9rem;min-height:44px;border:1.5px solid var(--line);border-radius:10px;
   font-family:var(--font-b);font-size:.95rem;font-weight:400;color:var(--ink);background:#FFFDF9;transition:.2s;
 }
 .form input:focus,.form select:focus,.form textarea:focus{
@@ -345,8 +390,12 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
 .brand--foot .brand__txt strong{color:#fff}
 .brand--foot .brand__txt em{color:var(--gold)}
 .foot__desc{font-family:var(--font-h);margin-top:.9rem;opacity:.75;max-width:280px}
-.foot h5{font-family:var(--font-h);font-weight:400;color:var(--gold);font-size:1rem;margin-bottom:.9rem}
-.foot__grid a,.foot__addr{display:block;margin-bottom:.5rem;opacity:.8;transition:.2s}
+.foot h3{font-family:var(--font-h);font-weight:400;color:var(--gold);font-size:1rem;margin-bottom:.9rem}
+/* फ़ुटर की कड़ियाँ 24px ऊँची थीं और एक-दूसरे से सटी हुई — मोबाइल पर ग़लत लिंक
+   दब जाता था। अब हर कड़ी 44px की, margin की जगह padding (जगह उतनी ही लगती है)। */
+.foot__grid a,.foot__addr{display:flex;align-items:center;min-height:44px;
+  margin-bottom:0;opacity:.8;transition:.2s}
+.foot__addr{align-items:flex-start;min-height:0;margin-bottom:.5rem}
 .foot__grid a:hover{opacity:1;color:var(--gold);transform:translateX(3px)}
 /* पूरी पट्टी को धुँधला नहीं करते — वरना अंदर का प्रबंधक बटन भी धुँधला हो जाता है।
    सिर्फ़ कॉपीराइट वाली लाइनें हल्की रखी हैं। */
@@ -382,7 +431,9 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
   .row{grid-template-columns:1fr}
   .sec{padding:3.6rem 0}
   .hero{padding:3.6rem 0 3rem}
-  .topbar__in{font-size:.76rem}
+  /* .76rem बहुत छोटा था (12px)। .82rem तक बढ़ाया — 375px पर हिन्दी और English
+     दोनों में जाँचा, पट्टी अब भी एक ही लाइन में रहती है। इससे ऊपर मत बढ़ाना। */
+  .topbar__in{font-size:.82rem}
 
   /* stacked table on mobile */
   .tablewrap{border:0;background:transparent;overflow:visible}
@@ -393,13 +444,36 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
   .dep td{display:flex;justify-content:space-between;align-items:center;gap:1rem;border:0;padding:.45rem 1rem}
   .dep td::before{content:attr(data-l);font-weight:600;color:var(--gold-d);font-size:.82rem}
   .dep__fare{flex-wrap:wrap}
-  .dep__fare .price__ask{flex:1 1 100%;text-align:right;margin-top:.25rem}
+  .dep__fare .price__ask{flex:1 1 100%;justify-content:flex-end;text-align:right;margin-top:.25rem}
   .dep td:last-child{justify-content:stretch;padding-top:.8rem}
   .dep td:last-child .btn{width:100%}
 }
 @media (max-width:520px){
   .foot__grid{grid-template-columns:1fr}
   .topbar__om{display:none}
+  /* 🔴 .btn पर nowrap लगा है, और English के कुछ लेबल लंबे हैं — "See the full
+     panchang and upcoming festivals" वाला बटन 375px की स्क्रीन पर 406px चौड़ा हो
+     जाता था, दायाँ किनारा 46px बाहर कटा रहता था (overflow-x:hidden ने छुपा रखा था,
+     इसलिए पकड़ में नहीं आया)। छोटी स्क्रीन पर बटन को दो लाइन में टूटने की छूट दी।
+     यह §4 नियम 2 वाली ही बात है — अनुवाद छोटा रखें, फिर भी बटन अब टूटकर सँभल जाएगा। */
+  .btn{white-space:normal;text-align:center}
+}
+
+/* 🔴 टॉपबार 375px पर दो लाइन में टूटने की कगार पर था (नापा: 345.6px सामग्री,
+   जगह सिर्फ़ 345px — हिन्दी और English दोनों में)। अक्षर और छोटे करने के बजाय
+   छोटी स्क्रीन पर सजावटी टैगलाइन हटा दी: काम की चीज़ नंबर है, वो अब बड़ा और
+   पूरा दिखता है। ॐ वापस दिखा दिया ताकि पट्टी सूनी न लगे।
+   ⚠️ टैगलाइन यहाँ वापस दिखाई तो पट्टी फिर टूटेगी। */
+@media (max-width:430px){
+  .topbar__in>span:not(.topbar__om){display:none}
+  .topbar__om{display:inline}
+  .topbar__tel{font-size:.9rem}
+
+  /* 375px पर "Darshan Yatra Seva" पहले से ही दो लाइन में टूट रहा था (हमारे बदलाव
+     से पहले भी — नापकर देखा)। नेव की खाली जगह और भाषा-बटन की चौड़ाई ज़रा कम करने
+     से नाम एक ही लाइन में आ जाता है। बटन की 44px ऊँचाई पूरी बनी रहती है। */
+  .nav__in{gap:.55rem}
+  .langbtn{padding-inline:.7rem}
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -443,11 +517,11 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
   padding:1.2rem;box-shadow:var(--shadow)}
 .pan__calHead{display:flex;align-items:center;justify-content:space-between;margin-bottom:.9rem}
 .pan__calHead b{font-family:var(--font-h);font-weight:400;font-size:1.1rem;color:var(--maroon)}
-.pan__nav{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:#fff;
+.pan__nav{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#fff;
   color:var(--maroon);font-size:1.2rem;line-height:1;cursor:pointer;transition:.2s}
 .pan__nav:hover{background:var(--maroon);color:#fff;border-color:var(--maroon)}
 .pan__wd,.pan__grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
-.pan__wd span{text-align:center;font-size:.72rem;font-weight:600;color:var(--gold-d);padding-bottom:.3rem}
+.pan__wd span{text-align:center;font-size:.8rem;font-weight:600;color:var(--gold-d);padding-bottom:.3rem}
 .pan__cell{position:relative;border:1px solid transparent;background:var(--cream);border-radius:10px;
   padding:.42rem .1rem .55rem;cursor:pointer;text-align:center;transition:.15s;font-family:var(--font-b)}
 .pan__cell--empty{background:transparent;cursor:default}
@@ -471,18 +545,18 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
 /* इस महीने के व्रत-पर्व */
 .pan__list{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);
   padding:1.3rem;box-shadow:var(--shadow)}
-.pan__list h4{font-family:var(--font-h);font-weight:400;font-size:1.08rem;color:var(--maroon);margin-bottom:.9rem}
+.pan__list h3{font-family:var(--font-h);font-weight:400;font-size:1.08rem;color:var(--maroon);margin-bottom:.9rem}
 .pan__list ul{list-style:none;display:grid;gap:.55rem;max-height:280px;overflow:auto}
-.pan__list li{display:flex;gap:.7rem;font-size:.87rem;border-left:3px solid var(--gold);padding-left:.7rem}
+.pan__list li{display:flex;gap:.7rem;font-size:.92rem;border-left:3px solid var(--gold);padding-left:.7rem}
 .pan__list li.lvl1{border-color:var(--saffron)}
 .pan__list li b{flex:0 0 84px;color:var(--maroon);font-weight:600}
 .pan__list li span{color:var(--ink-2)}
 .pan__note{margin-top:1rem;padding-top:.7rem;border-top:1px dashed var(--line);
-  font-size:.75rem;color:var(--ink-2);opacity:.9}
+  font-size:.82rem;color:var(--ink-2);opacity:.9}
 
 /* ── फ़ुटर के सोशल आइकन + प्रबंधक लिंक ── */
 .foot__social{display:flex;gap:.6rem;margin-top:.9rem}
-.foot__grid .foot__social a{display:grid;place-items:center;width:36px;height:36px;margin:0;
+.foot__grid .foot__social a{display:grid;place-items:center;width:44px;height:44px;margin:0;
   border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(217,164,65,.35);opacity:.9}
 .foot__grid .foot__social a:hover{background:var(--gold);transform:none;opacity:1}
 .foot__social svg{fill:currentColor}
@@ -506,9 +580,9 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
    ⚠️ नीचे वाला .paybox का margin-top ऋणात्मक (-.4rem) है, इसलिए यहाँ
    नीचे की जगह ज़रूर छोड़नी है — वरना ₹501 वाला बटन इन पिल्स पर चढ़ जाता है। */
 .book__social{margin:1.2rem 0 1.7rem}
-.book__social b{display:block;font-size:.82rem;font-weight:600;color:var(--gold-d);margin-bottom:.5rem}
+.book__social b{display:block;font-size:.9rem;font-weight:600;color:var(--gold-d);margin-bottom:.5rem}
 .book__social div{display:flex;flex-wrap:wrap;gap:.5rem}
-.book__social a{display:inline-flex;align-items:center;gap:.45rem;padding:.45em .95em;border-radius:999px;
+.book__social a{display:inline-flex;align-items:center;gap:.45rem;padding:.45em .95em;min-height:44px;border-radius:999px;
   border:1px solid var(--line);background:#fff;color:var(--maroon);font-size:.85rem;font-weight:600;transition:.2s}
 .book__social a:hover{border-color:var(--gold);background:var(--cream);transform:translateY(-2px)}
 .book__social svg{fill:currentColor;width:18px;height:18px}
@@ -525,9 +599,9 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
 .kcard__icon{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;
   background:var(--cream-2);border:1px solid var(--line);font-size:1.4rem;margin-bottom:.9rem}
 .kcard h3{font-family:var(--font-h);font-weight:400;font-size:1.15rem;color:var(--maroon)}
-.kcard__where{font-size:.78rem;color:var(--gold-d);font-weight:600;margin:.15rem 0 .6rem}
+.kcard__where{font-size:.84rem;color:var(--gold-d);font-weight:600;margin:.15rem 0 .6rem}
 .kcard__teaser{font-family:var(--font-h);font-size:.92rem;color:var(--ink-2);line-height:1.7;flex:1}
-.kcard__more{margin-top:1rem;font-size:.84rem;font-weight:600;color:var(--saffron)}
+.kcard__more{margin-top:1rem;font-size:.9rem;font-weight:600;color:var(--saffron)}
 .kcard:hover .kcard__more{text-decoration:underline}
 .katha__allWrap{text-align:center;margin-top:2rem}
 
@@ -545,7 +619,7 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
   background:linear-gradient(150deg,var(--maroon),var(--maroon-d));font-size:1.6rem}
 .kfull__head h2{font-family:var(--font-h);font-weight:400;font-size:1.4rem;color:var(--maroon)}
 .kfull__head p{font-size:.8rem;color:var(--gold-d);font-weight:600}
-.kfull__label{font-size:.8rem;font-weight:700;letter-spacing:.06em;color:var(--saffron);
+.kfull__label{font-size:.875rem;font-weight:700;letter-spacing:.06em;color:var(--saffron);
   text-transform:uppercase;margin:1.2rem 0 .5rem}
 .kfull__story{font-family:var(--font-h);font-size:1.02rem;line-height:1.95;color:var(--ink)}
 .kfull__list{list-style:none;display:grid;gap:.5rem}
@@ -563,12 +637,13 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
 .parv:hover{border-color:var(--gold);transform:translateY(-2px)}
 .parv__date{flex:0 0 62px;text-align:center;border-right:1px solid var(--line);padding-right:.9rem;line-height:1.15}
 .parv__date b{display:block;font-family:var(--font-d);font-size:1.5rem;color:var(--maroon)}
-.parv__date span{display:block;font-size:.72rem;color:var(--gold-d);font-weight:600}
-.parv__date i{display:block;font-style:normal;font-size:.66rem;color:var(--ink-2)}
+.parv__date span{display:block;font-size:.8rem;color:var(--gold-d);font-weight:600}
+.parv__date i{display:block;font-style:normal;font-size:.75rem;color:var(--ink-2)}
 .parv__body{flex:1;min-width:0}
 .parv__body b{display:block;font-family:var(--font-h);font-weight:400;font-size:1.04rem;color:var(--ink)}
-.parv__body span{font-size:.78rem;color:var(--ink-2)}
-.parv__ask{flex:none;font-size:.8rem;font-weight:600;color:var(--saffron);white-space:nowrap}
+.parv__body span{font-size:.875rem;color:var(--ink-2)}
+.parv__ask{flex:none;font-size:.9rem;font-weight:600;color:var(--saffron);white-space:nowrap;
+  display:inline-flex;align-items:center;min-height:44px}
 .parv__ask:hover{text-decoration:underline}
 
 /* ── पंचांग समझाने वाला हिस्सा ── */
@@ -584,7 +659,7 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
 
 @media (max-width:560px){
   .parv{flex-wrap:wrap}
-  .parv__ask{flex:1 0 100%;text-align:right}
+  .parv__ask{flex:1 0 100%;justify-content:flex-end;text-align:right}
 }
 
 /* ── रिव्यू माँगने वाला पेज (review.html) ── */

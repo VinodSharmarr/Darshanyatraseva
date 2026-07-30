@@ -20,14 +20,14 @@
     a.textContent = '✉️ ' + CONFIG.email;
   });
 
-  /* भुगतान बटन — लिंक हो तो लगाओ, न हो तो बटन और उसका नोट दोनों छुपा दो */
+  /* भुगतान बटन — यहाँ का काम बस इतना है: config.js का लिंक <a> में भर दो।
+     बटन दिखाना/छुपाना यह फ़ाइल नहीं करती — वो CSS करती है (.pay:not([href]))।
+     ⚠️ यहाँ hidden लगाने-हटाने की कोशिश मत करना: उसी वजह से 30 जुलाई 2026 को
+     बटन गायब हो गया था (नई HTML + ब्राउज़र में पड़ी पुरानी script.js)।
+     लिंक ख़ाली हो तो href भरा ही नहीं जाता, और CSS ख़ुद बटन छुपा देती है। */
   const payWrap = document.getElementById('payBox');
-  if (payWrap) {
-    if (CONFIG.razorpay) {
-      payWrap.querySelector('.pay').href = CONFIG.razorpay;
-    } else {
-      payWrap.hidden = true;
-    }
+  if (payWrap && CONFIG.razorpay) {
+    payWrap.querySelector('.pay').href = CONFIG.razorpay;
   }
 
   /* सोशल पेज — config.js में जो हैंडल भरा है सिर्फ़ वही दिखता है।
