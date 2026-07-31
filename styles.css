@@ -52,8 +52,9 @@
        `body` से नहीं। तो body पर आकार बदलने से बाक़ी कुछ नहीं बदलता था।
 
    अब आकार `html` पर है और body उसी को follow करती है (`1rem`)। इससे एक
-   जगह बदलने पर पूरी साइट एक साथ बड़ी/छोटी हो जाती है — इसी पर "अक्षर बड़े
-   करें" वाला बटन टिका है (§ .fsbtn)।
+   जगह बदलने पर पूरी साइट एक साथ बड़ी/छोटी हो जाती है।
+   ("अक्षर बड़े करें" वाला A⁺ बटन 31 जुलाई 2026 को हटा दिया गया — इसलिए
+    अब यह 17px ही हर यात्री का आकार है, नीचे मत ले जाना।)
 
    ⚠️ media query वाली चौड़ाइयाँ px में ही रखें (rem में नहीं) — वरना अक्षर
       बड़े करते ही मोबाइल/डेस्कटॉप का layout ही बदल जाएगा। */
@@ -137,27 +138,14 @@ ul{margin:0;padding:0;list-style:none}
 .topbar__tel{margin-left:auto;font-weight:600;color:var(--gold);
   display:inline-flex;align-items:center;min-height:36px;padding-inline:.15rem}
 
-/* ── "अक्षर बड़े करें" बटन ─────────────────────────────────────────
-   बुज़ुर्ग यात्री हमारा सबसे बड़ा हिस्सा हैं। 17px सबके लिए ठीक है, पर जिन्हें
-   कम दिखता है वो यहाँ से तीन पायदान बड़ा कर सकते हैं (17 → 19 → 21px), और
-   उनकी पसंद ब्राउज़र में याद रह जाती है (पूरा हिसाब `fontsize.js` में है)।
-   पूरी साइट rem में नपी है, इसलिए एक जगह बदलने से सब कुछ साथ बड़ा होता है।
-   margin-left:auto यहाँ है — इससे बटन और नंबर दोनों दाईं तरफ़ चले जाते हैं। */
-.fsbtn{
-  margin-left:auto;flex:none;cursor:pointer;
-  display:inline-flex;align-items:center;justify-content:center;
-  min-height:36px;min-width:40px;padding:0 .5rem;
-  font-family:var(--font-b);font-size:.9rem;font-weight:700;line-height:1;
-  color:var(--gold);background:rgba(255,255,255,.09);
-  border:1px solid rgba(217,164,65,.45);border-radius:999px;
-  transition:background .2s,border-color .2s,color .2s;
-}
-.fsbtn sup{font-size:.72em;margin-left:1px}
-.fsbtn:hover{background:rgba(217,164,65,.22);border-color:var(--gold);color:#FFEBC4}
-/* कौन सा पायदान चालू है, यह दिखता रहे — वरना दबाने पर पता नहीं चलता कुछ हुआ */
-.fsbtn[data-step="1"],.fsbtn[data-step="2"]{background:var(--gold);color:#3B1F0B;border-color:var(--gold)}
-/* बटन आने के बाद नंबर को margin-left:auto की ज़रूरत नहीं रही */
-.fsbtn ~ .topbar__tel{margin-left:.55rem}
+/* ── "अक्षर बड़े करें" (A⁺) बटन — हटा दिया गया, 31 जुलाई 2026 ──────────
+   Vinod के कहने पर हटाया। `fontsize.js` भी मिटा दी गई।
+   ⚠️ यह ध्यान रहे: अब कोई यात्री अक्षर बड़े नहीं कर सकता। इसलिए साइट का
+      अपना 17px वाला आकार ही सबका सहारा है — `html{font-size:17px}` को
+      घटाकर 16px मत करना, वरना बुज़ुर्ग यात्रियों के पास कोई रास्ता नहीं बचेगा।
+      (ब्राउज़र का अपना zoom अब भी चलता है, पर वो लोग कम जानते हैं।)
+   जिन यात्रियों ने पहले बड़ा आकार चुना था, उनका `dys-fs` वाला चुनाव अब
+   बेअसर है — पेज सबको 17px पर ही दिखेगा। */
 
 /* ── nav ── */
 .nav{position:sticky;top:0;z-index:60;background:rgba(255,249,240,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);transition:box-shadow .25s}
