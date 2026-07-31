@@ -258,6 +258,7 @@ ul{margin:0;padding:0;list-style:none}
 .cards.is-open,.deps.is-open{grid-template-columns:repeat(auto-fit,minmax(276px,1fr))}
 .feats.is-open{grid-template-columns:repeat(auto-fit,minmax(232px,1fr))}
 .steps.is-open{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.revs.is-open{grid-template-columns:repeat(auto-fit,minmax(268px,1fr))}
 
 /* ── cards ── */
 .cards{--slide:86%;--slide-t:46%;--slide-d:31.4%}
@@ -349,7 +350,10 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
 .pill--warn{background:#FDECE4;color:#C03F10}
 
 /* ── reviews ── */
-.revs{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:1.4rem}
+/* यात्रा कार्ड की तरह यह भी स्लाइडर है (1 अगस्त 2026) — ⚠️ यहाँ `display:grid`
+   दोबारा मत लिखना, वरना .slider का flex दब जाएगा और सरकना बंद हो जाएगा।
+   खुली हुई हालत (☰ मेन्यू) की grid नीचे .revs.is-open में है। */
+.revs{--slide:86%;--slide-t:46%;--slide-d:31.4%;gap:1.4rem}
 .rev{margin:0;background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:1.6rem;box-shadow:var(--shadow)}
 .stars{color:var(--gold);letter-spacing:.14em;margin-bottom:.7rem}
 .rev blockquote{margin:0 0 1.1rem;font-family:var(--font-h);font-size:.97rem;color:var(--ink-2);line-height:1.75}

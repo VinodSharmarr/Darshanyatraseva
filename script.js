@@ -102,7 +102,7 @@ onScroll();
    IntersectionObserver उन्हें कभी नहीं देखता और वे हमेशा ग़ायब रह जाते।
    पूरी पट्टी (.slider) को एक साथ दिखाते हैं। */
 const revealables = document.querySelectorAll(
-  '.slider, .rev, .form, .book__copy, .sec__title, .sec__lede, .faq details'
+  '.slider, .form, .book__copy, .sec__title, .sec__lede, .faq details'
 );
 revealables.forEach(el => el.classList.add('reveal'));
 
