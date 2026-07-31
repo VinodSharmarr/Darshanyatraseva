@@ -1,23 +1,22 @@
 /* ═══════════════════════════════════════════════════════════
-   Darshan Yatra Seva — panchang.js
-   हिन्दू कैलेंडर (पंचांग) — कोई library नहीं, कोई इंटरनेट नहीं,
+   Darshan Yatra Seva, panchang.js
+   हिन्दू कैलेंडर (पंचांग), कोई library नहीं, कोई इंटरनेट नहीं,
    कोई backend नहीं। सूर्य-चंद्र की गणना यहीं ब्राउज़र में होती है।
 
    कैसे काम करता है
    ─────────────────
-   1. सूर्य और चंद्रमा का देशांतर (longitude) निकाला जाता है
-      — Meeus की "Astronomical Algorithms" वाली विधि से।
+   1. सूर्य और चंद्रमा का देशांतर (longitude) निकाला जाता है, Meeus की "Astronomical Algorithms" वाली विधि से।
    2. दोनों का अंतर ÷ 12 = तिथि।  चंद्रमा ÷ 13°20' = नक्षत्र।
    3. दिल्ली के सूर्योदय के समय जो तिथि हो, वही उस दिन की तिथि
-      मानी जाती है — यही परंपरा है।
-   4. महीना अमांत पद्धति से (अमावस्या पर महीना बदलता है) —
+      मानी जाती है, यही परंपरा है।
+   4. महीना अमांत पद्धति से (अमावस्या पर महीना बदलता है),
       दिल्ली/उत्तर भारत की चलन वाली गणना।
 
    ⚠️ यह गणना से बना पंचांग है, ±कुछ मिनट का फ़र्क़ हो सकता है।
       व्रत/त्योहार की कोई तारीख़ ग्राहक को पक्की बताने से पहले
       अपने स्थानीय पंचांग से एक बार मिला लें।
 
-   ⚠️ नया त्योहार जोड़ना हो तो नीचे PARV वाली सूची में जोड़ें —
+   ⚠️ नया त्योहार जोड़ना हो तो नीचे PARV वाली सूची में जोड़ें,
       key इस तरह: 'महीना|पक्ष|तिथि'  (महीना 0=चैत्र … 11=फाल्गुन,
       पक्ष S=शुक्ल K=कृष्ण, तिथि 1–15)
    ═══════════════════════════════════════════════════════════ */
@@ -30,7 +29,7 @@ window.Panchang = (function () {
   const cos = d => Math.cos(d * D2R);
   const norm = a => ((a % 360) + 360) % 360;
 
-  /* दिल्ली — साइट यहीं से चलती है */
+  /* दिल्ली, साइट यहीं से चलती है */
   const CITY = { lat: 28.6139, lon: 77.2090, tz: 5.5 };
 
   /* ── नाम ─────────────────────────────────────────────────── */
@@ -73,18 +72,18 @@ window.Panchang = (function () {
   const RASHI_EN = ['Mesha','Vrishabha','Mithuna','Karka','Simha','Kanya',
                     'Tula','Vrishchika','Dhanu','Makara','Kumbha','Meena'];
 
-  /* ── पर्व सूची — 'मास|पक्ष|तिथि': [हिन्दी, English, स्तर, नियम] ──
+  /* ── पर्व सूची, 'मास|पक्ष|तिथि': [हिन्दी, English, स्तर, नियम] ──
 
      ⚠️ अमांत पद्धति के हिसाब से। इसीलिए जन्माष्टमी श्रावण कृष्ण 8 है
-     और दीपावली आश्विन अमावस्या — पूर्णिमांत पंचांग में महीने का नाम
+     और दीपावली आश्विन अमावस्या, पूर्णिमांत पंचांग में महीने का नाम
      अलग लिखा मिलेगा, पर तारीख़ वही रहती है।
 
-     नियम — कौन सी घड़ी की तिथि देखी जाए:
+     नियम, कौन सी घड़ी की तिथि देखी जाए:
        'u' = सूर्योदय की तिथि (ज़्यादातर व्रत-त्योहार)
        'p' = प्रदोष/शाम की तिथि (दीपावली, धनतेरस, होलिका दहन, करवा चौथ)
        'n' = निशीथ/आधी रात की तिथि (महाशिवरात्रि)
      यही वजह है कि 2025 में होलिका दहन 13 मार्च था जबकि सूर्योदय की
-     पूर्णिमा 14 मार्च को थी — दहन शाम को होता है।                  */
+     पूर्णिमा 14 मार्च को थी, दहन शाम को होता है।                  */
   const PARV = {
     /* चैत्र */
     '0|S|1' : ['नव संवत्सर · चैत्र नवरात्रि प्रारंभ', 'Hindu New Year · Chaitra Navratri begins', 1, 'u'],
@@ -123,7 +122,7 @@ window.Panchang = (function () {
     /* कार्तिक */
     '7|S|1' : ['गोवर्धन पूजा · अन्नकूट', 'Govardhan Puja · Annakut', 1, 'u'],
     '7|S|2' : ['भाई दूज', 'Bhai Dooj', 1, 'u'],
-    '7|S|6' : ['छठ पूजा — संध्या अर्घ्य', 'Chhath Puja', 1, 'p'],
+    '7|S|6' : ['छठ पूजा, संध्या अर्घ्य', 'Chhath Puja', 1, 'p'],
     '7|S|11': ['देवउठनी एकादशी · तुलसी विवाह', 'Devuthani Ekadashi', 1, 'u'],
     '7|S|15': ['कार्तिक पूर्णिमा · देव दीपावली', 'Kartik Purnima · Dev Deepawali', 1, 'u'],
     /* मार्गशीर्ष */
@@ -135,10 +134,10 @@ window.Panchang = (function () {
     '10|K|15': ['मौनी अमावस्या', 'Mauni Amavasya', 1, 'u'],
     /* फाल्गुन */
     '11|S|11': ['खाटू श्याम जी लक्खी मेला (फाल्गुन)', 'Khatu Shyam Falgun Mela', 1, 'u']
-    /* होलिका दहन और धुलंडी — भद्रा का नियम लगता है, इसलिए holiPair() में */
+    /* होलिका दहन और धुलंडी, भद्रा का नियम लगता है, इसलिए holiPair() में */
   };
 
-  /* हर महीने आने वाले व्रत — ऊपर वाली ख़ास तारीख़ न हो तभी दिखते हैं */
+  /* हर महीने आने वाले व्रत, ऊपर वाली ख़ास तारीख़ न हो तभी दिखते हैं */
   const MAASIK = {
     'S|11': ['एकादशी व्रत', 'Ekadashi Vrat', 2, 'u'],
     'K|11': ['एकादशी व्रत', 'Ekadashi Vrat', 2, 'u'],
@@ -170,7 +169,7 @@ window.Panchang = (function () {
     return norm(L0 + C - 0.00569 - 0.00478 * sin(om));
   }
 
-  /* चंद्रमा का सायन देशांतर (Meeus, अध्याय 47 — बड़े पद)
+  /* चंद्रमा का सायन देशांतर (Meeus, अध्याय 47, बड़े पद)
      D, M, M', F के गुणक और 1e-6 अंश में गुणांक */
   const MOON = [
     [0,0,1,0,6288774],[2,0,-1,0,1274027],[2,0,0,0,658314],[0,0,2,0,213618],
@@ -214,7 +213,7 @@ window.Panchang = (function () {
     return norm(Lp + s / 1e6);
   }
 
-  /* लाहिड़ी अयनांश — सायन को निरयण (भारतीय) में बदलने के लिए */
+  /* लाहिड़ी अयनांश, सायन को निरयण (भारतीय) में बदलने के लिए */
   function ayanamsa(jd) {
     const y = (jd - 2451545.0) / 365.25 + 2000;
     return 23.85306 + (y - 2000) * (50.2909 / 3600);
@@ -222,7 +221,7 @@ window.Panchang = (function () {
   const sunSid  = jd => norm(sunLong(jd)  - ayanamsa(jd));
   const moonSid = jd => norm(moonLong(jd) - ayanamsa(jd));
 
-  /* चंद्र-सूर्य का अंतर — तिथि इसी से बनती है (अयनांश कट जाता है) */
+  /* चंद्र-सूर्य का अंतर, तिथि इसी से बनती है (अयनांश कट जाता है) */
   const elong = jd => norm(moonLong(jd) - sunLong(jd));
 
   /* जिस क्षण अंतर ठीक `deg` होता है, उसे ढूँढना (न्यूटन विधि)।
@@ -239,7 +238,7 @@ window.Panchang = (function () {
     return t;
   }
 
-  /* जिस क्षण चंद्रमा `deg` (निरयण) पर होता है — नक्षत्र के लिए */
+  /* जिस क्षण चंद्रमा `deg` (निरयण) पर होता है, नक्षत्र के लिए */
   function whenMoonAt(deg, near) {
     let t = near;
     for (let i = 0; i < 8; i++) {
@@ -252,12 +251,12 @@ window.Panchang = (function () {
     return t;
   }
 
-  /* पिछली अमावस्या — यहीं से अमांत महीना शुरू होता है */
+  /* पिछली अमावस्या, यहीं से अमांत महीना शुरू होता है */
   function lastNewMoon(jd) {
     return whenElong(0, jd - elong(jd) / 12.19 - 0.2);
   }
 
-  /* सूर्योदय / सूर्यास्त — दिल्ली के लिए (sunrise equation) */
+  /* सूर्योदय / सूर्यास्त, दिल्ली के लिए (sunrise equation) */
   function solar(y, m, d) {
     const jd0 = jdOf(y, m, d) - CITY.tz / 24;      // 00:00 IST, UT में
     const lw = -CITY.lon;
@@ -278,13 +277,13 @@ window.Panchang = (function () {
   /* ═══ 2. एक दिन का पूरा पंचांग ══════════════════════════════ */
 
   /* महीने का नाम: जिस अमावस्या से महीना शुरू हुआ, उस वक़्त सूर्य
-     जिस राशि में था — उससे एक आगे वाला नाम। (मीन → चैत्र) */
+     जिस राशि में था, उससे एक आगे वाला नाम। (मीन → चैत्र) */
   function masaAt(newMoonJD) {
     return (Math.floor(sunSid(newMoonJD) / 30) + 1) % 12;
   }
 
   /* किसी भी घड़ी की तिथि + महीना
-     adhika = अधिक मास (मलमास/पुरुषोत्तम मास) — इसमें बड़े त्योहार
+     adhika = अधिक मास (मलमास/पुरुषोत्तम मास), इसमें बड़े त्योहार
      नहीं मनाए जाते, वे अगले "निज" महीने में आते हैं। */
   function tithiAt(jd) {
     const ti = Math.floor(elong(jd) / 12);    // 0–29
@@ -309,7 +308,7 @@ window.Panchang = (function () {
     const tNum = (ti % 15) + 1;               // 1–15
     const tEnd = whenElong((ti + 1) * 12 % 360, t + 0.5);
 
-    /* शाम और आधी रात की तिथि — कुछ त्योहार इन्हीं से तय होते हैं।
+    /* शाम और आधी रात की तिथि, कुछ त्योहार इन्हीं से तय होते हैं।
        पिछले दिन की भी निकालते हैं ताकि एक ही तिथि दो शाम पड़े तो
        त्योहार दो बार न दिखे (पहला दिन ही माना जाता है)। */
     const yest = new Date(y, m - 1, d - 1);
@@ -326,9 +325,9 @@ window.Panchang = (function () {
       n: tithiAt(jdOf(y, m, d) - CITY.tz / 24)
     };
 
-    /* तिथि क्षय — कोई तिथि इतनी छोटी पड़े कि किसी सूर्योदय को छुए ही नहीं।
+    /* तिथि क्षय, कोई तिथि इतनी छोटी पड़े कि किसी सूर्योदय को छुए ही नहीं।
        ऐसी तिथि का व्रत/त्योहार उसी दिन माना जाता है जिस दिन वो चढ़ती है।
-       (2026 में चैत्र प्रतिपदा ऐसी ही है — नवरात्रि 19 मार्च को बैठती है) */
+       (2026 में चैत्र प्रतिपदा ऐसी ही है, नवरात्रि 19 मार्च को बैठती है) */
     const sunNext = solar(y, m, d + 1);
     const tiNext = Math.floor(elong(sunNext.rise) / 12);
     at.k = ((tiNext - ti + 30) % 30 === 2)
@@ -347,7 +346,7 @@ window.Panchang = (function () {
     const nextNM = whenElong(0, nm + 29.53);
     const adhika = masaAt(nextNM) === masa;   // दो अमावस्या, एक ही राशि = अधिक मास
 
-    /* विक्रम संवत् — चैत्र शुक्ल प्रतिपदा से बदलता है।
+    /* विक्रम संवत्, चैत्र शुक्ल प्रतिपदा से बदलता है।
        पीछे चलकर चैत्र की अमावस्या ढूँढते हैं, उसी का साल + 57। */
     let back = nm, guard = 0;
     while (masaAt(back) !== 0 && guard++ < 14) back = whenElong(0, back - 29.53);
@@ -356,7 +355,7 @@ window.Panchang = (function () {
     /* राशि */
     const moonRashi = Math.floor(ms / 30), sunRashi = Math.floor(ss / 30);
 
-    /* संक्रांति — सूर्य ने इस तारीख़ (आधी रात से आधी रात) में राशि बदली?
+    /* संक्रांति, सूर्य ने इस तारीख़ (आधी रात से आधी रात) में राशि बदली?
        मकर संक्रांति दोपहर बाद भी हो तो उसी दिन मानी जाती है, इसलिए
        सूर्योदय नहीं, पूरी तारीख़ देखी जाती है। */
     const midStart = jdOf(y, m, d) - CITY.tz / 24;
@@ -414,7 +413,7 @@ window.Panchang = (function () {
     return { dahan: day, holi };
   }
 
-  /* इस दिन का पर्व — [नाम, रंग-स्तर] की सूची
+  /* इस दिन का पर्व, [नाम, रंग-स्तर] की सूची
      स्तर 1 = बड़ा त्योहार · 2 = एकादशी/पूर्णिमा/अमावस्या · 3 = मासिक व्रत */
   function parvOf(p, en) {
     const out = [];
@@ -425,7 +424,7 @@ window.Panchang = (function () {
       seen.add(nm); out.push([nm, row[2]]);
     };
 
-    /* चारों घड़ियाँ जाँचो — हर त्योहार अपनी वाली घड़ी पर ही पकड़ा जाए।
+    /* चारों घड़ियाँ जाँचो, हर त्योहार अपनी वाली घड़ी पर ही पकड़ा जाए।
        k = क्षय हुई तिथि, उस पर सूर्योदय वाला ही नियम लगता है। */
     for (const [slot, rule] of [['u', 'u'], ['p', 'p'], ['n', 'n'], ['k', 'u']]) {
       const a = p.at[slot];
@@ -433,7 +432,7 @@ window.Panchang = (function () {
       /* शाम/रात वाली तिथि पिछले दिन भी वही थी = त्योहार कल था, आज नहीं */
       if ((slot === 'p' || slot === 'n') && sameTithi(a, p.prev[slot])) continue;
 
-      /* अधिक मास में त्योहार नहीं — पर एकादशी/पूर्णिमा/अमावस्या तब भी रहती हैं */
+      /* अधिक मास में त्योहार नहीं, पर एकादशी/पूर्णिमा/अमावस्या तब भी रहती हैं */
       const row = a.adhika ? null : PARV[a.masa + '|' + a.paksha + '|' + a.num];
       if (row && row[3] === rule) add(row);
 
@@ -441,7 +440,7 @@ window.Panchang = (function () {
       if (mk && mk[3] === rule && !(row && row[3] === rule)) add(mk);
     }
 
-    /* होलिका दहन / धुलंडी — भद्रा का नियम अलग से (holiPair देखें) */
+    /* होलिका दहन / धुलंडी, भद्रा का नियम अलग से (holiPair देखें) */
     if (p.masa === 11 || p.at.p.masa === 11 || p.at.p.masa === 0) {
       const hp = holiPair(p.sunrise);
       if (hp) {
@@ -495,7 +494,7 @@ window.Panchang = (function () {
     return V[dt.getDay()] + ', ' + dt.getDate() + ' ' + M[dt.getMonth()] + ' ' + dt.getFullYear();
   }
 
-  /* एक पंक्ति में पूरी तिथि — WhatsApp संदेश में यही जाती है */
+  /* एक पंक्ति में पूरी तिथि, WhatsApp संदेश में यही जाती है */
   function summary(dt, en) {
     const p = forDate(dt);
     const mas = (en ? MASA_EN : MASA_HI)[p.masa] + (p.adhika ? (en ? ' (Adhika)' : ' (अधिक)') : '');
@@ -507,7 +506,7 @@ window.Panchang = (function () {
 
   /* ═══ 4. साइट पर कैलेंडर दिखाना ═════════════════════════════ */
 
-  /* कैलेंडर की मौजूदा हालत — भाषा बदलने पर पूरा HTML दोबारा बनता है,
+  /* कैलेंडर की मौजूदा हालत, भाषा बदलने पर पूरा HTML दोबारा बनता है,
      इसलिए "कौन सा महीना खुला है" और "कौन सी तारीख़ चुनी है" यहाँ याद रखते हैं।
      वरना अंग्रेज़ी दबाते ही विज़िटर वापस इस महीने पर पहुँच जाता था।     */
   let calMonth = null;                       // जो महीना दिख रहा है (हर महीने की 1 तारीख़)
@@ -568,7 +567,7 @@ window.Panchang = (function () {
     const pad = first.getDay();
     const monthName = (en ? MAH_EN : MAH_HI)[first.getMonth()] + ' ' + first.getFullYear();
 
-    /* ग्रिड में पूरा नाम नहीं समाता — "शु 13" जैसा छोटा रूप */
+    /* ग्रिड में पूरा नाम नहीं समाता, "शु 13" जैसा छोटा रूप */
     const short = q => {
       if (q.tithiNum === 15) return q.paksha === 'S' ? (en ? 'Pur' : 'पू') : (en ? 'Ama' : 'अमा');
       return (q.paksha === 'S' ? (en ? 'S' : 'शु') : (en ? 'K' : 'कृ')) + ' ' + q.tithiNum;
@@ -628,7 +627,7 @@ window.Panchang = (function () {
       const parv = parvOf(q, en).map(x => x[0]);
       const wa = 'https://wa.me/' + (window.CONFIG ? CONFIG.whatsapp : '') + '?text=' +
         encodeURIComponent((en ? 'Jai Shri Shyam! ' : 'जय श्री श्याम! ') +
-          fmtDate(dt, false) + (en ? ' — yatra available?' : ' को यात्रा की जानकारी चाहिए।'));
+          fmtDate(dt, false) + (en ? ', yatra available?' : ' को यात्रा की जानकारी चाहिए।'));
       pick.hidden = false;
       pick.innerHTML =
         `<b>${esc(fmtDate(dt, en))}</b>
@@ -641,7 +640,7 @@ window.Panchang = (function () {
       btn.addEventListener('click', () => { calSel = +btn.dataset.d; showPick(calSel); });
     });
 
-    /* भाषा बदलने पर सब कुछ नया बनता है — चुनी हुई तारीख़ वापस खोल दें */
+    /* भाषा बदलने पर सब कुछ नया बनता है, चुनी हुई तारीख़ वापस खोल दें */
     if (calSel) showPick(calSel);
 
     host.querySelectorAll('.pan__nav').forEach(b => {
@@ -653,7 +652,7 @@ window.Panchang = (function () {
     });
   }
 
-  /* ── आगे आने वाले बड़े पर्व — panchang.html की सूची के लिए ──
+  /* ── आगे आने वाले बड़े पर्व, panchang.html की सूची के लिए ──
      आज से गिनते हुए अगले `days` दिनों में जो स्तर-1 (बड़े) पर्व पड़ते हैं।
      हर दिन की गणना होती है, इसलिए days बहुत बड़ा मत रखना।           */
   function upcoming(days, en) {
@@ -668,20 +667,27 @@ window.Panchang = (function () {
     return out;
   }
 
-  function renderUpcoming(host) {
-    const en = document.documentElement.lang === 'en';
+  /* ── आगामी पर्वों की पूरी सूची का HTML ──────────────────────────
+     यह सिर्फ़ HTML बनाकर लौटाती है, कहीं लगाती नहीं। दो जगह से चलती है:
+       1. renderUpcoming(), ब्राउज़र में, हर बार भाषा बदलने पर
+       2. build-panchang.js, Node में, ताकि हिन्दी सूची पहले से
+          panchang.html में लिखी रहे और Googlebot को ख़ाली <ul> न मिले
+          (वही सबक जो /katha पर मिला था, HANDOVER §12)
+     🔴 इसीलिए यह अलग की गई है: HTML बनाने की जगह एक ही रहे। यहाँ कुछ
+        बदलें तो `node build-panchang.js` दोबारा चलाना ज़रूरी है।        */
+  function upcomingHTML(en) {
     const rows = upcoming(200, en);
     const T = en
       ? { none: 'No major festival in the next few months.', ask: 'Ask about a yatra' }
       : { none: 'अगले कुछ महीनों में कोई बड़ा पर्व नहीं।', ask: 'यात्रा पूछें' };
-    const wa = 'https://wa.me/' + (window.CONFIG ? CONFIG.whatsapp : '');
+    const wa = 'https://wa.me/' + (typeof CONFIG !== 'undefined' && CONFIG ? CONFIG.whatsapp : '');
     const esc = s => String(s).replace(/[&<>"]/g, c =>
       ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
-    host.innerHTML = rows.length ? rows.map(r => {
+    return rows.length ? rows.map(r => {
       const msg = (en ? 'Jai Shri Shyam! ' : 'जय श्री श्याम! ') + fmtDate(r.date, false) +
-                  ' — ' + r.names.join(', ') +
-                  (en ? ' — yatra?' : ' पर यात्रा की जानकारी चाहिए।');
+                  ', ' + r.names.join(', ') +
+                  (en ? ', yatra?' : ' पर यात्रा की जानकारी चाहिए।');
       return `<li class="parv">
         <div class="parv__date">
           <b>${r.date.getDate()}</b>
@@ -695,6 +701,10 @@ window.Panchang = (function () {
         <a class="parv__ask" href="${wa}?text=${encodeURIComponent(msg)}" target="_blank" rel="noopener">💬 ${T.ask}</a>
       </li>`;
     }).join('') : `<li class="parv"><div class="parv__body"><span>${T.none}</span></div></li>`;
+  }
+
+  function renderUpcoming(host) {
+    host.innerHTML = upcomingHTML(document.documentElement.lang === 'en');
   }
 
   function init() {
@@ -715,7 +725,7 @@ window.Panchang = (function () {
 
     /* भाषा बदले तो कैलेंडर भी बदल जाए (i18n सिर्फ़ पक्के टेक्स्ट को छूता है)।
        महीना और चुनी हुई तारीख़ calMonth/calSel में रहते हैं, इसलिए विज़िटर
-       जहाँ था वहीं रहता है — बस भाषा बदल जाती है।                        */
+       जहाँ था वहीं रहता है, बस भाषा बदल जाती है।                        */
     new MutationObserver(() => render(host))
       .observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
   }
@@ -725,5 +735,5 @@ window.Panchang = (function () {
 
   /* admin.html और बाक़ी कोड के लिए */
   return { forDate, parvOf, summary, tithiName, pakshaName, fmtTime, fmtDate, upcoming,
-           MASA_HI, VAAR_HI, NAK_HI };
+           upcomingHTML, MASA_HI, VAAR_HI, NAK_HI };
 })();

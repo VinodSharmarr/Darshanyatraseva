@@ -4,21 +4,24 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <!-- ⚠️ title में सबसे पहले वही शब्द हैं जो लोग Google पर टाइप करते हैं
-     ("दिल्ली से खाटू श्याम यात्रा"), ब्रांड का नाम बाद में — नई साइट के लिए
+     ("दिल्ली से खाटू श्याम यात्रा"), ब्रांड का नाम बाद में, नई साइट के लिए
      यही क्रम सही रहता है। 60 अक्षर से लंबा हुआ तो Google काट देता है। -->
 <title>दिल्ली से खाटू श्याम व वृंदावन यात्रा | Darshan Yatra Seva</title>
-<meta name="description" content="दिल्ली-NCR से खाटू श्याम जी, वृंदावन-मथुरा, मेहंदीपुर व सालासर बालाजी की एक दिन की यात्रा। AC टेम्पो ट्रैवलर, प्रसाद-पानी शामिल, मेट्रो से पिकअप, बुज़ुर्गों की विशेष सहायता।" />
+<meta name="description" content="दिल्ली-NCR से खाटू श्याम, वृंदावन-मथुरा, मेहंदीपुर व सालासर बालाजी की एक दिन की यात्रा। AC टेम्पो ट्रैवलर, प्रसाद-पानी शामिल, बुज़ुर्गों की विशेष सहायता।" />
 <meta name="theme-color" content="#7B1E22" />
 <link rel="canonical" href="https://www.darshanyatraseva.com/" />
 
-<!-- स्थानीय खोज ("मेरे पास तीर्थ यात्रा") के लिए — दिल्ली का केंद्र -->
+<!-- स्थानीय खोज ("मेरे पास तीर्थ यात्रा") के लिए, दिल्ली का केंद्र -->
 <meta name="geo.region" content="IN-DL" />
-<meta name="geo.placename" content="Delhi" />
-<meta name="geo.position" content="28.6139;77.2090" />
-<meta name="ICBM" content="28.6139, 77.2090" />
+<!-- ⚠️ ये निर्देशांक Nangloi/Rajdhani Park के लगभग हैं। GBP verify होते ही
+     वहाँ का पक्का pin देखकर तीनों जगह (यहाँ + JSON-LD का "geo") वही डाल दें,
+     नाम-पता-नंबर की तरह निर्देशांक भी हर जगह एक जैसे होने चाहिए। -->
+<meta name="geo.placename" content="Nangloi, Delhi" />
+<meta name="geo.position" content="28.6796;77.0668" />
+<meta name="ICBM" content="28.6796, 77.0668" />
 
-<meta property="og:title" content="Darshan Yatra Seva — आस्था की यात्रा, सेवा के साथ" />
-<meta property="og:description" content="दिल्ली से खाटू श्याम, वृंदावन, मेहंदीपुर बालाजी — AC टेम्पो ट्रैवलर, प्रसाद व पानी शामिल, बुज़ुर्गों की विशेष सेवा।" />
+<meta property="og:title" content="Darshan Yatra Seva | आस्था की यात्रा, सेवा के साथ" />
+<meta property="og:description" content="दिल्ली से खाटू श्याम, वृंदावन, मेहंदीपुर बालाजी। AC टेम्पो ट्रैवलर, प्रसाद व पानी शामिल, बुज़ुर्गों की विशेष सेवा।" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.darshanyatraseva.com/" />
 <meta property="og:site_name" content="Darshan Yatra Seva" />
@@ -27,7 +30,7 @@
 <meta property="og:image" content="https://www.darshanyatraseva.com/brand/og-image.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="दर्शन यात्रा सेवा — आस्था की यात्रा, सेवा के साथ" />
+<meta property="og:image:alt" content="दर्शन यात्रा सेवा | आस्था की यात्रा, सेवा के साथ" />
 <meta name="twitter:card" content="summary_large_image" />
 
 <link rel="icon" href="brand/logo-icon.svg" type="image/svg+xml" />
@@ -37,22 +40,22 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Tiro+Devanagari+Hindi:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-<link rel="stylesheet" href="styles.css?v=20" />
+<link rel="stylesheet" href="styles.css?v=21" />
 
 <!-- ═══════════════════════════════════════════════════════════
      Google के लिए structured data (JSON-LD)
 
-     ⚠️ यह HTML में ही लिखा है, JS से नहीं बनता — Google को यह पहली
+     ⚠️ यह HTML में ही लिखा है, JS से नहीं बनता, Google को यह पहली
      ही झलक में मिल जाना चाहिए। पहले script.js बनाता था, 28 जुलाई 2026
      को यहाँ स्थिर कर दिया। सोशल लिंक (sameAs) फिर भी config.js से ही
      अपने आप ठीक होते रहते हैं, इसलिए बदलने की जगह वहीं एक ही है।
 
      तीन हिस्से हैं:
-     1. TravelAgency — धंधे की पहचान (नंबर, इलाक़ा, सोशल पेज)
-     2. FAQPage      — सवाल-जवाब, इससे Google पर सीधे जवाब दिखते हैं
-     3. TouristTrip  — चारों यात्राएँ
+     1. TravelAgency, धंधे की पहचान (नंबर, इलाक़ा, सोशल पेज)
+     2. FAQPage     , सवाल-जवाब, इससे Google पर सीधे जवाब दिखते हैं
+     3. TouristTrip , चारों यात्राएँ
 
-     ⚠️ यहाँ कोई नक़ली आँकड़ा (जैसे aggregateRating) मत डालना — Google
+     ⚠️ यहाँ कोई नक़ली आँकड़ा (जैसे aggregateRating) मत डालना, Google
         पकड़ता है और भरोसा तो जाता ही है, नियम 4 भी यही कहता है।
      ═══════════════════════════════════════════════════════════ -->
 <script type="application/ld+json" id="ldBiz">
@@ -73,11 +76,13 @@
   "paymentAccepted": "UPI, Bank Transfer, Cash",
   "address": {
     "@type": "PostalAddress",
+    "streetAddress": "A-36, P & T Block, Rajdhani Park, Nangloi",
     "addressLocality": "Delhi",
     "addressRegion": "Delhi",
+    "postalCode": "110041",
     "addressCountry": "IN"
   },
-  "geo": { "@type": "GeoCoordinates", "latitude": 28.6139, "longitude": 77.2090 },
+  "geo": { "@type": "GeoCoordinates", "latitude": 28.6796, "longitude": 77.0668 },
   "areaServed": [
     { "@type": "City", "name": "Delhi" },
     { "@type": "City", "name": "Noida" },
@@ -133,9 +138,9 @@
     { "@type": "Question", "name": "बुज़ुर्ग यात्रियों के लिए क्या व्यवस्था है?",
       "acceptedAnswer": { "@type": "Answer", "text": "आगे की सीट प्राथमिकता, चढ़ने-उतरने में सहायता, दर्शन लाइन में साथ, और आवश्यकता होने पर व्हीलचेयर की व्यवस्था (पहले से बताने पर)। यह हमारी सबसे बड़ी विशेषता है।" } },
     { "@type": "Question", "name": "क्या दर्शन की गारंटी है?",
-      "acceptedAnswer": { "@type": "Answer", "text": "हम आपको समय पर मंदिर पहुँचाते हैं और लाइन में पूरी सहायता करते हैं। परंतु मंदिर की भीड़, कतार की अवधि या प्रशासन द्वारा किए गए बदलाव हमारे नियंत्रण में नहीं होते — इसे बुकिंग शर्तों में स्पष्ट लिखा गया है।" } },
+      "acceptedAnswer": { "@type": "Answer", "text": "हम आपको समय पर मंदिर पहुँचाते हैं और लाइन में पूरी सहायता करते हैं। परंतु मंदिर की भीड़, कतार की अवधि या प्रशासन द्वारा किए गए बदलाव हमारे नियंत्रण में नहीं होते, इसे बुकिंग शर्तों में स्पष्ट लिखा गया है।" } },
     { "@type": "Question", "name": "पूरा वाहन बुक करना हो तो?",
-      "acceptedAnswer": { "@type": "Answer", "text": "परिवार, RWA, ऑफ़िस या मंदिर मंडली के लिए 17-सीटर टेम्पो ट्रैवलर और 35/45-सीटर बस उपलब्ध है। ऊपर फ़ॉर्म में \"पूरा वाहन बुकिंग\" चुनें — हम आपको कस्टम कोट भेज देंगे।" } },
+      "acceptedAnswer": { "@type": "Answer", "text": "परिवार, RWA, ऑफ़िस या मंदिर मंडली के लिए 17-सीटर टेम्पो ट्रैवलर और 35/45-सीटर बस उपलब्ध है। ऊपर फ़ॉर्म में \"पूरा वाहन बुकिंग\" चुनें, हम आपको कस्टम कोट भेज देंगे।" } },
     { "@type": "Question", "name": "मेला/त्योहार के समय बुकिंग कब करें?",
       "acceptedAnswer": { "@type": "Answer", "text": "फाल्गुन मेला, जन्माष्टमी और एकादशी जैसे अवसरों पर सीटें 3–4 सप्ताह पहले भर जाती हैं। ऐसे समय पहले से बुकिंग कराना ज़रूरी है।" } },
     { "@type": "Question", "name": "दिल्ली से खाटू श्याम कितनी दूर है और कितना समय लगता है?",
@@ -143,7 +148,7 @@
     { "@type": "Question", "name": "पिकअप कहाँ से मिलता है?",
       "acceptedAnswer": { "@type": "Answer", "text": "दिल्ली-NCR के मेट्रो स्टेशनों और तय पिकअप पॉइंट से। बुकिंग पक्की होते ही आपको WhatsApp पर अपना पिकअप पॉइंट, उसका समय और Google नक़्शे का लिंक भेज दिया जाता है। नोएडा, गुरुग्राम, ग़ाज़ियाबाद और फ़रीदाबाद से भी यात्री जुड़ते हैं।" } },
     { "@type": "Question", "name": "एक दिन की यात्रा में कौन-कौन से मंदिर होते हैं?",
-      "acceptedAnswer": { "@type": "Answer", "text": "वृंदावन-मथुरा यात्रा में बांके बिहारी, प्रेम मंदिर, ISKCON, निधिवन और मथुरा जन्मभूमि — सब एक ही दिन में। खाटू श्याम यात्रा में श्री श्याम मंदिर के दर्शन, और चाहें तो सालासर बालाजी जोड़कर दो धाम एक साथ।" } }
+      "acceptedAnswer": { "@type": "Answer", "text": "वृंदावन-मथुरा यात्रा में बांके बिहारी, प्रेम मंदिर, ISKCON, निधिवन और मथुरा जन्मभूमि, सब एक ही दिन में। खाटू श्याम यात्रा में श्री श्याम मंदिर के दर्शन, और चाहें तो सालासर बालाजी जोड़कर दो धाम एक साथ।" } }
   ]
 }
 </script>
@@ -162,7 +167,7 @@
       "itinerary": { "@type": "Place", "name": "श्री श्याम मंदिर, खाटू", "address": "Khatu, Sikar, Rajasthan" } } },
     { "@type": "ListItem", "position": 2, "item": {
       "@type": "TouristTrip", "name": "दिल्ली से वृंदावन-मथुरा यात्रा",
-      "description": "बांके बिहारी, प्रेम मंदिर, ISKCON, निधिवन एवं मथुरा जन्मभूमि — एक ही दिन में सम्पूर्ण दर्शन।",
+      "description": "बांके बिहारी, प्रेम मंदिर, ISKCON, निधिवन एवं मथुरा जन्मभूमि, एक ही दिन में सम्पूर्ण दर्शन।",
       "url": "https://www.darshanyatraseva.com/#yatras",
       "provider": { "@id": "https://www.darshanyatraseva.com/#business" },
       "itinerary": { "@type": "Place", "name": "बांके बिहारी मंदिर, वृंदावन", "address": "Vrindavan, Mathura, Uttar Pradesh" } } },
@@ -174,7 +179,7 @@
       "itinerary": { "@type": "Place", "name": "मेहंदीपुर बालाजी", "address": "Mehandipur, Dausa, Rajasthan" } } },
     { "@type": "ListItem", "position": 4, "item": {
       "@type": "TouristTrip", "name": "दिल्ली से खाटू श्याम + सालासर बालाजी यात्रा",
-      "description": "दो धामों की संयुक्त यात्रा — खाटू श्याम जी और सालासर बालाजी के दर्शन।",
+      "description": "दो धामों की संयुक्त यात्रा, खाटू श्याम जी और सालासर बालाजी के दर्शन।",
       "url": "https://www.darshanyatraseva.com/#yatras",
       "provider": { "@id": "https://www.darshanyatraseva.com/#business" },
       "itinerary": { "@type": "Place", "name": "सालासर बालाजी", "address": "Salasar, Churu, Rajasthan" } } }
@@ -188,7 +193,7 @@
 <div class="topbar">
   <div class="wrap topbar__in">
     <span class="topbar__om">ॐ</span>
-    <span>जय श्री श्याम — दिल्ली से हर सप्ताह यात्रा</span>
+    <span>जय श्री श्याम, दिल्ली से हर सप्ताह यात्रा</span>
     <a class="topbar__tel" href="tel:+917289902692">📞 +91 72899 02692</a>
   </div>
 </div>
@@ -246,7 +251,7 @@
     <p class="eyebrow">दिल्ली • NCR से तीर्थ यात्रा</p>
     <h1>आस्था की यात्रा,<br><span class="grad">सेवा के साथ</span></h1>
     <p class="hero__sub">
-      खाटू श्याम जी • वृंदावन-मथुरा • मेहंदीपुर बालाजी • सालासर धाम<br />
+      दिल्ली से खाटू श्याम जी • वृंदावन-मथुरा • मेहंदीपुर बालाजी • सालासर धाम<br />
       आरामदायक AC टेम्पो ट्रैवलर, प्रसाद व पानी शामिल, बुज़ुर्गों की विशेष सहायता।
     </p>
     <div class="hero__cta">
@@ -254,7 +259,7 @@
       <a class="btn btn--ghost btn--lg" href="#yatras">यात्राएँ देखें</a>
     </div>
     <ul class="hero__pills">
-      <li>✓ विशेष छूट — WhatsApp पर पूछें</li>
+      <li>✓ विशेष छूट, WhatsApp पर पूछें</li>
       <li>✓ मेट्रो स्टेशन से पिकअप</li>
       <li>✓ महिलाओं हेतु सुरक्षित सीटिंग</li>
       <li>✓ परिवार को लाइव लोकेशन</li>
@@ -267,9 +272,9 @@
   <div class="wrap trust__grid">
     <div><b>440+</b><span>संतुष्ट यात्री</span></div>
     <div><b>20+</b><span>सफल यात्राएँ</span></div>
-    <!-- ⚠️ यहाँ पहले "4.9★ औसत रेटिंग" लिखा था — किसी गिनती पर आधारित नहीं था।
+    <!-- ⚠️ यहाँ पहले "4.9★ औसत रेटिंग" लिखा था, किसी गिनती पर आधारित नहीं था।
          नक़ली रेटिंग पर Google दंड देता है और उपभोक्ता क़ानून भी इसे भ्रामक मानता है।
-         अब वही लिखा है जो सच है और भरोसा भी बनाता है — अपनी ही रिफंड नीति।
+         अब वही लिखा है जो सच है और भरोसा भी बनाता है, अपनी ही रिफंड नीति।
          असली रिव्यू जमा हो जाएँ तो गिनती के साथ रेटिंग वापस लगा सकते हैं। -->
     <div><b>72 घंटे</b><span>पहले तक 100% रिफंड</span></div>
     <div><b>100%</b><span>बीमा कवर</span></div>
@@ -310,13 +315,13 @@
 
       <article class="card">
         <div class="card__art">
-          <img src="yatra/vrindavan.jpg?v=2" alt="वृंदावन का प्रेम मंदिर — सफ़ेद संगमरमर की भव्य इमारत"
+          <img src="yatra/vrindavan.jpg?v=2" alt="वृंदावन का प्रेम मंदिर, सफ़ेद संगमरमर की भव्य इमारत"
                width="800" height="340" loading="lazy" decoding="async" />
         </div>
         <div class="card__body">
           <h3>वृंदावन – मथुरा</h3>
           <p class="card__meta">~160 किमी • 1 दिन (सुबह–रात)</p>
-          <p class="card__desc">बांके बिहारी, प्रेम मंदिर, ISKCON, निधिवन एवं मथुरा जन्मभूमि — एक ही दिन में सम्पूर्ण दर्शन।</p>
+          <p class="card__desc">बांके बिहारी, प्रेम मंदिर, ISKCON, निधिवन एवं मथुरा जन्मभूमि, एक ही दिन में सम्पूर्ण दर्शन।</p>
           <ul class="card__list">
             <li>5 प्रमुख मंदिर कवर</li>
             <li>प्रेम मंदिर लाइट शो</li>
@@ -332,7 +337,7 @@
 
       <article class="card">
         <div class="card__art">
-          <img src="yatra/mehandipur.jpg?v=2" alt="मेहंदीपुर बालाजी का गर्भगृह — सुनहरे स्वरूप के दर्शन"
+          <img src="yatra/mehandipur.jpg?v=2" alt="मेहंदीपुर बालाजी का गर्भगृह, सुनहरे स्वरूप के दर्शन"
                width="800" height="340" loading="lazy" decoding="async" />
         </div>
         <div class="card__body">
@@ -360,7 +365,7 @@
         <div class="card__body">
           <h3>खाटू श्याम + सालासर बालाजी</h3>
           <p class="card__meta">~410 किमी • 2 दिन / 1 रात (वीकेंड)</p>
-          <p class="card__desc">दोनों धामों का संयुक्त पैकेज — रात्रि विश्राम, भोजन एवं दोनों जगह दर्शन सहायता सहित।</p>
+          <p class="card__desc">दोनों धामों का संयुक्त पैकेज, रात्रि विश्राम, भोजन एवं दोनों जगह दर्शन सहायता सहित।</p>
           <ul class="card__list">
             <li>1 रात होटल/धर्मशाला</li>
             <li>2 समय भोजन शामिल</li>
@@ -376,7 +381,7 @@
 
     </div>
 
-    <p class="note">🚐 <b>पूरा वाहन बुक करना है?</b> परिवार, सोसाइटी या मंदिर मंडली के लिए 17-सीटर टेम्पो ट्रैवलर व 35-सीटर बस उपलब्ध — <a href="#book">कस्टम कोट लें</a>।</p>
+    <p class="note">🚐 <b>पूरा वाहन बुक करना है?</b> परिवार, सोसाइटी या मंदिर मंडली के लिए 17-सीटर टेम्पो ट्रैवलर व 35-सीटर बस उपलब्ध, <a href="#book">कस्टम कोट लें</a>।</p>
   </div>
 </section>
 
@@ -384,17 +389,17 @@
 <section class="sec sec--alt" id="why">
   <div class="wrap">
     <p class="eyebrow center">हमारी सेवा</p>
-    <h2 class="sec__title">सिर्फ़ ट्रैवल नहीं — <span class="grad">सेवा</span></h2>
+    <h2 class="sec__title">सिर्फ़ ट्रैवल नहीं, <span class="grad">सेवा</span></h2>
     <p class="sec__lede">तीर्थ यात्रा भावना का विषय है। हम हर छोटी बात का ध्यान रखते हैं।</p>
 
     <div class="feats slider">
-      <div class="feat"><span class="feat__ic">🚇</span><h3>मेट्रो पिकअप पॉइंट</h3><p>दिल्ली भर में तय पिकअप — उत्तम नगर, द्वारका, रोहिणी, लक्ष्मी नगर, आनंद विहार व अन्य।</p></div>
-      <div class="feat"><span class="feat__ic">🎶</span><h3>भजन-कीर्तन का माहौल</h3><p>पूरे रास्ते भजन व कीर्तन — यात्रा नहीं, एक सत्संग जैसा अनुभव।</p></div>
+      <div class="feat"><span class="feat__ic">🚇</span><h3>मेट्रो पिकअप पॉइंट</h3><p>दिल्ली भर में तय पिकअप: उत्तम नगर, द्वारका, रोहिणी, लक्ष्मी नगर, आनंद विहार व अन्य।</p></div>
+      <div class="feat"><span class="feat__ic">🎶</span><h3>भजन-कीर्तन का माहौल</h3><p>पूरे रास्ते भजन व कीर्तन, यात्रा नहीं, एक सत्संग जैसा अनुभव।</p></div>
       <div class="feat"><span class="feat__ic">🧓</span><h3>बुज़ुर्गों की विशेष सहायता</h3><p>चढ़ने-उतरने में मदद, आगे की सीट, दवाई व आराम का पूरा ध्यान।</p></div>
       <div class="feat"><span class="feat__ic">👩‍👧</span><h3>महिलाओं हेतु सुरक्षित सीटिंग</h3><p>अकेली यात्रा करने वाली महिलाओं के लिए अलग व सुरक्षित सीट व्यवस्था।</p></div>
-      <div class="feat"><span class="feat__ic">📍</span><h3>परिवार को लाइव लोकेशन</h3><p>WhatsApp पर घरवालों को यात्रा की लाइव लोकेशन — पूरी निश्चिंतता।</p></div>
-      <div class="feat"><span class="feat__ic">🍎</span><h3>प्रसाद व पानी शामिल</h3><p>हर यात्री को पानी की बोतल एवं मंदिर का प्रसाद — कोई छिपा शुल्क नहीं।</p></div>
-      <div class="feat"><span class="feat__ic">🛡️</span><h3>यात्रा बीमा कवर</h3><p>हर यात्री का ट्रैवल इंश्योरेंस — सुरक्षा में कोई समझौता नहीं।</p></div>
+      <div class="feat"><span class="feat__ic">📍</span><h3>परिवार को लाइव लोकेशन</h3><p>WhatsApp पर घरवालों को यात्रा की लाइव लोकेशन, पूरी निश्चिंतता।</p></div>
+      <div class="feat"><span class="feat__ic">🍎</span><h3>प्रसाद व पानी शामिल</h3><p>हर यात्री को पानी की बोतल एवं मंदिर का प्रसाद, कोई छिपा शुल्क नहीं।</p></div>
+      <div class="feat"><span class="feat__ic">🛡️</span><h3>यात्रा बीमा कवर</h3><p>हर यात्री का ट्रैवल इंश्योरेंस, सुरक्षा में कोई समझौता नहीं।</p></div>
       <div class="feat"><span class="feat__ic">💳</span><h3>पारदर्शी भुगतान</h3><p>UPI से सीधा भुगतान, तुरंत रसीद, और लिखित रिफंड पॉलिसी।</p></div>
     </div>
   </div>
@@ -419,7 +424,7 @@
   <div class="wrap">
     <p class="eyebrow center">आगामी प्रस्थान</p>
     <h2 class="sec__title">इस महीने की यात्राएँ</h2>
-    <p class="sec__lede">सीटें सीमित — पहले आओ, पहले पाओ के आधार पर।</p>
+    <p class="sec__lede">सीटें सीमित: पहले आओ, पहले पाओ के आधार पर।</p>
 
     <div class="deps slider">
 
@@ -489,12 +494,12 @@
       </figure>
       <figure class="rev">
         <div class="stars">★★★★★</div>
-        <blockquote>वृंदावन की एक दिन की ट्रिप में 5 मंदिर करा दिए, वो भी बिना भागदौड़ के। गाड़ी साफ़, ड्राइवर सज्जन। भजन चलते रहे — बहुत आनंद आया।</blockquote>
+        <blockquote>वृंदावन की एक दिन की ट्रिप में 5 मंदिर करा दिए, वो भी बिना भागदौड़ के। गाड़ी साफ़, ड्राइवर सज्जन। भजन चलते रहे, बहुत आनंद आया।</blockquote>
         <figcaption><b>राकेश गुप्ता</b><span>रोहिणी, दिल्ली</span></figcaption>
       </figure>
       <figure class="rev">
         <div class="stars">★★★★★</div>
-        <blockquote>हमारी सोसाइटी की 32 लोगों की बुकिंग थी। रेट भी ठीक और व्यवस्था बढ़िया। घरवालों को लाइव लोकेशन मिलती रही — यही बात सबसे अच्छी लगी।</blockquote>
+        <blockquote>हमारी सोसाइटी की 32 लोगों की बुकिंग थी। रेट भी ठीक और व्यवस्था बढ़िया। घरवालों को लाइव लोकेशन मिलती रही, यही बात सबसे अच्छी लगी।</blockquote>
         <figcaption><b>अनिल यादव</b><span>द्वारका, दिल्ली</span></figcaption>
       </figure>
       <figure class="rev">
@@ -507,28 +512,28 @@
 </section>
 
 <!-- ══ पंचांग / हिन्दू कैलेंडर ══
-     पूरा कैलेंडर panchang.js बनाता है — यहाँ सिर्फ़ ख़ाली डिब्बा है।
+     पूरा कैलेंडर panchang.js बनाता है, यहाँ सिर्फ़ ख़ाली डिब्बा है।
      गणना ब्राउज़र में ही होती है, कोई इंटरनेट/सर्वर नहीं लगता। -->
 <section class="sec sec--alt" id="panchang">
   <div class="wrap">
     <p class="eyebrow center">हिन्दू पंचांग</p>
     <h2 class="sec__title">आज की तिथि और इस महीने के व्रत-पर्व</h2>
-    <p class="sec__lede">तिथि, नक्षत्र, सूर्योदय और त्योहार — दिल्ली के समय के अनुसार। किसी भी तारीख़ पर दबाकर उस दिन की यात्रा के बारे में पूछ सकते हैं।</p>
+    <p class="sec__lede">तिथि, नक्षत्र, सूर्योदय और त्योहार, दिल्ली के समय के अनुसार। किसी भी तारीख़ पर दबाकर उस दिन की यात्रा के बारे में पूछ सकते हैं।</p>
     <div class="pan" id="panchangBox"></div>
-    <p class="katha__allWrap"><a class="btn btn--outline" href="panchang.html">🗓️ पूरा पंचांग और आगामी व्रत-त्योहार देखें</a></p>
+    <p class="katha__allWrap"><a class="btn btn--outline" href="/panchang">🗓️ पूरा पंचांग और आगामी व्रत-त्योहार देखें</a></p>
   </div>
 </section>
 
 <!-- ══ धामों की कथा ══
-     कार्ड katha.js बनाता है — सामग्री बदलनी हो तो वही फ़ाइल खोलें।
+     कार्ड katha.js बनाता है, सामग्री बदलनी हो तो वही फ़ाइल खोलें।
      मुख्य पेज पर सिर्फ़ 4 धाम, पूरी कथा katha.html पर। -->
 <section class="sec" id="katha">
   <div class="wrap">
     <p class="eyebrow center">धामों की कथा</p>
     <h2 class="sec__title">ये धाम क्यों माने जाते हैं, और पूजा कैसे होती है</h2>
-    <p class="sec__lede">तीस वर्षों के सत्संग और यात्राओं के अनुभव से, सरल भाषा में — ताकि दर्शन से पहले मन तैयार हो।</p>
+    <p class="sec__lede">तीस वर्षों के सत्संग और यात्राओं के अनुभव से, सरल भाषा में, ताकि दर्शन से पहले मन तैयार हो।</p>
     <div class="kcards" id="kathaBox"></div>
-    <p class="katha__allWrap"><a class="btn btn--outline" href="katha.html">📖 सातों धामों की कथा पढ़ें</a></p>
+    <p class="katha__allWrap"><a class="btn btn--outline" href="/katha">📖 सातों धामों की कथा पढ़ें</a></p>
   </div>
 </section>
 
@@ -539,7 +544,7 @@
     <div class="book__copy">
       <p class="eyebrow">बुकिंग</p>
       <h2>सीट बुक करें</h2>
-      <p>फ़ॉर्म भरें — आपकी जानकारी सीधे हमारे WhatsApp पर पहुँच जाएगी और हम कुछ ही मिनटों में उपलब्धता बताकर बुकिंग कन्फ़र्म कर देंगे।</p>
+      <p>फ़ॉर्म भरें, आपकी जानकारी सीधे हमारे WhatsApp पर पहुँच जाएगी और हम कुछ ही मिनटों में उपलब्धता बताकर बुकिंग कन्फ़र्म कर देंगे।</p>
 
       <div class="incharge">
         <img class="incharge__pic" src="brand/incharge.jpg" alt="दर्शन प्रभारी" width="640" height="640" loading="lazy" />
@@ -557,27 +562,27 @@
         <a class="wa wa--tel" href="tel:+917289902692"><span>📞</span> +91 72899 02692</a>
       </div>
 
-      <!-- सोशल पेज — config.js से अपने आप भरते हैं (§3) -->
+      <!-- सोशल पेज, config.js से अपने आप भरते हैं (§3) -->
       <div class="book__social" id="bookSocial"></div>
 
-      <!-- 🔴 भुगतान बटन — यहाँ का नियम समझ लें, वरना बटन गायब हो जाता है
+      <!-- 🔴 भुगतान बटन, यहाँ का नियम समझ लें, वरना बटन गायब हो जाता है
            इस <a> पर href लिखा हुआ नहीं है। script.js उसमें config.js वाला
            Razorpay लिंक डालता है, और CSS का नियम `.pay:not([href])` तब तक
            बटन छुपाए रखता है जब तक असली लिंक न आ जाए।
 
-           पहले यहाँ href="#" था — JS न चले तो बटन दिखता रहता और दबाने पर पेज
+           पहले यहाँ href="#" था, JS न चले तो बटन दिखता रहता और दबाने पर पेज
            ऊपर चला जाता, यात्री को लगता भुगतान टूट गया।
-           फिर मैंने इस डिब्बे पर `hidden` लगाया और script.js से खुलवाया — उससे
+           फिर मैंने इस डिब्बे पर `hidden` लगाया और script.js से खुलवाया, उससे
            30 जुलाई 2026 को बटन पूरा गायब हो गया, क्योंकि ब्राउज़र के पास नई
            HTML थी पर script.js की पुरानी नक़ल (जो बटन खोलना जानती ही नहीं थी)।
 
            अब छुपाने-दिखाने का पूरा काम CSS करता है, JS का उस पर ज़ोर नहीं।
-           फ़ायदा: script.js पुरानी हो या नई, दोनों बस href भरती हैं — और href
+           फ़ायदा: script.js पुरानी हो या नई, दोनों बस href भरती हैं, और href
            भरते ही बटन दिख जाता है। यानी यह गड़बड़ दोबारा हो ही नहीं सकती।
            ⚠️ यहाँ href="#" या कोई भी href दोबारा मत लिखना। -->
       <div class="paybox" id="payBox">
         <a class="pay" target="_blank" rel="noopener"><span>🔒</span> ₹501 टोकन देकर सीट पक्की करें</a>
-        <p class="pay__note">पहले WhatsApp पर सीट की उपलब्धता पूछ लें — कन्फ़र्म होने के बाद ही टोकन भेजें। भुगतान का स्क्रीनशॉट WhatsApp पर भेजते ही बुकिंग पक्की।</p>
+        <p class="pay__note">पहले WhatsApp पर सीट की उपलब्धता पूछ लें, कन्फ़र्म होने के बाद ही टोकन भेजें। भुगतान का स्क्रीनशॉट WhatsApp पर भेजते ही बुकिंग पक्की।</p>
       </div>
 
       <ul class="book__pts">
@@ -598,7 +603,7 @@
 
       <label>कौन सी यात्रा? <span>*</span>
         <select name="route" id="routeSelect" required>
-          <option value="">— यात्रा चुनें —</option>
+          <option value="">यात्रा चुनें</option>
           <option>खाटू श्याम जी</option>
           <option>वृंदावन – मथुरा</option>
           <option>मेहंदीपुर बालाजी</option>
@@ -613,7 +618,7 @@
         </label>
         <label>कितने लोग? <span>*</span>
           <select name="pax" required>
-            <option value="">— चुनें —</option>
+            <option value="">चुनें</option>
             <option>1</option><option>2</option><option>3</option><option>4</option>
             <option>5</option><option>6</option><option>7–10</option>
             <option>11–17 (पूरा टेम्पो)</option><option>18+ (बस)</option>
@@ -623,7 +628,7 @@
 
       <label>पिकअप पॉइंट
         <select name="pickup">
-          <option value="">— नज़दीकी मेट्रो चुनें —</option>
+          <option value="">नज़दीकी मेट्रो चुनें</option>
           <option>उत्तम नगर ईस्ट</option><option>द्वारका मोड़</option>
           <option>रोहिणी सेक्टर 18</option><option>लक्ष्मी नगर</option>
           <option>आनंद विहार ISBT</option><option>कश्मीरी गेट</option>
@@ -638,7 +643,7 @@
       <button class="btn btn--primary btn--lg btn--full" type="submit">
         WhatsApp पर बुकिंग भेजें →
       </button>
-      <p class="form__fine">भेजने पर WhatsApp खुलेगा, संदेश पहले से भरा मिलेगा — बस Send दबाएँ।</p>
+      <p class="form__fine">भेजने पर WhatsApp खुलेगा, संदेश पहले से भरा मिलेगा, बस Send दबाएँ।</p>
       <p class="form__err" id="formErr" hidden></p>
     </form>
 
@@ -657,12 +662,12 @@
       <details><summary>रिफंड पॉलिसी क्या है?</summary><p>प्रस्थान से 72 घंटे पहले रद्द करने पर 100% रिफंड। 24–72 घंटे पहले 50%। 24 घंटे के अंदर रिफंड संभव नहीं, परंतु आप अपनी सीट किसी और को दे सकते हैं या अगली यात्रा में समायोजित करा सकते हैं।</p></details>
       <details><summary>क्या अकेली महिला यात्रा कर सकती है?</summary><p>बिल्कुल। हमारी हर यात्रा में महिलाओं के लिए अलग एवं सुरक्षित सीटिंग की व्यवस्था रहती है, और वाहन में महिला यात्रियों का समूह हमेशा साथ बैठाया जाता है। परिवार को पूरी यात्रा की लाइव लोकेशन भी भेजी जाती है।</p></details>
       <details><summary>बुज़ुर्ग यात्रियों के लिए क्या व्यवस्था है?</summary><p>आगे की सीट प्राथमिकता, चढ़ने-उतरने में सहायता, दर्शन लाइन में साथ, और आवश्यकता होने पर व्हीलचेयर की व्यवस्था (पहले से बताने पर)। यह हमारी सबसे बड़ी विशेषता है।</p></details>
-      <details><summary>क्या दर्शन की गारंटी है?</summary><p>हम आपको समय पर मंदिर पहुँचाते हैं और लाइन में पूरी सहायता करते हैं। परंतु मंदिर की भीड़, कतार की अवधि या प्रशासन द्वारा किए गए बदलाव हमारे नियंत्रण में नहीं होते — इसे बुकिंग शर्तों में स्पष्ट लिखा गया है।</p></details>
-      <details><summary>पूरा वाहन बुक करना हो तो?</summary><p>परिवार, RWA, ऑफ़िस या मंदिर मंडली के लिए 17-सीटर टेम्पो ट्रैवलर और 35/45-सीटर बस उपलब्ध है। ऊपर फ़ॉर्म में "पूरा वाहन बुकिंग" चुनें — हम आपको कस्टम कोट भेज देंगे।</p></details>
+      <details><summary>क्या दर्शन की गारंटी है?</summary><p>हम आपको समय पर मंदिर पहुँचाते हैं और लाइन में पूरी सहायता करते हैं। परंतु मंदिर की भीड़, कतार की अवधि या प्रशासन द्वारा किए गए बदलाव हमारे नियंत्रण में नहीं होते, इसे बुकिंग शर्तों में स्पष्ट लिखा गया है।</p></details>
+      <details><summary>पूरा वाहन बुक करना हो तो?</summary><p>परिवार, RWA, ऑफ़िस या मंदिर मंडली के लिए 17-सीटर टेम्पो ट्रैवलर और 35/45-सीटर बस उपलब्ध है। ऊपर फ़ॉर्म में "पूरा वाहन बुकिंग" चुनें, हम आपको कस्टम कोट भेज देंगे।</p></details>
       <details><summary>मेला/त्योहार के समय बुकिंग कब करें?</summary><p>फाल्गुन मेला, जन्माष्टमी और एकादशी जैसे अवसरों पर सीटें 3–4 सप्ताह पहले भर जाती हैं। ऐसे समय पहले से बुकिंग कराना ज़रूरी है।</p></details>
       <details><summary>दिल्ली से खाटू श्याम कितनी दूर है और कितना समय लगता है?</summary><p>दिल्ली से खाटू श्याम जी लगभग 261 किमी है, सड़क मार्ग से 5–6 घंटे लगते हैं। हमारी यात्रा रात को दिल्ली से चलती है, सुबह दर्शन होते हैं और दोपहर तक वापसी। वृंदावन लगभग 160 किमी (करीब 3 घंटे), मेहंदीपुर बालाजी लगभग 245 किमी और सालासर लगभग 299 किमी दूर है।</p></details>
       <details><summary>पिकअप कहाँ से मिलता है?</summary><p>दिल्ली-NCR के मेट्रो स्टेशनों और तय पिकअप पॉइंट से। बुकिंग पक्की होते ही आपको WhatsApp पर अपना पिकअप पॉइंट, उसका समय और Google नक़्शे का लिंक भेज दिया जाता है। नोएडा, गुरुग्राम, ग़ाज़ियाबाद और फ़रीदाबाद से भी यात्री जुड़ते हैं।</p></details>
-      <details><summary>एक दिन की यात्रा में कौन-कौन से मंदिर होते हैं?</summary><p>वृंदावन-मथुरा यात्रा में बांके बिहारी, प्रेम मंदिर, ISKCON, निधिवन और मथुरा जन्मभूमि — सब एक ही दिन में। खाटू श्याम यात्रा में श्री श्याम मंदिर के दर्शन, और चाहें तो सालासर बालाजी जोड़कर दो धाम एक साथ।</p></details>
+      <details><summary>एक दिन की यात्रा में कौन-कौन से मंदिर होते हैं?</summary><p>वृंदावन-मथुरा यात्रा में बांके बिहारी, प्रेम मंदिर, ISKCON, निधिवन और मथुरा जन्मभूमि, सब एक ही दिन में। खाटू श्याम यात्रा में श्री श्याम मंदिर के दर्शन, और चाहें तो सालासर बालाजी जोड़कर दो धाम एक साथ।</p></details>
     </div>
   </div>
 </section>
@@ -671,7 +676,7 @@
 <section class="cta">
   <div class="wrap cta__in">
     <h2>अगली यात्रा में आपका स्वागत है 🙏</h2>
-    <p>सीटें सीमित हैं — आज ही अपनी जगह पक्की करें।</p>
+    <p>सीटें सीमित हैं, आज ही अपनी जगह पक्की करें।</p>
     <div class="cta__btns">
       <a class="btn btn--gold btn--lg" href="#book">अभी बुक करें</a>
       <a class="btn btn--ghostlight btn--lg" href="https://wa.me/917289902692" target="_blank" rel="noopener">WhatsApp करें</a>
@@ -724,21 +729,21 @@
       <a href="https://wa.me/917289902692" target="_blank" rel="noopener">💬 WhatsApp</a>
       <a href="mailto:darshanyatraseva@gmail.com">✉️ darshanyatraseva@gmail.com</a>
       <span class="foot__addr">दिल्ली, भारत</span>
-      <!-- सोशल लिंक config.js से अपने आप आते हैं — हैंडल ख़ाली हो तो कुछ नहीं दिखता -->
+      <!-- सोशल लिंक config.js से अपने आप आते हैं, हैंडल ख़ाली हो तो कुछ नहीं दिखता -->
       <div class="foot__social" id="footSocial"></div>
     </div>
   </div>
 
-  <!-- चारों यात्रा तस्वीरें अपनी खींची हुई हैं — किसी श्रेय की ज़रूरत नहीं।
+  <!-- चारों यात्रा तस्वीरें अपनी खींची हुई हैं, किसी श्रेय की ज़रूरत नहीं।
        आगे कभी बाहर की तस्वीर लगाएँ तो उसका श्रेय यहाँ जोड़ना पड़ेगा। -->
 
   <div class="wrap foot__bar">
     <span>© <span id="yr"></span> Darshan Yatra Seva. सर्वाधिकार सुरक्षित।</span>
     <span class="foot__om">🙏 जय श्री श्याम</span>
-    <!-- सिर्फ़ संचालक के लिए — यात्रा व यात्रियों का हिसाब (admin.html)।
-         ग्राहक के लिए नहीं है, पर Vinod को फ़ोन पर तुरंत दिखना चाहिए —
+    <!-- सिर्फ़ संचालक के लिए, यात्रा व यात्रियों का हिसाब (admin.html)।
+         ग्राहक के लिए नहीं है, पर Vinod को फ़ोन पर तुरंत दिखना चाहिए,
          इसलिए धुँधला नहीं, साफ़ बॉर्डर वाला बटन रखा है। -->
-    <a class="foot__admin" href="admin.html" rel="nofollow">🔐 प्रबंधक लॉगिन</a>
+    <a class="foot__admin" href="/admin" rel="nofollow" rel="nofollow">🔐 प्रबंधक लॉगिन</a>
   </div>
 </footer>
 
@@ -747,10 +752,10 @@
   <svg viewBox="0 0 32 32" width="28" height="28" fill="#fff"><path d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.7 6.4L3 29l6.8-1.8c1.9 1 4 1.6 6.2 1.6 7.2 0 13-5.8 13-13S23.2 3 16 3zm0 23.6c-2 0-3.9-.5-5.5-1.5l-.4-.2-4 1.1 1.1-3.9-.3-.4A10.5 10.5 0 015.5 16c0-5.8 4.7-10.5 10.5-10.5S26.5 10.2 26.5 16 21.8 26.6 16 26.6zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.6 8.6 0 01-2.5-1.6 9.6 9.6 0 01-1.8-2.2c-.2-.3 0-.5.1-.7l.5-.6.3-.5v-.5c0-.2-.7-1.8-1-2.4-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.9-.8 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
 </a>
 
-<script src="config.js?v=20"></script>
-<script src="script.js?v=20"></script>
-<script src="panchang.js?v=20"></script>
-<script src="katha.js?v=20"></script>
-<script src="i18n.js?v=20"></script>
+<script src="config.js?v=21"></script>
+<script src="script.js?v=21"></script>
+<script src="panchang.js?v=21"></script>
+<script src="katha.js?v=21"></script>
+<script src="i18n.js?v=21"></script>
 </body>
 </html>

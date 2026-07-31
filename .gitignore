@@ -38,3 +38,6 @@ brand/poster.pdf
 
 # IndexNow की चाबी — यह फ़ाइल साइट पर रहनी चाहिए, हटाना मत
 .indexnow-key
+
+# SEO audit ke artifacts — sirf laptop par (CSV bhi, isliye poora folder)
+seo-run/

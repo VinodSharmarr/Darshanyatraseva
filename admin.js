@@ -1,22 +1,22 @@
 /* ═══════════════════════════════════════════════════════════
-   Darshan Yatra Seva — admin.js  (प्रबंधक पैनल)
+   Darshan Yatra Seva, admin.js  (प्रबंधक पैनल)
 
    क्या करता है
    ─────────────
-   • पासकोड से लॉगिन (पासकोड का ताला config.js में — खुला पासकोड कहीं नहीं)
+   • पासकोड से लॉगिन (पासकोड का ताला config.js में, खुला पासकोड कहीं नहीं)
    • यात्रा का पूरा विवरण एक बार भरो: नाम, तारीख़, समय, दर्शन स्थल,
      Google लोकेशन, कई पिकअप पॉइंट (हर एक का अपना नक़्शा लिंक)
-   • यात्रियों की सूची — किसने पूरा पैसा दिया, किसने सिर्फ़ टोकन
+   • यात्रियों की सूची, किसने पूरा पैसा दिया, किसने सिर्फ़ टोकन
    • पूरा भुगतान करने वालों को एक दबाव में विवरण:
      WhatsApp (मुख्य) · SMS · ईमेल · कॉपी
 
-   ⚠️ सारा डेटा इसी ब्राउज़र के localStorage में रहता है — कोई सर्वर नहीं,
+   ⚠️ सारा डेटा इसी ब्राउज़र के localStorage में रहता है, कोई सर्वर नहीं,
       इसलिए hosting मुफ़्त रहती है और यात्रियों के नंबर कहीं बाहर नहीं जाते।
-      इसका मतलब यह भी है कि ब्राउज़र का डेटा साफ़ हुआ तो सब चला जाएगा —
+      इसका मतलब यह भी है कि ब्राउज़र का डेटा साफ़ हुआ तो सब चला जाएगा,
       इसीलिए "बैकअप" वाला हिस्सा बनाया गया है।
 
    ⚠️ यह पासकोड ताला सिर्फ़ आपके अपने फ़ोन/लैपटॉप की सुरक्षा के लिए है।
-      यह बैंक जैसा लॉगिन नहीं है — पर चूँकि डेटा कहीं ऑनलाइन है ही नहीं,
+      यह बैंक जैसा लॉगिन नहीं है, पर चूँकि डेटा कहीं ऑनलाइन है ही नहीं,
       किसी और के लिए यहाँ देखने को कुछ है भी नहीं।
    ═══════════════════════════════════════════════════════════ */
 
@@ -74,14 +74,14 @@
     try {
       const raw = localStorage.getItem(KEY_DATA);
       if (raw) DB = JSON.parse(raw);
-    } catch (e) { /* ख़राब डेटा — ख़ाली से शुरू */ }
+    } catch (e) { /* ख़राब डेटा, ख़ाली से शुरू */ }
     if (!DB || !Array.isArray(DB.yatras)) DB = { yatras: [] };
   }
   function save() {
     try {
       localStorage.setItem(KEY_DATA, JSON.stringify(DB));
     } catch (e) {
-      alert('डेटा सेव नहीं हो पाया। ब्राउज़र की जगह भर गई हो सकती है — बैकअप उतार लें।');
+      alert('डेटा सेव नहीं हो पाया। ब्राउज़र की जगह भर गई हो सकती है, बैकअप उतार लें।');
     }
   }
   const yatraById = id => DB.yatras.find(y => y.id === id);
@@ -140,7 +140,7 @@
     const row = document.createElement('div');
     row.className = 'adm__pickRow';
     row.innerHTML = `
-      <input class="pk-place" placeholder="जगह — जैसे उत्तम नगर मेट्रो गेट 2" value="${esc(p.place)}" />
+      <input class="pk-place" placeholder="जगह, जैसे उत्तम नगर मेट्रो गेट 2" value="${esc(p.place)}" />
       <input class="pk-time" type="time" value="${esc(p.time)}" />
       <input class="pk-map" type="url" placeholder="Google लोकेशन लिंक" value="${esc(p.map)}" />
       <button type="button" class="adm__del" aria-label="हटाएँ">✕</button>`;
@@ -160,7 +160,7 @@
     })).filter(p => p.place);
   }
 
-  /* तारीख़ भरते ही उस दिन की तिथि दिखा दो — ग्राहक को बताने में काम आती है */
+  /* तारीख़ भरते ही उस दिन की तिथि दिखा दो, ग्राहक को बताने में काम आती है */
   yatraForm.date.addEventListener('change', () => {
     const el = $('#dateTithi');
     el.textContent = yatraForm.date.value ? dateHi(yatraForm.date.value, true) : '';
@@ -251,7 +251,7 @@
   function fillSelect(sel, keep) {
     const cur = keep && sel.value;
     sel.innerHTML = DB.yatras.map(y =>
-      `<option value="${y.id}">${esc(y.name)} — ${esc(dateHi(y.date))}</option>`).join('')
+      `<option value="${y.id}">${esc(y.name)}, ${esc(dateHi(y.date))}</option>`).join('')
       || '<option value="">पहले कोई यात्रा जोड़ें</option>';
     if (cur && DB.yatras.some(y => y.id === cur)) sel.value = cur;
   }
@@ -259,8 +259,8 @@
   function fillPickupSelect() {
     const y = yatraById($('#paxYatra').value);
     const list = (y && y.pickups) || [];
-    $('#paxPickup').innerHTML = '<option value="">— चुनें —</option>' +
-      list.map(p => `<option value="${esc(p.place)}">${esc(p.place)}${p.time ? ' — ' + esc(timeHi(p.time)) : ''}</option>`).join('');
+    $('#paxPickup').innerHTML = '<option value="">चुनें</option>' +
+      list.map(p => `<option value="${esc(p.place)}">${esc(p.place)}${p.time ? ', ' + esc(timeHi(p.time)) : ''}</option>`).join('');
   }
 
   $('#paxYatra').addEventListener('change', () => { fillPickupSelect(); renderPaxList(); });
@@ -281,7 +281,7 @@
     if (d.id) y.pax = y.pax.map(p => p.id === d.id ? { ...p, ...d } : p);
     else {
       d.id = uid(); d.sent = false;
-      d.at = new Date().toISOString();   // कब जोड़ा — Excel में यही दिखता है
+      d.at = new Date().toISOString();   // कब जोड़ा, Excel में यही दिखता है
       y.pax.push(d);
     }
     save();
@@ -350,10 +350,10 @@
 
     if (opt.short) {
       L.push('जय श्री श्याम! दर्शन यात्रा सेवा');
-      L.push(`${y.name} — ${dateHi(y.date)}`);
+      L.push(`${y.name}, ${dateHi(y.date)}`);
       L.push(`प्रस्थान: ${timeHi(y.depart)}`);
       const pk = pickOf(y, p);
-      if (pk) L.push(`पिकअप: ${pk.place}${pk.time ? ' — ' + timeHi(pk.time) : ''}`);
+      if (pk) L.push(`पिकअप: ${pk.place}${pk.time ? ', ' + timeHi(pk.time) : ''}`);
       L.push(`संपर्क: ${C.phone || ''}`);
       L.push(C.site || '');
       return L.filter(Boolean).join('\n');
@@ -361,12 +361,12 @@
 
     L.push('🙏 जय श्री श्याम');
     L.push('');
-    L.push(B('दर्शन यात्रा सेवा') + ' — यात्रा का विवरण');
+    L.push(B('दर्शन यात्रा सेवा') + ', यात्रा का विवरण');
     L.push('');
     L.push(`नमस्ते ${naam},`);
     L.push(p && p.paid === 'full'
-      ? 'आपकी सीट पक्की हो चुकी है। पूरा विवरण नीचे है —'
-      : 'आपकी यात्रा का पूरा विवरण नीचे है —');
+      ? 'आपकी सीट पक्की हो चुकी है। पूरा विवरण नीचे है:'
+      : 'आपकी यात्रा का पूरा विवरण नीचे है:');
     L.push('');
     L.push(`${B('यात्रा')}: ${y.name}`);
     L.push(`${B('तिथि')}: ${dateHi(y.date, true)}`);
@@ -379,14 +379,14 @@
     if (p) {
       if (p.seats)  L.push(`${B('आपकी सीटें')}: ${p.seats}`);
       if (p.paid === 'full') L.push(`${B('भुगतान')}: पूरा प्राप्त ✅${p.amount ? ' (' + rupee(p.amount) + ')' : ''}`);
-      else if (p.paid === 'token') L.push(`${B('भुगतान')}: टोकन प्राप्त${p.amount ? ' (' + rupee(p.amount) + ')' : ''} — बाक़ी राशि यात्रा से पहले`);
+      else if (p.paid === 'token') L.push(`${B('भुगतान')}: टोकन प्राप्त${p.amount ? ' (' + rupee(p.amount) + ')' : ''}, बाक़ी राशि यात्रा से पहले`);
     }
 
     const pk = pickOf(y, p);
     if (pk) {
       L.push('');
       L.push(B('आपका पिकअप पॉइंट'));
-      L.push(`📍 ${pk.place}${pk.time ? ' — ' + timeHi(pk.time) : ''}`);
+      L.push(`📍 ${pk.place}${pk.time ? ', ' + timeHi(pk.time) : ''}`);
       if (pk.map) L.push(`🗺️ ${pk.map}`);
     }
 
@@ -395,7 +395,7 @@
       L.push('');
       L.push(B('सभी पिकअप पॉइंट'));
       all.forEach((x, i) => {
-        L.push(`${i + 1}. ${x.place}${x.time ? ' — ' + timeHi(x.time) : ''}`);
+        L.push(`${i + 1}. ${x.place}${x.time ? ', ' + timeHi(x.time) : ''}`);
         if (x.map) L.push(`   ${x.map}`);
       });
     }
@@ -419,7 +419,7 @@
   }
 
   /* यात्रा लौटने के बाद रिव्यू माँगने वाला संदेश।
-     ⚠️ यहाँ कोई बना-बनाया रिव्यू नहीं भेजा जाता — सिर्फ़ लिंक और तरीक़ा।
+     ⚠️ यहाँ कोई बना-बनाया रिव्यू नहीं भेजा जाता, सिर्फ़ लिंक और तरीक़ा।
         एक जैसे शब्द वाले रिव्यू Google पकड़कर हटा देता है, और नक़ली शब्द
         किसी के मुँह में डालना उपभोक्ता क़ानून के हिसाब से भी ग़लत है। */
   function reviewMsg(y, p, rich) {
@@ -434,7 +434,7 @@
              : 'हमें सेवा का अवसर देने के लिए धन्यवाद।');
     L.push('');
     L.push('आपके दो शब्द किसी और परिवार को सही सेवा चुनने में मदद करेंगे।');
-    L.push(`${B('दो मिनट लगेंगे')} — और लिखना न आता हो तो बोलकर भी लिखा जा सकता है, तरीक़ा इस पेज पर बताया है:`);
+    L.push(`${B('दो मिनट लगेंगे')}, और लिखना न आता हो तो बोलकर भी लिखा जा सकता है, तरीक़ा इस पेज पर बताया है:`);
     L.push('');
     L.push('https://' + (C.site || 'www.darshanyatraseva.com') + '/review');
     if (C.googleReview) {
@@ -442,9 +442,9 @@
       L.push('सीधे Google पर लिखना हो: ' + C.googleReview);
     }
     L.push('');
-    L.push('जो सच में लगा वही लिखिएगा — कमी हो तो वो भी बताइए, हम सुधारेंगे।');
+    L.push('जो सच में लगा वही लिखिएगा, कमी हो तो वो भी बताइए, हम सुधारेंगे।');
     L.push('');
-    L.push('— ' + (C.phone || ''));
+    L.push('- ' + (C.phone || ''));
     L.push('जय श्री श्याम 🙏');
     return L.join('\n');
   }
@@ -464,9 +464,9 @@
     const full = encodeURIComponent(buildMsg(y, p, { rich: true }));
     const plain = encodeURIComponent(buildMsg(y, p, {}));
     const sms = encodeURIComponent(buildMsg(y, p, { short: true }));
-    const sub = encodeURIComponent(`${y.name} — ${dateHi(y.date)} · यात्रा का विवरण`);
+    const sub = encodeURIComponent(`${y.name}, ${dateHi(y.date)} · यात्रा का विवरण`);
 
-    /* SMS लिंक: Android "?body=" समझता है, iPhone "&body=" —
+    /* SMS लिंक: Android "?body=" समझता है, iPhone "&body=",
        "?&body=" दोनों जगह चल जाता है, इसलिए वही रखा है। */
     const rev = encodeURIComponent(reviewMsg(y, p, true));
 
@@ -556,7 +556,7 @@
   });
 
   /* ══ 6. Excel फ़ाइलें ═══════════════════════════════════
-     .csv बनाते हैं — Excel इसे सीधे खोल लेता है और किसी library की
+     .csv बनाते हैं, Excel इसे सीधे खोल लेता है और किसी library की
      ज़रूरत नहीं पड़ती। शुरू में ﻿ (BOM) ज़रूरी है, वरना Excel में
      हिन्दी अक्षर कूड़ा दिखते हैं।                                  */
   function csv(rows) {
@@ -590,7 +590,7 @@
 
   const PAID_TXT = { full: 'पूरा भुगतान', token: 'सिर्फ़ टोकन', due: 'बाक़ी है' };
 
-  /* तारीख़ फिर प्रस्थान के समय के क्रम में — जैसा Vinod को चाहिए */
+  /* तारीख़ फिर प्रस्थान के समय के क्रम में, जैसा Vinod को चाहिए */
   function sortedYatras(only) {
     const list = only ? [only] : DB.yatras.slice();
     return list.sort((a, b) =>
@@ -655,7 +655,7 @@
 
   /* ── वही सूची स्क्रीन पर ─────────────────────────────────
      फ़ोन पर .csv खोलने के लिए अलग ऐप चाहिए होता है, इसलिए रोज़ का
-     देखना यहीं हो जाए — फ़ाइल सिर्फ़ तब जब Excel में काम करना हो।  */
+     देखना यहीं हो जाए, फ़ाइल सिर्फ़ तब जब Excel में काम करना हो।  */
   function showTable(rows, title) {
     const box = $('#xlView');
     const head = rows[0];
@@ -663,7 +663,7 @@
     const body = rows.slice(1).filter(r => r.length);
     const real = body.filter(r => r[4] !== 'कुल जोड़');
     if (!real.length) {
-      box.innerHTML = '<p class="adm__empty">अभी कोई यात्री जुड़ा ही नहीं है — पहले "यात्री" टैब में कोई यात्री जोड़ें।</p>';
+      box.innerHTML = '<p class="adm__empty">अभी कोई यात्री जुड़ा ही नहीं है, पहले "यात्री" टैब में कोई यात्री जोड़ें।</p>';
       return;
     }
     box.innerHTML = `
@@ -738,11 +738,11 @@
       const opt = [...$('#paxPickup').options].find(o => o.value && (
         o.value === g.pickup || o.value.includes(g.pickup) || g.pickup.includes(o.value)));
       if (opt) paxForm.pickup.value = opt.value;
-      else pkNote = ` (पिकअप "${g.pickup}" इस यात्रा में नहीं है — या तो यात्रा में जोड़ें, या हाथ से चुनें)`;
+      else pkNote = ` (पिकअप "${g.pickup}" इस यात्रा में नहीं है, या तो यात्रा में जोड़ें, या हाथ से चुनें)`;
     }
     const y = yatraById($('#paxYatra').value);
     const routeNote = (g.route && y && !y.name.includes(g.route) && !g.route.includes(y.name))
-      ? ` ⚠️ संदेश में यात्रा "${g.route}" लिखी है — ऊपर सही यात्रा चुनी है या नहीं, देख लें।` : '';
+      ? ` ⚠️ संदेश में यात्रा "${g.route}" लिखी है, ऊपर सही यात्रा चुनी है या नहीं, देख लें।` : '';
 
     note('#pasteMsg', 'भर दिया ✅ अब भुगतान चुनकर सेव कर दें।' + pkNote + routeNote, true);
   });
@@ -782,7 +782,7 @@
     e.target.value = '';
   });
 
-  /* पासकोड बदलने से पहले अभी वाला पूछा जाता है — वरना कोई गलती से
+  /* पासकोड बदलने से पहले अभी वाला पूछा जाता है, वरना कोई गलती से
      (या कोई और आपका खुला पैनल देखकर) पासकोड बदल दे तो आप ही बाहर हो जाएँ। */
   $('#passForm').addEventListener('submit', async e => {
     e.preventDefault();
@@ -796,12 +796,12 @@
     note('#passMsg', 'पासकोड बदल गया ✅ अगली बार यही चलेगा।', true);
   });
 
-  /* पासकोड भूल जाएँ तो — config.js वाला पासकोड वापस चालू।
+  /* पासकोड भूल जाएँ तो, config.js वाला पासकोड वापस चालू।
      डेटा को हाथ नहीं लगता। (जिसके हाथ में यह फ़ोन है उसके पास डेटा
-     वैसे भी है, इसलिए इससे सुरक्षा कम नहीं होती — बस ताला वापस पुराना।) */
+     वैसे भी है, इसलिए इससे सुरक्षा कम नहीं होती, बस ताला वापस पुराना।) */
   $('#forgotBtn').addEventListener('click', () => {
     if (!localStorage.getItem(KEY_PASS)) {
-      /* 🔴 यहाँ पासकोड लिख कर मत बताना — admin.js भी खुलेआम पढ़ी जा सकती है
+      /* 🔴 यहाँ पासकोड लिख कर मत बताना, admin.js भी खुलेआम पढ़ी जा सकती है
          (कोई भी `/admin.js` खोल सकता है)। पहले यहाँ शुरुआती पासकोड लिखा था,
          जिससे वो सबको दिख जाता था (30 जुलाई 2026 को हटाया)। */
       alert('इस फ़ोन पर पासकोड बदला ही नहीं गया है।\n\nजो पासकोड config.js में लगा है, वही चलेगा। (वो HANDOVER.md में लिखा है।)');

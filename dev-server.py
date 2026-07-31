@@ -75,7 +75,27 @@ class NoCacheHandler(http.server.SimpleHTTPRequestHandler):
         return any(fnmatch.fnmatch(p, pat) or fnmatch.fnmatch(p, pat.rstrip('/') + '/*')
                    for pat in BLOCKED)
 
+    def _clean_url(self):
+        """/katha  →  katha.html  (जैसा Vercel करता है)
+
+        vercel.json में `cleanUrls: true` लिखा है — यानी असली साइट पर पता
+        `/katha` होता है, `/katha.html` नहीं (वो 308 से `/katha` पर भेज
+        दिया जाता है)। इसीलिए साइट के अंदर के सारे लिंक `/katha` वाले हैं।
+
+        सादा SimpleHTTPRequestHandler को `.html` लगाना आता नहीं, इसलिए वो
+        `/katha` पर 404 देता। यह हिस्सा वही कमी पूरी करता है, ताकि लैपटॉप
+        पर वही चले जो असली साइट पर चलता है।
+        """
+        path, sep, tail = self.path.partition('?')
+        path = path.partition('#')[0] if not sep else path
+        if path.endswith('/') or '.' in path.rsplit('/', 1)[-1]:
+            return                                 # `/` या पहले से कोई फ़ाइल — कुछ मत करो
+        candidate = os.path.join(ROOT, path.lstrip('/').replace('/', os.sep) + '.html')
+        if os.path.isfile(candidate):
+            self.path = path + '.html' + (sep + tail if sep else '')
+
     def send_head(self):
+        self._clean_url()
         if self._blocked():
             self.send_error(404, 'Not found')      # असली साइट पर भी यह फ़ाइल नहीं है
             return None

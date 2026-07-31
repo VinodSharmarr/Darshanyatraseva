@@ -1,22 +1,22 @@
 /* ═══════════════════════════════════════════════════════════
-   build-katha.js — कथाओं का HTML पहले से katha.html में लिख देता है
+   build-katha.js, कथाओं का HTML पहले से katha.html में लिख देता है
 
    क्यों चाहिए
    ────────────
    पहले सातों कथाएँ सिर्फ़ JavaScript से बनती थीं। Googlebot नई साइट का
-   JavaScript देर से चलाता है — इसलिए उसे /katha पर सिर्फ़ शीर्षक दिखते थे
+   JavaScript देर से चलाता है, इसलिए उसे /katha पर सिर्फ़ शीर्षक दिखते थे
    (2,545 अक्षर), पूरी कथाएँ नहीं। Search Console में वही पेज
    "Discovered – currently not indexed" पड़ा था (29 जुलाई 2026)।
 
    अब हिन्दी वाला HTML सीधे katha.html में लिखा रहता है, और JavaScript
-   बाद में उसे वैसे ही बदल देता है (English टॉगल पर) — यानी दिखने में
+   बाद में उसे वैसे ही बदल देता है (English टॉगल पर), यानी दिखने में
    कोई फ़र्क़ नहीं, पर Google को पहली ही झलक में पूरी सामग्री मिल जाती है।
 
-   चलाने का तरीक़ा — katha.js की सामग्री बदलने के बाद हर बार:
+   चलाने का तरीक़ा, katha.js की सामग्री बदलने के बाद हर बार:
        node build-katha.js
 
    ⚠️ katha.html के अंदर <div id="kathaFull"> ... </div> के बीच का सब
-      कुछ यह script मिटाकर दोबारा लिखता है — वहाँ हाथ से कुछ मत लिखना।
+      कुछ यह script मिटाकर दोबारा लिखता है, वहाँ हाथ से कुछ मत लिखना।
    ═══════════════════════════════════════════════════════════ */
 
 const fs = require('fs');
@@ -24,7 +24,7 @@ const path = require('path');
 
 const dir = __dirname;
 
-/* katha.js को चलाने के लिए ब्राउज़र जैसा ढाँचा — यह script Node में
+/* katha.js को चलाने के लिए ब्राउज़र जैसा ढाँचा, यह script Node में
    चलती है, वहाँ window/document होते नहीं। fullHTML() इन्हें छूती भी
    नहीं, बस फ़ाइल लोड होने भर के लिए चाहिए। */
 global.window = {};
@@ -36,7 +36,7 @@ global.document = {
 };
 global.MutationObserver = function () { return { observe(){} }; };
 
-/* config.js से WhatsApp नंबर — वरना बटन का लिंक अधूरा रह जाएगा।
+/* config.js से WhatsApp नंबर, वरना बटन का लिंक अधूरा रह जाएगा।
    पूरी फ़ाइल चलाने के बजाय सिर्फ़ नंबर पढ़ लेते हैं, वही काफ़ी है। */
 const cfgSrc = fs.readFileSync(path.join(dir, 'config.js'), 'utf8');
 const waMatch = cfgSrc.match(/whatsapp:\s*'([^']+)'/);
@@ -56,7 +56,7 @@ const open = '<div class="wrap wrap--narrow" id="kathaFull">';
 const close = '</div>';
 const start = page.indexOf(open);
 if (start === -1) {
-  console.error('katha.html में #kathaFull वाला डिब्बा नहीं मिला — कुछ बदल गया है?');
+  console.error('katha.html में #kathaFull वाला डिब्बा नहीं मिला, कुछ बदल गया है?');
   process.exit(1);
 }
 /* डिब्बे का अपना बंद टैग ढूँढो (अंदर के टैग गिनकर) */

@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   Darshan Yatra Seva — stylesheet
+   Darshan Yatra Seva, stylesheet
    Palette: saffron / maroon / gold / cream
    ═══════════════════════════════════════════ */
 
@@ -12,12 +12,12 @@
   --gold-d:#B8862C;
   /* ── छोटे अक्षरों के लिए गहरे रूप (30 जुलाई 2026) ───────────────
      ऊपर वाले सुनहरा/केसरिया background और किनारों पर बहुत सुंदर लगते हैं,
-     पर अक्षरों के लिए बहुत हल्के हैं — क्रीम पर सिर्फ़ 3.09 और 3.51 का
+     पर अक्षरों के लिए बहुत हल्के हैं, क्रीम पर सिर्फ़ 3.09 और 3.51 का
      अनुपात बनता था, जबकि पढ़ने लायक़ होने के लिए 4.5 चाहिए।
      हमारे यात्री ज़्यादातर बुज़ुर्ग हैं, उनकी आँखों के लिए यह असली तकलीफ़ थी।
-     इसलिए हिसाब लगाकर उतना ही गहरा किया जितना ज़रूरी था — रंग वही लगता है।
+     इसलिए हिसाब लगाकर उतना ही गहरा किया जितना ज़रूरी था, रंग वही लगता है।
        सुनहरा  #6E501A → 7.10 (AAA)
-       केसरिया #C1451A → 4.54 (AA — white 5.07 / cream 4.84 / cream-2 4.54)
+       केसरिया #C1451A → 4.54 (AA, white 5.07 / cream 4.84 / cream-2 4.54)
      ⚠️ ये सिर्फ़ अक्षरों के लिए हैं। background और किनारों पर ऊपर वाले
         असली रंग ही रहने दें, वरना ब्रांड की चमक चली जाएगी। */
   --gold-text:#6E501A;
@@ -45,21 +45,21 @@
 
 *,*::before,*::after{box-sizing:border-box}
 
-/* ── अक्षरों का आकार — पूरी साइट यहीं से नपती है (30 जुलाई 2026) ──────
+/* ── अक्षरों का आकार, पूरी साइट यहीं से नपती है (30 जुलाई 2026) ──────
    पहले `body` पर सीधे `font-size:16px` लिखा था। दिक़्क़त दो थीं:
    (1) हमारे ज़्यादातर यात्री बुज़ुर्ग हैं, उनके लिए 16px छोटा पड़ता है।
-   (2) बाक़ी पूरी साइट `rem` में नपी है, और `rem` हमेशा `html` से चलता है —
+   (2) बाक़ी पूरी साइट `rem` में नपी है, और `rem` हमेशा `html` से चलता है,
        `body` से नहीं। तो body पर आकार बदलने से बाक़ी कुछ नहीं बदलता था।
 
    अब आकार `html` पर है और body उसी को follow करती है (`1rem`)। इससे एक
    जगह बदलने पर पूरी साइट एक साथ बड़ी/छोटी हो जाती है।
-   ("अक्षर बड़े करें" वाला A⁺ बटन 31 जुलाई 2026 को हटा दिया गया — इसलिए
+   ("अक्षर बड़े करें" वाला A⁺ बटन 31 जुलाई 2026 को हटा दिया गया, इसलिए
     अब यह 17px ही हर यात्री का आकार है, नीचे मत ले जाना।)
 
-   ⚠️ media query वाली चौड़ाइयाँ px में ही रखें (rem में नहीं) — वरना अक्षर
+   ⚠️ media query वाली चौड़ाइयाँ px में ही रखें (rem में नहीं), वरना अक्षर
       बड़े करते ही मोबाइल/डेस्कटॉप का layout ही बदल जाएगा। */
 html{
-  font-size:17px;              /* पहले 16px — बुज़ुर्ग आँखों के लिए बढ़ाया */
+  font-size:17px;              /* पहले 16px, बुज़ुर्ग आँखों के लिए बढ़ाया */
   scroll-behavior:smooth;scroll-padding-top:80px;
 }
 body{
@@ -75,15 +75,15 @@ ul{margin:0;padding:0;list-style:none}
 
 /* ── कीबोर्ड से चलाने वालों के लिए घेरा ──────────────────────────
    पहले पूरी साइट पर सिर्फ़ फ़ॉर्म के खानों पर घेरा था (§ .form input:focus)।
-   बटन, लिंक, मेन्यू, डॉट — किसी पर कुछ नहीं था, इसलिए Tab दबाकर चलाने वाले
+   बटन, लिंक, मेन्यू, डॉट, किसी पर कुछ नहीं था, इसलिए Tab दबाकर चलाने वाले
    को पता ही नहीं चलता था कि वो कहाँ खड़ा है (स्क्रीन रीडर वाले, और वो लोग
    जिनसे माउस नहीं चलता)।
-   :focus-visible इस्तेमाल किया है, :focus नहीं — इससे घेरा सिर्फ़ कीबोर्ड पर
+   :focus-visible इस्तेमाल किया है, :focus नहीं, इससे घेरा सिर्फ़ कीबोर्ड पर
    दिखता है, उँगली/माउस से दबाने पर नहीं। यानी बाक़ी सबको साइट पहले जैसी ही
    दिखती है, कुछ बदला हुआ नहीं लगेगा। */
 :focus-visible{outline:3px solid var(--saffron);outline-offset:3px}
 .btn:focus-visible,.wa:focus-visible,.pay:focus-visible,.langbtn:focus-visible{outline-offset:4px}
-/* गहरे मैरून/हरे background पर केसरिया घेरा दब जाता है — वहाँ सुनहरा */
+/* गहरे मैरून/हरे background पर केसरिया घेरा दब जाता है, वहाँ सुनहरा */
 .topbar__tel:focus-visible,.btn--ghostlight:focus-visible,.wa:focus-visible{outline-color:var(--gold)}
 /* डॉट छोटे हैं, घेरा उनसे ज़रा दूर रखा वरना डॉट ही ढक जाता */
 .slider-dot:focus-visible{outline-offset:5px}
@@ -94,7 +94,7 @@ ul{margin:0;padding:0;list-style:none}
 .grad{
   background:linear-gradient(100deg,var(--saffron),var(--gold));
   -webkit-background-clip:text;background-clip:text;color:transparent;
-  /* background-clip:text सिर्फ़ font के em-box तक paint करता है — हिन्दी की ऊपर वाली
+  /* background-clip:text सिर्फ़ font के em-box तक paint करता है, हिन्दी की ऊपर वाली
      मात्रा (से की े) उससे बाहर निकलती है और कट जाती थी। inline-block + padding से
      paint का दायरा बढ़ाया, negative margin से जगह पहले जितनी ही रखी। */
   display:inline-block;
@@ -133,19 +133,19 @@ ul{margin:0;padding:0;list-style:none}
 .topbar{background:var(--maroon-d);color:#F6E3C8;font-size:.875rem}
 .topbar__in{display:flex;align-items:center;gap:.6rem;padding:.5rem 0}
 .topbar__om{color:var(--gold);font-size:1rem}
-/* नंबर बुज़ुर्ग यात्री सबसे ज़्यादा दबाते हैं — छूने का दायरा बड़ा रखा है।
+/* नंबर बुज़ुर्ग यात्री सबसे ज़्यादा दबाते हैं, छूने का दायरा बड़ा रखा है।
    पूरे 44px नहीं किए, वरना यह पट्टी मोटी होकर हीरो को नीचे धकेल देती। */
 .topbar__tel{margin-left:auto;font-weight:600;color:var(--gold);
   display:inline-flex;align-items:center;min-height:36px;padding-inline:.15rem}
 
-/* ── "अक्षर बड़े करें" (A⁺) बटन — हटा दिया गया, 31 जुलाई 2026 ──────────
+/* ── "अक्षर बड़े करें" (A⁺) बटन, हटा दिया गया, 31 जुलाई 2026 ──────────
    Vinod के कहने पर हटाया। `fontsize.js` भी मिटा दी गई।
    ⚠️ यह ध्यान रहे: अब कोई यात्री अक्षर बड़े नहीं कर सकता। इसलिए साइट का
-      अपना 17px वाला आकार ही सबका सहारा है — `html{font-size:17px}` को
+      अपना 17px वाला आकार ही सबका सहारा है, `html{font-size:17px}` को
       घटाकर 16px मत करना, वरना बुज़ुर्ग यात्रियों के पास कोई रास्ता नहीं बचेगा।
       (ब्राउज़र का अपना zoom अब भी चलता है, पर वो लोग कम जानते हैं।)
    जिन यात्रियों ने पहले बड़ा आकार चुना था, उनका `dys-fs` वाला चुनाव अब
-   बेअसर है — पेज सबको 17px पर ही दिखेगा। */
+   बेअसर है, पेज सबको 17px पर ही दिखेगा। */
 
 /* ── nav ── */
 .nav{position:sticky;top:0;z-index:60;background:rgba(255,249,240,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);transition:box-shadow .25s}
@@ -156,15 +156,15 @@ ul{margin:0;padding:0;list-style:none}
 .brand__txt{display:flex;flex-direction:column;line-height:1.15}
 .brand__txt strong{font-family:var(--font-d);font-size:1.08rem;color:var(--maroon);letter-spacing:.01em}
 /* "Pilgrimage tours from Delhi" English में लंबा है और दो लाइन में टूट
-   जाता था — ब्रांड का नाम टेढ़ा दिखने लगता। अब एक ही लाइन में रहता है। */
+   जाता था, ब्रांड का नाम टेढ़ा दिखने लगता। अब एक ही लाइन में रहता है। */
 .brand__txt em{font-family:var(--font-h);font-style:normal;font-size:.84rem;color:var(--gold-text);white-space:nowrap}
 
 .nav__links{margin-left:auto;display:flex;align-items:center;gap:1.55rem;font-family:var(--font-h);font-size:.98rem}
 /* नेव का कोई भी शब्द बीच से न टूटे। flex में चीज़ें अपने आप सिकुड़ती हैं,
-   इसलिए `flex:none` भी ज़रूरी है — वरना सिकुड़कर फिर दो लाइन बन जाती हैं।
-   (1 अगस्त 2026 — "How to Book"/"Upcoming Dates" इसी तरह टूट रहे थे।) */
+   इसलिए `flex:none` भी ज़रूरी है, वरना सिकुड़कर फिर दो लाइन बन जाती हैं।
+   (1 अगस्त 2026, "How to Book"/"Upcoming Dates" इसी तरह टूट रहे थे।) */
 .nav__links a{white-space:nowrap;flex:none}
-/* padding-block से छूने का दायरा 44px हो जाता है — दिखने में कुछ नहीं बदलता।
+/* padding-block से छूने का दायरा 44px हो जाता है, दिखने में कुछ नहीं बदलता।
    रेखा (::after) को भी उतना ही नीचे सरकाया, वरना वो टेक्स्ट से दूर चली जाती। */
 .nav__links a:not(.btn){color:var(--ink-2);position:relative;transition:color .2s;
   display:inline-flex;align-items:center;min-height:44px}
@@ -182,7 +182,7 @@ ul{margin:0;padding:0;list-style:none}
 }
 .langbtn:hover{border-color:var(--gold);background:#fff;color:var(--saffron-text)}
 
-/* ☰ पहले 40×32 का था — अब पूरा 44×44, तीनों लकीरें बीच में ही रहती हैं */
+/* ☰ पहले 40×32 का था, अब पूरा 44×44, तीनों लकीरें बीच में ही रहती हैं */
 .nav__toggle{display:none;flex-direction:column;align-items:center;justify-content:center;
   gap:5px;background:none;border:0;cursor:pointer;padding:0;width:44px;height:44px;flex:none}
 .nav__toggle span{width:24px;height:2px;background:var(--maroon);border-radius:2px;transition:.25s}
@@ -216,7 +216,7 @@ ul{margin:0;padding:0;list-style:none}
 .sec__title{font-family:var(--font-h);font-weight:400;font-size:clamp(1.75rem,4vw,2.6rem);text-align:center;margin-bottom:.7rem}
 .sec__lede{font-family:var(--font-h);text-align:center;color:var(--ink-2);max-width:620px;margin:0 auto 3rem}
 
-/* ══ स्लाइडर — कोई library नहीं, सिर्फ़ CSS scroll-snap ══════════
+/* ══ स्लाइडर, कोई library नहीं, सिर्फ़ CSS scroll-snap ══════════
    उँगली से घुमता है (JS बंद हो तब भी)। तीर, डॉट और अपने आप चलना
    script.js जोड़ता है। हर सेक्शन अपनी चौड़ाई --slide* से तय करता है। */
 .slider{
@@ -240,7 +240,7 @@ ul{margin:0;padding:0;list-style:none}
 .slider-btn[disabled]{opacity:.32;cursor:default;transform:none;box-shadow:none}
 .slider-dots{display:flex;align-items:center;gap:.7rem}
 /* डॉट दिखने में छोटे ही रहते हैं, पर ::after से छूने का दायरा 44px ऊँचा हो जाता है।
-   चौड़ाई जान-बूझकर डॉट के बीच की दूरी तक ही रखी — पूरे 44px चौड़े करते तो
+   चौड़ाई जान-बूझकर डॉट के बीच की दूरी तक ही रखी, पूरे 44px चौड़े करते तो
    पड़ोसी डॉट के दायरे एक-दूसरे पर चढ़ जाते और ग़लत डॉट दब जाता। */
 .slider-dot{width:11px;height:11px;padding:0;border:0;border-radius:999px;background:var(--line);
   position:relative;
@@ -250,7 +250,7 @@ ul{margin:0;padding:0;list-style:none}
 .slider-dot.is-on{width:26px;background:var(--saffron)}
 @media (max-width:520px){ .slider-btn{display:none} }
 
-/* मेन्यू (☰) से आने पर स्लाइडर खुलकर सब कुछ एक साथ दिखा देता है —
+/* मेन्यू (☰) से आने पर स्लाइडर खुलकर सब कुछ एक साथ दिखा देता है,
    ग्राहक जान-बूझकर देखने आया है, उससे कोई विकल्प छूटना नहीं चाहिए */
 .slider.is-open{display:grid;overflow:visible;scroll-snap-type:none;margin-inline:0}
 .slider.is-open>*{flex:none}
@@ -268,12 +268,12 @@ ul{margin:0;padding:0;list-style:none}
 .card--featured{border-color:var(--gold);box-shadow:0 8px 32px rgba(217,164,65,.24)}
 .card__tag{position:absolute;top:14px;right:14px;z-index:2;background:var(--gold);color:#3B1F0B;
   font-size:.82rem;font-weight:700;letter-spacing:.06em;padding:.32rem .78rem;border-radius:999px}
-/* ── यात्रा कार्ड की तस्वीर (चारों अपनी खींची हुई — कोई श्रेय नहीं चाहिए) ── */
+/* ── यात्रा कार्ड की तस्वीर (चारों अपनी खींची हुई, कोई श्रेय नहीं चाहिए) ── */
 .card__art{height:150px;position:relative;overflow:hidden;background:#EFE2CE}
 .card__art img{width:100%;height:100%;object-fit:cover;display:block;
   transition:transform .8s cubic-bezier(.22,.61,.36,1)}
 .card:hover .card__art img{transform:scale(1.055)}
-/* नीचे से मैरून छाया — सफ़ेद संगमरमर वाली तस्वीर पर भी कार्ड का किनारा साफ़ दिखे */
+/* नीचे से मैरून छाया, सफ़ेद संगमरमर वाली तस्वीर पर भी कार्ड का किनारा साफ़ दिखे */
 .card__art::after{content:'';position:absolute;inset:auto 0 0 0;height:48%;pointer-events:none;
   background:linear-gradient(to top,rgba(59,10,14,.44),rgba(59,10,14,0))}
 @media (prefers-reduced-motion:reduce){
@@ -297,7 +297,7 @@ ul{margin:0;padding:0;list-style:none}
   opacity:.7;white-space:nowrap;text-decoration:line-through;
   text-decoration-color:rgba(233,83,31,.8);text-decoration-thickness:2px;
 }
-/* "ऑफ़र पूछें" पर ही सारी कमाई टिकी है (§4 नियम 1) — पहले यह सिर्फ़ 18px ऊँचा था,
+/* "ऑफ़र पूछें" पर ही सारी कमाई टिकी है (§4 नियम 1), पहले यह सिर्फ़ 18px ऊँचा था,
    बुज़ुर्ग उँगली से चूक जाते थे। अब पूरा 44px और अक्षर भी बड़े। */
 .price__ask{
   display:flex;align-items:center;min-height:44px;
@@ -329,7 +329,7 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
 .step h3{font-family:var(--font-h);font-weight:400;font-size:1.16rem;color:var(--maroon);margin-bottom:.4rem}
 .step p{font-size:.92rem;color:var(--ink-2);margin:0}
 
-/* ── आगामी प्रस्थान — कार्ड स्लाइडर (पहले टेबल थी) ── */
+/* ── आगामी प्रस्थान, कार्ड स्लाइडर (पहले टेबल थी) ── */
 .deps{--slide:86%;--slide-t:46%;--slide-d:31.4%}
 .dep-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:1.5rem 1.4rem;
   box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .28s ease,box-shadow .28s ease,border-color .2s}
@@ -341,7 +341,7 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
 .dep-card dt{font-size:.82rem;font-weight:600;color:var(--gold-text)}
 .dep-card dd{margin:0;font-size:.93rem;text-align:right}
 .dep-card .price__old{font-size:1.05rem}
-/* .price__ask अब flex है (44px ऊँचाई के लिए) — flex में text-align नहीं चलता,
+/* .price__ask अब flex है (44px ऊँचाई के लिए), flex में text-align नहीं चलता,
    दाएँ सरकाने के लिए justify-content चाहिए */
 .dep-card .price__ask{justify-content:flex-end;text-align:right;margin-bottom:1.1rem}
 .dep-card .btn{margin-top:auto;width:100%;text-align:center}
@@ -350,7 +350,7 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
 .pill--warn{background:#FDECE4;color:#C03F10}
 
 /* ── reviews ── */
-/* यात्रा कार्ड की तरह यह भी स्लाइडर है (1 अगस्त 2026) — ⚠️ यहाँ `display:grid`
+/* यात्रा कार्ड की तरह यह भी स्लाइडर है (1 अगस्त 2026), ⚠️ यहाँ `display:grid`
    दोबारा मत लिखना, वरना .slider का flex दब जाएगा और सरकना बंद हो जाएगा।
    खुली हुई हालत (☰ मेन्यू) की grid नीचे .revs.is-open में है। */
 .revs{--slide:86%;--slide-t:46%;--slide-d:31.4%;gap:1.4rem}
@@ -374,29 +374,29 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
 .book__pts li{font-family:var(--font-h);font-size:.92rem;color:var(--ink-2);margin-bottom:.35rem}
 
 /* ── भुगतान (Razorpay ₹501 टोकन) ──
-   WhatsApp मुख्य बटन है, इसलिए यह outline रखा गया — भरा हुआ नहीं.
+   WhatsApp मुख्य बटन है, इसलिए यह outline रखा गया, भरा हुआ नहीं.
    क्रम ज़रूरी है: पहले सीट कन्फ़र्म, फिर भुगतान.
 
-   31 जुलाई 2026 — आकार WhatsApp बटन जितना कर दिया (Vinod के कहने पर)।
+   31 जुलाई 2026, आकार WhatsApp बटन जितना कर दिया (Vinod के कहने पर)।
    पहले यह `inline-flex` था, इसलिए सिर्फ़ अपने लिखे जितनी चौड़ाई लेता था और
    ऊपर वाले दो चौड़े बटनों के नीचे छोटा-सा लगता था।
-   ⚠️ सिर्फ़ **आकार** बराबर किया है — रंग नहीं। यह अब भी सफ़ेद/सुनहरा outline
+   ⚠️ सिर्फ़ **आकार** बराबर किया है, रंग नहीं। यह अब भी सफ़ेद/सुनहरा outline
       ही है, हरा भरा हुआ नहीं। वजह ऊपर वाली ही है: भुगतान बटन WhatsApp से
       ज़्यादा चमकीला हुआ तो लोग सीट कन्फ़र्म कराए बिना पैसा भेज देंगे, और
       फिर सीट न होने पर रिफंड का झंझट खड़ा होगा। */
 .paybox{margin:-.4rem 0 1.4rem}
 
-/* 🔴 बटन कब दिखे — यह फ़ैसला अब सिर्फ़ CSS करता है, JS नहीं (index.html §भुगतान)
+/* 🔴 बटन कब दिखे, यह फ़ैसला अब सिर्फ़ CSS करता है, JS नहीं (index.html §भुगतान)
    जब तक <a> में असली href न आए, बटन और उसका नोट दोनों छुपे रहते हैं।
-   script.js सिर्फ़ href भरती है — पुरानी हो या नई, दोनों वही करती हैं।
+   script.js सिर्फ़ href भरती है, पुरानी हो या नई, दोनों वही करती हैं।
    इसीलिए "नई HTML + पुरानी JS" वाली गड़बड़ अब दोबारा नहीं हो सकती।
    :has() न समझने वाले पुराने ब्राउज़र में भी बटन तो छुपेगा ही (दूसरा नियम)। */
 .paybox:has(.pay:not([href])){display:none}
 .pay:not([href]){display:none}
-/* नाप .wa से हूबहू मिलाई गई है — padding, gap, radius, font-weight सब वही।
+/* नाप .wa से हूबहू मिलाई गई है, padding, gap, radius, font-weight सब वही।
    display:flex (inline-flex नहीं) से यह पूरी चौड़ाई लेता है, ठीक ऊपर वाले
    WhatsApp और फ़ोन बटन की तरह। border 1.5px है इसलिए भीतर की जगह उतनी ही
-   रहे, padding से 1.5px घटा दिया — वरना यह उनसे 3px मोटा दिखता। */
+   रहे, padding से 1.5px घटा दिया, वरना यह उनसे 3px मोटा दिखता। */
 .pay{display:flex;align-items:center;gap:.7rem;
   padding:calc(.85rem - 1.5px) calc(1.3rem - 1.5px);border-radius:var(--radius);
   font-family:var(--font-h);font-weight:600;font-size:1rem;color:var(--maroon);
@@ -456,13 +456,13 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
 .brand--foot .brand__txt em{color:var(--gold)}
 .foot__desc{font-family:var(--font-h);margin-top:.9rem;opacity:.75;max-width:280px}
 .foot h3{font-family:var(--font-h);font-weight:400;color:var(--gold);font-size:1rem;margin-bottom:.9rem}
-/* फ़ुटर की कड़ियाँ 24px ऊँची थीं और एक-दूसरे से सटी हुई — मोबाइल पर ग़लत लिंक
+/* फ़ुटर की कड़ियाँ 24px ऊँची थीं और एक-दूसरे से सटी हुई, मोबाइल पर ग़लत लिंक
    दब जाता था। अब हर कड़ी 44px की, margin की जगह padding (जगह उतनी ही लगती है)। */
 .foot__grid a,.foot__addr{display:flex;align-items:center;min-height:44px;
   margin-bottom:0;opacity:.8;transition:.2s}
 .foot__addr{align-items:flex-start;min-height:0;margin-bottom:.5rem}
 .foot__grid a:hover{opacity:1;color:var(--gold);transform:translateX(3px)}
-/* पूरी पट्टी को धुँधला नहीं करते — वरना अंदर का प्रबंधक बटन भी धुँधला हो जाता है।
+/* पूरी पट्टी को धुँधला नहीं करते, वरना अंदर का प्रबंधक बटन भी धुँधला हो जाता है।
    सिर्फ़ कॉपीराइट वाली लाइनें हल्की रखी हैं। */
 .foot__bar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.6rem;
   margin-top:2.4rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.12);font-size:.82rem}
@@ -484,24 +484,24 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
   .book__in{grid-template-columns:1fr;gap:2rem}
   .foot__grid{grid-template-columns:1fr 1fr}
 }
-/* 🔴 ☰ मेन्यू कब आए — 1 अगस्त 2026 को 760px से बढ़ाकर 1050px किया।
+/* 🔴 ☰ मेन्यू कब आए, 1 अगस्त 2026 को 760px से बढ़ाकर 1050px किया।
 
    Vinod ने डेस्कटॉप पर देखा कि English में नेव के शब्द दो-दो लाइन में टूट
    रहे थे ("Why Us", "How to Book", "Upcoming Dates", "Stories of the
-   Dhams") — देखने में बहुत भद्दा। हिन्दी में ठीक था, क्योंकि हिन्दी के
+   Dhams"), देखने में बहुत भद्दा। हिन्दी में ठीक था, क्योंकि हिन्दी के
    शब्द छोटे हैं। यही §4 नियम 2 वाली बात है।
 
    नापा: English की पूरी नेव को **1055px** चाहिए (ब्रांड समेत, और दो लेबल
-   `i18n.js` में छोटे करने के बाद)। पर ☰ मेन्यू सिर्फ़ 760px से नीचे आता था —
+   `i18n.js` में छोटे करने के बाद)। पर ☰ मेन्यू सिर्फ़ 760px से नीचे आता था,
    यानी 761px से 1150px तक की हर स्क्रीन पर पूरी नेव ठूँसी जा रही थी और
    शब्द टूट रहे थे।
 
    अब 1150px से नीचे ☰ मेन्यू आ जाता है। उससे ऊपर नेव के लिए ~1106px जगह
-   मिलती है — 1055px के बाद भी ~50px बची रहती है, ताकि Marcellus न चढ़े और
+   मिलती है, 1055px के बाद भी ~50px बची रहती है, ताकि Marcellus न चढ़े और
    चौड़ा Georgia चले तब भी न टूटे।
 
    ⚠️ इसे वापस घटाना मत। और नेव में नया लिंक जोड़ने से पहले English में
-      कुल चौड़ाई नाप लें — 1106px से ऊपर गई तो फिर टूटने लगेगी। */
+      कुल चौड़ाई नाप लें, 1106px से ऊपर गई तो फिर टूटने लगेगी। */
 @media (max-width:1150px){
   .nav__toggle{display:flex}
   .langbtn{margin-left:auto;font-size:.78rem;padding:.35rem .75rem}
@@ -517,7 +517,7 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
   .row{grid-template-columns:1fr}
   .sec{padding:3.6rem 0}
   .hero{padding:3.6rem 0 3rem}
-  /* .76rem बहुत छोटा था (12px)। .82rem तक बढ़ाया — 375px पर हिन्दी और English
+  /* .76rem बहुत छोटा था (12px)। .82rem तक बढ़ाया, 375px पर हिन्दी और English
      दोनों में जाँचा, पट्टी अब भी एक ही लाइन में रहती है। इससे ऊपर मत बढ़ाना। */
   .topbar__in{font-size:.82rem}
 
@@ -537,49 +537,49 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
 @media (max-width:520px){
   .foot__grid{grid-template-columns:1fr}
   .topbar__om{display:none}
-  /* 🔴 .btn पर nowrap लगा है, और English के कुछ लेबल लंबे हैं — "See the full
+  /* 🔴 .btn पर nowrap लगा है, और English के कुछ लेबल लंबे हैं, "See the full
      panchang and upcoming festivals" वाला बटन 375px की स्क्रीन पर 406px चौड़ा हो
      जाता था, दायाँ किनारा 46px बाहर कटा रहता था (overflow-x:hidden ने छुपा रखा था,
      इसलिए पकड़ में नहीं आया)। छोटी स्क्रीन पर बटन को दो लाइन में टूटने की छूट दी।
-     यह §4 नियम 2 वाली ही बात है — अनुवाद छोटा रखें, फिर भी बटन अब टूटकर सँभल जाएगा। */
+     यह §4 नियम 2 वाली ही बात है, अनुवाद छोटा रखें, फिर भी बटन अब टूटकर सँभल जाएगा। */
   .btn{white-space:normal;text-align:center}
 }
 
 /* 🔴 टॉपबार 375px पर दो लाइन में टूटने की कगार पर था (नापा: 345.6px सामग्री,
-   जगह सिर्फ़ 345px — हिन्दी और English दोनों में)। अक्षर और छोटे करने के बजाय
+   जगह सिर्फ़ 345px, हिन्दी और English दोनों में)। अक्षर और छोटे करने के बजाय
    छोटी स्क्रीन पर सजावटी टैगलाइन हटा दी: काम की चीज़ नंबर है, वो अब बड़ा और
    पूरा दिखता है। ॐ वापस दिखा दिया ताकि पट्टी सूनी न लगे।
    ⚠️ टैगलाइन यहाँ वापस दिखाई तो पट्टी फिर टूटेगी। */
-/* 🔴 31 जुलाई 2026 — यह सीमा 430px थी, और वही गड़बड़ी की जड़ थी।
+/* 🔴 31 जुलाई 2026, यह सीमा 430px थी, और वही गड़बड़ी की जड़ थी।
    नए iPhone (15/16 Pro Max) **430–440px** के होते हैं। यानी Vinod के फ़ोन पर
    यह नियम लगता ही नहीं था: टैगलाइन दिखती रही, और English में वो लंबी होती है
-   ("Jai Shri Shyam — weekly yatras")। नतीजा — टैगलाइन और नंबर दोनों दो-दो
+   ("Jai Shri Shyam, weekly yatras")। नतीजा, टैगलाइन और नंबर दोनों दो-दो
    लाइन में टूट गए, पट्टी 53px से 64px की हो गई और नंबर कटा हुआ दिखने लगा।
-   अब 480px कर दिया है — इसमें सारे मौजूदा फ़ोन आ जाते हैं।
+   अब 480px कर दिया है, इसमें सारे मौजूदा फ़ोन आ जाते हैं।
    ⚠️ इसे वापस घटाना मत, वरना बड़े फ़ोन पर वही टूट-फूट लौट आएगी। */
 @media (max-width:480px){
   .topbar__in>span:not(.topbar__om){display:none}
   .topbar__om{display:inline}
   .topbar__tel{font-size:.9rem}
-  /* नंबर कभी दो लाइन में न टूटे — यही पट्टी की सबसे काम की चीज़ है */
+  /* नंबर कभी दो लाइन में न टूटे, यही पट्टी की सबसे काम की चीज़ है */
   .topbar__tel{white-space:nowrap}
 }
 
 @media (max-width:430px){
   /* 375px पर "Darshan Yatra Seva" पहले से ही दो लाइन में टूट रहा था (हमारे बदलाव
-     से पहले भी — नापकर देखा)। नेव की खाली जगह और भाषा-बटन की चौड़ाई ज़रा कम करने
+     से पहले भी, नापकर देखा)। नेव की खाली जगह और भाषा-बटन की चौड़ाई ज़रा कम करने
      से नाम एक ही लाइन में आ जाता है। बटन की 44px ऊँचाई पूरी बनी रहती है। */
   .nav__in{gap:.55rem}
   .langbtn{padding-inline:.7rem}
 
   /* अक्षर 17px करने पर यह पट्टी फिर तंग हो गई थी। सोच यह है:
      **सजावट छोटी करो, पढ़ने वाली चीज़ बड़ी रखो।** लोगो और ब्रांड का नाम सजावट
-     हैं — विज़िटर को पता है वो किस साइट पर है। यात्रा की जानकारी, दाम, बटन —
+     हैं, विज़िटर को पता है वो किस साइट पर है। यात्रा की जानकारी, दाम, बटन,
      वो सब 17px पर बड़े ही रहते हैं।
      नाम 1rem पर उतना ही दिखता है जितना पहले 16px वाली साइट पर दिखता था।
      ⚠️ ईमानदारी से: इसके बाद 15px की जगह बचती है। अगर Marcellus फ़ॉन्ट कभी
         लोड न हो और Georgia चले (वो चौड़ा है), तो नाम दो लाइन में चला जाएगा।
-        उससे कुछ टूटता नहीं, बस कम सुंदर लगता है — इसलिए इसे और निचोड़ा नहीं। */
+        उससे कुछ टूटता नहीं, बस कम सुंदर लगता है, इसलिए इसे और निचोड़ा नहीं। */
   .brand__txt strong{font-size:1rem}
   .brand{gap:.5rem}
   .brand__mark{width:36px;height:36px}
@@ -593,7 +593,7 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
 
 /* ═══════════════════════════════════════════════════════════
    पंचांग / हिन्दू कैलेंडर  (panchang.js इसे भरता है)
-   बाएँ — आज का पंचांग + महीने के व्रत · दाएँ — तारीख़ों का ग्रिड
+   बाएँ, आज का पंचांग + महीने के व्रत · दाएँ, तारीख़ों का ग्रिड
    ═══════════════════════════════════════════════════════════ */
 .pan{display:grid;gap:1.3rem;margin-top:2.2rem}
 @media (min-width:900px){
@@ -601,7 +601,7 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
   .pan__cal{grid-column:2;grid-row:1 / span 2}
 }
 
-/* आज का पंचांग — गहरा मैरून कार्ड */
+/* आज का पंचांग, गहरा मैरून कार्ड */
 .pan__today{background:linear-gradient(150deg,var(--maroon),var(--maroon-d));color:#fff;
   border:1px solid rgba(217,164,65,.45);border-radius:var(--radius-lg);padding:1.5rem;box-shadow:var(--shadow-lg)}
 .pan__todayHead{display:flex;gap:.9rem;align-items:center;margin-bottom:1.1rem}
@@ -670,7 +670,7 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
 .foot__grid .foot__social a:hover{background:var(--gold);transform:none;opacity:1}
 .foot__social svg{fill:currentColor}
 .foot__grid .foot__social a:hover svg{fill:#3B1F0B}
-/* प्रबंधक लिंक — ग्राहक के काम का नहीं, पर संचालक को फ़ोन पर तुरंत मिलना चाहिए।
+/* प्रबंधक लिंक, ग्राहक के काम का नहीं, पर संचालक को फ़ोन पर तुरंत मिलना चाहिए।
    पहले 45% धुँधला था और गहरे फ़ुटर पर दिखता ही नहीं था (28 जुलाई 2026 को ठीक किया)। */
 .foot__admin{display:inline-flex;align-items:center;gap:.35rem;padding:.4em 1em;
   border:1px solid rgba(217,164,65,.55);border-radius:999px;color:var(--gold);
@@ -690,7 +690,7 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
 
 /* ── बुकिंग हिस्से में सोशल पेज (config.js से) ──
    ⚠️ नीचे वाला .paybox का margin-top ऋणात्मक (-.4rem) है, इसलिए यहाँ
-   नीचे की जगह ज़रूर छोड़नी है — वरना ₹501 वाला बटन इन पिल्स पर चढ़ जाता है। */
+   नीचे की जगह ज़रूर छोड़नी है, वरना ₹501 वाला बटन इन पिल्स पर चढ़ जाता है। */
 .book__social{margin:1.2rem 0 1.7rem}
 .book__social b{display:block;font-size:.9rem;font-weight:600;color:var(--gold-text);margin-bottom:.5rem}
 .book__social div{display:flex;flex-wrap:wrap;gap:.5rem}
@@ -778,13 +778,13 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
 .rev__cta{background:linear-gradient(150deg,var(--maroon),var(--maroon-d));border-radius:var(--radius-lg);
   padding:1.6rem;text-align:center;box-shadow:var(--shadow-lg);margin-bottom:2.4rem}
 /* एक से ज़्यादा बटन (Google + JustDial + TripAdvisor) एक-दूसरे से चिपके न लगें।
-   पहले वाले को छोड़कर बाक़ी सब पर ऊपर से जगह — इसलिए बटन एक हो या तीन,
+   पहले वाले को छोड़कर बाक़ी सब पर ऊपर से जगह, इसलिए बटन एक हो या तीन,
    डिब्बे की ऊँचाई हमेशा सही रहती है (31 जुलाई 2026)।
-   🔴 1 अगस्त 2026 — यहाँ एक गड़बड़ी लाइव चली गई थी, सबक याद रखें:
+   🔴 1 अगस्त 2026, यहाँ एक गड़बड़ी लाइव चली गई थी, सबक याद रखें:
    पहले भरोसा सिर्फ़ HTML के `hidden` पर था। पर `.btn` पर
    `display:inline-flex` लिखा है, और वो ब्राउज़र के अपने `[hidden]{display:none}`
    को **हरा देता है** (class की पकड़ attribute से मज़बूत होती है)। नतीजा:
-   Google और TripAdvisor के ख़ाली बटन भी असली साइट पर दिखने लगे — दबाने पर
+   Google और TripAdvisor के ख़ाली बटन भी असली साइट पर दिखने लगे, दबाने पर
    कुछ होता ही नहीं। यात्री को लगता वेबसाइट ख़राब है।
 
    इसीलिए §8 में भुगतान बटन पर पहले से `.pay:not([href])` वाला तरीक़ा अपनाया
@@ -825,7 +825,7 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
   font-size:.88rem;color:var(--ink-2);line-height:1.8}
 .rev__thanks{text-align:center;font-family:var(--font-h);font-size:1.08rem;color:var(--maroon);line-height:2}
 
-/* ⚠️ अंदर वाले पेजों (कथा, पंचांग, रिव्यू) की नेव मोबाइल पर drawer नहीं बनती —
+/* ⚠️ अंदर वाले पेजों (कथा, पंचांग, रिव्यू) की नेव मोबाइल पर drawer नहीं बनती,
    वहाँ ☰ बटन है ही नहीं, इसलिए drawer खुलता ही नहीं और लिंक ग़ायब हो जाते थे
    (साथ में पेज बग़ल में भी सरकने लगता था)। यहाँ उसे सीधा-सादा रखा है। */
 @media (max-width:760px){
@@ -834,7 +834,30 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
     padding:0;margin-left:auto;background:none;border:0;box-shadow:none;font-size:.86rem}
   .nav__links.katha__nav .btn{padding:.45em .9em;font-size:.8rem}
 }
-@media (max-width:420px){
+/* 🔴 यह सीमा पहले 420px थी, और वही §16 वाली ग़लती दोबारा हो गई थी।
+   नए iPhone 430–440px के होते हैं, यानी उन पर ये नियम लगते ही नहीं थे।
+   English में लाइनें लंबी होती हैं, इसलिए वहीं पट्टी टूटती थी:
+
+       375px English : पेज 375 का, सामग्री 429 की  → 54px बाहर
+       440px English : पेज 440 का, सामग्री 523 की  → 83px बाहर
+       हिन्दी में दोनों जगह 0, इसीलिए पकड़ में नहीं आई थी
+
+   अब सीमा 480px है (टॉपबार वाली ही सीमा, §16)। */
+@media (max-width:480px){
   .nav__links.katha__nav{font-size:.8rem;gap:.45rem}
   .katha__nav ~ .langbtn{display:none}   /* जगह कम पड़े तो भाषा बटन नीचे नहीं, हटा दो */
+
+  /* "← मुख्य पेज" छोटे फ़ोन पर छुपा दिया, ब्रांड/लोगो पहले से ही मुख्य पेज
+     का लिंक है (§16 में यही लिखा है), इसलिए रास्ता कहीं नहीं खोता। "बुक करें"
+     वाला बटन बचा रहता है, कमाई का रास्ता वही है।
+     ⚠️ यहाँ ब्रांड का नाम छोटा करके जगह मत बनाना, Marcellus न चढ़े और
+        Georgia चले तो नाम दो लाइन में चला जाएगा (§8)।
+
+     🔴 `:not(:only-child)` क्यों लगा है, `/review` की नेव में सिर्फ़ यही एक
+        लिंक है, कोई बटन नहीं। बिना इस शर्त के वहाँ नेव पूरी ख़ाली हो जाती
+        और यात्री के पास वापस जाने का कोई साफ़ रास्ता नहीं बचता (वो पेज
+        बुज़ुर्ग यात्रियों को WhatsApp पर भेजा जाता है, §14)।
+        `:only-child` पुराने Android ब्राउज़र भी समझते हैं, `:has()` यहाँ
+        जान-बूझकर इस्तेमाल नहीं किया। */
+  .katha__nav a:not(.btn):not(:only-child){display:none}
 }

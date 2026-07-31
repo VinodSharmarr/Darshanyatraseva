@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>आज की तिथि और पंचांग — व्रत-त्योहार की तारीख़ें | Darshan Yatra Seva</title>
-<meta name="description" content="आज की तिथि, नक्षत्र, योग, सूर्योदय-सूर्यास्त और पूरे महीने का हिन्दू कैलेंडर। एकादशी, पूर्णिमा, अमावस्या और आने वाले सभी व्रत-त्योहार की तारीख़ें — दिल्ली के समय अनुसार।" />
+<title>आज की तिथि, व्रत-त्योहार की तारीख़ें | Darshan Yatra Seva</title>
+<meta name="description" content="आज की तिथि, नक्षत्र, सूर्योदय-सूर्यास्त और पूरे महीने का हिन्दू कैलेंडर। एकादशी, पूर्णिमा, अमावस्या व आगामी व्रत-त्योहार की तारीख़ें।" />
 <meta name="theme-color" content="#7B1E22" />
 <link rel="canonical" href="https://www.darshanyatraseva.com/panchang" />
 
-<meta property="og:title" content="आज की तिथि और पंचांग — व्रत-त्योहार की तारीख़ें" />
-<meta property="og:description" content="आज की तिथि, नक्षत्र, सूर्योदय और पूरे महीने का हिन्दू कैलेंडर — एकादशी, पूर्णिमा और सभी व्रत-त्योहार की तारीख़ें।" />
+<meta property="og:title" content="आज की तिथि और पंचांग | व्रत-त्योहार की तारीख़ें" />
+<meta property="og:description" content="आज की तिथि, नक्षत्र, सूर्योदय और पूरे महीने का हिन्दू कैलेंडर, एकादशी, पूर्णिमा और सभी व्रत-त्योहार की तारीख़ें।" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.darshanyatraseva.com/panchang" />
 <meta property="og:site_name" content="Darshan Yatra Seva" />
@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Tiro+Devanagari+Hindi:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-<link rel="stylesheet" href="styles.css?v=20" />
+<link rel="stylesheet" href="styles.css?v=21" />
 
 <script type="application/ld+json">
 {
@@ -43,7 +43,7 @@
 <div class="topbar">
   <div class="wrap topbar__in">
     <span class="topbar__om">ॐ</span>
-    <span>जय श्री श्याम — दिल्ली से हर सप्ताह यात्रा</span>
+    <span>जय श्री श्याम, दिल्ली से हर सप्ताह यात्रा</span>
     <a class="topbar__tel" href="tel:+917289902692">📞 +91 72899 02692</a>
   </div>
 </div>
@@ -51,7 +51,7 @@
 <!-- ══ HEADER ══ -->
 <header class="nav is-stuck">
   <div class="wrap nav__in">
-    <a class="brand" href="index.html">
+    <a class="brand" href="/">
       <svg class="brand__mark" viewBox="0 0 200 200" aria-hidden="true">
         <circle cx="100" cy="100" r="95" fill="#7B1E22"/>
         <circle cx="100" cy="100" r="95" fill="none" stroke="#D9A441" stroke-width="4.5"/>
@@ -71,8 +71,8 @@
     </a>
 
     <nav class="nav__links katha__nav">
-      <a href="index.html">← मुख्य पेज</a>
-      <a class="btn btn--sm btn--primary" href="index.html#book">बुक करें</a>
+      <a href="/">← मुख्य पेज</a>
+      <a class="btn btn--sm btn--primary" href="/#book">बुक करें</a>
     </nav>
 
     <button class="langbtn" id="langBtn" type="button" aria-label="View in English">English</button>
@@ -84,11 +84,11 @@
   <div class="wrap">
     <p class="eyebrow center">हिन्दू पंचांग</p>
     <h1 class="sec__title">आज की तिथि, नक्षत्र और इस महीने के व्रत-पर्व</h1>
-    <p class="sec__lede">दिल्ली के सूर्योदय के अनुसार गणना — तिथि, नक्षत्र, योग, सूर्योदय-सूर्यास्त और आने वाले सभी बड़े व्रत-त्योहार की तारीख़ें।</p>
+    <p class="sec__lede">दिल्ली के सूर्योदय के अनुसार गणना: तिथि, नक्षत्र, योग, सूर्योदय-सूर्यास्त और आने वाले सभी बड़े व्रत-त्योहार की तारीख़ें।</p>
   </div>
 </section>
 
-<!-- ══ पंचांग — panchang.js भरता है ══ -->
+<!-- ══ पंचांग, panchang.js भरता है ══ -->
 <section class="sec">
   <div class="wrap">
     <div class="pan" id="panchangBox"></div>
@@ -99,23 +99,289 @@
 <section class="sec sec--alt">
   <div class="wrap wrap--narrow">
     <h2 class="sec__title">आगे आने वाले व्रत और त्योहार</h2>
-    <p class="sec__lede">इन तिथियों पर यात्रा की सीटें सबसे पहले भरती हैं — 3–4 सप्ताह पहले बुकिंग करा लेना ठीक रहता है।</p>
-    <ul class="parvList" id="parvList"></ul>
+    <p class="sec__lede">इन तिथियों पर यात्रा की सीटें सबसे पहले भरती हैं, 3–4 सप्ताह पहले बुकिंग करा लेना ठीक रहता है।</p>
+    <ul class="parvList" id="parvList">
+<li class="parv">
+        <div class="parv__date">
+          <b>15</b>
+          <span>अगस्त</span>
+          <i>शनिवार</i>
+        </div>
+        <div class="parv__body">
+          <b>हरियाली तीज</b>
+          <span>श्रावण शुक्ल तृतीया</span>
+        </div>
+        <a class="parv__ask" href="https://wa.me/917289902692?text=%E0%A4%9C%E0%A4%AF%20%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%20%E0%A4%B6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AE!%20%E0%A4%B6%E0%A4%A8%E0%A4%BF%E0%A4%B5%E0%A4%BE%E0%A4%B0%2C%2015%20%E0%A4%85%E0%A4%97%E0%A4%B8%E0%A5%8D%E0%A4%A4%202026%2C%20%E0%A4%B9%E0%A4%B0%E0%A4%BF%E0%A4%AF%E0%A4%BE%E0%A4%B2%E0%A5%80%20%E0%A4%A4%E0%A5%80%E0%A4%9C%20%E0%A4%AA%E0%A4%B0%20%E0%A4%AF%E0%A4%BE%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A4%BE%20%E0%A4%95%E0%A5%80%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4" target="_blank" rel="noopener">💬 यात्रा पूछें</a>
+      </li><li class="parv">
+        <div class="parv__date">
+          <b>17</b>
+          <span>अगस्त</span>
+          <i>सोमवार</i>
+        </div>
+        <div class="parv__body">
+          <b>नाग पंचमी</b>
+          <span>श्रावण शुक्ल पंचमी</span>
+        </div>
+        <a class="parv__ask" href="https://wa.me/917289902692?text=%E0%A4%9C%E0%A4%AF%20%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%20%E0%A4%B6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AE!%20%E0%A4%B8%E0%A5%8B%E0%A4%AE%E0%A4%B5%E0%A4%BE%E0%A4%B0%2C%2017%20%E0%A4%85%E0%A4%97%E0%A4%B8%E0%A5%8D%E0%A4%A4%202026%2C%20%E0%A4%A8%E0%A4%BE%E0%A4%97%20%E0%A4%AA%E0%A4%82%E0%A4%9A%E0%A4%AE%E0%A5%80%20%E0%A4%AA%E0%A4%B0%20%E0%A4%AF%E0%A4%BE%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A4%BE%20%E0%A4%95%E0%A5%80%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4" target="_blank" rel="noopener">💬 यात्रा पूछें</a>
+      </li><li class="parv">
+        <div class="parv__date">
+          <b>28</b>
+          <span>अगस्त</span>
+          <i>शुक्रवार</i>
+        </div>
+        <div class="parv__body">
+          <b>रक्षाबंधन</b>
+          <span>श्रावण शुक्ल पूर्णिमा</span>
+        </div>
+        <a class="parv__ask" href="https://wa.me/917289902692?text=%E0%A4%9C%E0%A4%AF%20%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%20%E0%A4%B6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AE!%20%E0%A4%B6%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%B0%E0%A4%B5%E0%A4%BE%E0%A4%B0%2C%2028%20%E0%A4%85%E0%A4%97%E0%A4%B8%E0%A5%8D%E0%A4%A4%202026%2C%20%E0%A4%B0%E0%A4%95%E0%A5%8D%E0%A4%B7%E0%A4%BE%E0%A4%AC%E0%A4%82%E0%A4%A7%E0%A4%A8%20%E0%A4%AA%E0%A4%B0%20%E0%A4%AF%E0%A4%BE%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A4%BE%20%E0%A4%95%E0%A5%80%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4" target="_blank" rel="noopener">💬 यात्रा पूछें</a>
+      </li><li class="parv">
+        <div class="parv__date">
+          <b>4</b>
+          <span>सितंबर</span>
+          <i>शुक्रवार</i>
+        </div>
+        <div class="parv__body">
+          <b>श्रीकृष्ण जन्माष्टमी</b>
+          <span>श्रावण कृष्ण अष्टमी</span>
+        </div>
+        <a class="parv__ask" href="https://wa.me/917289902692?text=%E0%A4%9C%E0%A4%AF%20%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%20%E0%A4%B6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AE!%20%E0%A4%B6%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%B0%E0%A4%B5%E0%A4%BE%E0%A4%B0%2C%204%20%E0%A4%B8%E0%A4%BF%E0%A4%A4%E0%A4%82%E0%A4%AC%E0%A4%B0%202026%2C%20%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%E0%A4%95%E0%A5%83%E0%A4%B7%E0%A5%8D%E0%A4%A3%20%E0%A4%9C%E0%A4%A8%E0%A5%8D%E0%A4%AE%E0%A4%BE%E0%A4%B7%E0%A5%8D%E0%A4%9F%E0%A4%AE%E0%A5%80%20%E0%A4%AA%E0%A4%B0%20%E0%A4%AF%E0%A4%BE%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A4%BE%20%E0%A4%95%E0%A5%80%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4" target="_blank" rel="noopener">💬 यात्रा पूछें</a>
+      </li><li class="parv">
+        <div class="parv__date">
+          <b>14</b>
+          <span>सितंबर</span>
+          <i>सोमवार</i>
+        </div>
+        <div class="parv__body">
+          <b>हरतालिका तीज</b>
+          <span>भाद्रपद शुक्ल तृतीया</span>
+        </div>
+        <a class="parv__ask" href="https://wa.me/917289902692?text=%E0%A4%9C%E0%A4%AF%20%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%20%E0%A4%B6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AE!%20%E0%A4%B8%E0%A5%8B%E0%A4%AE%E0%A4%B5%E0%A4%BE%E0%A4%B0%2C%2014%20%E0%A4%B8%E0%A4%BF%E0%A4%A4%E0%A4%82%E0%A4%AC%E0%A4%B0%202026%2C%20%E0%A4%B9%E0%A4%B0%E0%A4%A4%E0%A4%BE%E0%A4%B2%E0%A4%BF%E0%A4%95%E0%A4%BE%20%E0%A4%A4%E0%A5%80%E0%A4%9C%20%E0%A4%AA%E0%A4%B0%20%E0%A4%AF%E0%A4%BE%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A4%BE%20%E0%A4%95%E0%A5%80%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4" target="_blank" rel="noopener">💬 यात्रा पूछें</a>
+      </li><li class="parv">
+        <div class="parv__date">
+          <b>15</b>
+          <span>सितंबर</span>
+          <i>मंगलवार</i>
+        </div>
+        <div class="parv__body">
+          <b>गणेश चतुर्थी</b>
+          <span>भाद्रपद शुक्ल चतुर्थी</span>
+        </div>
+        <a class="parv__ask" href="https://wa.me/917289902692?text=%E0%A4%9C%E0%A4%AF%20%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%20%E0%A4%B6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AE!%20%E0%A4%AE%E0%A4%82%E0%A4%97%E0%A4%B2%E0%A4%B5%E0%A4%BE%E0%A4%B0%2C%2015%20%E0%A4%B8%E0%A4%BF%E0%A4%A4%E0%A4%82%E0%A4%AC%E0%A4%B0%202026%2C%20%E0%A4%97%E0%A4%A3%E0%A5%87%E0%A4%B6%20%E0%A4%9A%E0%A4%A4%E0%A5%81%E0%A4%B0%E0%A5%8D%E0%A4%A5%E0%A5%80%20%E0%A4%AA%E0%A4%B0%20%E0%A4%AF%E0%A4%BE%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A4%BE%20%E0%A4%95%E0%A5%80%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4" target="_blank" rel="noopener">💬 यात्रा पूछें</a>
+      </li><li class="parv">
+        <div class="parv__date">
+          <b>26</b>
+          <span>सितंबर</span>
+          <i>शनिवार</i>
+        </div>
+        <div class="parv__body">
+          <b>पितृ पक्ष प्रारंभ</b>
+          <span>भाद्रपद शुक्ल पूर्णिमा</span>
+        </div>
+        <a class="parv__ask" href="https://wa.me/917289902692?text=%E0%A4%9C%E0%A4%AF%20%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%20%E0%A4%B6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AE!%20%E0%A4%B6%E0%A4%A8%E0%A4%BF%E0%A4%B5%E0%A4%BE%E0%A4%B0%2C%2026%20%E0%A4%B8%E0%A4%BF%E0%A4%A4%E0%A4%82%E0%A4%AC%E0%A4%B0%202026%2C%20%E0%A4%AA%E0%A4%BF%E0%A4%A4%E0%A5%83%20%E0%A4%AA%E0%A4%95%E0%A5%8D%E0%A4%B7%20%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%B0%E0%A4%82%E0%A4%AD%20%E0%A4%AA%E0%A4%B0%20%E0%A4%AF%E0%A4%BE%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A4%BE%20%E0%A4%95%E0%A5%80%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4" target="_blank" rel="noopener">💬 यात्रा पूछें</a>
+      </li><li class="parv">
+        <div class="parv__date">
+          <b>10</b>
+          <span>अक्टूबर</span>
+          <i>शनिवार</i>
+        </div>
+        <div class="parv__body">
+          <b>सर्व पितृ अमावस्या</b>
+          <span>भाद्रपद कृष्ण अमावस्या</span>
+        </div>
+        <a class="parv__ask" href="https://wa.me/917289902692?text=%E0%A4%9C%E0%A4%AF%20%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%20%E0%A4%B6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AE!%20%E0%A4%B6%E0%A4%A8%E0%A4%BF%E0%A4%B5%E0%A4%BE%E0%A4%B0%2C%2010%20%E0%A4%85%E0%A4%95%E0%A5%8D%E0%A4%9F%E0%A5%82%E0%A4%AC%E0%A4%B0%202026%2C%20%E0%A4%B8%E0%A4%B0%E0%A5%8D%E0%A4%B5%20%E0%A4%AA%E0%A4%BF%E0%A4%A4%E0%A5%83%20%E0%A4%85%E0%A4%AE%E0%A4%BE%E0%A4%B5%E0%A4%B8%E0%A5%8D%E0%A4%AF%E0%A4%BE%20%E0%A4%AA%E0%A4%B0%20%E0%A4%AF%E0%A4%BE%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A4%BE%20%E0%A4%95%E0%A5%80%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4" target="_blank" rel="noopener">💬 यात्रा पूछें</a>
+      </li><li class="parv">
+        <div class="parv__date">
+          <b>11</b>
+          <span>अक्टूबर</span>
+          <i>रविवार</i>
+        </div>
+        <div class="parv__body">
+          <b>शारदीय नवरात्रि · घटस्थापना</b>
+          <span>आश्विन शुक्ल प्रतिपदा</span>
+        </div>
+        <a class="parv__ask" href="https://wa.me/917289902692?text=%E0%A4%9C%E0%A4%AF%20%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%20%E0%A4%B6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AE!%20%E0%A4%B0%E0%A4%B5%E0%A4%BF%E0%A4%B5%E0%A4%BE%E0%A4%B0%2C%2011%20%E0%A4%85%E0%A4%95%E0%A5%8D%E0%A4%9F%E0%A5%82%E0%A4%AC%E0%A4%B0%202026%2C%20%E0%A4%B6%E0%A4%BE%E0%A4%B0%E0%A4%A6%E0%A5%80%E0%A4%AF%20%E0%A4%A8%E0%A4%B5%E0%A4%B0%E0%A4%BE%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A4%BF%20%C2%B7%20%E0%A4%98%E0%A4%9F%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A4%BE%E0%A4%AA%E0%A4%A8%E0%A4%BE%20%E0%A4%AA%E0%A4%B0%20%E0%A4%AF%E0%A4%BE%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A4%BE%20%E0%A4%95%E0%A5%80%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4" target="_blank" rel="noopener">💬 यात्रा पूछें</a>
+      </li><li class="parv">
+        <div class="parv__date">
+          <b>19</b>
+          <span>अक्टूबर</span>
+          <i>सोमवार</i>
+        </div>
+        <div class="parv__body">
+          <b>दुर्गा अष्टमी</b>
+          <span>आश्विन शुक्ल अष्टमी</span>
+        </div>
+        <a class="parv__ask" href="https://wa.me/917289902692?text=%E0%A4%9C%E0%A4%AF%20%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%20%E0%A4%B6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AE!%20%E0%A4%B8%E0%A5%8B%E0%A4%AE%E0%A4%B5%E0%A4%BE%E0%A4%B0%2C%2019%20%E0%A4%85%E0%A4%95%E0%A5%8D%E0%A4%9F%E0%A5%82%E0%A4%AC%E0%A4%B0%202026%2C%20%E0%A4%A6%E0%A5%81%E0%A4%B0%E0%A5%8D%E0%A4%97%E0%A4%BE%20%E0%A4%85%E0%A4%B7%E0%A5%8D%E0%A4%9F%E0%A4%AE%E0%A5%80%20%E0%A4%AA%E0%A4%B0%20%E0%A4%AF%E0%A4%BE%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A4%BE%20%E0%A4%95%E0%A5%80%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4" target="_blank" rel="noopener">💬 यात्रा पूछें</a>
+      </li><li class="parv">
+        <div class="parv__date">
+          <b>20</b>
+          <span>अक्टूबर</span>
+          <i>मंगलवार</i>
+        </div>
+        <div class="parv__body">
+          <b>महानवमी</b>
+          <span>आश्विन शुक्ल नवमी</span>
+        </div>
+        <a class="parv__ask" href="https://wa.me/917289902692?text=%E0%A4%9C%E0%A4%AF%20%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%20%E0%A4%B6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AE!%20%E0%A4%AE%E0%A4%82%E0%A4%97%E0%A4%B2%E0%A4%B5%E0%A4%BE%E0%A4%B0%2C%2020%20%E0%A4%85%E0%A4%95%E0%A5%8D%E0%A4%9F%E0%A5%82%E0%A4%AC%E0%A4%B0%202026%2C%20%E0%A4%AE%E0%A4%B9%E0%A4%BE%E0%A4%A8%E0%A4%B5%E0%A4%AE%E0%A5%80%20%E0%A4%AA%E0%A4%B0%20%E0%A4%AF%E0%A4%BE%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A4%BE%20%E0%A4%95%E0%A5%80%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4" target="_blank" rel="noopener">💬 यात्रा पूछें</a>
+      </li><li class="parv">
+        <div class="parv__date">
+          <b>21</b>
+          <span>अक्टूबर</span>
+          <i>बुधवार</i>
+        </div>
+        <div class="parv__body">
+          <b>विजयादशमी · दशहरा</b>
+          <span>आश्विन शुक्ल दशमी</span>
+        </div>
+        <a class="parv__ask" href="https://wa.me/917289902692?text=%E0%A4%9C%E0%A4%AF%20%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%20%E0%A4%B6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AE!%20%E0%A4%AC%E0%A5%81%E0%A4%A7%E0%A4%B5%E0%A4%BE%E0%A4%B0%2C%2021%20%E0%A4%85%E0%A4%95%E0%A5%8D%E0%A4%9F%E0%A5%82%E0%A4%AC%E0%A4%B0%202026%2C%20%E0%A4%B5%E0%A4%BF%E0%A4%9C%E0%A4%AF%E0%A4%BE%E0%A4%A6%E0%A4%B6%E0%A4%AE%E0%A5%80%20%C2%B7%20%E0%A4%A6%E0%A4%B6%E0%A4%B9%E0%A4%B0%E0%A4%BE%20%E0%A4%AA%E0%A4%B0%20%E0%A4%AF%E0%A4%BE%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A4%BE%20%E0%A4%95%E0%A5%80%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4" target="_blank" rel="noopener">💬 यात्रा पूछें</a>
+      </li><li class="parv">
+        <div class="parv__date">
+          <b>26</b>
+          <span>अक्टूबर</span>
+          <i>सोमवार</i>
+        </div>
+        <div class="parv__body">
+          <b>शरद पूर्णिमा</b>
+          <span>आश्विन शुक्ल पूर्णिमा</span>
+        </div>
+        <a class="parv__ask" href="https://wa.me/917289902692?text=%E0%A4%9C%E0%A4%AF%20%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%20%E0%A4%B6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AE!%20%E0%A4%B8%E0%A5%8B%E0%A4%AE%E0%A4%B5%E0%A4%BE%E0%A4%B0%2C%2026%20%E0%A4%85%E0%A4%95%E0%A5%8D%E0%A4%9F%E0%A5%82%E0%A4%AC%E0%A4%B0%202026%2C%20%E0%A4%B6%E0%A4%B0%E0%A4%A6%20%E0%A4%AA%E0%A5%82%E0%A4%B0%E0%A5%8D%E0%A4%A3%E0%A4%BF%E0%A4%AE%E0%A4%BE%20%E0%A4%AA%E0%A4%B0%20%E0%A4%AF%E0%A4%BE%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A4%BE%20%E0%A4%95%E0%A5%80%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4" target="_blank" rel="noopener">💬 यात्रा पूछें</a>
+      </li><li class="parv">
+        <div class="parv__date">
+          <b>29</b>
+          <span>अक्टूबर</span>
+          <i>गुरुवार</i>
+        </div>
+        <div class="parv__body">
+          <b>करवा चौथ</b>
+          <span>आश्विन कृष्ण चतुर्थी</span>
+        </div>
+        <a class="parv__ask" href="https://wa.me/917289902692?text=%E0%A4%9C%E0%A4%AF%20%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%20%E0%A4%B6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AE!%20%E0%A4%97%E0%A5%81%E0%A4%B0%E0%A5%81%E0%A4%B5%E0%A4%BE%E0%A4%B0%2C%2029%20%E0%A4%85%E0%A4%95%E0%A5%8D%E0%A4%9F%E0%A5%82%E0%A4%AC%E0%A4%B0%202026%2C%20%E0%A4%95%E0%A4%B0%E0%A4%B5%E0%A4%BE%20%E0%A4%9A%E0%A5%8C%E0%A4%A5%20%E0%A4%AA%E0%A4%B0%20%E0%A4%AF%E0%A4%BE%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A4%BE%20%E0%A4%95%E0%A5%80%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4" target="_blank" rel="noopener">💬 यात्रा पूछें</a>
+      </li><li class="parv">
+        <div class="parv__date">
+          <b>6</b>
+          <span>नवंबर</span>
+          <i>शुक्रवार</i>
+        </div>
+        <div class="parv__body">
+          <b>धनतेरस</b>
+          <span>आश्विन कृष्ण द्वादशी</span>
+        </div>
+        <a class="parv__ask" href="https://wa.me/917289902692?text=%E0%A4%9C%E0%A4%AF%20%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%20%E0%A4%B6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AE!%20%E0%A4%B6%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%B0%E0%A4%B5%E0%A4%BE%E0%A4%B0%2C%206%20%E0%A4%A8%E0%A4%B5%E0%A4%82%E0%A4%AC%E0%A4%B0%202026%2C%20%E0%A4%A7%E0%A4%A8%E0%A4%A4%E0%A5%87%E0%A4%B0%E0%A4%B8%20%E0%A4%AA%E0%A4%B0%20%E0%A4%AF%E0%A4%BE%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A4%BE%20%E0%A4%95%E0%A5%80%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4" target="_blank" rel="noopener">💬 यात्रा पूछें</a>
+      </li><li class="parv">
+        <div class="parv__date">
+          <b>8</b>
+          <span>नवंबर</span>
+          <i>रविवार</i>
+        </div>
+        <div class="parv__body">
+          <b>नरक चतुर्दशी · छोटी दीपावली · दीपावली · लक्ष्मी पूजन</b>
+          <span>आश्विन कृष्ण चतुर्दशी</span>
+        </div>
+        <a class="parv__ask" href="https://wa.me/917289902692?text=%E0%A4%9C%E0%A4%AF%20%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%20%E0%A4%B6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AE!%20%E0%A4%B0%E0%A4%B5%E0%A4%BF%E0%A4%B5%E0%A4%BE%E0%A4%B0%2C%208%20%E0%A4%A8%E0%A4%B5%E0%A4%82%E0%A4%AC%E0%A4%B0%202026%2C%20%E0%A4%A8%E0%A4%B0%E0%A4%95%20%E0%A4%9A%E0%A4%A4%E0%A5%81%E0%A4%B0%E0%A5%8D%E0%A4%A6%E0%A4%B6%E0%A5%80%20%C2%B7%20%E0%A4%9B%E0%A5%8B%E0%A4%9F%E0%A5%80%20%E0%A4%A6%E0%A5%80%E0%A4%AA%E0%A4%BE%E0%A4%B5%E0%A4%B2%E0%A5%80%2C%20%E0%A4%A6%E0%A5%80%E0%A4%AA%E0%A4%BE%E0%A4%B5%E0%A4%B2%E0%A5%80%20%C2%B7%20%E0%A4%B2%E0%A4%95%E0%A5%8D%E0%A4%B7%E0%A5%8D%E0%A4%AE%E0%A5%80%20%E0%A4%AA%E0%A5%82%E0%A4%9C%E0%A4%A8%20%E0%A4%AA%E0%A4%B0%20%E0%A4%AF%E0%A4%BE%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A4%BE%20%E0%A4%95%E0%A5%80%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4" target="_blank" rel="noopener">💬 यात्रा पूछें</a>
+      </li><li class="parv">
+        <div class="parv__date">
+          <b>10</b>
+          <span>नवंबर</span>
+          <i>मंगलवार</i>
+        </div>
+        <div class="parv__body">
+          <b>गोवर्धन पूजा · अन्नकूट</b>
+          <span>कार्तिक शुक्ल प्रतिपदा</span>
+        </div>
+        <a class="parv__ask" href="https://wa.me/917289902692?text=%E0%A4%9C%E0%A4%AF%20%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%20%E0%A4%B6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AE!%20%E0%A4%AE%E0%A4%82%E0%A4%97%E0%A4%B2%E0%A4%B5%E0%A4%BE%E0%A4%B0%2C%2010%20%E0%A4%A8%E0%A4%B5%E0%A4%82%E0%A4%AC%E0%A4%B0%202026%2C%20%E0%A4%97%E0%A5%8B%E0%A4%B5%E0%A4%B0%E0%A5%8D%E0%A4%A7%E0%A4%A8%20%E0%A4%AA%E0%A5%82%E0%A4%9C%E0%A4%BE%20%C2%B7%20%E0%A4%85%E0%A4%A8%E0%A5%8D%E0%A4%A8%E0%A4%95%E0%A5%82%E0%A4%9F%20%E0%A4%AA%E0%A4%B0%20%E0%A4%AF%E0%A4%BE%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A4%BE%20%E0%A4%95%E0%A5%80%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4" target="_blank" rel="noopener">💬 यात्रा पूछें</a>
+      </li><li class="parv">
+        <div class="parv__date">
+          <b>11</b>
+          <span>नवंबर</span>
+          <i>बुधवार</i>
+        </div>
+        <div class="parv__body">
+          <b>भाई दूज</b>
+          <span>कार्तिक शुक्ल द्वितीया</span>
+        </div>
+        <a class="parv__ask" href="https://wa.me/917289902692?text=%E0%A4%9C%E0%A4%AF%20%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%20%E0%A4%B6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AE!%20%E0%A4%AC%E0%A5%81%E0%A4%A7%E0%A4%B5%E0%A4%BE%E0%A4%B0%2C%2011%20%E0%A4%A8%E0%A4%B5%E0%A4%82%E0%A4%AC%E0%A4%B0%202026%2C%20%E0%A4%AD%E0%A4%BE%E0%A4%88%20%E0%A4%A6%E0%A5%82%E0%A4%9C%20%E0%A4%AA%E0%A4%B0%20%E0%A4%AF%E0%A4%BE%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A4%BE%20%E0%A4%95%E0%A5%80%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4" target="_blank" rel="noopener">💬 यात्रा पूछें</a>
+      </li><li class="parv">
+        <div class="parv__date">
+          <b>15</b>
+          <span>नवंबर</span>
+          <i>रविवार</i>
+        </div>
+        <div class="parv__body">
+          <b>छठ पूजा, संध्या अर्घ्य</b>
+          <span>कार्तिक शुक्ल षष्ठी</span>
+        </div>
+        <a class="parv__ask" href="https://wa.me/917289902692?text=%E0%A4%9C%E0%A4%AF%20%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%20%E0%A4%B6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AE!%20%E0%A4%B0%E0%A4%B5%E0%A4%BF%E0%A4%B5%E0%A4%BE%E0%A4%B0%2C%2015%20%E0%A4%A8%E0%A4%B5%E0%A4%82%E0%A4%AC%E0%A4%B0%202026%2C%20%E0%A4%9B%E0%A4%A0%20%E0%A4%AA%E0%A5%82%E0%A4%9C%E0%A4%BE%2C%20%E0%A4%B8%E0%A4%82%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%BE%20%E0%A4%85%E0%A4%B0%E0%A5%8D%E0%A4%98%E0%A5%8D%E0%A4%AF%20%E0%A4%AA%E0%A4%B0%20%E0%A4%AF%E0%A4%BE%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A4%BE%20%E0%A4%95%E0%A5%80%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4" target="_blank" rel="noopener">💬 यात्रा पूछें</a>
+      </li><li class="parv">
+        <div class="parv__date">
+          <b>20</b>
+          <span>नवंबर</span>
+          <i>शुक्रवार</i>
+        </div>
+        <div class="parv__body">
+          <b>देवउठनी एकादशी · तुलसी विवाह</b>
+          <span>कार्तिक शुक्ल दशमी</span>
+        </div>
+        <a class="parv__ask" href="https://wa.me/917289902692?text=%E0%A4%9C%E0%A4%AF%20%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%20%E0%A4%B6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AE!%20%E0%A4%B6%E0%A5%81%E0%A4%95%E0%A5%8D%E0%A4%B0%E0%A4%B5%E0%A4%BE%E0%A4%B0%2C%2020%20%E0%A4%A8%E0%A4%B5%E0%A4%82%E0%A4%AC%E0%A4%B0%202026%2C%20%E0%A4%A6%E0%A5%87%E0%A4%B5%E0%A4%89%E0%A4%A0%E0%A4%A8%E0%A5%80%20%E0%A4%8F%E0%A4%95%E0%A4%BE%E0%A4%A6%E0%A4%B6%E0%A5%80%20%C2%B7%20%E0%A4%A4%E0%A5%81%E0%A4%B2%E0%A4%B8%E0%A5%80%20%E0%A4%B5%E0%A4%BF%E0%A4%B5%E0%A4%BE%E0%A4%B9%20%E0%A4%AA%E0%A4%B0%20%E0%A4%AF%E0%A4%BE%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A4%BE%20%E0%A4%95%E0%A5%80%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4" target="_blank" rel="noopener">💬 यात्रा पूछें</a>
+      </li><li class="parv">
+        <div class="parv__date">
+          <b>24</b>
+          <span>नवंबर</span>
+          <i>मंगलवार</i>
+        </div>
+        <div class="parv__body">
+          <b>कार्तिक पूर्णिमा · देव दीपावली</b>
+          <span>कार्तिक शुक्ल पूर्णिमा</span>
+        </div>
+        <a class="parv__ask" href="https://wa.me/917289902692?text=%E0%A4%9C%E0%A4%AF%20%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%20%E0%A4%B6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AE!%20%E0%A4%AE%E0%A4%82%E0%A4%97%E0%A4%B2%E0%A4%B5%E0%A4%BE%E0%A4%B0%2C%2024%20%E0%A4%A8%E0%A4%B5%E0%A4%82%E0%A4%AC%E0%A4%B0%202026%2C%20%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%A4%E0%A4%BF%E0%A4%95%20%E0%A4%AA%E0%A5%82%E0%A4%B0%E0%A5%8D%E0%A4%A3%E0%A4%BF%E0%A4%AE%E0%A4%BE%20%C2%B7%20%E0%A4%A6%E0%A5%87%E0%A4%B5%20%E0%A4%A6%E0%A5%80%E0%A4%AA%E0%A4%BE%E0%A4%B5%E0%A4%B2%E0%A5%80%20%E0%A4%AA%E0%A4%B0%20%E0%A4%AF%E0%A4%BE%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A4%BE%20%E0%A4%95%E0%A5%80%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4" target="_blank" rel="noopener">💬 यात्रा पूछें</a>
+      </li><li class="parv">
+        <div class="parv__date">
+          <b>20</b>
+          <span>दिसंबर</span>
+          <i>रविवार</i>
+        </div>
+        <div class="parv__body">
+          <b>मोक्षदा एकादशी · गीता जयंती</b>
+          <span>मार्गशीर्ष शुक्ल एकादशी</span>
+        </div>
+        <a class="parv__ask" href="https://wa.me/917289902692?text=%E0%A4%9C%E0%A4%AF%20%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%20%E0%A4%B6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AE!%20%E0%A4%B0%E0%A4%B5%E0%A4%BF%E0%A4%B5%E0%A4%BE%E0%A4%B0%2C%2020%20%E0%A4%A6%E0%A4%BF%E0%A4%B8%E0%A4%82%E0%A4%AC%E0%A4%B0%202026%2C%20%E0%A4%AE%E0%A5%8B%E0%A4%95%E0%A5%8D%E0%A4%B7%E0%A4%A6%E0%A4%BE%20%E0%A4%8F%E0%A4%95%E0%A4%BE%E0%A4%A6%E0%A4%B6%E0%A5%80%20%C2%B7%20%E0%A4%97%E0%A5%80%E0%A4%A4%E0%A4%BE%20%E0%A4%9C%E0%A4%AF%E0%A4%82%E0%A4%A4%E0%A5%80%20%E0%A4%AA%E0%A4%B0%20%E0%A4%AF%E0%A4%BE%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A4%BE%20%E0%A4%95%E0%A5%80%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4" target="_blank" rel="noopener">💬 यात्रा पूछें</a>
+      </li><li class="parv">
+        <div class="parv__date">
+          <b>14</b>
+          <span>जनवरी</span>
+          <i>गुरुवार</i>
+        </div>
+        <div class="parv__body">
+          <b>मकर संक्रांति</b>
+          <span>पौष शुक्ल षष्ठी</span>
+        </div>
+        <a class="parv__ask" href="https://wa.me/917289902692?text=%E0%A4%9C%E0%A4%AF%20%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%20%E0%A4%B6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AE!%20%E0%A4%97%E0%A5%81%E0%A4%B0%E0%A5%81%E0%A4%B5%E0%A4%BE%E0%A4%B0%2C%2014%20%E0%A4%9C%E0%A4%A8%E0%A4%B5%E0%A4%B0%E0%A5%80%202027%2C%20%E0%A4%AE%E0%A4%95%E0%A4%B0%20%E0%A4%B8%E0%A4%82%E0%A4%95%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%82%E0%A4%A4%E0%A4%BF%20%E0%A4%AA%E0%A4%B0%20%E0%A4%AF%E0%A4%BE%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A4%BE%20%E0%A4%95%E0%A5%80%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4" target="_blank" rel="noopener">💬 यात्रा पूछें</a>
+      </li><li class="parv">
+        <div class="parv__date">
+          <b>11</b>
+          <span>फ़रवरी</span>
+          <i>गुरुवार</i>
+        </div>
+        <div class="parv__body">
+          <b>वसंत पंचमी</b>
+          <span>माघ शुक्ल पंचमी</span>
+        </div>
+        <a class="parv__ask" href="https://wa.me/917289902692?text=%E0%A4%9C%E0%A4%AF%20%E0%A4%B6%E0%A5%8D%E0%A4%B0%E0%A5%80%20%E0%A4%B6%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AE!%20%E0%A4%97%E0%A5%81%E0%A4%B0%E0%A5%81%E0%A4%B5%E0%A4%BE%E0%A4%B0%2C%2011%20%E0%A4%AB%E0%A4%BC%E0%A4%B0%E0%A4%B5%E0%A4%B0%E0%A5%80%202027%2C%20%E0%A4%B5%E0%A4%B8%E0%A4%82%E0%A4%A4%20%E0%A4%AA%E0%A4%82%E0%A4%9A%E0%A4%AE%E0%A5%80%20%E0%A4%AA%E0%A4%B0%20%E0%A4%AF%E0%A4%BE%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A4%BE%20%E0%A4%95%E0%A5%80%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4" target="_blank" rel="noopener">💬 यात्रा पूछें</a>
+      </li>
+    </ul>
   </div>
 </section>
 
-<!-- ══ समझने की बातें — यही हिस्सा Google पर सवालों के जवाब देता है ══ -->
+<!-- ══ समझने की बातें, यही हिस्सा Google पर सवालों के जवाब देता है ══ -->
 <section class="sec">
   <div class="wrap wrap--narrow">
-    <h2 class="sec__title">पंचांग की पाँच बातें — आसान भाषा में</h2>
+    <h2 class="sec__title">पंचांग की पाँच बातें, आसान भाषा में</h2>
     <div class="pan__learn">
       <details open>
         <summary>तिथि क्या होती है?</summary>
-        <p>चंद्रमा और सूर्य के बीच का अंतर जब 12 अंश बढ़ता है, तब एक तिथि पूरी होती है। इसीलिए तिथि 24 घंटे की नहीं होती — कभी 20 घंटे की, कभी 26 घंटे की। जिस तिथि में सूर्योदय होता है, परंपरा में उसी दिन की तिथि मानी जाती है।</p>
+        <p>चंद्रमा और सूर्य के बीच का अंतर जब 12 अंश बढ़ता है, तब एक तिथि पूरी होती है। इसीलिए तिथि 24 घंटे की नहीं होती: कभी 20 घंटे की, कभी 26 घंटे की। जिस तिथि में सूर्योदय होता है, परंपरा में उसी दिन की तिथि मानी जाती है।</p>
       </details>
       <details>
         <summary>शुक्ल पक्ष और कृष्ण पक्ष का मतलब?</summary>
-        <p>अमावस्या के बाद चंद्रमा बढ़ता है — वे 15 दिन शुक्ल पक्ष, जो पूर्णिमा पर पूरे होते हैं। फिर चंद्रमा घटता है — वे 15 दिन कृष्ण पक्ष, जो अमावस्या पर पूरे होते हैं। दोनों मिलाकर एक चंद्र मास।</p>
+        <p>अमावस्या के बाद चंद्रमा बढ़ता है, वे 15 दिन शुक्ल पक्ष, जो पूर्णिमा पर पूरे होते हैं। फिर चंद्रमा घटता है, वे 15 दिन कृष्ण पक्ष, जो अमावस्या पर पूरे होते हैं। दोनों मिलाकर एक चंद्र मास।</p>
       </details>
       <details>
         <summary>नक्षत्र क्या है?</summary>
@@ -123,14 +389,25 @@
       </details>
       <details>
         <summary>एकादशी हर महीने दो बार क्यों आती है?</summary>
-        <p>एकादशी यानी ग्यारहवीं तिथि — और ग्यारहवीं तिथि दोनों पक्षों में आती है, इसलिए महीने में दो एकादशी पड़ती हैं। खाटू श्याम जी के भक्तों के लिए शुक्ल पक्ष की एकादशी विशेष मानी जाती है।</p>
+        <p>एकादशी यानी ग्यारहवीं तिथि, और ग्यारहवीं तिथि दोनों पक्षों में आती है, इसलिए महीने में दो एकादशी पड़ती हैं। खाटू श्याम जी के भक्तों के लिए शुक्ल पक्ष की एकादशी विशेष मानी जाती है।</p>
       </details>
       <details>
         <summary>दीपावली और होली की तारीख़ हर साल बदलती क्यों है?</summary>
-        <p>हमारे त्योहार अंग्रेज़ी तारीख़ से नहीं, चंद्रमा की तिथि से तय होते हैं। चंद्र वर्ष सौर वर्ष से लगभग 11 दिन छोटा होता है, इसलिए तारीख़ हर साल खिसकती है — और तीन साल में एक बार अधिक मास जोड़कर हिसाब बराबर किया जाता है।</p>
+        <p>हमारे त्योहार अंग्रेज़ी तारीख़ से नहीं, चंद्रमा की तिथि से तय होते हैं। चंद्र वर्ष सौर वर्ष से लगभग 11 दिन छोटा होता है, इसलिए तारीख़ हर साल खिसकती है, और तीन साल में एक बार अधिक मास जोड़कर हिसाब बराबर किया जाता है।</p>
       </details>
     </div>
     <p class="pan__note">⚠️ यह गणना से बना पंचांग है (दिल्ली सूर्योदय)। व्रत की तारीख़ पक्की करने से पहले अपने स्थानीय पंचांग से एक बार मिला लें।</p>
+  </div>
+</section>
+
+<!-- ══ कथा वाले पेज से जोड़ ══
+     दोनों पेज एक-दूसरे से जुड़े होने चाहिए, तिथि देखने आया व्यक्ति
+     अकसर उसी धाम की कथा भी पढ़ना चाहता है। लिंक का टेक्स्ट जान-बूझकर
+     वही रखा है जो index.html पर है, ताकि i18n.js में पहले से मौजूद
+     अनुवाद ही चल जाए (§4 नियम 2)। -->
+<section class="sec sec--alt">
+  <div class="wrap wrap--narrow">
+    <p class="katha__allWrap"><a class="btn btn--outline" href="/katha">📖 सातों धामों की कथा पढ़ें</a></p>
   </div>
 </section>
 
@@ -138,9 +415,9 @@
 <section class="cta">
   <div class="wrap cta__in">
     <h2>शुभ तिथि पर दर्शन की तैयारी है? 🙏</h2>
-    <p>सीटें सीमित हैं — आज ही अपनी जगह पक्की करें।</p>
+    <p>सीटें सीमित हैं, आज ही अपनी जगह पक्की करें।</p>
     <div class="cta__btns">
-      <a class="btn btn--gold btn--lg" href="index.html#book">अभी बुक करें</a>
+      <a class="btn btn--gold btn--lg" href="/#book">अभी बुक करें</a>
       <a class="btn btn--ghostlight btn--lg" href="https://wa.me/917289902692" target="_blank" rel="noopener">WhatsApp करें</a>
     </div>
   </div>
@@ -158,9 +435,9 @@
   <svg viewBox="0 0 32 32" width="28" height="28" fill="#fff"><path d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.7 6.4L3 29l6.8-1.8c1.9 1 4 1.6 6.2 1.6 7.2 0 13-5.8 13-13S23.2 3 16 3zm0 23.6c-2 0-3.9-.5-5.5-1.5l-.4-.2-4 1.1 1.1-3.9-.3-.4A10.5 10.5 0 015.5 16c0-5.8 4.7-10.5 10.5-10.5S26.5 10.2 26.5 16 21.8 26.6 16 26.6zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.6 8.6 0 01-2.5-1.6 9.6 9.6 0 01-1.8-2.2c-.2-.3 0-.5.1-.7l.5-.6.3-.5v-.5c0-.2-.7-1.8-1-2.4-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.9-.8 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
 </a>
 
-<script src="config.js?v=20"></script>
-<script src="panchang.js?v=20"></script>
-<script src="i18n.js?v=20"></script>
+<script src="config.js?v=21"></script>
+<script src="panchang.js?v=21"></script>
+<script src="i18n.js?v=21"></script>
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
   document.querySelectorAll('a[href^="https://wa.me/"]').forEach(a => {

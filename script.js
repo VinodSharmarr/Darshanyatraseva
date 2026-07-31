@@ -1,8 +1,8 @@
 /* ═══════════════════════════════════════════════════════════
-   Darshan Yatra Seva — script.js
+   Darshan Yatra Seva, script.js
 
    ⚠️  नंबर / ईमेल / लिंक / सोशल हैंडल अब **config.js** में हैं।
-       बदलना हो तो सिर्फ़ वही फ़ाइल खोलें — यहाँ कुछ नहीं करना।
+       बदलना हो तो सिर्फ़ वही फ़ाइल खोलें, यहाँ कुछ नहीं करना।
    ═══════════════════════════════════════════════════════════ */
 
 /* ── 1. सभी नंबर/लिंक CONFIG से अपडेट करें ───────────────── */
@@ -20,8 +20,8 @@
     a.textContent = '✉️ ' + CONFIG.email;
   });
 
-  /* भुगतान बटन — यहाँ का काम बस इतना है: config.js का लिंक <a> में भर दो।
-     बटन दिखाना/छुपाना यह फ़ाइल नहीं करती — वो CSS करती है (.pay:not([href]))।
+  /* भुगतान बटन, यहाँ का काम बस इतना है: config.js का लिंक <a> में भर दो।
+     बटन दिखाना/छुपाना यह फ़ाइल नहीं करती, वो CSS करती है (.pay:not([href]))।
      ⚠️ यहाँ hidden लगाने-हटाने की कोशिश मत करना: उसी वजह से 30 जुलाई 2026 को
      बटन गायब हो गया था (नई HTML + ब्राउज़र में पड़ी पुरानी script.js)।
      लिंक ख़ाली हो तो href भरा ही नहीं जाता, और CSS ख़ुद बटन छुपा देती है। */
@@ -30,7 +30,7 @@
     payWrap.querySelector('.pay').href = CONFIG.razorpay;
   }
 
-  /* सोशल पेज — config.js में जो हैंडल भरा है सिर्फ़ वही दिखता है।
+  /* सोशल पेज, config.js में जो हैंडल भरा है सिर्फ़ वही दिखता है।
      सब ख़ाली हों तो फ़ुटर में कुछ नहीं आता (अधूरा लिंक भरोसा तोड़ता है)। */
   const socialBox = document.getElementById('footSocial');
   if (socialBox) {
@@ -49,14 +49,14 @@
     }
     socialBox.innerHTML = out;
 
-    /* बुकिंग वाले हिस्से में नाम के साथ — यहाँ लोग भरोसा जाँचते हैं */
+    /* बुकिंग वाले हिस्से में नाम के साथ, यहाँ लोग भरोसा जाँचते हैं */
     const bookBox = document.getElementById('bookSocial');
     if (bookBox && pills) {
       bookBox.innerHTML = '<b>यात्राओं की झलक देखें</b><div>' + pills + '</div>';
     }
 
     /* Google वाला JSON-LD अब index.html में ही स्थिर लिखा है (वहाँ का
-       बड़ा comment देखें) — यहाँ सिर्फ़ उसके नंबर/ईमेल/सोशल लिंक CONFIG से
+       बड़ा comment देखें), यहाँ सिर्फ़ उसके नंबर/ईमेल/सोशल लिंक CONFIG से
        मिला दिए जाते हैं, ताकि बदलने की जगह config.js अकेली ही रहे। */
     const ldTag = document.getElementById('ldBiz');
     if (ldTag) {
@@ -98,7 +98,7 @@ window.addEventListener('scroll', onScroll, { passive:true });
 onScroll();
 
 /* ── 4. स्क्रॉल रिवील एनिमेशन ─────────────────────────────── */
-/* स्लाइडर के अंदर वाले कार्ड यहाँ नहीं — वे बग़ल में छुपे होते हैं, इसलिए
+/* स्लाइडर के अंदर वाले कार्ड यहाँ नहीं, वे बग़ल में छुपे होते हैं, इसलिए
    IntersectionObserver उन्हें कभी नहीं देखता और वे हमेशा ग़ायब रह जाते।
    पूरी पट्टी (.slider) को एक साथ दिखाते हैं। */
 const revealables = document.querySelectorAll(
@@ -197,7 +197,7 @@ form.addEventListener('submit', e => {
 *पिकअप:* ${d.pickup || 'बताएँगे'}
 *विशेष आवश्यकता:* ${d.note?.trim() || 'कोई नहीं'}
 
-— www.darshanyatraseva.com से भेजा गया`;
+- www.darshanyatraseva.com से भेजा गया`;
 
   window.open(
     `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`,
@@ -222,7 +222,7 @@ dateInput.min = new Date().toISOString().split('T')[0];
 /* ── 7. फुटर में वर्तमान वर्ष ─────────────────────────────── */
 document.getElementById('yr').textContent = new Date().getFullYear();
 
-/* ── 8. स्लाइडर — तीर, डॉट, अपने आप चलना ──────────────────
+/* ── 8. स्लाइडर, तीर, डॉट, अपने आप चलना ──────────────────
    कोई library नहीं। घुमाना CSS scroll-snap करता है (JS बंद हो तब भी
    उँगली से चलेगा); यहाँ सिर्फ़ तीर/डॉट और अपने आप चलना जोड़ा है।     */
 (function sliders(){
@@ -256,7 +256,7 @@ document.getElementById('yr').textContent = new Date().getFullYear();
     nav.append(prev, dots, next);
     track.after(nav);
 
-    /* जगह नापना — offsetLeft भरोसेमंद नहीं, इसलिए rect से */
+    /* जगह नापना, offsetLeft भरोसेमंद नहीं, इसलिए rect से */
     const posOf  = el => el.getBoundingClientRect().left
                        - track.getBoundingClientRect().left + track.scrollLeft;
     const atEnd  = () => track.scrollLeft >= track.scrollWidth - track.clientWidth - 4;
@@ -273,7 +273,7 @@ document.getElementById('yr').textContent = new Date().getFullYear();
       track.scrollTo({ left: posOf(el), behavior: 'smooth' });
     };
 
-    /* अपने आप चलना — घड़ी चलती रहती है, हर बार सिर्फ़ "अभी चलूँ या नहीं" देखती है।
+    /* अपने आप चलना, घड़ी चलती रहती है, हर बार सिर्फ़ "अभी चलूँ या नहीं" देखती है।
        (टाइमर बंद-चालू करने से गड़बड़ होती थी: स्क्रॉल के बाद माउस अपने आप
        कार्ड के ऊपर आ जाता है और pointerenter टाइमर मार देता था।) */
     let hold = 0;                                   // इस वक़्त तक चुप रहो
@@ -287,7 +287,7 @@ document.getElementById('yr').textContent = new Date().getFullYear();
       atEnd() ? goTo(0) : goTo(nearest() + 1);
     }, AUTO);
 
-    /* उँगली/माउस/कीबोर्ड से छेड़ा — कुछ देर चुप रहो, फिर ख़ुद चलने लगो */
+    /* उँगली/माउस/कीबोर्ड से छेड़ा, कुछ देर चुप रहो, फिर ख़ुद चलने लगो */
     ['touchstart','pointerdown','wheel','keydown'].forEach(e =>
       track.addEventListener(e, () => pause(REST), { passive:true }));
 
@@ -308,7 +308,7 @@ document.getElementById('yr').textContent = new Date().getFullYear();
     addEventListener('resize', sync);
     sync();
 
-    /* पर्दे पर दिखे तभी चले — बेकार में बैटरी न ख़र्च हो */
+    /* पर्दे पर दिखे तभी चले, बेकार में बैटरी न ख़र्च हो */
     new IntersectionObserver(([e]) => { onScreen = e.isIntersecting; },
       { threshold: 0.2 }).observe(track);
 
@@ -317,7 +317,7 @@ document.getElementById('yr').textContent = new Date().getFullYear();
     tracks.push(track);
   });
 
-  /* ☰ मेन्यू से किसी सेक्शन में जाएँ तो वहाँ सब कुछ एक साथ दिखे —
+  /* ☰ मेन्यू से किसी सेक्शन में जाएँ तो वहाँ सब कुछ एक साथ दिखे,
      ग्राहक जान-बूझकर देखने आया है, कोई विकल्प छूटना नहीं चाहिए */
   function openSection(hash){
     if (!hash || hash === '#') return;
@@ -330,12 +330,12 @@ document.getElementById('yr').textContent = new Date().getFullYear();
   });
   addEventListener('hashchange', () => openSection(location.hash));
 
-  /* 🔴 यहाँ पहले यह लाइन थी — 1 अगस्त 2026 को हटाई गई:
+  /* 🔴 यहाँ पहले यह लाइन थी, 1 अगस्त 2026 को हटाई गई:
          if (location.hash) openSection(location.hash);
 
      वो पेज **खुलते ही** स्लाइडर खोल देती थी। यानी जब कोई
      `darshanyatraseva.com/#yatras` वाला लिंक किसी को शेयर करता, या ख़ुद
-     खोलता, तो उसे भी खुला हुआ ग्रिड मिलता — सरकने वाला स्लाइडर नहीं,
+     खोलता, तो उसे भी खुला हुआ ग्रिड मिलता, सरकने वाला स्लाइडर नहीं,
      तीर भी नहीं। Vinod ने यही पकड़ा।
 
      सोच हमेशा से ☰ मेन्यू के लिए थी ("ग्राहक जान-बूझकर देखने आया है"),

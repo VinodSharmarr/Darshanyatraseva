@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>प्रबंधक पैनल — Darshan Yatra Seva</title>
+<title>प्रबंधक पैनल | Darshan Yatra Seva</title>
 
 <!-- ⚠️ यह पेज Google में नहीं आना चाहिए -->
 <meta name="robots" content="noindex, nofollow" />
@@ -13,13 +13,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Tiro+Devanagari+Hindi&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=20" />
-<link rel="stylesheet" href="admin.css?v=20" />
+<link rel="stylesheet" href="styles.css?v=21" />
+<link rel="stylesheet" href="admin.css?v=21" />
 </head>
 <body class="adm">
 
 <header class="adm__top">
-  <a class="adm__brand" href="index.html">
+  <a class="adm__brand" href="/">
     <svg viewBox="0 0 200 200" aria-hidden="true">
       <circle cx="100" cy="100" r="95" fill="#7B1E22"/>
       <circle cx="100" cy="100" r="95" fill="none" stroke="#D9A441" stroke-width="5"/>
@@ -48,7 +48,7 @@
     </form>
     <button class="adm__forgot" type="button" id="forgotBtn">पासकोड भूल गए?</button>
     <p class="adm__note">
-      🔒 यात्रा और यात्रियों की जानकारी <b>सिर्फ़ इसी फ़ोन/लैपटॉप</b> में सेव होती है —
+      🔒 यात्रा और यात्रियों की जानकारी <b>सिर्फ़ इसी फ़ोन/लैपटॉप</b> में सेव होती है,
       किसी सर्वर या इंटरनेट पर नहीं जाती। इसलिए कोई और यह पेज खोले तो उसे ख़ाली पैनल ही मिलेगा।
       <br />⚠️ फ़ोन बदलें या ब्राउज़र का डेटा साफ़ करें, उससे पहले <b>बैकअप</b> ज़रूर उतार लें।
     </p>
@@ -69,7 +69,7 @@
   <section class="adm__pane is-on" data-pane="yatra">
     <div class="adm__card">
       <h2 id="yatraFormTitle">नई यात्रा जोड़ें</h2>
-      <p class="adm__lede">एक बार भर दें — फिर हर यात्री को यही विवरण एक दबाव में चला जाएगा।</p>
+      <p class="adm__lede">एक बार भर दें, फिर हर यात्री को यही विवरण एक दबाव में चला जाएगा।</p>
 
       <form id="yatraForm" class="adm__form">
         <input type="hidden" name="id" />
@@ -135,7 +135,7 @@
             <button class="btn btn--sm btn--outline" type="button" id="addPickup">+ और जोड़ें</button>
           </div>
           <div id="pickupList"></div>
-          <p class="adm__hint">हर पॉइंट का Google लिंक डालने पर यात्री को सीधा नक़्शा मिल जाता है — फ़ोन पर पूछताछ आधी हो जाती है।</p>
+          <p class="adm__hint">हर पॉइंट का Google लिंक डालने पर यात्री को सीधा नक़्शा मिल जाता है, फ़ोन पर पूछताछ आधी हो जाती है।</p>
         </div>
 
         <label class="adm__f">ज़रूरी बातें (हर संदेश में जाएँगी)
@@ -166,7 +166,7 @@
       <!-- WhatsApp पर आया बुकिंग संदेश सीधे चिपकाकर फ़ॉर्म भर लेना -->
       <div class="adm__paste">
         <b>📥 WhatsApp का बुकिंग संदेश चिपकाएँ</b>
-        <p class="adm__hint">साइट के फ़ॉर्म से जो संदेश आपके WhatsApp पर आता है, उसे यहाँ चिपकाकर "भर दो" दबाएँ — नाम, नंबर, सीटें और पिकअप अपने आप नीचे भर जाएँगे।</p>
+        <p class="adm__hint">साइट के फ़ॉर्म से जो संदेश आपके WhatsApp पर आता है, उसे यहाँ चिपकाकर "भर दो" दबाएँ: नाम, नंबर, सीटें और पिकअप अपने आप नीचे भर जाएँगे।</p>
         <textarea id="pasteBox" rows="3" placeholder="🙏 जय श्री श्याम! नई बुकिंग पूछताछ&#10;*नाम:* ...&#10;*मोबाइल:* ..."></textarea>
         <div class="adm__btns">
           <button class="btn btn--sm btn--outline" type="button" id="pasteFill">भर दो</button>
@@ -266,19 +266,19 @@
     <div class="adm__card">
       <h2>📊 पूरा हिसाब</h2>
       <p class="adm__lede">
-        दो सूचियाँ बनती हैं — <b>यात्री रजिस्टर</b> (कौन, किस यात्रा में, किस पिकअप से)
+        दो सूचियाँ बनती हैं, <b>यात्री रजिस्टर</b> (कौन, किस यात्रा में, किस पिकअप से)
         और <b>भुगतान का हिसाब</b> (किसने टोकन दिया, किसने पूरा, कितना बाक़ी)।
         दोनों तारीख़ और समय के क्रम में।
       </p>
 
-      <p class="adm__hint"><b>1️⃣ यहीं स्क्रीन पर देखना हो तो —</b></p>
+      <p class="adm__hint"><b>1️⃣ यहीं स्क्रीन पर देखना हो तो:</b></p>
       <div class="adm__btns">
         <button class="btn btn--outline" type="button" id="viewPax">👁️ यात्री सूची देखें</button>
         <button class="btn btn--outline" type="button" id="viewPay">👁️ भुगतान का हिसाब देखें</button>
       </div>
       <div id="xlView"></div>
 
-      <p class="adm__hint" style="margin-top:1.4rem"><b>2️⃣ Excel में खोलना या किसी को भेजना हो तो —</b></p>
+      <p class="adm__hint" style="margin-top:1.4rem"><b>2️⃣ Excel में खोलना या किसी को भेजना हो तो:</b></p>
       <div class="adm__btns">
         <button class="btn btn--primary" type="button" id="xlPax">⬇ यात्री रजिस्टर फ़ाइल</button>
         <button class="btn btn--gold" type="button" id="xlPay">⬇ भुगतान वाली फ़ाइल</button>
@@ -286,17 +286,17 @@
       <p class="adm__note">
         फ़ाइल <b>Downloads</b> में उतरती है। <b>लैपटॉप पर</b> दो बार दबाते ही Excel में
         खुल जाएगी। <b>फ़ोन पर</b> उसे खोलने के लिए Google Sheets या WPS Office जैसा
-        कोई ऐप चाहिए — इसीलिए ऊपर "स्क्रीन पर देखें" वाला रास्ता रखा है, रोज़ के
+        कोई ऐप चाहिए, इसीलिए ऊपर "स्क्रीन पर देखें" वाला रास्ता रखा है, रोज़ के
         काम के लिए वही आसान है।<br />
         हर बार <b>अब तक का पूरा हिसाब</b> उतरता है, इसलिए नई फ़ाइल पुरानी की जगह
-        रख दें — कुछ छूटेगा नहीं।
+        रख दें, कुछ छूटेगा नहीं।
       </p>
     </div>
 
     <div class="adm__card">
       <h2>बैकअप</h2>
       <p class="adm__lede">
-        सारा डेटा इसी ब्राउज़र में है। ब्राउज़र का डेटा साफ़ होते ही मिट जाएगा —
+        सारा डेटा इसी ब्राउज़र में है। ब्राउज़र का डेटा साफ़ होते ही मिट जाएगा,
         इसलिए हर यात्रा के बाद एक बार फ़ाइल उतार लें, और नए फ़ोन पर वही फ़ाइल चढ़ा दें।
       </p>
       <div class="adm__btns">
@@ -327,15 +327,15 @@
       <p class="adm__note">
         नया पासकोड सिर्फ़ इसी फ़ोन/लैपटॉप में याद रहता है। दूसरे फ़ोन पर वही पुराना
         पासकोड चलेगा जो <code>config.js</code> में है।<br />
-        भूल जाएँ तो घबराएँ नहीं — लॉगिन पेज पर <b>"पासकोड भूल गए?"</b> दबाने से
+        भूल जाएँ तो घबराएँ नहीं, लॉगिन पेज पर <b>"पासकोड भूल गए?"</b> दबाने से
         पुराना वाला वापस चालू हो जाता है, <b>यात्रा-यात्री का डेटा नहीं मिटता</b>।
       </p>
     </div>
   </section>
 </main>
 
-<script src="config.js?v=20"></script>
-<script src="panchang.js?v=20"></script>
-<script src="admin.js?v=20"></script>
+<script src="config.js?v=21"></script>
+<script src="panchang.js?v=21"></script>
+<script src="admin.js?v=21"></script>
 </body>
 </html>

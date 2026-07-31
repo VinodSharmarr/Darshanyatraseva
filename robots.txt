@@ -1,4 +1,4 @@
-# Darshan Yatra Seva — www.darshanyatraseva.com
+# Darshan Yatra Seva, www.darshanyatraseva.com
 # सब कुछ खुला है, सिर्फ़ प्रबंधक पैनल बंद (वहाँ यात्रियों के नंबर होते हैं)
 
 User-agent: *
@@ -11,7 +11,7 @@ Sitemap: https://www.darshanyatraseva.com/sitemap.xml
 # ═══════════════════════════════════════════════════════════
 # AI वाले bot (ChatGPT, Perplexity, Claude, Gemini, Copilot)
 #
-# ये सब ऊपर वाले "User-agent: *" से पहले ही अंदर आ सकते हैं —
+# ये सब ऊपर वाले "User-agent: *" से पहले ही अंदर आ सकते हैं,
 # कुछ भी रोका हुआ नहीं है। यही हमें चाहिए: जो bot पढ़ नहीं सकता,
 # वो हमारा नाम अपने जवाब में बता भी नहीं सकता।
 #
