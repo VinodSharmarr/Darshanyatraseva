@@ -46,7 +46,7 @@ const EN = {
   'सबसे लोकप्रिय': 'Most popular',
 
   'खाटू श्याम जी': 'Khatu Shyam Ji',
-  'सीकर, राजस्थान • ~270 किमी • रात्रि प्रस्थान / 1 दिन': 'Sikar, Rajasthan • ~270 km • night departure / 1 day',
+  'सीकर, राजस्थान • ~261 किमी • रात्रि प्रस्थान / 1 दिन': 'Sikar, Rajasthan • ~261 km • night departure / 1 day',
   'रात को दिल्ली से प्रस्थान, सुबह दर्शन, दोपहर तक वापसी। श्याम बाबा के दरबार में निशान यात्रा की व्यवस्था भी उपलब्ध।': 'Depart Delhi at night, darshan in the morning, back by afternoon. Nishan Yatra at Shyam Baba’s darbar can also be arranged.',
   'AC टेम्पो ट्रैवलर / बस': 'AC Tempo Traveller / bus',
   'प्रसाद + पानी शामिल': 'Prasad + water included',
@@ -54,14 +54,14 @@ const EN = {
   '💬 बेहतरीन ऑफ़र के लिए संपर्क करें': '💬 Contact us for the best offer',
 
   'वृंदावन – मथुरा': 'Vrindavan – Mathura',
-  '~150 किमी • 1 दिन (सुबह–रात)': '~150 km • 1 day (morning–night)',
+  '~160 किमी • 1 दिन (सुबह–रात)': '~160 km • 1 day (morning–night)',
   'बांके बिहारी, प्रेम मंदिर, ISKCON, निधिवन एवं मथुरा जन्मभूमि — एक ही दिन में सम्पूर्ण दर्शन।': 'Banke Bihari, Prem Mandir, ISKCON, Nidhivan and Mathura Janmabhoomi — complete darshan in a single day.',
   '5 प्रमुख मंदिर कवर': '5 major temples covered',
   'प्रेम मंदिर लाइट शो': 'Prem Mandir light show',
   'बुज़ुर्गों हेतु व्हीलचेयर सहायता': 'Wheelchair help for elders',
 
   'मेहंदीपुर बालाजी': 'Mehandipur Balaji',
-  'दौसा, राजस्थान • ~250 किमी • 1 दिन': 'Dausa, Rajasthan • ~250 km • 1 day',
+  'दौसा, राजस्थान • ~245 किमी • 1 दिन': 'Dausa, Rajasthan • ~245 km • 1 day',
   'बालाजी महाराज, प्रेतराज सरकार व भैरव बाबा के दर्शन। दर्शन विधि की पूरी जानकारी हमारे सहायक द्वारा।': 'Darshan of Balaji Maharaj, Pretraj Sarkar and Bhairav Baba. Our assistant explains the full darshan procedure.',
   'दर्शन विधि मार्गदर्शन': 'Darshan procedure guidance',
   'अर्जी सामग्री की व्यवस्था': 'Arji items arranged',
@@ -210,7 +210,7 @@ const EN = {
   /* AI/Google की खोज के लिए जोड़े गए तीन सवाल (31 जुलाई 2026) —
      लोग यही शब्द टाइप करते हैं: दूरी, समय, पिकअप, कौन से मंदिर */
   'दिल्ली से खाटू श्याम कितनी दूर है और कितना समय लगता है?': 'How far is Khatu Shyam from Delhi, and how long does it take?',
-  'दिल्ली से खाटू श्याम जी लगभग 265 किमी है, सड़क मार्ग से 5–6 घंटे लगते हैं। हमारी यात्रा रात को दिल्ली से चलती है, सुबह दर्शन होते हैं और दोपहर तक वापसी। वृंदावन लगभग 150 किमी (करीब 3 घंटे), मेहंदीपुर बालाजी लगभग 290 किमी और सालासर लगभग 300 किमी दूर है।': 'Khatu Shyam Ji is about 265 km from Delhi, roughly 5–6 hours by road. Our yatra leaves Delhi at night, darshan is in the morning, and we return by afternoon. Vrindavan is about 150 km (around 3 hours), Mehandipur Balaji about 290 km and Salasar about 300 km.',
+  'दिल्ली से खाटू श्याम जी लगभग 261 किमी है, सड़क मार्ग से 5–6 घंटे लगते हैं। हमारी यात्रा रात को दिल्ली से चलती है, सुबह दर्शन होते हैं और दोपहर तक वापसी। वृंदावन लगभग 160 किमी (करीब 3 घंटे), मेहंदीपुर बालाजी लगभग 245 किमी और सालासर लगभग 299 किमी दूर है।': 'Khatu Shyam Ji is about 261 km from Delhi, roughly 5–6 hours by road. Our yatra leaves Delhi at night, darshan is in the morning, and we return by afternoon. Vrindavan is about 160 km (around 3 hours), Mehandipur Balaji about 245 km and Salasar about 299 km.',
   'पिकअप कहाँ से मिलता है?': 'Where is the pickup point?',
   'दिल्ली-NCR के मेट्रो स्टेशनों और तय पिकअप पॉइंट से। बुकिंग पक्की होते ही आपको WhatsApp पर अपना पिकअप पॉइंट, उसका समय और Google नक़्शे का लिंक भेज दिया जाता है। नोएडा, गुरुग्राम, ग़ाज़ियाबाद और फ़रीदाबाद से भी यात्री जुड़ते हैं।': 'From metro stations and fixed pickup points across Delhi-NCR. As soon as your booking is confirmed, we send your pickup point, its time and a Google Maps link on WhatsApp. Pilgrims also join from Noida, Gurugram, Ghaziabad and Faridabad.',
   'एक दिन की यात्रा में कौन-कौन से मंदिर होते हैं?': 'Which temples are covered in a one-day yatra?',
