@@ -329,5 +329,20 @@ document.getElementById('yr').textContent = new Date().getFullYear();
     a.addEventListener('click', () => openSection(a.getAttribute('href')));
   });
   addEventListener('hashchange', () => openSection(location.hash));
-  if (location.hash) openSection(location.hash);
+
+  /* 🔴 यहाँ पहले यह लाइन थी — 1 अगस्त 2026 को हटाई गई:
+         if (location.hash) openSection(location.hash);
+
+     वो पेज **खुलते ही** स्लाइडर खोल देती थी। यानी जब कोई
+     `darshanyatraseva.com/#yatras` वाला लिंक किसी को शेयर करता, या ख़ुद
+     खोलता, तो उसे भी खुला हुआ ग्रिड मिलता — सरकने वाला स्लाइडर नहीं,
+     तीर भी नहीं। Vinod ने यही पकड़ा।
+
+     सोच हमेशा से ☰ मेन्यू के लिए थी ("ग्राहक जान-बूझकर देखने आया है"),
+     शेयर किए हुए लिंक के लिए नहीं। इसलिए अब:
+       • ☰ मेन्यू से जाएँ        → चारों कार्ड एक साथ खुलते हैं (ऊपर click वाला हिस्सा)
+       • पेज के अंदर hash बदले   → तब भी खुलते हैं (hashchange)
+       • `/#yatras` सीधे खोलें   → स्लाइडर सरकता रहता है ✅
+
+     ⚠️ यह लाइन वापस मत जोड़ना, वरना शेयर किया हुआ लिंक फिर वैसा ही दिखेगा। */
 })();
