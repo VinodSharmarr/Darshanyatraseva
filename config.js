@@ -19,11 +19,26 @@ const CONFIG = {
      ⚠️ सिर्फ़ payment page का लिंक — API key_secret कभी यहाँ मत डालना। */
   razorpay: 'https://rzp.io/rzp/DEn3MuEC',
 
-  /* Google पर रिव्यू लिखने का सीधा लिंक।
-     कहाँ से मिलेगा: Google Business Profile ऐप → अपना धंधा →
-     "Ask for reviews" / "रिव्यू माँगें" → जो छोटा लिंक मिले (g.page/r/... वाला)
-     वही यहाँ चिपका दें। ख़ाली रहेगा तो रिव्यू वाला पेज और बटन अपने आप छुपे रहेंगे। */
+  /* ── रिव्यू के लिंक (§14) ──────────────────────────────────
+     तीनों में से जो भी भरा होगा, /review पेज पर उसी का बटन दिख जाएगा।
+     सब ख़ाली हों तो समझाने वाला डिब्बा दिखता है।
+
+     💡 GBP verify होने का इंतज़ार मत कीजिए — JustDial/TripAdvisor के
+        लिंक आज ही डाल दीजिए, रिव्यू वहीं से जमा होने लगेंगे।
+        AI (ख़ासकर ChatGPT/Perplexity) इन दोनों को भी गिनता है। */
+
+  /* Google Business Profile ऐप → अपना धंधा → "Ask for reviews" /
+     "रिव्यू माँगें" → जो छोटा लिंक मिले (g.page/r/... वाला) वही यहाँ। */
   googleReview: '',
+
+  /* JustDial की अपनी लिस्टिंग खोलिए → "Rate Now" / "Write a Review"
+     वाला बटन → उसका पता कॉपी करके यहाँ चिपका दें।
+     लिस्टिंग: Darshan Yatra Seva, A-36 Rajdhani Park, Nangloi */
+  justdialReview: '',
+
+  /* TripAdvisor की अपनी लिस्टिंग → "Write a review" → वहाँ का पता।
+     आम तौर पर ऐसा दिखता है: tripadvisor.in/UserReviewEdit-g...-d... */
+  tripadvisorReview: '',
 
   /* सोशल पेज — जो ख़ाली है वो लिंक साइट पर दिखता ही नहीं।
      ⚠️ लिंक हमेशा साफ़ रखें: शेयर करने पर मिलने वाला `?si=...` / `?igsh=...`

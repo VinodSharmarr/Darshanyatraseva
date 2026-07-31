@@ -746,6 +746,13 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
 /* ── रिव्यू माँगने वाला पेज (review.html) ── */
 .rev__cta{background:linear-gradient(150deg,var(--maroon),var(--maroon-d));border-radius:var(--radius-lg);
   padding:1.6rem;text-align:center;box-shadow:var(--shadow-lg);margin-bottom:2.4rem}
+/* एक से ज़्यादा बटन (Google + JustDial + TripAdvisor) एक-दूसरे से चिपके न लगें।
+   पहले वाले को छोड़कर बाक़ी सब पर ऊपर से जगह — इसलिए बटन एक हो या तीन,
+   डिब्बे की ऊँचाई हमेशा सही रहती है (31 जुलाई 2026)।
+   ⚠️ `:not([hidden])` ज़रूरी है — छुपा हुआ बटन भी CSS में "पड़ोसी" गिना जाता
+   है, इसलिए सिर्फ़ `.btn + .btn` लिखने पर पहले दिखने वाले बटन पर भी बेवजह
+   ऊपर जगह आ जाती (Google छुपा हो और JustDial पहला हो, तब)। */
+.rev__cta .btn:not([hidden]) + .btn:not([hidden]){margin-top:.85rem}
 .rev__ctaNote{color:#F6E3C8;font-size:.85rem;margin:.9rem 0 0}
 .rev__cta--off{background:var(--cream-2);border:1px dashed var(--gold);box-shadow:none;color:var(--ink-2)}
 .rev__cta--off p{margin:0;font-size:.88rem;line-height:1.8}

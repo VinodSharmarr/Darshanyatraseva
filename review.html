@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Tiro+Devanagari+Hindi:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=13" />
+<link rel="stylesheet" href="styles.css?v=14" />
 </head>
 <body>
 
@@ -64,30 +64,40 @@
 <section class="sec">
   <div class="wrap wrap--narrow">
 
-    <!-- ── बड़ा बटन ── -->
-    <!-- href जान-बूझकर लिखा नहीं है — नीचे वाली script config.js का असली
-         googleReview लिंक भरती है, तभी यह डिब्बा खुलता है (§14)।
+    <!-- ── बड़े बटन ── -->
+    <!-- href जान-बूझकर लिखे नहीं हैं — नीचे वाली script config.js से असली
+         लिंक भरती है, तभी बटन दिखता है (§14)।
          ⚠️ यहाँ href="#" मत लिखना: लिंक न होने पर वो बटन पेज को ऊपर सरका देता है
-         और यात्री को लगता है Google खुला ही नहीं। -->
+         और यात्री को लगता है कुछ खुला ही नहीं।
+         31 जुलाई 2026: पहले सिर्फ़ Google का बटन था, इसलिए GBP verify होने तक
+         पूरा पेज बेकार पड़ा था। अब JustDial/TripAdvisor भी जुड़ गए — जो भी
+         लिंक config.js में भरा हो, उसी का बटन आ जाता है। -->
     <div class="rev__cta" id="revCta" hidden>
-      <a class="btn btn--primary btn--lg btn--full" id="revBtn" target="_blank" rel="noopener">
+      <a class="btn btn--primary btn--lg btn--full" id="revBtn" target="_blank" rel="noopener" hidden>
         ⭐ Google पर अपना अनुभव लिखें
       </a>
-      <p class="rev__ctaNote">बटन दबाते ही Google खुलेगा — बस तारे दबाइए और भेज दीजिए।</p>
+      <a class="btn btn--gold btn--lg btn--full" id="revJd" target="_blank" rel="noopener" hidden>
+        ⭐ JustDial पर अपना अनुभव लिखें
+      </a>
+      <a class="btn btn--gold btn--lg btn--full" id="revTa" target="_blank" rel="noopener" hidden>
+        ⭐ TripAdvisor पर अपना अनुभव लिखें
+      </a>
+      <p class="rev__ctaNote">बटन दबाते ही वो पेज खुल जाएगा — बस तारे दबाइए और भेज दीजिए। एक से ज़्यादा बटन दिखें तो किसी एक पर लिख दीजिए, जो आसान लगे।</p>
     </div>
 
-    <!-- लिंक अभी config.js में नहीं डाला गया तो यह दिखता है -->
+    <!-- कोई भी लिंक config.js में नहीं डाला गया तो यह दिखता है -->
     <div class="rev__cta rev__cta--off" id="revOff">
       <p><b>रिव्यू का लिंक अभी लगाया नहीं गया है।</b><br />
-      Google Business Profile से लिंक लेकर <code>config.js</code> के <code>googleReview</code> में डालते ही यह बटन अपने आप चालू हो जाएगा।</p>
+      <code>config.js</code> में <code>googleReview</code>, <code>justdialReview</code> या
+      <code>tripadvisorReview</code> — इनमें से कोई एक भी भरते ही बटन अपने आप चालू हो जाएगा।</p>
     </div>
 
     <!-- ── तीन कदम ── -->
     <h2 class="sec__title rev__h2">बस तीन कदम</h2>
     <ol class="rev__steps">
       <li>
-        <b>ऊपर वाला नारंगी बटन दबाइए</b>
-        <span>Google अपने आप हमारा पेज खोल देगा। कुछ ढूँढना नहीं पड़ेगा।</span>
+        <b>ऊपर वाला बटन दबाइए</b>
+        <span>पेज अपने आप खुल जाएगा। कुछ ढूँढना नहीं पड़ेगा।</span>
       </li>
       <li>
         <b>पाँच तारे दबाइए ⭐⭐⭐⭐⭐</b>
@@ -137,16 +147,26 @@
   </div>
 </footer>
 
-<script src="config.js?v=13"></script>
+<script src="config.js?v=14"></script>
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
   document.querySelectorAll('a[href^="tel:"]').forEach(a => {
     a.href = 'tel:+' + CONFIG.whatsapp;
     if (/\+91[\d\s]{8,}/.test(a.textContent)) a.textContent = a.textContent.replace(/\+91[\d\s]+/, CONFIG.phone);
   });
-  /* लिंक config.js में हो तभी बटन दिखे, वरना समझाने वाला डिब्बा */
-  if (CONFIG.googleReview) {
-    document.getElementById('revBtn').href = CONFIG.googleReview;
+  /* जो-जो लिंक config.js में भरा है, उसी का बटन दिखाओ।
+     एक भी न हो तो समझाने वाला डिब्बा दिखता रहेगा। */
+  var revLinks = [
+    ['revBtn', CONFIG.googleReview],
+    ['revJd',  CONFIG.justdialReview],
+    ['revTa',  CONFIG.tripadvisorReview]
+  ];
+  var koiLinkHai = false;
+  revLinks.forEach(function (pair) {
+    var el = document.getElementById(pair[0]);
+    if (el && pair[1]) { el.href = pair[1]; el.hidden = false; koiLinkHai = true; }
+  });
+  if (koiLinkHai) {
     document.getElementById('revCta').hidden = false;
     document.getElementById('revOff').hidden = true;
   }
