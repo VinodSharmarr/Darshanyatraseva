@@ -155,9 +155,15 @@ ul{margin:0;padding:0;list-style:none}
 .brand__mark{width:40px;height:40px;flex:none}
 .brand__txt{display:flex;flex-direction:column;line-height:1.15}
 .brand__txt strong{font-family:var(--font-d);font-size:1.08rem;color:var(--maroon);letter-spacing:.01em}
-.brand__txt em{font-family:var(--font-h);font-style:normal;font-size:.84rem;color:var(--gold-text)}
+/* "Pilgrimage tours from Delhi" English में लंबा है और दो लाइन में टूट
+   जाता था — ब्रांड का नाम टेढ़ा दिखने लगता। अब एक ही लाइन में रहता है। */
+.brand__txt em{font-family:var(--font-h);font-style:normal;font-size:.84rem;color:var(--gold-text);white-space:nowrap}
 
 .nav__links{margin-left:auto;display:flex;align-items:center;gap:1.55rem;font-family:var(--font-h);font-size:.98rem}
+/* नेव का कोई भी शब्द बीच से न टूटे। flex में चीज़ें अपने आप सिकुड़ती हैं,
+   इसलिए `flex:none` भी ज़रूरी है — वरना सिकुड़कर फिर दो लाइन बन जाती हैं।
+   (1 अगस्त 2026 — "How to Book"/"Upcoming Dates" इसी तरह टूट रहे थे।) */
+.nav__links a{white-space:nowrap;flex:none}
 /* padding-block से छूने का दायरा 44px हो जाता है — दिखने में कुछ नहीं बदलता।
    रेखा (::after) को भी उतना ही नीचे सरकाया, वरना वो टेक्स्ट से दूर चली जाती। */
 .nav__links a:not(.btn){color:var(--ink-2);position:relative;transition:color .2s;
@@ -474,7 +480,25 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
   .book__in{grid-template-columns:1fr;gap:2rem}
   .foot__grid{grid-template-columns:1fr 1fr}
 }
-@media (max-width:760px){
+/* 🔴 ☰ मेन्यू कब आए — 1 अगस्त 2026 को 760px से बढ़ाकर 1050px किया।
+
+   Vinod ने डेस्कटॉप पर देखा कि English में नेव के शब्द दो-दो लाइन में टूट
+   रहे थे ("Why Us", "How to Book", "Upcoming Dates", "Stories of the
+   Dhams") — देखने में बहुत भद्दा। हिन्दी में ठीक था, क्योंकि हिन्दी के
+   शब्द छोटे हैं। यही §4 नियम 2 वाली बात है।
+
+   नापा: English की पूरी नेव को **1055px** चाहिए (ब्रांड समेत, और दो लेबल
+   `i18n.js` में छोटे करने के बाद)। पर ☰ मेन्यू सिर्फ़ 760px से नीचे आता था —
+   यानी 761px से 1150px तक की हर स्क्रीन पर पूरी नेव ठूँसी जा रही थी और
+   शब्द टूट रहे थे।
+
+   अब 1150px से नीचे ☰ मेन्यू आ जाता है। उससे ऊपर नेव के लिए ~1106px जगह
+   मिलती है — 1055px के बाद भी ~50px बची रहती है, ताकि Marcellus न चढ़े और
+   चौड़ा Georgia चले तब भी न टूटे।
+
+   ⚠️ इसे वापस घटाना मत। और नेव में नया लिंक जोड़ने से पहले English में
+      कुल चौड़ाई नाप लें — 1106px से ऊपर गई तो फिर टूटने लगेगी। */
+@media (max-width:1150px){
   .nav__toggle{display:flex}
   .langbtn{margin-left:auto;font-size:.78rem;padding:.35rem .75rem}
   .nav__links{position:fixed;inset:0 0 auto;top:0;height:100dvh;width:min(300px,82vw);left:auto;right:0;
@@ -482,6 +506,9 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
     background:var(--cream);border-left:1px solid var(--line);box-shadow:-10px 0 40px rgba(0,0,0,.12);
     transform:translateX(100%);transition:transform .32s ease;font-size:1.1rem}
   .nav__links.is-open{transform:none}
+}
+
+@media (max-width:760px){
   .trust__grid{grid-template-columns:repeat(2,1fr);gap:1.4rem}
   .row{grid-template-columns:1fr}
   .sec{padding:3.6rem 0}
