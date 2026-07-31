@@ -749,10 +749,18 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
 /* एक से ज़्यादा बटन (Google + JustDial + TripAdvisor) एक-दूसरे से चिपके न लगें।
    पहले वाले को छोड़कर बाक़ी सब पर ऊपर से जगह — इसलिए बटन एक हो या तीन,
    डिब्बे की ऊँचाई हमेशा सही रहती है (31 जुलाई 2026)।
-   ⚠️ `:not([hidden])` ज़रूरी है — छुपा हुआ बटन भी CSS में "पड़ोसी" गिना जाता
-   है, इसलिए सिर्फ़ `.btn + .btn` लिखने पर पहले दिखने वाले बटन पर भी बेवजह
-   ऊपर जगह आ जाती (Google छुपा हो और JustDial पहला हो, तब)। */
-.rev__cta .btn:not([hidden]) + .btn:not([hidden]){margin-top:.85rem}
+   🔴 1 अगस्त 2026 — यहाँ एक गड़बड़ी लाइव चली गई थी, सबक याद रखें:
+   पहले भरोसा सिर्फ़ HTML के `hidden` पर था। पर `.btn` पर
+   `display:inline-flex` लिखा है, और वो ब्राउज़र के अपने `[hidden]{display:none}`
+   को **हरा देता है** (class की पकड़ attribute से मज़बूत होती है)। नतीजा:
+   Google और TripAdvisor के ख़ाली बटन भी असली साइट पर दिखने लगे — दबाने पर
+   कुछ होता ही नहीं। यात्री को लगता वेबसाइट ख़राब है।
+
+   इसीलिए §8 में भुगतान बटन पर पहले से `.pay:not([href])` वाला तरीक़ा अपनाया
+   गया था। वही यहाँ भी: **छुपाने-दिखाने का फ़ैसला href से होता है, hidden से नहीं।**
+   ⚠️ यहाँ दोबारा सिर्फ़ `hidden` पर भरोसा मत करना। */
+.rev__cta .btn:not([href]){display:none}
+.rev__cta .btn[href] + .btn[href]{margin-top:.85rem}
 .rev__ctaNote{color:#F6E3C8;font-size:.85rem;margin:.9rem 0 0}
 .rev__cta--off{background:var(--cream-2);border:1px dashed var(--gold);box-shadow:none;color:var(--ink-2)}
 .rev__cta--off p{margin:0;font-size:.88rem;line-height:1.8}
