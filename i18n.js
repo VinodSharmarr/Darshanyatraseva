@@ -207,6 +207,15 @@ const EN = {
   'मेला/त्योहार के समय बुकिंग कब करें?': 'When should I book for a mela or festival?',
   'फाल्गुन मेला, जन्माष्टमी और एकादशी जैसे अवसरों पर सीटें 3–4 सप्ताह पहले भर जाती हैं। ऐसे समय पहले से बुकिंग कराना ज़रूरी है।': 'For occasions like the Phalgun Mela, Janmashtami and Ekadashi, seats fill up 3–4 weeks in advance. Booking early is essential at such times.',
 
+  /* AI/Google की खोज के लिए जोड़े गए तीन सवाल (31 जुलाई 2026) —
+     लोग यही शब्द टाइप करते हैं: दूरी, समय, पिकअप, कौन से मंदिर */
+  'दिल्ली से खाटू श्याम कितनी दूर है और कितना समय लगता है?': 'How far is Khatu Shyam from Delhi, and how long does it take?',
+  'दिल्ली से खाटू श्याम जी लगभग 265 किमी है, सड़क मार्ग से 5–6 घंटे लगते हैं। हमारी यात्रा रात को दिल्ली से चलती है, सुबह दर्शन होते हैं और दोपहर तक वापसी। वृंदावन लगभग 150 किमी (करीब 3 घंटे), मेहंदीपुर बालाजी लगभग 290 किमी और सालासर लगभग 300 किमी दूर है।': 'Khatu Shyam Ji is about 265 km from Delhi, roughly 5–6 hours by road. Our yatra leaves Delhi at night, darshan is in the morning, and we return by afternoon. Vrindavan is about 150 km (around 3 hours), Mehandipur Balaji about 290 km and Salasar about 300 km.',
+  'पिकअप कहाँ से मिलता है?': 'Where is the pickup point?',
+  'दिल्ली-NCR के मेट्रो स्टेशनों और तय पिकअप पॉइंट से। बुकिंग पक्की होते ही आपको WhatsApp पर अपना पिकअप पॉइंट, उसका समय और Google नक़्शे का लिंक भेज दिया जाता है। नोएडा, गुरुग्राम, ग़ाज़ियाबाद और फ़रीदाबाद से भी यात्री जुड़ते हैं।': 'From metro stations and fixed pickup points across Delhi-NCR. As soon as your booking is confirmed, we send your pickup point, its time and a Google Maps link on WhatsApp. Pilgrims also join from Noida, Gurugram, Ghaziabad and Faridabad.',
+  'एक दिन की यात्रा में कौन-कौन से मंदिर होते हैं?': 'Which temples are covered in a one-day yatra?',
+  'वृंदावन-मथुरा यात्रा में बांके बिहारी, प्रेम मंदिर, ISKCON, निधिवन और मथुरा जन्मभूमि — सब एक ही दिन में। खाटू श्याम यात्रा में श्री श्याम मंदिर के दर्शन, और चाहें तो सालासर बालाजी जोड़कर दो धाम एक साथ।': 'The Vrindavan-Mathura yatra covers Banke Bihari, Prem Mandir, ISKCON, Nidhivan and Mathura Janmabhoomi — all in a single day. The Khatu Shyam yatra covers Shri Shyam Mandir, and you can add Salasar Balaji to make it a two-dham trip.',
+
   /* ── closing cta + footer ── */
   'अगली यात्रा में आपका स्वागत है 🙏': 'You are welcome on our next yatra 🙏',
   'सीटें सीमित हैं — आज ही अपनी जगह पक्की करें।': 'Seats are limited — reserve your place today.',
