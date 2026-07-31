@@ -31,10 +31,12 @@ const CONFIG = {
      "रिव्यू माँगें" → जो छोटा लिंक मिले (g.page/r/... वाला) वही यहाँ। */
   googleReview: '',
 
-  /* JustDial पर रिव्यू का अलग लिंक होता ही नहीं — यात्री लिस्टिंग वाले पन्ने
-     पर ही "Tap to rate" दबाकर तारे देता है। इसलिए यहाँ लिस्टिंग का पता ही
-     डाला है (1 अगस्त 2026 को ख़ुद JustDial पर जाकर निकाला)। */
-  justdialReview: 'https://www.justdial.com/Delhi/Darshan-Yatra-Seva-New-India-Public-School-Nangloi/011PXX11-XX11-260728220737-H5V9_BZDET',
+  /* JustDial का सीधा "Write Review" पन्ना — Vinod ने यही बताया, और जाँचकर
+     पक्का किया कि यह सीधे अपने ही धंधे के रिव्यू फ़ॉर्म पर खोलता है
+     (1 अगस्त 2026)। तरीक़ा: लिस्टिंग का पता + `/writereview`
+     ⚠️ पहले सिर्फ़ लिस्टिंग का पता डाला था — उसमें यात्री को नीचे जाकर
+        "Tap to rate" ढूँढना पड़ता था। बुज़ुर्गों के लिए एक कदम भी भारी है। */
+  justdialReview: 'https://www.justdial.com/Delhi/Darshan-Yatra-Seva-New-India-Public-School-Nangloi/011PXX11-XX11-260728220737-H5V9_BZDET/writereview',
 
   /* TripAdvisor की अपनी लिस्टिंग → "Write a review" → वहाँ का पता।
      आम तौर पर ऐसा दिखता है: tripadvisor.in/UserReviewEdit-g...-d...
