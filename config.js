@@ -31,13 +31,15 @@ const CONFIG = {
      "रिव्यू माँगें" → जो छोटा लिंक मिले (g.page/r/... वाला) वही यहाँ। */
   googleReview: '',
 
-  /* JustDial की अपनी लिस्टिंग खोलिए → "Rate Now" / "Write a Review"
-     वाला बटन → उसका पता कॉपी करके यहाँ चिपका दें।
-     लिस्टिंग: Darshan Yatra Seva, A-36 Rajdhani Park, Nangloi */
-  justdialReview: '',
+  /* JustDial पर रिव्यू का अलग लिंक होता ही नहीं — यात्री लिस्टिंग वाले पन्ने
+     पर ही "Tap to rate" दबाकर तारे देता है। इसलिए यहाँ लिस्टिंग का पता ही
+     डाला है (1 अगस्त 2026 को ख़ुद JustDial पर जाकर निकाला)। */
+  justdialReview: 'https://www.justdial.com/Delhi/Darshan-Yatra-Seva-New-India-Public-School-Nangloi/011PXX11-XX11-260728220737-H5V9_BZDET',
 
   /* TripAdvisor की अपनी लिस्टिंग → "Write a review" → वहाँ का पता।
-     आम तौर पर ऐसा दिखता है: tripadvisor.in/UserReviewEdit-g...-d... */
+     आम तौर पर ऐसा दिखता है: tripadvisor.in/UserReviewEdit-g...-d...
+     ⚠️ 1 अगस्त 2026: TripAdvisor पर खोजा — "Darshan Yatra Seva" वहाँ
+        अभी है ही नहीं। लिस्टिंग बनने/मंज़ूर होने के बाद यहाँ भरना है। */
   tripadvisorReview: '',
 
   /* सोशल पेज — जो ख़ाली है वो लिंक साइट पर दिखता ही नहीं।
