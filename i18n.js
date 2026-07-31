@@ -68,7 +68,7 @@ const EN = {
   'सुबह 4 बजे प्रस्थान': 'Departure at 4:00 AM',
 
   'खाटू श्याम + सालासर बालाजी': 'Khatu Shyam + Salasar Balaji',
-  '~300 किमी • 2 दिन / 1 रात (वीकेंड)': '~300 km • 2 days / 1 night (weekend)',
+  '~410 किमी • 2 दिन / 1 रात (वीकेंड)': '~410 km • 2 days / 1 night (weekend)',
   'दोनों धामों का संयुक्त पैकेज — रात्रि विश्राम, भोजन एवं दोनों जगह दर्शन सहायता सहित।': 'A combined package for both dhams — includes the night stay, meals and darshan help at both temples.',
   '1 रात होटल/धर्मशाला': '1 night hotel/dharamshala',
   '2 समय भोजन शामिल': '2 meals included',
