@@ -34,3 +34,7 @@ brand/qr-youtube.svg
 
 # SEO audit ke artifacts — sirf laptop par (CSV bhi, isliye poora folder)
 seo-run/
+
+# सोशल मीडिया की सामग्री — सिर्फ़ लैपटॉप पर बनती और इस्तेमाल होती है।
+# ये तस्वीरें Instagram और WhatsApp पर जाती हैं, वेबसाइट पर नहीं।
+social/

@@ -41,3 +41,10 @@ brand/poster.pdf
 
 # SEO audit ke artifacts — sirf laptop par (CSV bhi, isliye poora folder)
 seo-run/
+
+# सोशल पोस्ट की बनी हुई फ़ाइलें। ये हर बार दोबारा बन जाती हैं, इसलिए
+# repo में रखने का कोई मतलब नहीं (168 तस्वीरें, हर महीने नई)।
+# ⚠️ social/*.js और social/render.py repo में रहनी चाहिए, वही असली काम की हैं।
+social/html/
+social/out/
+social/plan.json

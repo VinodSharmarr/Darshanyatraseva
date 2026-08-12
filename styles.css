@@ -286,6 +286,12 @@ ul{margin:0;padding:0;list-style:none}
 .card__list{margin-bottom:1.2rem;font-size:.92rem;color:var(--ink-2)}
 .card__list li{padding-left:1.3rem;position:relative;margin-bottom:.32rem}
 .card__list li::before{content:'✓';position:absolute;left:0;color:var(--saffron-text);font-weight:700}
+/* कार्ड से उस यात्रा के अपने पेज तक (12 अगस्त 2026)।
+   44px ऊँचा है ताकि बुज़ुर्ग उँगली से चूकें नहीं (§16)। */
+.card__more{display:flex;align-items:center;min-height:44px;font-family:var(--font-h);
+  font-size:.94rem;font-weight:600;color:var(--saffron-text);
+  text-decoration:underline;text-underline-offset:3px}
+.card__more:hover{color:var(--maroon)}
 .card__foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:.7rem;
   flex-wrap:wrap;padding-top:1rem;border-top:1px dashed var(--line)}
 .price{font-family:var(--font-d);font-size:1.42rem;color:var(--maroon)}
@@ -741,6 +747,25 @@ a.price__ask:hover{color:#155F35;text-decoration:underline}
 .kfull .btn{margin-top:1.4rem}
 .katha__note{font-family:var(--font-h);text-align:center;font-size:.95rem;line-height:1.9;color:var(--ink-2)}
 @media (max-width:640px){.kfull{padding:1.25rem}}
+
+/* ── यात्रा वाले चार पेज (build-yatra.js से बनते हैं) ──
+   12 अगस्त 2026। हर यात्रा का अपना पेज, ताकि "दिल्ली से खाटू श्याम कितनी
+   दूर है" जैसी खोज का अपना दरवाज़ा बने (§12 का JavaScript वाला सबक यहाँ
+   भी लगा है, सारी सामग्री HTML में ही जाती है)।
+   ⚠️ अक्षरों पर --gold-text / --saffron-text ही लगे हैं, --gold या
+      --saffron नहीं (§8 का गहरे रंग वाला नियम)। */
+.ypage__art{background:var(--cream-2);padding:0 0 2.2rem}
+.ypage__art img{display:block;width:100%;height:auto;border-radius:var(--radius-lg);
+  border:1px solid var(--line);box-shadow:var(--shadow)}
+.ypage__intro{font-family:var(--font-h);font-size:1.02rem;line-height:1.95;color:var(--ink-2);
+  text-align:center;margin-inline:auto}
+/* दाम और "ऑफ़र पूछें", मुख्य पेज के कार्ड जैसा ही (§4 नियम 1) */
+.ypage__buy{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;
+  gap:.5rem 1.1rem;margin-top:1.8rem}
+.ypage__tips{max-width:680px;margin-inline:auto}
+.ypage__note{margin-top:2rem}
+.ypage__links .katha__allWrap{margin-top:1rem}
+.ypage__links .btn{width:min(100%,420px)}
 
 /* ── आगामी व्रत-पर्व की सूची (panchang.html) ── */
 .parvList{display:grid;gap:.7rem;max-width:760px;margin-inline:auto}

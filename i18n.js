@@ -42,6 +42,12 @@ const EN = {
   'सफल यात्राएँ': 'Yatras completed',
   'औसत रेटिंग': 'Average rating',
   'बीमा कवर': 'Insurance cover',
+  /* ⚠️ 28 जुलाई को "4.9★ औसत रेटिंग" हटाकर यह रिफंड वाली बात लगाई थी, पर
+     अनुवाद जोड़ना रह गया था। इसलिए 12 अगस्त तक English मोड में ट्रस्ट
+     पट्टी का यही एक खाना हिन्दी दिखता रहा, बाक़ी तीनों अंग्रेज़ी में।
+     §4 नियम 2 की याद दिलाने वाला उदाहरण। */
+  '72 घंटे': '72 hours',
+  'पहले तक 100% रिफंड': 'before, 100% refund',
 
   /* ── yatras ── */
   'हमारी यात्राएँ': 'Our Yatras',
@@ -56,6 +62,14 @@ const EN = {
   'प्रसाद + पानी शामिल': 'Prasad + water included',
   'दर्शन लाइन में सहायता': 'Help in the darshan queue',
   '💬 बेहतरीन ऑफ़र के लिए संपर्क करें': '💬 Contact us for the best offer',
+
+  /* कार्ड से उस यात्रा के अपने पेज तक (12 अगस्त 2026)।
+     पेज ख़ुद build-yatra.js बनाता है और अपना अनुवाद साथ लाता है,
+     पर कार्ड की ये चार लाइनें index.html में हैं, इसलिए यहाँ। */
+  'खाटू श्याम यात्रा की पूरी जानकारी →': 'Full details of the Khatu Shyam yatra →',
+  'वृंदावन मथुरा यात्रा की पूरी जानकारी →': 'Full details of the Vrindavan Mathura yatra →',
+  'मेहंदीपुर बालाजी यात्रा की पूरी जानकारी →': 'Full details of the Mehandipur Balaji yatra →',
+  'सालासर धाम यात्रा की पूरी जानकारी →': 'Full details of the Salasar Dham yatra →',
 
   'वृंदावन – मथुरा': 'Vrindavan – Mathura',
   '~160 किमी • 1 दिन (सुबह–रात)': '~160 km • 1 day (morning–night)',
@@ -299,6 +313,12 @@ const EN = {
   const ATTRS = ['placeholder','aria-label','alt','title','data-l'];
   const store = [];               // { set(text), hi, en }
   const has = s => Object.prototype.hasOwnProperty.call(EN, s);
+
+  /* यात्रा वाले पेज अपना अनुवाद अपने साथ लाते हैं (window.EN_EXTRA), क्योंकि
+     वो पेज और उनका अनुवाद दोनों build-yatra.js से एक साथ बनते हैं। इसलिए
+     वहाँ §4 नियम 2 वाली "हूबहू मिलान टूट गया" वाली गड़बड़ी हो ही नहीं सकती।
+     ⚠️ यहाँ मुख्य साइट का कोई अनुवाद मत डालना, वो नीचे EN में ही रहे। */
+  if (window.EN_EXTRA) Object.assign(EN, window.EN_EXTRA);
 
   /* हर अनुवाद-योग्य जगह एक बार ढूँढकर याद रखें */
   function collect(){
