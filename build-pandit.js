@@ -180,7 +180,10 @@ const PANDITS = [
        ज़िले का नाम जान-बूझकर लिखा है, वरना लोग दिल्ली वाला समझ लेते हैं। */
     place: t('काली माता मंदिर, कालका, ज़िला पंचकूला, हरियाणा',
              'Kali Mata Mandir, Kalka, district Panchkula, Haryana'),
-    pad:   t('सरकारी पुजारी', 'Government pujari'),
+    /* 🔴 "पद: सरकारी पुजारी" 16 अगस्त 2026 को Vinod के कहने पर हटाया गया।
+       वापस लगाना हो तो नीचे वाली लाइन से // हटा दीजिए, कार्ड में वो
+       पंक्ति अपने आप लौट आएगी (row() ख़ाली field छोड़ देता है)। */
+    // pad: t('सरकारी पुजारी', 'Government pujari'),
     exp:   t('15 वर्ष से अधिक', 'More than 15 years'),
     shiksha: t('शास्त्री (संस्कृत), दिल्ली से', 'Shastri in Sanskrit, from Delhi'),
     bhasha:  t('पूजा संस्कृत में, समझाना हिन्दी में', 'Puja in Sanskrit, explained in Hindi'),
