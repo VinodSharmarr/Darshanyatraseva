@@ -304,6 +304,13 @@ const EN = {
   '🙏 ये कथाएँ श्रद्धा और परंपरा पर आधारित हैं। क्षेत्र, परिवार और गुरु-परंपरा के अनुसार पूजा की विधि में थोड़ा अंतर मिलता है, इसलिए धाम पर वहाँ के पुजारी जी से पूछ लेना सबसे अच्छा रहता है। कोई बात सुधारने योग्य लगे तो हमें WhatsApp पर ज़रूर बताइए, हम उसे ठीक कर देंगे।': '🙏 These stories rest on faith and tradition. The vidhi varies a little by region, family and guru-parampara, so it is always best to ask the pujari at the dham itself. If anything here deserves correction, please tell us on WhatsApp and we will set it right.',
   'खाटू श्याम व सालासर धाम की कथा | Darshan Yatra Seva': 'Khatu Shyam & Salasar Dham Katha | Darshan Yatra Seva',
 
+  /* ── पंडित जी सेवा ──
+     पूरे पेज (/pandit-ji) का अनुवाद build-pandit.js से बनकर उस पेज के
+     window.EN_EXTRA में आता है, यहाँ नहीं। यह एक लाइन सिर्फ़ इसलिए है
+     कि फ़ुटर का लिंक मुख्य पेज पर है (§4 नियम 2)। */
+  'पंडित जी सेवा': 'Pandit Ji Seva',
+  'पूजाओं का महत्व': 'Significance of Pujas',
+
   /* ── page title ── */
   'दिल्ली से खाटू श्याम व वृंदावन यात्रा | Darshan Yatra Seva': 'Khatu Shyam & Vrindavan Yatra from Delhi | Darshan Yatra Seva'
 };

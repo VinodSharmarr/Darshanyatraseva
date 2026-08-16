@@ -790,6 +790,18 @@ ${YATRAS.map(y => `  <url>
     <priority>0.9</priority>
   </url>`).join('\n')}
   <url>
+    <loc>${SITE}/pandit-ji</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>${SITE}/pooja-vidhi</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>${SITE}/panchang</loc>
     <lastmod>${TODAY}</lastmod>
     <changefreq>daily</changefreq>
@@ -804,4 +816,5 @@ ${YATRAS.map(y => `  <url>
 </urlset>
 `;
 fs.writeFileSync(path.join(__dirname, 'sitemap.xml'), sitemap, 'utf8');
-console.log(`  ✅ sitemap.xml       (${n + 3} पेज)`);
+/* n यात्राएँ + मुख्य पेज + पंडित जी + पूजा विधि + पंचांग + कथा */
+console.log(`  ✅ sitemap.xml       (${n + 5} पेज)`);
