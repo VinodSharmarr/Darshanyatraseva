@@ -32,7 +32,11 @@ const path = require('path');
 
 const SITE = 'https://www.darshanyatraseva.com';
 const V    = 22;                      // ?v= , §8 देखें
-const TODAY = '2026-08-12';
+const TODAY = '2026-08-12';          // यात्रा/कथा पेजों की असली आख़िरी तारीख़
+/* ⚠️ मुहूर्त वाले दो पेजों की सूची हर बार दोबारा बनती है, इसलिए उनकी
+   lastmod अलग है। बाक़ी पेजों की lastmod हर build में मत बदलिए, वरना
+   Google पूरी sitemap पर भरोसा करना छोड़ देता है। */
+const MUHURAT_DATE = new Date().toISOString().slice(0, 10);
 
 /* ── छोटा सहायक: हिन्दी + अंग्रेज़ी एक साथ ── */
 const t = (hi, en) => ({ hi, en });
@@ -801,6 +805,33 @@ ${YATRAS.map(y => `  <url>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <!-- मुहूर्त वाले पेज build-muhurat.js से बनते हैं। इनकी सूची "आज से
+       अगले 365 दिन" की होती है, इसलिए changefreq weekly रखा है। -->
+  <url>
+    <loc>${SITE}/griha-pravesh-muhurat</loc>
+    <lastmod>${MUHURAT_DATE}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>${SITE}/mundan-muhurat</loc>
+    <lastmod>${MUHURAT_DATE}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- यात्रा की तैयारी वाले पेज, build-guide.js से (§21) -->
+  <url>
+    <loc>${SITE}/buzurgon-ke-saath-yatra</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>${SITE}/mahilaon-ke-liye-yatra</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
   <url>
     <loc>${SITE}/panchang</loc>
     <lastmod>${TODAY}</lastmod>
@@ -817,4 +848,4 @@ ${YATRAS.map(y => `  <url>
 `;
 fs.writeFileSync(path.join(__dirname, 'sitemap.xml'), sitemap, 'utf8');
 /* n यात्राएँ + मुख्य पेज + पंडित जी + पूजा विधि + पंचांग + कथा */
-console.log(`  ✅ sitemap.xml       (${n + 5} पेज)`);
+console.log(`  ✅ sitemap.xml       (${n + 9} पेज)`);

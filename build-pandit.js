@@ -334,6 +334,8 @@ const LABELS = {
   askOffer:  t('💬 अपनी पूजा के लिए संपर्क करें', '💬 Contact us about your puja'),
   book:      t('बुक करें', 'Book now'),
   poojaPage: t('📖 हर पूजा का महत्व और विधि पढ़ें', '📖 Read the significance and method of each puja'),
+  muhurat:   t('🗓️ गृह प्रवेश और मुंडन के शुभ मुहूर्त देखें',
+               '🗓️ See auspicious muhurats for Griha Pravesh and Mundan'),
   panchang:  t('🗓️ मुहूर्त के लिए पूरा पंचांग देखें', '🗓️ See the full panchang for the muhurat'),
   katha:     t('📖 सातों धामों की कथा और पूजा की विधि पढ़ें', '📖 Read the story and puja method of all seven dhams'),
   allYatras: t('🚩 चारों यात्राएँ और आगामी प्रस्थान देखें', '🚩 See all four yatras and upcoming departures'),
@@ -687,6 +689,7 @@ ${faqHTML()}
 <!-- ══ बाक़ी पेजों से जोड़ ══ -->
 <section class="${secCl()}">
   <div class="wrap wrap--narrow ypage__links">
+    <p class="katha__allWrap"><a class="btn btn--outline" href="/griha-pravesh-muhurat">${esc(LABELS.muhurat.hi)}</a></p>
     <p class="katha__allWrap"><a class="btn btn--outline" href="/katha">${esc(LABELS.katha.hi)}</a></p>
     <p class="katha__allWrap"><a class="btn btn--outline" href="/#yatras">${esc(LABELS.allYatras.hi)}</a></p>
   </div>

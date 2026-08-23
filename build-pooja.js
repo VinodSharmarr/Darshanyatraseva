@@ -72,7 +72,7 @@ const POOJA = [
 
 /* ─────────────────── 1 ─────────────────── */
 {
-  id: 'griha-pravesh', ic: '🏠',
+  id: 'griha-pravesh', ic: '🏠', muhurat: 'griha-pravesh-muhurat',
   name: t('गृह प्रवेश पूजा', 'Griha Pravesh Puja'),
   sub:  t('नए घर में पहला क़दम', 'The first step into a new home'),
   kya:  t('नया घर बनने या ख़रीदने के बाद उसमें रहने से पहले जो पूजा की जाती है, उसे गृह प्रवेश कहते हैं। इसमें वास्तु देवता, गणेश जी और कुल देवता का आवाहन होता है, हवन किया जाता है और रसोई में पहली बार चूल्हा जलाकर दूध उबाला जाता है।',
@@ -204,7 +204,7 @@ const POOJA = [
 
 /* ─────────────────── 6 ─────────────────── */
 {
-  id: 'mundan', ic: '✂️',
+  id: 'mundan', ic: '✂️', muhurat: 'mundan-muhurat',
   name: t('मुंडन संस्कार', 'Mundan Sanskar'),
   sub:  t('पहली बार बाल उतारना', 'The first cutting of the hair'),
   kya:  t('बच्चे के जन्म के बाद पहली बार सिर के बाल उतारने का संस्कार, जिसे चूड़ाकर्म भी कहते हैं। पूजा के बाद नाई बाल उतारता है और वे बाल जल में प्रवाहित किए जाते हैं या मंदिर में चढ़ाए जाते हैं।',
@@ -403,6 +403,7 @@ const LBL = {
            '🙏 All of this rests on faith and tradition. The vidhi varies by region, family and guru-parampara, so it is always best to ask your own pandit and the elders of your house. If anything here deserves correction, please tell us on WhatsApp and we will set it right.'),
 
   panditPage: t('🕉️ पंडित जी की सेवा और बुकिंग देखें', '🕉️ See the Pandit Ji seva and how to book'),
+  muhuratLbl: t('🗓️ इस संस्कार के शुभ मुहूर्त देखें', '🗓️ See auspicious muhurats for this sanskar'),
   panchang:   t('🗓️ मुहूर्त के लिए पूरा पंचांग देखें', '🗓️ See the full panchang for the muhurat'),
   katha:      t('📖 सातों धामों की कथा पढ़ें', '📖 Read the stories of all seven dhams'),
   home:       t('← मुख्य पेज', '← Home'),
@@ -462,6 +463,9 @@ ${p.dhyan && p.dhyan.length ? `
         <h3 class="kfull__label">${esc(LBL.dhyan.hi)}</h3>
         <ul class="kfull__list kfull__list--dhyan">${
           p.dhyan.map(d => `<li>${esc(d.hi)}</li>`).join('')}</ul>
+` : ''}
+${p.muhurat ? `
+        <p class="katha__allWrap"><a class="btn btn--outline" href="/${p.muhurat}">${esc(LBL.muhuratLbl.hi)}</a></p>
 ` : ''}
         <a class="btn btn--sm btn--primary" href="${wa('Jai Shri Shyam! ' + p.name.en + ' ke liye Pandit Ji ki jaankari chahiye.')}"
            target="_blank" rel="noopener">${esc(LBL.ask.hi)}</a>
