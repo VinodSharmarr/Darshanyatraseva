@@ -245,7 +245,7 @@ const EN = {
   'हमारे बारे में': 'About us',
   'संपर्क करें': 'Contact us',
   'संपर्क': 'Contact',
-  'दिल्ली, भारत': 'Delhi, India',
+  '📍 खसरा नं. 72/14, स्वर्ण पार्क, मुंडका, दुर्गा धर्म कांटा के पास, नई दिल्ली 110041': '📍 KH No. 72/14, Swaran Park, Mundka, Near Durga Dharam Kanta, New Delhi 110041',
   'Darshan Yatra Seva. सर्वाधिकार सुरक्षित।': 'Darshan Yatra Seva. All rights reserved.',
   /* यात्रा कार्ड की तस्वीरों का alt, स्क्रीन रीडर और तस्वीर न खुलने पर यही दिखता है */
   'खाटू श्याम जी मंदिर का मुख्य द्वार, सीकर': 'Main gate of Khatu Shyam Ji temple, Sikar',
