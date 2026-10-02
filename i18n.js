@@ -310,6 +310,8 @@ const EN = {
      कि फ़ुटर का लिंक मुख्य पेज पर है (§4 नियम 2)। */
   'पंडित जी सेवा': 'Pandit Ji Seva',
   'पूजाओं का महत्व': 'Significance of Pujas',
+  'यात्रा के लेख': 'Yatra Guides',
+  '📖 यात्रा के लेख पढ़ें': '📖 Read our yatra guides',
   'बुज़ुर्गों के साथ यात्रा': 'Yatra with Elders',
   'महिलाओं के लिए यात्रा': 'Yatra for Women',
 

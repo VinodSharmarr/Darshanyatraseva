@@ -49,13 +49,13 @@
        अगले 365 दिन" की होती है, इसलिए changefreq weekly रखा है। -->
   <url>
     <loc>https://www.darshanyatraseva.com/griha-pravesh-muhurat</loc>
-    <lastmod>2026-08-23</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.darshanyatraseva.com/mundan-muhurat</loc>
-    <lastmod>2026-08-23</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -84,4 +84,42 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+<!-- lekh:start -->
+  <url>
+    <loc>https://www.darshanyatraseva.com/lekh</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.darshanyatraseva.com/buzurgon-ke-liye-tirth-yatra-suvidha-delhi</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.darshanyatraseva.com/delhi-ncr-mein-ghar-par-pooja-ke-liye-pandit-ji</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.darshanyatraseva.com/delhi-se-khatu-shyam-ji-kaise-jaye</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.darshanyatraseva.com/ek-din-ki-vrindavan-mathura-yatra-delhi-se</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.darshanyatraseva.com/mehandipur-balaji-mein-arji-lagane-ki-jankari</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+<!-- lekh:end -->
 </urlset>

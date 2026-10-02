@@ -545,6 +545,7 @@ ${faqHTML(cfg)}
   <div class="wrap wrap--narrow ypage__links">
     <p class="katha__allWrap"><a class="btn btn--outline" href="/#yatras">${esc(LBL.allYatras.hi)}</a></p>
     <p class="katha__allWrap"><a class="btn btn--outline" href="/panchang">${esc(LBL.panchang.hi)}</a></p>
+    <p class="katha__allWrap"><a class="btn btn--outline" href="/lekh">📖 यात्रा के लेख पढ़ें</a></p>
   </div>
 </section>
 
