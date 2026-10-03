@@ -77,3 +77,9 @@ puja or VIP darshan fees charged by the temple.
 - [दिल्ली से एक दिन की वृंदावन और मथुरा दर्शन यात्रा](https://www.darshanyatraseva.com/ek-din-ki-vrindavan-mathura-yatra-delhi-se)
 - [मेंहदीपुर बालाजी में अर्जी लगाने की जानकारी और यात्रा का तरीका](https://www.darshanyatraseva.com/mehandipur-balaji-mein-arji-lagane-ki-jankari)
 <!-- lekh:end -->
+
+<!-- about:start -->
+## About
+
+- [About Darshan Yatra Seva](https://www.darshanyatraseva.com/hamare-baare-mein): who we are, the yatras we run, registration, address, phone and our Google, Facebook and Instagram profiles.
+<!-- about:end -->

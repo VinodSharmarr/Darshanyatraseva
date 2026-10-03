@@ -37,6 +37,10 @@ const fs = require('fs');
 const path = require('path');
 
 const SITE = 'https://www.darshanyatraseva.com';
+
+// Brand profiles Google should treat as the same business (kept identical on every page)
+const SAME_AS = ['https://www.instagram.com/darshanyatraseva', 'https://www.facebook.com/people/darshanyatraseva/61592350567964/', 'https://maps.google.com/?cid=9495498940087702464'];
+const ALT_NAMES = ['दर्शन यात्रा सेवा', 'DarshanYatraSeva', 'Darshan Yatra Seva Delhi'];
 const SLUG = 'pooja-vidhi';
 const V    = 22;                       // ?v= , §8 देखें
 const TODAY = '2026-08-16';
@@ -514,10 +518,10 @@ function schema() {
     '@type': 'TravelAgency',
     '@id': `${SITE}/#business`,
     name: 'Darshan Yatra Seva',
-    alternateName: 'दर्शन यात्रा सेवा',
+    alternateName: ALT_NAMES,
     url: `${SITE}/`,
     telephone: '+917289902692',
-    logo: `${SITE}/brand/logo-icon.png`
+    logo: `${SITE}/brand/logo-icon.png`, sameAs: SAME_AS
   };
   return [art, list, crumbs, biz]
     .map(o => `<script type="application/ld+json">\n${JSON.stringify(o, null, 2)}\n</script>`)

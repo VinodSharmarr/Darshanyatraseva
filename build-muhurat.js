@@ -56,6 +56,10 @@ require(path.join(__dirname, 'panchang.js'));
 const P = window.Panchang;
 
 const SITE  = 'https://www.darshanyatraseva.com';
+
+// Brand profiles Google should treat as the same business (kept identical on every page)
+const SAME_AS = ['https://www.instagram.com/darshanyatraseva', 'https://www.facebook.com/people/darshanyatraseva/61592350567964/', 'https://maps.google.com/?cid=9495498940087702464'];
+const ALT_NAMES = ['दर्शन यात्रा सेवा', 'DarshanYatraSeva', 'Darshan Yatra Seva Delhi'];
 const V     = 22;
 const TODAY = new Date();
 const DAYS  = 365;
@@ -340,8 +344,8 @@ function schema(cfg, days) {
   };
   const biz = {
     '@context': 'https://schema.org', '@type': 'TravelAgency', '@id': `${SITE}/#business`,
-    name: 'Darshan Yatra Seva', alternateName: 'दर्शन यात्रा सेवा',
-    url: `${SITE}/`, telephone: '+917289902692', logo: `${SITE}/brand/logo-icon.png`
+    name: 'Darshan Yatra Seva', alternateName: ALT_NAMES,
+    url: `${SITE}/`, telephone: '+917289902692', logo: `${SITE}/brand/logo-icon.png`, sameAs: SAME_AS
   };
   return [art, faq, crumbs, biz]
     .map(o => `<script type="application/ld+json">\n${JSON.stringify(o, null, 2)}\n</script>`)

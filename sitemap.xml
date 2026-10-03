@@ -49,13 +49,13 @@
        अगले 365 दिन" की होती है, इसलिए changefreq weekly रखा है। -->
   <url>
     <loc>https://www.darshanyatraseva.com/griha-pravesh-muhurat</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.darshanyatraseva.com/mundan-muhurat</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -152,4 +152,12 @@
     <priority>0.6</priority>
   </url>
 <!-- lekh:end -->
+<!-- about:start -->
+  <url>
+    <loc>https://www.darshanyatraseva.com/hamare-baare-mein</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+<!-- about:end -->
 </urlset>

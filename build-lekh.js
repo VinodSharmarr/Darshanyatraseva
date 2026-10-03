@@ -262,4 +262,6 @@ function main() {
   console.log(`  ✅ sitemap.xml aur llms.txt me ${urls.length} URL jode`);
 }
 
-main();
+// build-about.js uses the same shell and helpers
+module.exports = { page, esc, clean, checkNoPrices, patch, SITE, WA };
+if (require.main === module) main();
