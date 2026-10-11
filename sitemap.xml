@@ -84,12 +84,26 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+<!-- about:start -->
+  <url>
+    <loc>https://www.darshanyatraseva.com/hamare-baare-mein</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+<!-- about:end -->
 <!-- lekh:start -->
   <url>
     <loc>https://www.darshanyatraseva.com/lekh</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.darshanyatraseva.com/buzurgon-ke-liye-tirth-yatra-suvidha-delhi</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.darshanyatraseva.com/delhi-se-khatu-shyam-ji-ki-duri-kitni-hai</loc>
@@ -122,12 +136,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.darshanyatraseva.com/buzurgon-ke-liye-tirth-yatra-suvidha-delhi</loc>
-    <lastmod>2026-10-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.darshanyatraseva.com/delhi-ncr-mein-ghar-par-pooja-ke-liye-pandit-ji</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
@@ -152,12 +160,4 @@
     <priority>0.6</priority>
   </url>
 <!-- lekh:end -->
-<!-- about:start -->
-  <url>
-    <loc>https://www.darshanyatraseva.com/hamare-baare-mein</loc>
-    <lastmod>2026-10-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-<!-- about:end -->
 </urlset>
